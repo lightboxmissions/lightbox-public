@@ -41,7 +41,7 @@ nothing needs an internet connection once the server is set up.
 - **Accounts and progress.** Each student has a login, and their progress is stored
   on the server.
 
-[screenshot: student home screen showing the main sections]
+![The student home screen](docs/assets/screenshots/student-home.png)
 
 ## Device tiers
 
@@ -109,12 +109,15 @@ When it finishes it prints the address to open, for example `http://192.0.2.10:8
 
 1. Open the address the installer printed, in a browser on the server itself or on
    any device on the same network.
-2. A short wizard asks you to set the teacher password. This is the password for the
-   teacher dashboard, so keep it somewhere safe.
-3. Create your first class from the dashboard. It gets a join code.
-4. Give students the join code and the address.
+2. Pick the language the school will use, then press Continue. This only appears the
+   first time anyone opens LightBox.
+3. Choose "Create an account" and make yourself a teacher account with a username and
+   a password. Keep the password somewhere safe, since it is what gets you into the
+   teacher dashboard.
+4. Create your first class from the dashboard. It is given an access code.
+5. Give students the access code and the address.
 
-[screenshot: first run wizard setting the teacher password]
+![Choosing the language on first run](docs/assets/screenshots/first-run.png)
 
 ### Connecting student devices
 
@@ -140,7 +143,7 @@ username and password or creates an account. To join a class they enter the join
 the teacher gave them. The teacher approves the request from the dashboard, and after
 that the student sees their class work.
 
-[screenshot: student sign in and join code entry]
+![Student sign in](docs/assets/screenshots/student-sign-in.png)
 
 **Reading Hub.**
 Books are grouped by reading level, from kindergarten up to grade 4. A student picks
@@ -151,9 +154,9 @@ aloud button for students who are still learning to decode words.
 At the end of a book there is a short comprehension quiz, usually about five
 questions. Finishing it marks the book complete and counts toward a badge.
 
-[screenshot: Reading Hub level list with book covers]
+![The Reading Hub, showing books grouped by level](docs/assets/screenshots/reading-hub.png)
 
-[screenshot: a book open on a two page spread]
+![A book open in the reader](docs/assets/screenshots/book-reader.png)
 
 **Homework Helper.**
 This is the chat tutor. The student opens it and is asked two questions first: which
@@ -170,9 +173,9 @@ and a "why" question about 45 seconds, and the first question after the server b
 takes around two minutes while the model loads. A thinking indicator is shown the
 whole time.
 
-[screenshot: Homework Helper subject selection]
+![Choosing a subject in the Homework Helper](docs/assets/screenshots/helper-subject-selection.png)
 
-[screenshot: Homework Helper conversation with the subject and grade bar]
+![A Homework Helper conversation](docs/assets/screenshots/helper-conversation.png)
 
 **Video lessons.**
 Lessons are browsed by grade, then by topic. Each lesson plays with captions. Under
@@ -180,9 +183,7 @@ the video there is a question box that answers using that lesson's transcript, s
 student can ask what a word meant without leaving the page. After the video there is
 a short quiz.
 
-[screenshot: lesson browser showing grades and topics]
-
-[screenshot: a lesson playing with the question box underneath]
+![Browsing lessons](docs/assets/screenshots/lesson-browser.png)
 
 **Tests.**
 Tests a teacher has assigned appear on the student's home screen. A test is a list of
@@ -192,7 +193,7 @@ questions, answered one at a time, and it is marked as soon as it is submitted.
 Badges are earned for finishing books, lessons, and quizzes. The achievements screen
 shows what has been earned and what is still available.
 
-[screenshot: achievements screen with earned badges]
+![The achievements screen](docs/assets/screenshots/achievements.png)
 
 **Changing language.**
 The language selector switches the whole interface, the books, and the tutor between
@@ -204,7 +205,7 @@ English, French, German, and Spanish. A student's choice is remembered.
 Sign in as a teacher with the password set during first run. The dashboard has three
 sections: Overview, Progress, and Tests.
 
-[screenshot: teacher dashboard overview]
+![The teacher dashboard](docs/assets/screenshots/teacher-dashboard.png)
 
 **Classes and students.**
 Create a class and it is given a join code. Share that code with the class. Students
@@ -217,9 +218,9 @@ The Progress section shows each student and what they have completed: lessons
 watched, books finished, quiz scores. The activity history is a calendar, so you can
 see which days a student worked and open any day to see exactly what they did.
 
-[screenshot: teacher progress view]
+![Student progress](docs/assets/screenshots/teacher-progress.png)
 
-[screenshot: activity history calendar]
+![The activity history calendar](docs/assets/screenshots/activity-history.png)
 
 **Tests.**
 Build a test by writing questions and answers, then assign it to specific students.
