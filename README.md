@@ -60,7 +60,7 @@ the lessons, and talk to us about the rest.
 - **Accounts and progress.** Each student has a login, and their progress is stored
   on the server.
 
-![The student home screen](docs/assets/screenshots/student-home.png)
+![The student home screen](docs/assets/screenshots/student-home.jpg)
 
 ## Device tiers
 
@@ -173,9 +173,11 @@ aloud button for students who are still learning to decode words.
 At the end of a book there is a short comprehension quiz, usually about five
 questions. Finishing it marks the book complete and counts toward a badge.
 
-![The Reading Hub, showing books grouped by level](docs/assets/screenshots/reading-hub.png)
+![The Reading Hub, showing books grouped by level](docs/assets/screenshots/reading-hub.jpg)
 
-![A book open in the reader](docs/assets/screenshots/book-reader.png)
+![A book open in the reader](docs/assets/screenshots/book-reader.jpg)
+
+![The quiz at the end of a book](docs/assets/screenshots/book-quiz.png)
 
 **Homework Helper.**
 This is the chat tutor. The student opens it and is asked two questions first: which
@@ -194,7 +196,7 @@ whole time.
 
 ![Choosing a subject in the Homework Helper](docs/assets/screenshots/helper-subject-selection.png)
 
-![A Homework Helper conversation](docs/assets/screenshots/helper-conversation.png)
+![A Homework Helper conversation](docs/assets/screenshots/helper-conversation.jpg)
 
 **Video lessons.**
 Lessons are browsed by grade, then by topic. Each lesson plays with captions. Under
@@ -207,6 +209,12 @@ lesson list is part of the app. If a lesson will not play, the videos have not b
 downloaded yet. See "Lesson videos" above.
 
 ![The maths area, showing the next lesson and the main sections](docs/assets/screenshots/maths-home.png)
+
+![Browsing lessons by grade](docs/assets/screenshots/lesson-browser.png)
+
+![Lessons inside a grade, grouped by topic](docs/assets/screenshots/lesson-topics.png)
+
+![A lesson playing, with the question box and quiz beside it](docs/assets/screenshots/video-player.png)
 
 **Tests.**
 Tests a teacher has assigned appear on the student's home screen. A test is a list of
