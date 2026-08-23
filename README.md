@@ -210,8 +210,6 @@ downloaded yet. See "Lesson videos" above.
 
 ![The maths area, showing the next lesson and the main sections](docs/assets/screenshots/maths-home.png)
 
-![Browsing lessons by grade](docs/assets/screenshots/lesson-browser.png)
-
 ![Lessons inside a grade, grouped by topic](docs/assets/screenshots/lesson-topics.png)
 
 ![A lesson playing, with the question box and quiz beside it](docs/assets/screenshots/video-player.png)
