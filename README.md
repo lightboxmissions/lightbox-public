@@ -183,7 +183,11 @@ the video there is a question box that answers using that lesson's transcript, s
 student can ask what a word meant without leaving the page. After the video there is
 a short quiz.
 
-![Browsing lessons](docs/assets/screenshots/lesson-browser.png)
+Lesson titles are listed even when the video files are not installed, because the
+lesson list is part of the app. If a lesson will not play, the videos have not been
+downloaded yet. See "Lesson videos" above.
+
+![The maths area, showing the next lesson and the main sections](docs/assets/screenshots/maths-home.png)
 
 **Tests.**
 Tests a teacher has assigned appear on the student's home screen. A test is a list of
