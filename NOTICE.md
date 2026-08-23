@@ -8,6 +8,13 @@ listed below.
 If you redistribute LightBox, or anything you build from it, these terms travel with
 the content.
 
+## Non-commercial
+
+LightBox is intended for non-commercial use only. Beyond that intent, the video lessons
+it installs are licensed CC BY-NC-SA 4.0, and that licence forbids commercial use of
+those lessons by anyone. A LightBox installation that includes the lessons therefore
+cannot be sold, charged for, or built into a commercial product or service.
+
 ## 1. LightBox application code
 
 Everything under `app/`, `server/`, `tools/`, and `scripts/` is MIT licensed. See

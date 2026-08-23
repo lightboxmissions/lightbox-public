@@ -9,6 +9,25 @@ a translator, all locally. Students connect to it over Wi-Fi from tablets, phone
 laptops and open it in a browser. Nothing is installed on the student devices, and
 nothing needs an internet connection once the server is set up.
 
+## Non-commercial use
+
+LightBox is built to be given away. It is meant for schools and learning centres that
+cannot pay for software. It is not to be sold, and it is not to be used to make money.
+
+Two separate things back that up.
+
+**The project's intent.** LightBox exists for zero financial gain. Please do not charge
+for it, fold it into a paid product or service, or sell hardware with it preinstalled as
+a paid feature.
+
+**The lesson licence.** The video lessons are Khan Academy material under CC BY-NC-SA 4.0.
+That licence prohibits commercial use outright, and it binds anyone who installs LightBox
+with the lessons no matter what else they have been told. It also requires that Khan
+Academy is credited and that anything adapted from the lessons carries the same licence.
+
+If you want to use any part of this commercially, do not. Ask Khan Academy directly about
+the lessons, and talk to us about the rest.
+
 ## Who it is for
 
 - Schools and learning centres with no internet, or internet that is only good enough
@@ -346,9 +365,10 @@ No. Accounts, progress, and answers are files on the server. There is no cloud
 account and nothing is sent anywhere.
 
 **Can I use it commercially?**
-The LightBox code is MIT, so yes. The Khan Academy video lessons are NonCommercial,
-so those may not be sold or used commercially. The books are CC BY or public domain,
-so yes with credit. See [NOTICE.md](NOTICE.md).
+No. LightBox is meant for non-commercial use only, and the Khan Academy video lessons
+it installs are licensed CC BY-NC-SA 4.0, which forbids commercial use. Do not sell
+LightBox, charge for access to it, or build it into anything you sell. See
+[NOTICE.md](NOTICE.md) for the licence on each part.
 
 **Can I use a different model?**
 Yes. LightBox talks to llama.cpp over its OpenAI compatible API, so you can point it
