@@ -1,0 +1,37 @@
+﻿{
+    "id":  "asp_0109",
+    "language":  "en",
+    "title":  "Lekishon and the cows",
+    "source":  "African Storybook Project (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/asp-source/blob/master/en/0109_lekishon-and-the-cows.md",
+    "project_home":  "https://www.africanstorybook.org",
+    "license":  "CC BY",
+    "license_raw":  "CC-BY",
+    "license_url":  "https://creativecommons.org/licenses/by/4.0/",
+    "author":  "Paul Maseri",
+    "illustrator":  "Wiehan de Jager",
+    "translator":  null,
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg",
+                   "04.jpg",
+                   "05.jpg",
+                   "06.jpg",
+                   "07.jpg",
+                   "08.jpg",
+                   "09.jpg",
+                   "10.jpg"
+               ],
+    "pages":  [
+                  "This is Lekishon.\nLekishon is calling\nhis dog.",
+                  "Lekishon and his dog\nare going to graze\nthe animals.\nThe sun is hot.",
+                  "Lekishon and his dog\nare thirsty and hungry.",
+                  "They go to look\nfor water.",
+                  "Lekishon loses track\nof his cows.",
+                  "Lekishon starts to cry.",
+                  "He decides to go\nhome with his dog.",
+                  "The cows found\nthe way home!\nLekishon and his dog\nare very happy."
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

@@ -1,0 +1,42 @@
+﻿{
+    "id":  "asp_0001",
+    "language":  "fr",
+    "title":  "Un homme très grand",
+    "source":  "African Storybook Project (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/asp-source/blob/master/fr/0001_un-homme-très-grand.md",
+    "project_home":  "https://www.africanstorybook.org",
+    "license":  "CC BY",
+    "license_raw":  "CC-BY",
+    "license_url":  "https://creativecommons.org/licenses/by/4.0/",
+    "author":  "Cornelius Gulere",
+    "illustrator":  "Catherine Groenewald",
+    "translator":  "Isabelle Duston, Véronique Biddau",
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg",
+                   "04.jpg",
+                   "05.jpg",
+                   "06.jpg",
+                   "07.jpg",
+                   "08.jpg",
+                   "09.jpg",
+                   "10.jpg",
+                   "11.jpg",
+                   "12.jpg"
+               ],
+    "pages":  [
+                  "Sa houe était trop\ncourte.",
+                  "Sa porte d\u0027entrée était\ntrop basse.",
+                  "Son lit était trop court.",
+                  "Sa bicyclette était trop\npetite.",
+                  "Cet homme était trop\ngrand.",
+                  "Il fabriqua un long\nmanche pour sa houe.",
+                  "Il agrandit ses portes.",
+                  "Il fabriqua un très grand\nlit.",
+                  "Il acheta une bicyclette\ntrès haute.",
+                  "Il s\u0027assit sur une chaise\ntrès haute et mangea\navec une très grande\nfourchette.",
+                  "Il quitta sa maison et\nvécut dans une grande\nforêt.\nIl vécut pendant de\nlongues années."
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

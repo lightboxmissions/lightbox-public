@@ -1,0 +1,43 @@
+﻿{
+    "id":  "asp_0123",
+    "language":  "en",
+    "title":  "Let\u0027s go",
+    "source":  "African Storybook Project (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/asp-source/blob/master/en/0123_lets-go.md",
+    "project_home":  "https://www.africanstorybook.org",
+    "license":  "CC BY-NC",
+    "license_raw":  "CC-BY-NC",
+    "license_url":  "https://creativecommons.org/licenses/by-nc/4.0/",
+    "author":  "Carole Bloch",
+    "illustrator":  "Thembinkosi Kohli",
+    "translator":  null,
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg",
+                   "04.jpg",
+                   "05.jpg",
+                   "06.jpg",
+                   "07.jpg",
+                   "08.jpg",
+                   "09.jpg",
+                   "10.jpg",
+                   "11.jpg",
+                   "12.jpg",
+                   "13.jpg"
+               ],
+    "pages":  [
+                  "With my nose...",
+                  "...I smell dirty socks.",
+                  "...I smell beautiful\nflowers.",
+                  "With my eyes...",
+                  "...I see a balloon\nblowing away in the\nwind.",
+                  "...I see a happy cat.",
+                  "With my mouth...",
+                  "...I taste the salty sea.",
+                  "...I taste a juicy sweet\norange.",
+                  "With my hand...",
+                  "...I take your hand."
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

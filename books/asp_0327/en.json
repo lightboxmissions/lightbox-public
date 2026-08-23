@@ -1,0 +1,37 @@
+﻿{
+    "id":  "asp_0327",
+    "language":  "en",
+    "title":  "Counting animals",
+    "source":  "African Storybook Project (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/asp-source/blob/master/en/0327_counting-animals.md",
+    "project_home":  "https://www.africanstorybook.org",
+    "license":  "CC BY",
+    "license_raw":  "CC-BY",
+    "license_url":  "https://creativecommons.org/licenses/by/4.0/",
+    "author":  "Zanele Buthelezi, Thembani Dladla, Clare Verbeek",
+    "illustrator":  "Rob Owen",
+    "translator":  null,
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg",
+                   "04.jpg",
+                   "05.jpg",
+                   "06.jpg",
+                   "07.jpg",
+                   "08.jpg",
+                   "09.jpg",
+                   "10.jpg"
+               ],
+    "pages":  [
+                  "One elephant is going to drink water.",
+                  "Two giraffes are going to drink water.",
+                  "Three buffaloes and four birds are also going to drink water.",
+                  "Five impalas and six warthogs are walking to the water.",
+                  "Seven zebras are running to the water.",
+                  "Eight frogs and nine fish are swimming in the water.",
+                  "One lion roars. He also wants to drink. Who is afraid of the lion?",
+                  "One elephant is drinking water with the lion."
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

@@ -1,0 +1,37 @@
+﻿{
+    "id":  "asp_0014",
+    "language":  "fr",
+    "title":  "La fille du nom de Norah",
+    "source":  "African Storybook Project (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/asp-source/blob/master/fr/0014_la-fille-du-nom-de-norah.md",
+    "project_home":  "https://www.africanstorybook.org",
+    "license":  "CC BY",
+    "license_raw":  "CC-BY",
+    "license_url":  "https://creativecommons.org/licenses/by/4.0/",
+    "author":  "Annet Ssebaggala",
+    "illustrator":  "Melany Pietersen",
+    "translator":  "Marianne Pasty-Abdul Wahid, Translators without Borders",
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg",
+                   "04.jpg",
+                   "05.jpg",
+                   "06.jpg",
+                   "07.jpg",
+                   "08.jpg",
+                   "09.jpg",
+                   "10.jpg"
+               ],
+    "pages":  [
+                  "Voici Norah, une petite\nfille.\nLe nom de sa poupée\nest Selah.",
+                  "Norah adore sa poupée.\nNorah joue tous les\njours avec Selah.\nElle dort toutes les nuits\navec sa poupée.",
+                  "Un jour, Norah ne\ntrouva plus sa poupée.\nElle la chercha partout,\nmais ne trouva Selah\nnulle part.\nNorah s\u0027inquiéta.",
+                  "Norah ne savait pas\nque sa maman avait\npris Selah pour la laver.\nLa maman suspendit la\npoupée dehors, pour la\nfaire sécher.",
+                  "« Je ne trouve plus ma\npoupée », pleura Norah.\n« Ne t\u0027inquiète pas »,\nlui dit sa maman.",
+                  "Ce soir-là, la maman de\nNorah lui rendit sa\npoupée.\nLa poupée était toute\npropre. On aurait dit\nque Selah était une\npoupée neuve !",
+                  "Norah était tellement\ncontente.\nElle sautilla dans tous\nles sens.\nElle dansa.\nElle rit aux éclats.",
+                  "Et elle remercia sa\nmaman."
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

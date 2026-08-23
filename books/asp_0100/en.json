@@ -1,0 +1,37 @@
+﻿{
+    "id":  "asp_0100",
+    "language":  "en",
+    "title":  "Jaaka the fisherman",
+    "source":  "African Storybook Project (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/asp-source/blob/master/en/0100_jaaka-the-fisherman.md",
+    "project_home":  "https://www.africanstorybook.org",
+    "license":  "CC BY",
+    "license_raw":  "CC-BY",
+    "license_url":  "https://creativecommons.org/licenses/by/4.0/",
+    "author":  "Tom Sabwa, Children\u0027s Development Center at Masese",
+    "illustrator":  "Zablon Alex Nguku",
+    "translator":  null,
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg",
+                   "04.jpg",
+                   "05.jpg",
+                   "06.jpg",
+                   "07.jpg",
+                   "08.jpg",
+                   "09.jpg",
+                   "10.jpg"
+               ],
+    "pages":  [
+                  "This is Jaaka the\nfisherman from\nNaminya.",
+                  "He fishes on the river\nNile.",
+                  "He has a boat, fishing\nnet and a hook.",
+                  "He always wakes up\nvery early in the\nmorning to catch the\nNile perch.",
+                  "At around 10am, he\u0027s\nselling his catch in Jinja\ncentral market.",
+                  "Jaaka what happened?\nWas it a loss? He\u0027s so\nsad.",
+                  "\"Today the situation is\nbad. The Nile breeze did\nnot permit me to fish.\nAnd one perch swam\naway with my hook.\"",
+                  "\"But I have hope that\ntomorrow will be good,\nbecause I\u0027ve bought a\nnew hook.\""
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

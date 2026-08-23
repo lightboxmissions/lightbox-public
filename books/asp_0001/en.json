@@ -1,0 +1,42 @@
+﻿{
+    "id":  "asp_0001",
+    "language":  "en",
+    "title":  "A very tall man",
+    "source":  "African Storybook Project (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/asp-source/blob/master/en/0001_a-very-tall-man.md",
+    "project_home":  "https://www.africanstorybook.org",
+    "license":  "CC BY",
+    "license_raw":  "CC-BY",
+    "license_url":  "https://creativecommons.org/licenses/by/4.0/",
+    "author":  "Cornelius Gulere",
+    "illustrator":  "Catherine Groenewald",
+    "translator":  null,
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg",
+                   "04.jpg",
+                   "05.jpg",
+                   "06.jpg",
+                   "07.jpg",
+                   "08.jpg",
+                   "09.jpg",
+                   "10.jpg",
+                   "11.jpg",
+                   "12.jpg"
+               ],
+    "pages":  [
+                  "His hoe was too short.",
+                  "His doorway was too low.",
+                  "His bed was too short.",
+                  "His bicycle was too short.",
+                  "This man was too tall!",
+                  "He made a very long hoe handle.",
+                  "He made very high door frames.",
+                  "He made a very long bed.",
+                  "He bought a very high bicycle.",
+                  "He sat on a very high chair. He ate with a very long fork.",
+                  "He left his house and lived in a big forest. He lived for many years."
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

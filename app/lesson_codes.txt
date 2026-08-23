@@ -1,0 +1,91 @@
+﻿LIGHTBOX - LESSON CODES (by grade)
+Sign in, then type a code or use Browse lessons by grade.
+
+==== Kindergarten ====
+  -- Counting & comparing numbers --
+    CO1   Comparing numbers of objects
+    CO2   Comparing small numbers on the number line
+    CO3   Counting in order
+    CO4   Counting with small numbers
+
+==== 1st Grade ====
+  -- Counting & comparing numbers --
+    CO5   Missing numbers between 0 and 120
+    CO6   Number grid
+  -- Place value (tens, hundreds) --
+    PV1   Comparing whole numbers
+    PV2   Greater than and less than symbols
+    PV3   Introduction to place value
+    PV4   Place value example with 25
+    PV5   Teens as sums with 10
+  -- Addition & subtraction concepts --
+    AS1   Adding 1 vs. adding 10
+    AS2   Adding by getting to group of 10 first
+    AS5   Addition and subtraction within 10
+    AS9   Breaking apart 2-digit addition problems
+    AS11  Counting by tens examples
+    AS12  Equal sign
+    AS13  Introduction to addition
+    AS14  Introduction to subtraction
+    AS15  Making 5
+    AS17  Relating addition and subtraction
+    AS24  Understanding place value when adding ones
+    AS26  Understanding place value while adding tens
+    AS27  Understanding place value while subtracting ones
+  -- Measurement, data, time & money --
+    MD1   Comparing lengths
+    MD6   Picture graphs
+    MD7   Telling time exercise example 1
+  -- Geometry & shapes --
+    GE2   Halves and fourths
+    GE4   Recognizing shapes
+
+==== 2nd Grade ====
+  -- Addition & subtraction concepts --
+    AS3   Adding ten or one hundred
+    AS4   Addition and subtraction with number lines
+    AS6   Addition using groups of 10 and 100
+    AS7   Addition using groups of 10 intro
+    AS8   Addition with regrouping
+    AS10  Breaking apart 3-digit addition problems
+    AS16  Missing numbers in addition and subtraction
+    AS18  Repeated addition example
+    AS19  Skip counting by 5 example
+    AS20  Strategies for adding 2-digit numbers
+    AS21  Subtracting 1 vs. subtracting 10
+    AS22  Subtracting ten or one hundred
+    AS23  Subtracting with regrouping (borrowing)
+    AS25  Understanding place value when subtracting tens
+  -- Measurement, data, time & money --
+    MD2   Counting American coins
+    MD3   Estimating lengths
+    MD4   Introduction to line plots
+    MD5   Measuring lengths with different units
+  -- Geometry & shapes --
+    GE1   Equal parts of circles and rectangles
+
+==== 3rd Grade ====
+  -- Geometry & shapes --
+    GE3   Introduction to types of quadrilaterals
+  -- Multiplication & division concepts --
+    MU1   Examples relating multiplication to division
+    MU2   Intro to multiplication
+    MU3   More on the concept of multiplication
+    MU4   Multiplication as groups of objects
+    MU5   Multiplication strategies
+    MU6   Multiplying by multiples of 10
+    MU7   Patterns in a multiplication table
+    MU8   The idea of division
+  -- Fractions concepts --
+    FR1   Comparing fractions visually and on number line
+    FR2   Different ways to represent 1 as a fraction
+    FR3   Equivalent fraction models
+    FR4   Fraction basics
+    FR5   Fractions on a number line
+    FR6   More than one equal section
+    FR7   Numerator and denominator of a fraction
+    FR8   Whole numbers as fractions
+  -- Area & perimeter --
+    AP1   Introduction to area and unit squares
+    AP2   Introduction to perimeter
+

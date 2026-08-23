@@ -1,0 +1,37 @@
+﻿{
+    "id":  "asp_0100",
+    "language":  "fr",
+    "title":  "Jaaka le pêcheur",
+    "source":  "African Storybook Project (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/asp-source/blob/master/fr/0100_jaaka-le-pecheur.md",
+    "project_home":  "https://www.africanstorybook.org",
+    "license":  "CC BY",
+    "license_raw":  "CC-BY",
+    "license_url":  "https://creativecommons.org/licenses/by/4.0/",
+    "author":  "Tom Sabwa, Children\u0027s Development Center at Masese",
+    "illustrator":  "Zablon Alex Nguku",
+    "translator":  "Johanne Jean-maître, Translators without Borders",
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg",
+                   "04.jpg",
+                   "05.jpg",
+                   "06.jpg",
+                   "07.jpg",
+                   "08.jpg",
+                   "09.jpg",
+                   "10.jpg"
+               ],
+    "pages":  [
+                  "Voici Jaaka le pêcheur\nde Naminya.",
+                  "Il pêche à la rivière du\nNil.",
+                  "Il a un bateau, un filet\nde pêche et un\nhameçon.",
+                  "Il se réveille toujours\ntrès tôt le matin pour\nattraper la perche du\nNil.",
+                  "Vers 10 h, il va vendre\nses prises au marché\ncentral au Jinja.",
+                  "Jaaka, qu\u0027est-il arrivé ?\nQue se passe-t-il ? Il est\ntellement triste.",
+                  "« Aujourd\u0027hui, la\nsituation est mauvaise.\nLe vent du Nil m\u0027a\nempêché de pêcher. De\nplus, une perche s\u0027est\néloignée dans la rivière\navec mon hameçon. »",
+                  "« Mais je garde espoir\nque demain sera une\nmeilleure journée car\nj\u0027ai acheté un nouvel\nhameçon. »"
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

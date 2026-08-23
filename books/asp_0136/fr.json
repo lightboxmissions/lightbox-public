@@ -1,0 +1,37 @@
+﻿{
+    "id":  "asp_0136",
+    "language":  "fr",
+    "title":  "Le jour de chance d\u0027Hamisi !",
+    "source":  "African Storybook Project (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/asp-source/blob/master/fr/0136_le-jour-de-chance-dhamisi.md",
+    "project_home":  "https://www.africanstorybook.org",
+    "license":  "CC BY",
+    "license_raw":  "CC-BY",
+    "license_url":  "https://creativecommons.org/licenses/by/4.0/",
+    "author":  "Adelheid Marie Bwire",
+    "illustrator":  "Rob Owen",
+    "translator":  "Nadine Verdier, Translators without Borders",
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg",
+                   "04.jpg",
+                   "05.jpg",
+                   "06.jpg",
+                   "07.jpg",
+                   "08.jpg",
+                   "09.jpg",
+                   "10.jpg"
+               ],
+    "pages":  [
+                  "Hamisi a besoin d\u0027un\nnouvel uniforme\nscolaire.\nSon père l\u0027emmène au\nmarché.",
+                  "Hamisi voit un garçon\nvêtu d\u0027une belle\nchemise.\n« Ça c\u0027est une belle\nchemise » pense\nHamisi.",
+                  "« J\u0027aimerais avoir une\nchemise comme ce\ngarçon » dit Hamisi.",
+                  "« Regarde, elle vend\nces chemises spéciales\n» dit Hamisi.\n« Papa, s\u0027il te plaît\nachète m\u0027en une »\ndemande-t-il.",
+                  "« Hamisi, je dois\nacheter ton uniforme »\ndit papa.",
+                  "« Je n\u0027ai pas assez\nd\u0027argent pour cette\nchemise » dit papa.",
+                  "Le père d\u0027Hamisi paie\nl\u0027uniforme.\nIl est surpris lorsqu\u0027on\nlui rend la monnaie.\nIl y a assez pour\nacheter une chemise !",
+                  "C\u0027est le jour de chance\nd\u0027Hamisi !\nQuelle chemise va-t-il\nchoisir ?"
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

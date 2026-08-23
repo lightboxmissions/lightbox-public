@@ -1,0 +1,30 @@
+﻿{
+    "id":  "pb_0234",
+    "language":  "en",
+    "title":  "Tita",
+    "source":  "Pratham Books / StoryWeaver (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/pb-source/blob/master/en/0234_tita.md",
+    "project_home":  "https://storyweaver.org.in",
+    "license":  "CC BY",
+    "license_raw":  "CC-BY",
+    "license_url":  "https://creativecommons.org/licenses/by/4.0/",
+    "author":  "Rachita Uday Kumar",
+    "illustrator":  "Suvidha Mistry",
+    "translator":  null,
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg",
+                   "04.jpg",
+                   "05.jpg",
+                   "06.jpg"
+               ],
+    "pages":  [
+                  "Tita is playing with her mother\u0027s saree.",
+                  "Her mother did\u0027nt like it. So she scolded Tita.",
+                  "One day, she heard her mother was going to the neighbouring village.",
+                  "So she ironed all her clothes.",
+                  "Tita\u0027s mother praised her for that ."
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

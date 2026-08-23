@@ -1,0 +1,34 @@
+﻿{
+    "id":  "asp_0323",
+    "language":  "fr",
+    "title":  "Le haricot qui germe",
+    "source":  "African Storybook Project (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/asp-source/blob/master/fr/0323_le-haricot-qui-germe.md",
+    "project_home":  "https://www.africanstorybook.org",
+    "license":  "CC BY-NC",
+    "license_raw":  "CC-BY-NC",
+    "license_url":  "https://creativecommons.org/licenses/by-nc/4.0/",
+    "author":  "Clare Verbeek, Thembani Dladla, Zanele Buthelezi",
+    "illustrator":  "Mlungisi Dlamini",
+    "translator":  "Isabelle Barth, Translators without Borders",
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg",
+                   "04.jpg",
+                   "05.jpg",
+                   "06.jpg",
+                   "07.jpg",
+                   "08.jpg"
+               ],
+    "pages":  [
+                  "La racine pousse la\npremière.",
+                  "Elle pousse vers le bas\ndans le sol.",
+                  "Puis la tige pousse. Elle\npousse vers le haut,\nvers le soleil.",
+                  "Les premières feuilles\nsortent.",
+                  "La plante à haricots\ndevient haute.",
+                  "Puis les fleurs sortent.\nElles se transforment\nen haricots.",
+                  "Il y a beaucoup de\ngraines dans les\nharicots."
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

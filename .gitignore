@@ -1,0 +1,42 @@
+# --- Local operator config (server IP, passwords). Commit config.example.json only.
+config.json
+deploy/server.config.ps1
+
+# --- Bundled lesson videos and their captions.
+# These are Khan Academy material under CC BY-NC-SA, NOT covered by this repo's
+# MIT license. They are fetched by scripts/fetch_content.py instead of being
+# committed here, which also keeps a clone small.
+content/
+transcripts/
+
+# --- Runtime data written by the app (student accounts, progress, sessions).
+# Never commit these: they contain real children's names and password hashes.
+data/users/
+data/progress/
+data/classes/
+data/tests/
+data/sessions.json
+data/classes_index.json
+data/notifications.json
+data/test_archive.json
+data/setup.json
+data/i18n_*.json
+
+# --- Models (~1.9 GB, downloaded by the installer)
+*.gguf
+models/
+
+# --- Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# --- OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+data/catalog_v*.json

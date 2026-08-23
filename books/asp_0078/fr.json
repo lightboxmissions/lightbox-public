@@ -1,0 +1,41 @@
+﻿{
+    "id":  "asp_0078",
+    "language":  "fr",
+    "title":  "Les aventures de super vache",
+    "source":  "African Storybook Project (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/asp-source/blob/master/fr/0078_les-aventures-de-super-vache.md",
+    "project_home":  "https://www.africanstorybook.org",
+    "license":  "CC BY-NC",
+    "license_raw":  "CC-BY-NC",
+    "license_url":  "https://creativecommons.org/licenses/by-nc/4.0/",
+    "author":  "Danielle Bruckert",
+    "illustrator":  "Danielle Bruckert",
+    "translator":  "Isabelle Duston, Véronique Biddau",
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg",
+                   "04.jpg",
+                   "05.jpg",
+                   "06.jpg",
+                   "07.jpg",
+                   "08.jpg",
+                   "09.jpg",
+                   "10.jpg",
+                   "11.jpg",
+                   "12.jpg"
+               ],
+    "pages":  [
+                  "Voilà une vache.\nLa vache est sympa.",
+                  "Durant la journée, c\u0027est\nune vache ordinaire.",
+                  "Elle joue au cerf volant.",
+                  "Elle tape dans un\nballon.",
+                  "Mais la nuit c\u0027est une\nsuper vache.",
+                  "Elle sauve des vies...",
+                  "Elle se bat contre les\ncriminels.",
+                  "Et si tu fermes les yeux bien fort, et que tu fais un vœux...",
+                  "La vache pourrait aussi te rendre visite !",
+                  "Fin."
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

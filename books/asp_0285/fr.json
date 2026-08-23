@@ -1,0 +1,37 @@
+﻿{
+    "id":  "asp_0285",
+    "language":  "fr",
+    "title":  "Un grave accident",
+    "source":  "African Storybook Project (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/asp-source/blob/master/fr/0285_un-grave-accident.md",
+    "project_home":  "https://www.africanstorybook.org",
+    "license":  "CC BY",
+    "license_raw":  "CC-BY",
+    "license_url":  "https://creativecommons.org/licenses/by/4.0/",
+    "author":  "Zanele Buthelezi, Thembani Dladla, Clare Verbeek",
+    "illustrator":  "Rob Owen",
+    "translator":  "Isabelle Barth, Translators without Borders",
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg",
+                   "04.jpg",
+                   "05.jpg",
+                   "06.jpg",
+                   "07.jpg",
+                   "08.jpg",
+                   "09.jpg",
+                   "10.jpg"
+               ],
+    "pages":  [
+                  "Un jour, je me\npromenais avec ma\nsœur à côté de la route.",
+                  "Un gros camion\ndescendait la colline.",
+                  "Une voiture montait la\ncolline à toute vitesse.",
+                  "Le chauffeur de camion\nparlait au téléphone\navec mon mobile.\nIl ne regardait pas la\nroute.",
+                  "Le camion est entré en\ncollision avec la voiture\n!",
+                  "Une ambulance et la\npolice sont venues\nsecourir.",
+                  "Deux dépanneuses sont\narrivées.\nL\u0027une pour tirer le\ncamion.\nL\u0027autre pour tirer la\nvoiture.",
+                  "Nous avons tout vu.\nNous étions choqués."
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

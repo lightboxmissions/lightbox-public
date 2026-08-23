@@ -1,0 +1,42 @@
+﻿{
+    "id":  "asp_0149",
+    "language":  "en",
+    "title":  "The Moon and the Cap",
+    "source":  "African Storybook Project (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/asp-source/blob/master/en/0149_the-moon-and-the-cap.md",
+    "project_home":  "https://www.africanstorybook.org",
+    "license":  "CC BY",
+    "license_raw":  "CC-BY",
+    "license_url":  "https://creativecommons.org/licenses/by/4.0/",
+    "author":  "Noni",
+    "illustrator":  "Angie \u0026 Upesh",
+    "translator":  null,
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg",
+                   "04.jpg",
+                   "05.jpg",
+                   "06.jpg",
+                   "07.jpg",
+                   "08.jpg",
+                   "09.jpg",
+                   "10.jpg",
+                   "11.jpg",
+                   "12.jpg"
+               ],
+    "pages":  [
+                  "All of us went to the fun\nfair.",
+                  "Father bought brother\nfancy glasses.\nMother bought me a\nbright blue cap.\nThe baby got sugar\ncandy.",
+                  "On the way home, a\nvery strong wind came.\nIt blew my cap away.",
+                  "My cap got stuck on a\nbranch of a big old tree.",
+                  "I cried a lot.\nAnd I did not eat my\ndinner.",
+                  "Later that night, the\nmoon came up. It\nlooked at my cap in the\nbig old tree.",
+                  "The moon tried on my\ncap. It smiled happily.\nI had to smile too.",
+                  "After school the next\nday, my mother gave\nme a shiny new red\ncap.\n\"The moon sent it,\" she\nsaid.",
+                  "That night, both the\nmoon and I wore our\ncaps and smiled.\nWe were happy.",
+                  "Do you think the sun\nneeds a hat?",
+                  "Guess which cap I am\nwearing today!"
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

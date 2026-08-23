@@ -1,0 +1,13 @@
+{
+  "_comment": "Copy this file to config.json (in the repo root, next to app/ and data/) and edit. Every key is optional - anything you omit falls back to the built-in default. You can also override any key with an environment variable named LIGHTBOX_<KEY> in upper-case, e.g. LIGHTBOX_PORT=9000.",
+
+  "host": "0.0.0.0",
+  "port": 8090,
+
+  "llama_url": "http://127.0.0.1:8080/v1/chat/completions",
+  "model": "qwen2.5-3b-instruct-q4_k_m.gguf",
+
+  "libretranslate_url": "http://127.0.0.1:5000/translate",
+
+  "teacher_key": "lightbox"
+}

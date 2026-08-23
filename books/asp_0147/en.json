@@ -1,0 +1,39 @@
+﻿{
+    "id":  "asp_0147",
+    "language":  "en",
+    "title":  "My family and I",
+    "source":  "African Storybook Project (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/asp-source/blob/master/en/0147_my-family-and-i.md",
+    "project_home":  "https://www.africanstorybook.org",
+    "license":  "CC BY",
+    "license_raw":  "CC-BY",
+    "license_url":  "https://creativecommons.org/licenses/by/4.0/",
+    "author":  "Waako Joshua, Cornelius Gulere",
+    "illustrator":  "Wiehan de Jager",
+    "translator":  null,
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg",
+                   "04.jpg",
+                   "05.jpg",
+                   "06.jpg",
+                   "07.jpg",
+                   "08.jpg",
+                   "09.jpg",
+                   "10.jpg",
+                   "11.jpg"
+               ],
+    "pages":  [
+                  "My dinosaur and I look at my birds in the sky.",
+                  "My birds and I meet Chimpanzee in the tree.",
+                  "My chimpanzee and I play with my giraffes on the hill.",
+                  "My giraffes and I make monkey balls from clay.",
+                  "My monkey and I eat bananas with Gorilla every day.",
+                  "My gorilla and monkey fear Tortoise in every way.",
+                  "Tortoise and I go home very slowly with Snake.",
+                  "Snake and I love to hiss and sing songs by the lake.",
+                  "My entire family and I live together in great happiness!"
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

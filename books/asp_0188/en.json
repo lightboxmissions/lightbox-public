@@ -1,0 +1,37 @@
+﻿{
+    "id":  "asp_0188",
+    "language":  "en",
+    "title":  "My mother planted",
+    "source":  "African Storybook Project (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/asp-source/blob/master/en/0188_my-mother-planted.md",
+    "project_home":  "https://www.africanstorybook.org",
+    "license":  "CC BY",
+    "license_raw":  "CC-BY",
+    "license_url":  "https://creativecommons.org/licenses/by/4.0/",
+    "author":  "Tom Sabwa",
+    "illustrator":  "Jonathan Field",
+    "translator":  null,
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg",
+                   "04.jpg",
+                   "05.jpg",
+                   "06.jpg",
+                   "07.jpg",
+                   "08.jpg",
+                   "09.jpg",
+                   "10.jpg"
+               ],
+    "pages":  [
+                  "My mother planted.\nShe planted a small\ngarden.\nShe planted a small\ngarden of peas.",
+                  "My father planted.\nHe planted a small\ngarden.\nHe planted a small\ngarden of flowers.",
+                  "My mother weeded in\nboth gardens.",
+                  "My father watered in\nboth gardens.",
+                  "My parents and I\nworked in the small\ngardens.\nMy sister and I\nharvested the flowers\nand peas.",
+                  "The small garden of\npeas yielded sacks of\npeas.\nThe small garden of\nflowers yielded sacks of\nflowers.",
+                  "My mother planted.\nShe planted a large\ngarden.\nThe large garden she\nplanted was of peas.",
+                  "My father planted.\nHe planted a large\ngarden.\nThe large garden he\nplanted was of flowers."
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

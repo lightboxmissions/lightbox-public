@@ -1,0 +1,2796 @@
+{
+ "CO1": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "A box has 6 apples. Another box has 4 apples. Which box has MORE?",
+    "choices": [
+     "The box with 6",
+     "The box with 4",
+     "They are equal"
+    ],
+    "answer": 0,
+    "hint": "More means a bigger number.",
+    "explain": "6 is more than 4, so the box with 6 apples has more."
+   },
+   {
+    "type": "open",
+    "q": "How can you tell which group has more WITHOUT counting really high?",
+    "look_for": "matching/pairing objects one-to-one, or the longer row / bigger number has more",
+    "hint": "Think about lining them up side by side."
+   }
+  ]
+ },
+ "CO2": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "On a number line, which number is GREATER?",
+    "choices": [
+     "The one farther right",
+     "The one farther left",
+     "They are the same"
+    ],
+    "answer": 0,
+    "hint": "Numbers get bigger as you go right.",
+    "explain": "On a number line, numbers get bigger as you move right."
+   },
+   {
+    "type": "open",
+    "q": "Is 7 bigger or smaller than 3? How do you know on a number line?",
+    "look_for": "7 is bigger because it is farther to the right",
+    "hint": "Find both numbers and see which is more to the right."
+   }
+  ]
+ },
+ "CO3": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "What number comes right after 8?",
+    "choices": [
+     "9",
+     "7",
+     "10"
+    ],
+    "answer": 0,
+    "hint": "Count up by one.",
+    "explain": "After 8 comes 9."
+   },
+   {
+    "type": "open",
+    "q": "Count from 1 to 10. Which number comes between 5 and 7?",
+    "look_for": "6",
+    "hint": "5, then ?, then 7."
+   }
+  ]
+ },
+ "CO4": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "If you count three apples, how many apples are there?",
+    "choices": [
+     "3",
+     "2",
+     "4"
+    ],
+    "answer": 0,
+    "hint": "Touch each apple as you count.",
+    "explain": "There are 3 apples."
+   },
+   {
+    "type": "open",
+    "q": "Why do we touch or point to each thing when we count?",
+    "look_for": "so we count each one once and do not skip or double-count",
+    "hint": "What happens if you count one twice?"
+   }
+  ]
+ },
+ "CO5": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "Fill in the missing number: 10, 11, __, 13",
+    "choices": [
+     "12",
+     "14",
+     "20"
+    ],
+    "answer": 0,
+    "hint": "Count up by one each time.",
+    "explain": "After 11 comes 12."
+   },
+   {
+    "type": "open",
+    "q": "What number is missing? 47, 48, __, 50",
+    "look_for": "49",
+    "hint": "Count up by ones."
+   }
+  ]
+ },
+ "CO6": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "On a number grid, moving DOWN one row makes the number go up by...",
+    "choices": [
+     "10",
+     "1",
+     "100"
+    ],
+    "answer": 0,
+    "hint": "Each row has 10 numbers.",
+    "explain": "Moving down a row adds 10, because each row holds ten numbers."
+   },
+   {
+    "type": "open",
+    "q": "On a number grid, what happens to the number when you move one square to the RIGHT?",
+    "look_for": "it goes up by 1",
+    "hint": "Right means the next counting number."
+   }
+  ]
+ },
+ "PV1": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "Which is greater, 52 or 25?",
+    "choices": [
+     "52",
+     "25",
+     "They are equal"
+    ],
+    "answer": 0,
+    "hint": "Look at the tens place first.",
+    "explain": "52 has 5 tens and 25 has 2 tens. 5 tens is more, so 52 is greater."
+   },
+   {
+    "type": "open",
+    "q": "When comparing 81 and 79, which place do you look at first, and why?",
+    "look_for": "the tens place; 8 tens vs 7 tens, so 81 is bigger",
+    "hint": "Start with the biggest place value."
+   }
+  ]
+ },
+ "PV2": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "Which symbol means 'greater than'?",
+    "choices": [
+     ">",
+     "<",
+     "="
+    ],
+    "answer": 0,
+    "hint": "The open side faces the bigger number.",
+    "explain": "> means greater than. The wide open side faces the bigger number."
+   },
+   {
+    "type": "open",
+    "q": "The alligator's mouth eats the bigger number. In 8 > 3, which number does the mouth open toward?",
+    "look_for": "toward 8, the bigger number",
+    "hint": "Big mouth = big number."
+   }
+  ]
+ },
+ "PV3": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "In the number 34, what does the 3 mean?",
+    "choices": [
+     "3 tens",
+     "3 ones",
+     "3 hundreds"
+    ],
+    "answer": 0,
+    "hint": "The left digit is tens.",
+    "explain": "In 34 the 3 is in the tens place, so it means 3 tens = 30."
+   },
+   {
+    "type": "open",
+    "q": "What is the difference between the 5 in 52 and the 5 in 25?",
+    "look_for": "in 52 the 5 means 5 tens (50); in 25 it means 5 ones (5)",
+    "hint": "Where is the 5 sitting - tens or ones?"
+   }
+  ]
+ },
+ "PV4": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "25 is made of how many tens and ones?",
+    "choices": [
+     "2 tens and 5 ones",
+     "5 tens and 2 ones",
+     "25 ones only"
+    ],
+    "answer": 0,
+    "hint": "First digit is tens, second is ones.",
+    "explain": "25 = 2 tens (20) + 5 ones (5)."
+   },
+   {
+    "type": "open",
+    "q": "How would you build the number 25 with tens-blocks and ones-blocks?",
+    "look_for": "2 ten-blocks and 5 one-blocks",
+    "hint": "Tens first, then ones."
+   }
+  ]
+ },
+ "PV5": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "13 is the same as...",
+    "choices": [
+     "10 + 3",
+     "1 + 3",
+     "10 + 13"
+    ],
+    "answer": 0,
+    "hint": "Teens are ten plus some ones.",
+    "explain": "13 = 10 + 3."
+   },
+   {
+    "type": "open",
+    "q": "What do all the 'teen' numbers (13, 14, 15...) have in common?",
+    "look_for": "they all have one ten / are 10 plus some ones",
+    "hint": "How many tens are in 14, 15, 16?"
+   }
+  ]
+ },
+ "AS1": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "What is 10 more than 23?",
+    "choices": [
+     "33",
+     "24",
+     "20"
+    ],
+    "answer": 0,
+    "hint": "Adding 10 changes the tens digit.",
+    "explain": "Adding 10 to 23 gives 33 - the tens digit goes up by 1."
+   },
+   {
+    "type": "open",
+    "q": "When you add 1 versus add 10, which digit changes each time?",
+    "look_for": "adding 1 changes the ones digit; adding 10 changes the tens digit",
+    "hint": "Ones place vs tens place."
+   }
+  ]
+ },
+ "AS2": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "To add 8 + 5, first make 10: 8 + __ = 10",
+    "choices": [
+     "2",
+     "5",
+     "8"
+    ],
+    "answer": 0,
+    "hint": "What gets 8 up to 10?",
+    "explain": "8 + 2 = 10, then add the other 3 to make 13."
+   },
+   {
+    "type": "open",
+    "q": "Why is making a 10 first a helpful trick for adding?",
+    "look_for": "tens are easy to work with; it breaks the problem into easier steps",
+    "hint": "Is it easier to add starting from 10?"
+   }
+  ]
+ },
+ "AS3": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "What is 100 more than 345?",
+    "choices": [
+     "445",
+     "355",
+     "346"
+    ],
+    "answer": 0,
+    "hint": "Adding 100 changes the hundreds digit.",
+    "explain": "345 + 100 = 445."
+   },
+   {
+    "type": "open",
+    "q": "What stays the SAME when you add 10 to 562?",
+    "look_for": "the hundreds and ones stay the same; only the tens changes (to 572)",
+    "hint": "Which digits do not move?"
+   }
+  ]
+ },
+ "AS4": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "On a number line, adding means you...",
+    "choices": [
+     "jump to the right",
+     "jump to the left",
+     "stay still"
+    ],
+    "answer": 0,
+    "hint": "Adding makes numbers bigger.",
+    "explain": "Adding moves right (bigger); subtracting moves left (smaller)."
+   },
+   {
+    "type": "open",
+    "q": "To do 5 + 3 on a number line, where do you start and which way do you jump?",
+    "look_for": "start at 5 and jump right 3 to land on 8",
+    "hint": "Start at the first number."
+   }
+  ]
+ },
+ "AS5": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "What is 7 - 2?",
+    "choices": [
+     "5",
+     "9",
+     "3"
+    ],
+    "answer": 0,
+    "hint": "Take 2 away from 7.",
+    "explain": "7 - 2 = 5."
+   },
+   {
+    "type": "open",
+    "q": "You have 6, add 3, then take away 4. What do you have?",
+    "look_for": "5",
+    "hint": "6 + 3 = 9, then 9 - 4."
+   }
+  ]
+ },
+ "AS6": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "Add by place value: 200 + 30 + 4 = ?",
+    "choices": [
+     "234",
+     "2304",
+     "60"
+    ],
+    "answer": 0,
+    "hint": "Hundreds, tens, ones together.",
+    "explain": "200 + 30 + 4 = 234."
+   },
+   {
+    "type": "open",
+    "q": "How would you break 256 into hundreds, tens, and ones?",
+    "look_for": "200 + 50 + 6",
+    "hint": "One chunk per place value."
+   }
+  ]
+ },
+ "AS7": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "30 + 40 = ?",
+    "choices": [
+     "70",
+     "34",
+     "7"
+    ],
+    "answer": 0,
+    "hint": "Think 3 tens + 4 tens.",
+    "explain": "3 tens + 4 tens = 7 tens = 70."
+   },
+   {
+    "type": "open",
+    "q": "Why is 20 + 50 like adding 2 + 5 and then adding a zero?",
+    "look_for": "because they are tens; 2 tens + 5 tens = 7 tens = 70",
+    "hint": "Count by tens."
+   }
+  ]
+ },
+ "AS8": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "Adding 7 + 5 = 12 in a column, what do you carry to the tens?",
+    "choices": [
+     "1",
+     "2",
+     "12"
+    ],
+    "answer": 0,
+    "hint": "12 is 1 ten and 2 ones.",
+    "explain": "12 = 1 ten + 2 ones, so you write 2 and carry the 1 ten."
+   },
+   {
+    "type": "open",
+    "q": "What does 'regrouping' (carrying) mean when adding?",
+    "look_for": "when the ones reach 10 or more, you trade 10 ones for 1 ten and carry it",
+    "hint": "What happens when the ones reach ten?"
+   }
+  ]
+ },
+ "AS9": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "Break apart 23 + 14: (20+10) + (3+4) = ?",
+    "choices": [
+     "37",
+     "30",
+     "7"
+    ],
+    "answer": 0,
+    "hint": "Add tens, add ones, then combine.",
+    "explain": "30 + 7 = 37."
+   },
+   {
+    "type": "open",
+    "q": "How can you break 36 + 21 into easier parts?",
+    "look_for": "30 + 20 = 50 and 6 + 1 = 7, then 57",
+    "hint": "Split into tens and ones."
+   }
+  ]
+ },
+ "AS10": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "For 125 + 134, add the hundreds: 100 + 100 = ?",
+    "choices": [
+     "200",
+     "259",
+     "2"
+    ],
+    "answer": 0,
+    "hint": "Just the hundreds.",
+    "explain": "100 + 100 = 200; then add the tens and ones."
+   },
+   {
+    "type": "open",
+    "q": "How would you break 241 + 132 into hundreds, tens, and ones?",
+    "look_for": "200+100, 40+30, 1+2, giving 373",
+    "hint": "Three places, three steps."
+   }
+  ]
+ },
+ "AS11": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "Count by tens: 10, 20, 30, __",
+    "choices": [
+     "40",
+     "31",
+     "100"
+    ],
+    "answer": 0,
+    "hint": "Add ten each time.",
+    "explain": "After 30 comes 40 when counting by tens."
+   },
+   {
+    "type": "open",
+    "q": "What is the pattern when you count by tens?",
+    "look_for": "the tens digit goes up by 1 and the ones stay 0 / you add 10 each time",
+    "hint": "Look at the digits."
+   }
+  ]
+ },
+ "AS12": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "The equal sign (=) means...",
+    "choices": [
+     "both sides are the same",
+     "the answer comes next",
+     "add"
+    ],
+    "answer": 0,
+    "hint": "It is like a balance.",
+    "explain": "= means both sides have the same value, like a balanced scale."
+   },
+   {
+    "type": "open",
+    "q": "Is 4 + 1 = 2 + 3 true? Why?",
+    "look_for": "yes, because both sides equal 5",
+    "hint": "Add each side."
+   }
+  ]
+ },
+ "AS13": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "Adding means...",
+    "choices": [
+     "putting groups together",
+     "taking away",
+     "counting backward"
+    ],
+    "answer": 0,
+    "hint": "Combine.",
+    "explain": "Addition means combining groups to find the total."
+   },
+   {
+    "type": "open",
+    "q": "You have 2 toys and get 3 more. How many now, and how did you figure it out?",
+    "look_for": "5; combined or added 2 and 3",
+    "hint": "Put them together and count."
+   }
+  ]
+ },
+ "AS14": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "Subtraction means...",
+    "choices": [
+     "taking away",
+     "putting together",
+     "doubling"
+    ],
+    "answer": 0,
+    "hint": "Remove some.",
+    "explain": "Subtraction means taking away, or finding how many are left."
+   },
+   {
+    "type": "open",
+    "q": "You have 5 cookies and eat 2. How many are left, and how do you know?",
+    "look_for": "3; you took 2 away from 5",
+    "hint": "Take away and count what is left."
+   }
+  ]
+ },
+ "AS15": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "4 + __ = 5",
+    "choices": [
+     "1",
+     "2",
+     "5"
+    ],
+    "answer": 0,
+    "hint": "How many more to reach 5?",
+    "explain": "4 + 1 = 5."
+   },
+   {
+    "type": "open",
+    "q": "Name two numbers that add up to make 5.",
+    "look_for": "any pair like 2+3, 1+4, or 0+5",
+    "hint": "Think of pairs."
+   }
+  ]
+ },
+ "AS16": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "__ + 3 = 7. What is the missing number?",
+    "choices": [
+     "4",
+     "10",
+     "3"
+    ],
+    "answer": 0,
+    "hint": "What plus 3 makes 7?",
+    "explain": "4 + 3 = 7, so the missing number is 4."
+   },
+   {
+    "type": "open",
+    "q": "How can subtraction help you find the missing number in 6 + __ = 10?",
+    "look_for": "10 - 6 = 4",
+    "hint": "Subtract what you already know."
+   }
+  ]
+ },
+ "AS17": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "If 3 + 4 = 7, then 7 - 4 = ?",
+    "choices": [
+     "3",
+     "4",
+     "11"
+    ],
+    "answer": 0,
+    "hint": "Subtraction undoes addition.",
+    "explain": "They are a fact family: 7 - 4 = 3."
+   },
+   {
+    "type": "open",
+    "q": "Why are addition and subtraction called opposites?",
+    "look_for": "one undoes the other; the same numbers form a fact family",
+    "hint": "What does subtraction undo?"
+   }
+  ]
+ },
+ "AS18": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "3 + 3 + 3 + 3 is the same as...",
+    "choices": [
+     "4 groups of 3",
+     "3 groups of 4",
+     "3 + 4"
+    ],
+    "answer": 0,
+    "hint": "Count the 3s.",
+    "explain": "There are four 3s, so it is 4 groups of 3 = 12."
+   },
+   {
+    "type": "open",
+    "q": "How is 2 + 2 + 2 a quick way to think about equal groups?",
+    "look_for": "it is 3 groups of 2, which leads to multiplication 3x2=6",
+    "hint": "How many 2s are there?"
+   }
+  ]
+ },
+ "AS19": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "Skip count by 5: 5, 10, 15, __",
+    "choices": [
+     "20",
+     "16",
+     "25"
+    ],
+    "answer": 0,
+    "hint": "Add 5.",
+    "explain": "After 15 comes 20 when counting by fives."
+   },
+   {
+    "type": "open",
+    "q": "What do all the numbers end in when you count by 5?",
+    "look_for": "0 or 5",
+    "hint": "Look at the ones digit."
+   }
+  ]
+ },
+ "AS20": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "A good first step to add 28 + 34 is to...",
+    "choices": [
+     "add the tens (20+30)",
+     "add the ones twice",
+     "guess"
+    ],
+    "answer": 0,
+    "hint": "Use place value.",
+    "explain": "Add tens (20+30=50), add ones (8+4=12), then combine to 62."
+   },
+   {
+    "type": "open",
+    "q": "Describe one strategy to add 45 + 27 in your head.",
+    "look_for": "break into tens/ones, make a ten, or count up - any valid strategy",
+    "hint": "How can you break it up?"
+   }
+  ]
+ },
+ "AS21": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "What is 10 LESS than 56?",
+    "choices": [
+     "46",
+     "55",
+     "66"
+    ],
+    "answer": 0,
+    "hint": "Subtracting 10 changes the tens digit.",
+    "explain": "56 - 10 = 46."
+   },
+   {
+    "type": "open",
+    "q": "Which digit changes when you subtract 1 from 56? Which changes when you subtract 10?",
+    "look_for": "subtract 1 changes the ones (55); subtract 10 changes the tens (46)",
+    "hint": "Ones vs tens."
+   }
+  ]
+ },
+ "AS22": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "What is 100 less than 530?",
+    "choices": [
+     "430",
+     "520",
+     "529"
+    ],
+    "answer": 0,
+    "hint": "The hundreds digit drops by 1.",
+    "explain": "530 - 100 = 430."
+   },
+   {
+    "type": "open",
+    "q": "What stays the same when you subtract 10 from 472?",
+    "look_for": "the hundreds and ones stay; the tens changes (462)",
+    "hint": "Only one digit moves."
+   }
+  ]
+ },
+ "AS23": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "To subtract 32 - 7, since 2 is smaller than 7, you...",
+    "choices": [
+     "borrow a ten",
+     "add a ten to the answer",
+     "skip it"
+    ],
+    "answer": 0,
+    "hint": "Trade 1 ten for 10 ones.",
+    "explain": "Borrow 1 ten: 32 becomes 2 tens + 12 ones; 12 - 7 = 5, so the answer is 25."
+   },
+   {
+    "type": "open",
+    "q": "What does 'borrowing' mean in subtraction?",
+    "look_for": "trading 1 ten for 10 ones so you have enough ones to subtract",
+    "hint": "Where do the extra ones come from?"
+   }
+  ]
+ },
+ "AS24": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "When you add 6 + 5 = 11, the extra ten goes to the...",
+    "choices": [
+     "tens place",
+     "hundreds place",
+     "ones place"
+    ],
+    "answer": 0,
+    "hint": "11 = 1 ten + 1 one.",
+    "explain": "11 has a ten, which moves to the tens place."
+   },
+   {
+    "type": "open",
+    "q": "Why can the ones place only hold up to 9?",
+    "look_for": "when it reaches 10 you regroup into a ten",
+    "hint": "What happens at ten?"
+   }
+  ]
+ },
+ "AS25": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "70 - 30 = ?",
+    "choices": [
+     "40",
+     "100",
+     "37"
+    ],
+    "answer": 0,
+    "hint": "7 tens minus 3 tens.",
+    "explain": "7 tens - 3 tens = 4 tens = 40."
+   },
+   {
+    "type": "open",
+    "q": "How is subtracting tens like subtracting ones, but bigger?",
+    "look_for": "you subtract the tens digits; 7-3 tens instead of 7-3 ones",
+    "hint": "Count by tens."
+   }
+  ]
+ },
+ "AS26": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "40 + 20 = ?",
+    "choices": [
+     "60",
+     "42",
+     "6"
+    ],
+    "answer": 0,
+    "hint": "4 tens + 2 tens.",
+    "explain": "4 tens + 2 tens = 6 tens = 60."
+   },
+   {
+    "type": "open",
+    "q": "When adding 50 + 30, why does only the tens digit matter?",
+    "look_for": "the ones are zero; you add the tens 5+3 = 8 tens = 80",
+    "hint": "What are the ones?"
+   }
+  ]
+ },
+ "AS27": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "Subtract the ones: 48 - 3 = ?",
+    "choices": [
+     "45",
+     "18",
+     "51"
+    ],
+    "answer": 0,
+    "hint": "Only the ones change.",
+    "explain": "8 ones - 3 ones = 5 ones, so 45."
+   },
+   {
+    "type": "open",
+    "q": "When you do 48 - 3, why does the 4 (tens) stay the same?",
+    "look_for": "you only take away ones, not tens",
+    "hint": "What place are you subtracting from?"
+   }
+  ]
+ },
+ "MD1": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "To compare two pencils' lengths fairly, you should...",
+    "choices": [
+     "line up their ends",
+     "look quickly",
+     "weigh them"
+    ],
+    "answer": 0,
+    "hint": "Start from the same line.",
+    "explain": "Line up one end of each so you measure from the same start."
+   },
+   {
+    "type": "open",
+    "q": "Why must both objects start at the same line when comparing length?",
+    "look_for": "so the comparison is fair and accurate",
+    "hint": "What if one starts ahead?"
+   }
+  ]
+ },
+ "MD2": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "How much is a dime worth?",
+    "choices": [
+     "10 cents",
+     "1 cent",
+     "5 cents"
+    ],
+    "answer": 0,
+    "hint": "Dime = ten.",
+    "explain": "A dime is worth 10 cents."
+   },
+   {
+    "type": "open",
+    "q": "If you have 2 dimes and 1 nickel, how much money is that?",
+    "look_for": "25 cents (20 + 5)",
+    "hint": "Dime = 10, nickel = 5."
+   }
+  ]
+ },
+ "MD3": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "Estimating a length means you...",
+    "choices": [
+     "make a smart guess",
+     "measure exactly",
+     "count coins"
+    ],
+    "answer": 0,
+    "hint": "Close, not exact.",
+    "explain": "Estimating is making a reasonable guess that is close to the real measurement."
+   },
+   {
+    "type": "open",
+    "q": "About how many of your hand-widths long is your desk? Why is estimating useful?",
+    "look_for": "any reasonable guess; useful for quick ideas without exact tools",
+    "hint": "A close guess, not exact."
+   }
+  ]
+ },
+ "MD4": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "On a line plot, each X above a number shows...",
+    "choices": [
+     "one of that thing",
+     "a color",
+     "the time"
+    ],
+    "answer": 0,
+    "hint": "Each X is one.",
+    "explain": "Each X stands for one item; taller stacks mean more."
+   },
+   {
+    "type": "open",
+    "q": "On a line plot, how do you know which value happened the MOST?",
+    "look_for": "the tallest stack of X's",
+    "hint": "Look for the most marks."
+   }
+  ]
+ },
+ "MD5": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "Measuring a book in small paperclips and in big crayons, you need MORE...",
+    "choices": [
+     "paperclips",
+     "crayons",
+     "neither"
+    ],
+    "answer": 0,
+    "hint": "Smaller units, more of them.",
+    "explain": "Smaller units (paperclips) take more to cover the same length."
+   },
+   {
+    "type": "open",
+    "q": "Why do smaller units give a bigger number when measuring the same object?",
+    "look_for": "more small units fit, so the count is larger",
+    "hint": "How many small vs big fit?"
+   }
+  ]
+ },
+ "MD6": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "In a picture graph, each picture usually stands for...",
+    "choices": [
+     "a counted amount of something",
+     "nothing",
+     "a color"
+    ],
+    "answer": 0,
+    "hint": "Count the pictures.",
+    "explain": "Each picture represents a counted amount; count pictures to read the graph."
+   },
+   {
+    "type": "open",
+    "q": "If a picture graph shows 4 apple pictures in a row, what does that tell you?",
+    "look_for": "4 of that thing were counted (or 4 times the key)",
+    "hint": "Count the symbols."
+   }
+  ]
+ },
+ "MD7": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "On a clock, the SHORT hand points to the...",
+    "choices": [
+     "hour",
+     "minutes",
+     "seconds"
+    ],
+    "answer": 0,
+    "hint": "Short = hour.",
+    "explain": "The short hand shows the hour; the long hand shows minutes."
+   },
+   {
+    "type": "open",
+    "q": "If the short hand is on 3 and the long hand is on 12, what time is it?",
+    "look_for": "3 o'clock",
+    "hint": "Long hand on 12 means o'clock."
+   }
+  ]
+ },
+ "GE1": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "A shape split into 'equal parts' means the parts are...",
+    "choices": [
+     "the same size",
+     "different sizes",
+     "colored"
+    ],
+    "answer": 0,
+    "hint": "Equal = same.",
+    "explain": "Equal parts are the same size as each other."
+   },
+   {
+    "type": "open",
+    "q": "Why isn't a pizza fair if the slices are NOT equal parts?",
+    "look_for": "some people get more or less; the parts are not the same size",
+    "hint": "Same size = fair shares."
+   }
+  ]
+ },
+ "GE2": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "If you cut a sandwich into 2 equal parts, each part is a...",
+    "choices": [
+     "half",
+     "fourth",
+     "whole"
+    ],
+    "answer": 0,
+    "hint": "Two equal parts.",
+    "explain": "2 equal parts means each is one half."
+   },
+   {
+    "type": "open",
+    "q": "How many fourths make a whole?",
+    "look_for": "4",
+    "hint": "Fourths means 4 equal parts."
+   }
+  ]
+ },
+ "GE3": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "A quadrilateral is a shape with how many sides?",
+    "choices": [
+     "4",
+     "3",
+     "5"
+    ],
+    "answer": 0,
+    "hint": "Quad = four.",
+    "explain": "A quadrilateral has 4 sides, like squares and rectangles."
+   },
+   {
+    "type": "open",
+    "q": "Name one quadrilateral and one shape that is NOT a quadrilateral.",
+    "look_for": "quadrilateral: square/rectangle/rhombus; not: triangle/circle",
+    "hint": "Count the sides - it must be 4."
+   }
+  ]
+ },
+ "GE4": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "How many sides does a triangle have?",
+    "choices": [
+     "3",
+     "4",
+     "0"
+    ],
+    "answer": 0,
+    "hint": "Tri = three.",
+    "explain": "A triangle has 3 sides and 3 corners."
+   },
+   {
+    "type": "open",
+    "q": "What makes a circle different from a square?",
+    "look_for": "a circle is round with no sides or corners; a square has 4 straight sides and corners",
+    "hint": "Think about sides and corners."
+   }
+  ]
+ },
+ "MU1": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "If 3 x 4 = 12, then 12 divided by 4 = ?",
+    "choices": [
+     "3",
+     "4",
+     "12"
+    ],
+    "answer": 0,
+    "hint": "Division undoes multiplication.",
+    "explain": "They are a fact family: 12 divided by 4 = 3."
+   },
+   {
+    "type": "open",
+    "q": "How are multiplication and division opposites?",
+    "look_for": "division undoes multiplication; the same numbers form a fact family",
+    "hint": "What undoes multiplication?"
+   }
+  ]
+ },
+ "MU2": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "3 x 4 means...",
+    "choices": [
+     "3 groups of 4",
+     "3 plus 4",
+     "4 minus 3"
+    ],
+    "answer": 0,
+    "hint": "Groups.",
+    "explain": "3 x 4 means 3 groups of 4, which is 12."
+   },
+   {
+    "type": "open",
+    "q": "How is multiplication a fast way to add the same number many times?",
+    "look_for": "it adds equal groups; for example 3x4 = 4+4+4",
+    "hint": "Equal groups, repeated."
+   }
+  ]
+ },
+ "MU3": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "5 x 2 is the same as...",
+    "choices": [
+     "2 + 2 + 2 + 2 + 2",
+     "5 + 2",
+     "5 + 5 + 5"
+    ],
+    "answer": 0,
+    "hint": "Five 2s.",
+    "explain": "5 x 2 = five groups of 2 = 2+2+2+2+2 = 10."
+   },
+   {
+    "type": "open",
+    "q": "Does 3 x 4 give the same answer as 4 x 3? What does that tell you?",
+    "look_for": "yes, both are 12; the order does not change the product",
+    "hint": "Try both."
+   }
+  ]
+ },
+ "MU4": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "4 baskets with 2 apples each is...",
+    "choices": [
+     "4 x 2 = 8",
+     "4 + 2 = 6",
+     "2 x 2 = 4"
+    ],
+    "answer": 0,
+    "hint": "Groups times items.",
+    "explain": "4 groups of 2 = 4 x 2 = 8 apples."
+   },
+   {
+    "type": "open",
+    "q": "Describe 3 groups of 5. How many in total?",
+    "look_for": "15; three groups each with five",
+    "hint": "3 x 5."
+   }
+  ]
+ },
+ "MU5": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "An easy way to find 6 x 5 is to...",
+    "choices": [
+     "skip count by 5 six times",
+     "add 6 + 5",
+     "subtract"
+    ],
+    "answer": 0,
+    "hint": "Skip count.",
+    "explain": "Skip count by 5: 5,10,15,20,25,30, so 6 x 5 = 30."
+   },
+   {
+    "type": "open",
+    "q": "What is one strategy to figure out 4 x 3 if you don't remember it?",
+    "look_for": "skip counting, equal groups, repeated addition, or drawing",
+    "hint": "How could you build it up?"
+   }
+  ]
+ },
+ "MU6": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "3 x 20 = ?",
+    "choices": [
+     "60",
+     "23",
+     "6"
+    ],
+    "answer": 0,
+    "hint": "3 x 2, then add a zero.",
+    "explain": "3 x 2 = 6, times ten = 60."
+   },
+   {
+    "type": "open",
+    "q": "Why is 5 x 30 just 5 x 3 with a zero added?",
+    "look_for": "30 is 3 tens; 5x3 = 15 tens = 150",
+    "hint": "Think in tens."
+   }
+  ]
+ },
+ "MU7": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "In the multiplication table, the numbers in the 10s row all end in...",
+    "choices": [
+     "0",
+     "5",
+     "1"
+    ],
+    "answer": 0,
+    "hint": "10, 20, 30...",
+    "explain": "Multiples of 10 all end in 0."
+   },
+   {
+    "type": "open",
+    "q": "What pattern do you notice in the 5s: 5, 10, 15, 20...?",
+    "look_for": "they end in 5 or 0 and go up by 5",
+    "hint": "Look at the ones digit."
+   }
+  ]
+ },
+ "MU8": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "12 divided by 3 means...",
+    "choices": [
+     "split 12 into 3 equal groups",
+     "12 plus 3",
+     "3 minus 12"
+    ],
+    "answer": 0,
+    "hint": "Sharing equally.",
+    "explain": "12 divided by 3 = sharing 12 into 3 equal groups of 4."
+   },
+   {
+    "type": "open",
+    "q": "If 6 cookies are shared equally among 2 kids, how many each? What operation is that?",
+    "look_for": "3 each; division 6 divided by 2",
+    "hint": "Share equally."
+   }
+  ]
+ },
+ "FR1": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "Which is bigger, 1/2 or 1/4 of the same pizza?",
+    "choices": [
+     "1/2",
+     "1/4",
+     "They are equal"
+    ],
+    "answer": 0,
+    "hint": "Fewer pieces = bigger pieces.",
+    "explain": "Halves are bigger than fourths, so 1/2 is greater than 1/4."
+   },
+   {
+    "type": "open",
+    "q": "Why is 1/3 bigger than 1/6 even though 6 is bigger than 3?",
+    "look_for": "more pieces means smaller pieces; thirds are bigger than sixths",
+    "hint": "More cuts = smaller slices."
+   }
+  ]
+ },
+ "FR2": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "Which fraction equals one whole?",
+    "choices": [
+     "4/4",
+     "1/4",
+     "4/1"
+    ],
+    "answer": 0,
+    "hint": "Top equals bottom.",
+    "explain": "When the numerator equals the denominator (4/4), it is one whole."
+   },
+   {
+    "type": "open",
+    "q": "Why does 3/3 equal 1 whole?",
+    "look_for": "all 3 of the 3 equal parts together make the whole",
+    "hint": "All the pieces together."
+   }
+  ]
+ },
+ "FR3": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "Which fraction is equal to 1/2?",
+    "choices": [
+     "2/4",
+     "1/3",
+     "3/4"
+    ],
+    "answer": 0,
+    "hint": "Same amount, more pieces.",
+    "explain": "2/4 covers the same amount as 1/2, so they are equivalent."
+   },
+   {
+    "type": "open",
+    "q": "How can 1/2 and 2/4 be the same amount?",
+    "look_for": "the same size piece, just cut into more equal parts",
+    "hint": "Picture the same bar."
+   }
+  ]
+ },
+ "FR4": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "A pizza is cut into 4 equal slices and you take 1. What fraction did you take?",
+    "choices": [
+     "1/4",
+     "4/1",
+     "1/2"
+    ],
+    "answer": 0,
+    "hint": "1 out of 4.",
+    "explain": "1 part out of 4 equal parts = 1/4."
+   },
+   {
+    "type": "open",
+    "q": "In the fraction 3/4, what does the 4 tell you and what does the 3 tell you?",
+    "look_for": "4 is the total equal parts; 3 is how many you have",
+    "hint": "Bottom number vs top number."
+   }
+  ]
+ },
+ "FR5": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "From 0 to 1 split into 4 equal parts, the first mark is at...",
+    "choices": [
+     "1/4",
+     "1/2",
+     "4"
+    ],
+    "answer": 0,
+    "hint": "First of four parts.",
+    "explain": "The first mark is 1/4 of the way from 0 to 1."
+   },
+   {
+    "type": "open",
+    "q": "How do you place 1/2 on a number line from 0 to 1?",
+    "look_for": "halfway between 0 and 1",
+    "hint": "Split into 2 equal parts."
+   }
+  ]
+ },
+ "FR6": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "A shape has 4 equal parts and 3 are shaded. What fraction is shaded?",
+    "choices": [
+     "3/4",
+     "4/3",
+     "1/4"
+    ],
+    "answer": 0,
+    "hint": "Shaded over total.",
+    "explain": "3 shaded out of 4 equal parts = 3/4."
+   },
+   {
+    "type": "open",
+    "q": "If 2 of 6 equal parts are colored, what fraction is that?",
+    "look_for": "2/6",
+    "hint": "Colored over total."
+   }
+  ]
+ },
+ "FR7": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "In 2/5, which number is the denominator?",
+    "choices": [
+     "5",
+     "2",
+     "both"
+    ],
+    "answer": 0,
+    "hint": "The bottom number.",
+    "explain": "The denominator is the bottom number (5) - the total equal parts."
+   },
+   {
+    "type": "open",
+    "q": "What's the difference between the numerator and the denominator?",
+    "look_for": "numerator (top) is the parts you have; denominator (bottom) is the total equal parts",
+    "hint": "Top vs bottom job."
+   }
+  ]
+ },
+ "FR8": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "The whole number 3 can be written as the fraction...",
+    "choices": [
+     "3/1",
+     "1/3",
+     "3/3"
+    ],
+    "answer": 0,
+    "hint": "Over 1.",
+    "explain": "3 = 3/1, meaning 3 whole things."
+   },
+   {
+    "type": "open",
+    "q": "Why does 5/1 equal 5?",
+    "look_for": "each part is a whole and there are 5 of them = 5 wholes",
+    "hint": "A denominator of 1 means whole pieces."
+   }
+  ]
+ },
+ "AP1": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "Area is measured by counting...",
+    "choices": [
+     "unit squares that cover the shape",
+     "the sides",
+     "the corners"
+    ],
+    "answer": 0,
+    "hint": "Cover the inside.",
+    "explain": "Area is the number of unit squares that fill the inside of a shape."
+   },
+   {
+    "type": "open",
+    "q": "How would you find the area of a rectangle using unit squares?",
+    "look_for": "count how many squares cover it (or rows times columns)",
+    "hint": "Cover it and count."
+   }
+  ]
+ },
+ "AP2": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "Perimeter is the distance...",
+    "choices": [
+     "all the way around a shape",
+     "across the middle",
+     "inside a shape"
+    ],
+    "answer": 0,
+    "hint": "Around the edge.",
+    "explain": "Perimeter is the total distance around the outside of a shape."
+   },
+   {
+    "type": "open",
+    "q": "How do you find the perimeter of a square with sides of 3?",
+    "look_for": "add all 4 sides: 3+3+3+3 = 12",
+    "hint": "Add every side."
+   }
+  ]
+ },
+ "MA1": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "What is 24 x 13?",
+    "choices": [
+     "312",
+     "284",
+     "372"
+    ],
+    "answer": 0,
+    "hint": "Multiply 24x10, then 24x3, then add.",
+    "explain": "24x10=240 and 24x3=72; 240+72=312."
+   },
+   {
+    "type": "open",
+    "q": "How does breaking 24 into 20 and 4 help you multiply 24 x 13?",
+    "look_for": "multiply each part (20 and 4) by 13 and add the partial products",
+    "hint": "Multiply the tens and the ones separately."
+   }
+  ]
+ },
+ "MA2": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "What is 67 divided by 5?",
+    "choices": [
+     "13 remainder 2",
+     "12 remainder 7",
+     "13 remainder 5"
+    ],
+    "answer": 0,
+    "hint": "How many 5s fit in 67, and what is left over?",
+    "explain": "5x13=65 and 67-65=2, so 67 divided by 5 is 13 remainder 2."
+   },
+   {
+    "type": "open",
+    "q": "What do the steps of long division help you do?",
+    "look_for": "divide one place value at a time: divide, multiply, subtract, bring down, repeat",
+    "hint": "Work from the biggest place value to the smallest."
+   }
+  ]
+ },
+ "MA3": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "Maria has 6 stickers. Lee has 4 times as many. How many does Lee have?",
+    "choices": [
+     "24",
+     "10",
+     "2"
+    ],
+    "answer": 0,
+    "hint": "'Times as many' means multiply.",
+    "explain": "4 times as many as 6 is 6 x 4 = 24."
+   },
+   {
+    "type": "open",
+    "q": "How is '4 times as many' different from '4 more than'?",
+    "look_for": "times as many means multiply; more than means add",
+    "hint": "One uses multiplication, the other addition."
+   }
+  ]
+ },
+ "FM1": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "Which number is a factor of 12?",
+    "choices": [
+     "4",
+     "5",
+     "7"
+    ],
+    "answer": 0,
+    "hint": "A factor divides evenly with no remainder.",
+    "explain": "12 divided by 4 is 3 with nothing left over, so 4 is a factor of 12."
+   },
+   {
+    "type": "open",
+    "q": "What is the difference between a factor and a multiple of 6?",
+    "look_for": "factors divide 6 evenly (1,2,3,6); multiples are 6,12,18 from multiplying 6",
+    "hint": "One divides it; the other is what you count by."
+   }
+  ]
+ },
+ "FM2": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "Which number is prime?",
+    "choices": [
+     "7",
+     "9",
+     "15"
+    ],
+    "answer": 0,
+    "hint": "A prime has exactly two factors: 1 and itself.",
+    "explain": "7's only factors are 1 and 7, so it is prime. 9 and 15 have more factors."
+   },
+   {
+    "type": "open",
+    "q": "Why is 9 a composite number?",
+    "look_for": "it has more than two factors; 3 divides it (1, 3, 9)",
+    "hint": "List its factors and count them."
+   }
+  ]
+ },
+ "FR9": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "Which fraction is equivalent to 1/2?",
+    "choices": [
+     "3/6",
+     "2/3",
+     "1/4"
+    ],
+    "answer": 0,
+    "hint": "Multiply top and bottom by the same number.",
+    "explain": "1/2 with top and bottom times 3 is 3/6, the same amount."
+   },
+   {
+    "type": "open",
+    "q": "How can you make a fraction equivalent to 2/3?",
+    "look_for": "multiply or divide numerator and denominator by the same number, e.g. 4/6",
+    "hint": "Do the same thing to the top and the bottom."
+   }
+  ]
+ },
+ "FR10": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "Which is greater, 2/3 or 2/5?",
+    "choices": [
+     "2/3",
+     "2/5",
+     "they are equal"
+    ],
+    "answer": 0,
+    "hint": "Same number of parts, but which parts are bigger?",
+    "explain": "Thirds are bigger than fifths, so 2/3 is greater than 2/5."
+   },
+   {
+    "type": "open",
+    "q": "How can a common denominator help you compare 3/4 and 2/3?",
+    "look_for": "rewrite both with the same denominator (9/12 and 8/12), then compare numerators",
+    "hint": "Make the bottoms match, then look at the tops."
+   }
+  ]
+ },
+ "FR11": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "What is 2/5 + 1/5?",
+    "choices": [
+     "3/5",
+     "3/10",
+     "3/25"
+    ],
+    "answer": 0,
+    "hint": "Add the numerators, keep the denominator.",
+    "explain": "Same denominator: 2+1=3, so 2/5 + 1/5 = 3/5."
+   },
+   {
+    "type": "open",
+    "q": "Why do you keep the denominator the same when adding 2/5 and 1/5?",
+    "look_for": "the pieces are the same size (fifths), so you just count how many",
+    "hint": "Think about adding pieces that are all the same size."
+   }
+  ]
+ },
+ "FR12": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "What is 3 x 2/5?",
+    "choices": [
+     "6/5",
+     "6/15",
+     "5/6"
+    ],
+    "answer": 0,
+    "hint": "It is 2/5 added 3 times.",
+    "explain": "2/5+2/5+2/5 = 6/5. Multiply 3 by the numerator: 3x2=6, keep /5."
+   },
+   {
+    "type": "open",
+    "q": "How is 4 x 1/3 like repeated addition?",
+    "look_for": "it means 1/3 + 1/3 + 1/3 + 1/3 = 4/3",
+    "hint": "Add the same fraction several times."
+   }
+  ]
+ },
+ "DE1": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "What does the 3 in 0.3 mean?",
+    "choices": [
+     "3 tenths",
+     "3 hundredths",
+     "3 wholes"
+    ],
+    "answer": 0,
+    "hint": "The first place after the point is tenths.",
+    "explain": "0.3 means 3 tenths, which is 3/10."
+   },
+   {
+    "type": "open",
+    "q": "How are 0.3 and 0.30 related?",
+    "look_for": "they are equal; 3 tenths equals 30 hundredths",
+    "hint": "Think about tenths and hundredths of the same whole."
+   }
+  ]
+ },
+ "DE2": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "Which is greater, 0.7 or 0.65?",
+    "choices": [
+     "0.7",
+     "0.65",
+     "they are equal"
+    ],
+    "answer": 0,
+    "hint": "Compare the tenths place first.",
+    "explain": "0.7 is 7 tenths; 0.65 is 6 tenths and 5 hundredths. 7 tenths is more than 6 tenths."
+   },
+   {
+    "type": "open",
+    "q": "Why should you compare the tenths place before the hundredths place?",
+    "look_for": "tenths are bigger than hundredths, so they decide the value first",
+    "hint": "Start from the largest place value."
+   }
+  ]
+ },
+ "GE5": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "How many degrees is a right angle?",
+    "choices": [
+     "90 degrees",
+     "180 degrees",
+     "45 degrees"
+    ],
+    "answer": 0,
+    "hint": "It is the square-corner angle.",
+    "explain": "A right angle (a square corner) measures 90 degrees."
+   },
+   {
+    "type": "open",
+    "q": "How do you line up a protractor to measure an angle?",
+    "look_for": "put the center on the vertex and the zero line along one ray, then read where the other ray points",
+    "hint": "Think about the vertex and the baseline of the protractor."
+   }
+  ]
+ },
+ "DE3": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "In the number 0.46, what is the value of the 6?",
+    "choices": [
+     "6 hundredths",
+     "6 tenths",
+     "6 ones"
+    ],
+    "answer": 0,
+    "hint": "The second place after the point is hundredths.",
+    "explain": "0.46 is 4 tenths and 6 hundredths, so the 6 means 6 hundredths."
+   },
+   {
+    "type": "open",
+    "q": "How does the value of a digit change as you move one place to the right of the decimal point?",
+    "look_for": "it becomes ten times smaller (tenths, then hundredths, then thousandths)",
+    "hint": "Each place is one tenth of the place before it."
+   }
+  ]
+ },
+ "DE4": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "What is 0.3 + 0.45?",
+    "choices": [
+     "0.75",
+     "0.48",
+     "0.075"
+    ],
+    "answer": 0,
+    "hint": "Line up the decimal points first.",
+    "explain": "0.30 + 0.45 = 0.75 when the place values line up."
+   },
+   {
+    "type": "open",
+    "q": "Why is it important to line up the decimal points when adding decimals?",
+    "look_for": "so you add digits with the same place value (tenths to tenths, hundredths to hundredths)",
+    "hint": "Think about matching place values."
+   }
+  ]
+ },
+ "DE5": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "What is 0.3 x 0.2?",
+    "choices": [
+     "0.06",
+     "0.6",
+     "0.5"
+    ],
+    "answer": 0,
+    "hint": "3x2=6, then count the decimal places.",
+    "explain": "3x2=6, and there are two decimal places in total, so the answer is 0.06."
+   },
+   {
+    "type": "open",
+    "q": "How do you know where to put the decimal point in the answer when multiplying decimals?",
+    "look_for": "count the total digits after the decimal point in both numbers and use that many in the answer",
+    "hint": "Count the decimal places in both factors."
+   }
+  ]
+ },
+ "DE6": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "What is 4.8 / 4?",
+    "choices": [
+     "1.2",
+     "12",
+     "0.12"
+    ],
+    "answer": 0,
+    "hint": "Divide 48 by 4, then place the decimal point.",
+    "explain": "48 / 4 = 12, and keeping the decimal place gives 1.2."
+   },
+   {
+    "type": "open",
+    "q": "Where does the decimal point go in the answer when you divide a decimal by a whole number?",
+    "look_for": "directly above the decimal point in the number being divided",
+    "hint": "Line it up with the decimal point in the dividend."
+   }
+  ]
+ },
+ "FR13": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "What is 1/2 + 1/3?",
+    "choices": [
+     "5/6",
+     "2/5",
+     "1/6"
+    ],
+    "answer": 0,
+    "hint": "Find a common denominator like 6.",
+    "explain": "1/2 = 3/6 and 1/3 = 2/6, so the sum is 5/6."
+   },
+   {
+    "type": "open",
+    "q": "Why do fractions need a common denominator before you add them?",
+    "look_for": "the pieces must be the same size before you can combine them",
+    "hint": "Think about adding pieces of different sizes."
+   }
+  ]
+ },
+ "FR14": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "What is 2/3 x 4/5?",
+    "choices": [
+     "8/15",
+     "6/8",
+     "8/8"
+    ],
+    "answer": 0,
+    "hint": "Multiply the tops, then multiply the bottoms.",
+    "explain": "2x4=8 and 3x5=15, so 2/3 x 4/5 = 8/15."
+   },
+   {
+    "type": "open",
+    "q": "Why is 1/2 x 1/2 smaller than 1/2?",
+    "look_for": "taking a fraction of a fraction gives a smaller part (1/4)",
+    "hint": "Think about half of a half."
+   }
+  ]
+ },
+ "FR15": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "What is 1/2 / 3?",
+    "choices": [
+     "1/6",
+     "3/2",
+     "1/5"
+    ],
+    "answer": 0,
+    "hint": "Split one half into 3 equal pieces.",
+    "explain": "Splitting 1/2 into 3 equal parts gives 1/6 for each part."
+   },
+   {
+    "type": "open",
+    "q": "Why does dividing 1/4 by 2 give a smaller number?",
+    "look_for": "you split the fourth into 2 parts, each an eighth (1/8)",
+    "hint": "Think about splitting a small piece into even more pieces."
+   }
+  ]
+ },
+ "OP1": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "What is 4.2 x 100?",
+    "choices": [
+     "420",
+     "42",
+     "4200"
+    ],
+    "answer": 0,
+    "hint": "Multiplying by 100 moves the decimal point two places right.",
+    "explain": "4.2 x 100 = 420."
+   },
+   {
+    "type": "open",
+    "q": "What happens to the digits when you multiply a number by 1000?",
+    "look_for": "each digit moves three places to a larger value; the decimal point moves three places right",
+    "hint": "Think about the decimal point moving."
+   }
+  ]
+ },
+ "OP2": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "What is 2 + 3 x 4?",
+    "choices": [
+     "14",
+     "20",
+     "24"
+    ],
+    "answer": 0,
+    "hint": "Do multiplication before addition.",
+    "explain": "3 x 4 = 12 first, then 2 + 12 = 14."
+   },
+   {
+    "type": "open",
+    "q": "Why do we need an agreed order of operations?",
+    "look_for": "so everyone gets the same answer from the same expression",
+    "hint": "Think about what happens if people solve it in different orders."
+   }
+  ]
+ },
+ "VO1": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "What is the volume of a box that is 2 by 3 by 4 units?",
+    "choices": [
+     "24 cubic units",
+     "9 cubic units",
+     "14 cubic units"
+    ],
+    "answer": 0,
+    "hint": "Multiply length x width x height.",
+    "explain": "2 x 3 x 4 = 24 unit cubes."
+   },
+   {
+    "type": "open",
+    "q": "How is volume different from area?",
+    "look_for": "volume measures 3D space in cubic units; area measures a flat surface in square units",
+    "hint": "One is flat, the other is solid."
+   }
+  ]
+ },
+ "VO2": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "How many centimeters are in 3 meters?",
+    "choices": [
+     "300",
+     "30",
+     "3000"
+    ],
+    "answer": 0,
+    "hint": "1 meter = 100 centimeters.",
+    "explain": "3 x 100 = 300 centimeters."
+   },
+   {
+    "type": "open",
+    "q": "When you change from meters to centimeters, why does the number get bigger?",
+    "look_for": "centimeters are smaller units, so it takes more of them to measure the same length",
+    "hint": "Smaller units means more of them."
+   }
+  ]
+ },
+ "CP1": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "Where do you start to plot the point (3, 2)?",
+    "choices": [
+     "At the origin (0,0)",
+     "At the top of the grid",
+     "At the number 5"
+    ],
+    "answer": 0,
+    "hint": "Every point is measured from the origin.",
+    "explain": "You start at the origin, move 3 to the right, then 2 up."
+   },
+   {
+    "type": "open",
+    "q": "In the ordered pair (3, 2), what does each number tell you?",
+    "look_for": "the first number is how far across (x), the second is how far up (y)",
+    "hint": "One is horizontal, one is vertical."
+   }
+  ]
+ },
+ "RT1": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "There are 2 red balls for every 3 blue balls. What is the ratio of red to blue?",
+    "choices": [
+     "2 to 3",
+     "3 to 2",
+     "5 to 1"
+    ],
+    "answer": 0,
+    "hint": "Red comes first, blue second.",
+    "explain": "Red to blue is 2 to 3, written 2:3."
+   },
+   {
+    "type": "open",
+    "q": "If the ratio of cats to dogs is 1 to 2, what does that tell you?",
+    "look_for": "for every 1 cat there are 2 dogs (twice as many dogs)",
+    "hint": "Think about how many dogs there are for each cat."
+   }
+  ]
+ },
+ "RT2": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "A car goes 120 miles in 2 hours. What is the unit rate?",
+    "choices": [
+     "60 miles per hour",
+     "120 miles per hour",
+     "2 miles per hour"
+    ],
+    "answer": 0,
+    "hint": "Divide miles by hours.",
+    "explain": "120 / 2 = 60 miles per hour."
+   },
+   {
+    "type": "open",
+    "q": "Why is a unit rate useful when comparing prices at a store?",
+    "look_for": "it gives the cost for one item or unit, so you can compare fairly",
+    "hint": "Think about the price for one item."
+   }
+  ]
+ },
+ "PC1": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "What does 25% mean?",
+    "choices": [
+     "25 out of 100",
+     "25 out of 10",
+     "25 wholes"
+    ],
+    "answer": 0,
+    "hint": "Percent means per hundred.",
+    "explain": "25% = 25 per 100 = 25/100 = 0.25."
+   },
+   {
+    "type": "open",
+    "q": "How are 50% and the fraction 1/2 related?",
+    "look_for": "they are equal; 50 out of 100 is the same as one half",
+    "hint": "Think of 50 out of 100."
+   }
+  ]
+ },
+ "FR16": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "How many 1/4 pieces are in 1 whole?",
+    "choices": [
+     "4",
+     "1",
+     "1/4"
+    ],
+    "answer": 0,
+    "hint": "How many quarters make a whole?",
+    "explain": "Four 1/4 pieces make 1, so 1 divided by 1/4 is 4."
+   },
+   {
+    "type": "open",
+    "q": "Why does dividing by 1/2 give a bigger number?",
+    "look_for": "many halves fit into a number, so the result is larger; dividing by a number less than 1 increases it",
+    "hint": "Think about how many halves fit in a whole."
+   }
+  ]
+ },
+ "IN1": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "Which number is the smallest?",
+    "choices": [
+     "-5",
+     "-1",
+     "2"
+    ],
+    "answer": 0,
+    "hint": "Numbers further left on the number line are smaller.",
+    "explain": "-5 is furthest to the left, so it is the smallest."
+   },
+   {
+    "type": "open",
+    "q": "Give a real-life situation where a negative number makes sense.",
+    "look_for": "temperature below zero, money owed or debt, below sea level, etc.",
+    "hint": "Think about going below zero."
+   }
+  ]
+ },
+ "IN2": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "What is the absolute value of -7?",
+    "choices": [
+     "7",
+     "-7",
+     "0"
+    ],
+    "answer": 0,
+    "hint": "It is the distance from zero.",
+    "explain": "-7 is 7 units from zero, so its absolute value is 7."
+   },
+   {
+    "type": "open",
+    "q": "Why can absolute value never be negative?",
+    "look_for": "it measures distance, and distance is always zero or positive",
+    "hint": "Think about distance from zero."
+   }
+  ]
+ },
+ "CP2": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "The point (-3, 2) is located where?",
+    "choices": [
+     "Left and up from the origin",
+     "Right and down",
+     "At the origin"
+    ],
+    "answer": 0,
+    "hint": "Negative x is left; positive y is up.",
+    "explain": "x = -3 means 3 to the left, y = 2 means 2 up."
+   },
+   {
+    "type": "open",
+    "q": "How do the signs of the coordinates tell you which quadrant a point is in?",
+    "look_for": "the sign of x gives left or right, the sign of y gives up or down",
+    "hint": "Think about positive versus negative for each axis."
+   }
+  ]
+ },
+ "EE1": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "In the expression n + 4, what is n?",
+    "choices": [
+     "A variable standing for a number",
+     "Always 4",
+     "The final answer"
+    ],
+    "answer": 0,
+    "hint": "Letters stand for unknown numbers.",
+    "explain": "n is a variable, a placeholder for some number."
+   },
+   {
+    "type": "open",
+    "q": "Why are variables useful in math?",
+    "look_for": "they let us write rules or expressions that work for any number",
+    "hint": "Think about describing a pattern without knowing the exact number."
+   }
+  ]
+ },
+ "EE2": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "If x = 3, what is 2x + 1?",
+    "choices": [
+     "7",
+     "9",
+     "23"
+    ],
+    "answer": 0,
+    "hint": "Replace x with 3, then compute.",
+    "explain": "2(3) + 1 = 6 + 1 = 7."
+   },
+   {
+    "type": "open",
+    "q": "What does it mean to evaluate an expression?",
+    "look_for": "substitute the value for the variable and calculate the result",
+    "hint": "Think about plugging in a number."
+   }
+  ]
+ },
+ "EE3": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "Solve x + 4 = 10.",
+    "choices": [
+     "x = 6",
+     "x = 14",
+     "x = 4"
+    ],
+    "answer": 0,
+    "hint": "Subtract 4 from both sides.",
+    "explain": "10 - 4 = 6, so x = 6."
+   },
+   {
+    "type": "open",
+    "q": "Why do you do the same thing to both sides of an equation?",
+    "look_for": "to keep the equation balanced and still equal",
+    "hint": "Think about keeping both sides equal."
+   }
+  ]
+ },
+ "GE6": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "What is the area of a triangle with base 6 and height 4?",
+    "choices": [
+     "12",
+     "24",
+     "10"
+    ],
+    "answer": 0,
+    "hint": "Area = 1/2 x base x height.",
+    "explain": "(1/2) x 6 x 4 = 12."
+   },
+   {
+    "type": "open",
+    "q": "Why is a triangle's area half of base times height?",
+    "look_for": "a triangle is half of a rectangle with the same base and height",
+    "hint": "Think about a rectangle split along its diagonal."
+   }
+  ]
+ },
+ "ST1": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "What is the mean of 2, 4, and 6?",
+    "choices": [
+     "4",
+     "6",
+     "2"
+    ],
+    "answer": 0,
+    "hint": "Add them and divide by 3.",
+    "explain": "(2 + 4 + 6) / 3 = 12 / 3 = 4."
+   },
+   {
+    "type": "open",
+    "q": "What is the difference between the mean and the median?",
+    "look_for": "the mean is the average of all values; the median is the middle value when ordered",
+    "hint": "One adds and divides, the other finds the middle."
+   }
+  ]
+ },
+ "PR1": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "If 1 notebook costs 3 dollars, how much do 4 notebooks cost in a proportional relationship?",
+    "choices": [
+     "12 dollars",
+     "7 dollars",
+     "3 dollars"
+    ],
+    "answer": 0,
+    "hint": "Each notebook is 3 dollars.",
+    "explain": "4 x 3 = 12 dollars."
+   },
+   {
+    "type": "open",
+    "q": "How can you tell if two quantities are proportional?",
+    "look_for": "the ratio between them stays the same / one is a constant multiple of the other",
+    "hint": "Think about whether the ratio is always the same."
+   }
+  ]
+ },
+ "PR2": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "In y = 5x, what is the constant of proportionality?",
+    "choices": [
+     "5",
+     "x",
+     "y"
+    ],
+    "answer": 0,
+    "hint": "It is the number multiplied by x.",
+    "explain": "k = 5; y is always 5 times x."
+   },
+   {
+    "type": "open",
+    "q": "What does the constant of proportionality tell you in a situation like miles per gallon?",
+    "look_for": "the amount of one quantity per one unit of the other (e.g. miles for each gallon)",
+    "hint": "Think about the per-one-unit amount."
+   }
+  ]
+ },
+ "PR3": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "A proportional graph is a straight line through which point?",
+    "choices": [
+     "The origin (0,0)",
+     "(1,0)",
+     "(0,5)"
+    ],
+    "answer": 0,
+    "hint": "Proportional lines start at zero.",
+    "explain": "Proportional relationships always pass through the origin (0,0)."
+   },
+   {
+    "type": "open",
+    "q": "How can you find the constant of proportionality from a graph?",
+    "look_for": "find the y-value when x = 1 (the unit rate / steepness of the line)",
+    "hint": "Look at the point where x equals 1."
+   }
+  ]
+ },
+ "IN3": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "What is 3 + (-5)?",
+    "choices": [
+     "-2",
+     "8",
+     "2"
+    ],
+    "answer": 0,
+    "hint": "Start at 3 and move 5 to the left.",
+    "explain": "Moving 5 to the left from 3 lands on -2."
+   },
+   {
+    "type": "open",
+    "q": "Why is subtracting a negative number the same as adding?",
+    "look_for": "subtracting the opposite; removing a negative increases the value",
+    "hint": "Think about taking away a debt."
+   }
+  ]
+ },
+ "IN4": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "What is (-3) x (-4)?",
+    "choices": [
+     "12",
+     "-12",
+     "-7"
+    ],
+    "answer": 0,
+    "hint": "Same signs give a positive answer.",
+    "explain": "Negative times negative is positive, so (-3) x (-4) = 12."
+   },
+   {
+    "type": "open",
+    "q": "What is the sign of the answer when you multiply a negative by a positive?",
+    "look_for": "negative; different signs give a negative result",
+    "hint": "Think about different signs."
+   }
+  ]
+ },
+ "EE4": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "Solve 2x + 3 = 11.",
+    "choices": [
+     "x = 4",
+     "x = 7",
+     "x = 14"
+    ],
+    "answer": 0,
+    "hint": "Subtract 3 first, then divide by 2.",
+    "explain": "2x = 8, so x = 4."
+   },
+   {
+    "type": "open",
+    "q": "Why do you undo the +3 before dividing when solving 2x + 3 = 11?",
+    "look_for": "reverse the order of operations: undo addition first, then the multiplication",
+    "hint": "Think about doing the order of operations backward."
+   }
+  ]
+ },
+ "EE5": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "Expand 3(x + 2).",
+    "choices": [
+     "3x + 6",
+     "3x + 2",
+     "x + 6"
+    ],
+    "answer": 0,
+    "hint": "Multiply 3 by each term inside.",
+    "explain": "3 times x is 3x and 3 times 2 is 6, so 3(x + 2) = 3x + 6."
+   },
+   {
+    "type": "open",
+    "q": "How does the distributive property let you rewrite 4(x + 5)?",
+    "look_for": "multiply 4 by each term: 4x + 20",
+    "hint": "Multiply the outside number by each term inside."
+   }
+  ]
+ },
+ "PC2": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "What is 20% of 50?",
+    "choices": [
+     "10",
+     "20",
+     "30"
+    ],
+    "answer": 0,
+    "hint": "20% = 0.20; multiply by 50.",
+    "explain": "0.20 x 50 = 10."
+   },
+   {
+    "type": "open",
+    "q": "How would you find a 10% tip on a 30 dollar meal?",
+    "look_for": "10% of 30 is 3 (0.10 x 30)",
+    "hint": "Find 10% of the total."
+   }
+  ]
+ },
+ "GE7": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "A map uses 1 cm = 2 m. A line is 3 cm long on the map. How long is it in real life?",
+    "choices": [
+     "6 m",
+     "5 m",
+     "1.5 m"
+    ],
+    "answer": 0,
+    "hint": "Multiply by the scale factor.",
+    "explain": "3 cm x 2 m per cm = 6 m."
+   },
+   {
+    "type": "open",
+    "q": "Why are scale drawings useful?",
+    "look_for": "they show large or small objects at a convenient size while keeping the proportions correct",
+    "hint": "Think about drawing a building on a sheet of paper."
+   }
+  ]
+ },
+ "GE8": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "What is the area formula for a circle?",
+    "choices": [
+     "pi x r x r",
+     "2 x pi x r",
+     "pi x d"
+    ],
+    "answer": 0,
+    "hint": "Area uses the radius squared.",
+    "explain": "Area = pi x r x r. The second option is the circumference."
+   },
+   {
+    "type": "open",
+    "q": "What is the difference between the radius and the diameter of a circle?",
+    "look_for": "the radius is center to edge; the diameter goes all the way across (twice the radius)",
+    "hint": "One is half of the other."
+   }
+  ]
+ },
+ "GE9": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "Two angles are complementary. One is 30 degrees. What is the other?",
+    "choices": [
+     "60 degrees",
+     "150 degrees",
+     "330 degrees"
+    ],
+    "answer": 0,
+    "hint": "Complementary angles add to 90.",
+    "explain": "90 - 30 = 60 degrees."
+   },
+   {
+    "type": "open",
+    "q": "What is the difference between complementary and supplementary angles?",
+    "look_for": "complementary angles add to 90 degrees; supplementary angles add to 180 degrees",
+    "hint": "One pair makes a right angle, the other makes a straight line."
+   }
+  ]
+ },
+ "ST2": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "What is the theoretical probability of flipping heads on a fair coin?",
+    "choices": [
+     "1/2",
+     "1/6",
+     "1"
+    ],
+    "answer": 0,
+    "hint": "There are two equally likely outcomes.",
+    "explain": "Heads is 1 of 2 equally likely outcomes, so 1/2."
+   },
+   {
+    "type": "open",
+    "q": "Why might experimental probability differ from theoretical probability?",
+    "look_for": "random chance in a limited number of trials; they get closer with more trials",
+    "hint": "Think about flipping a coin only a few times."
+   }
+  ]
+ },
+ "EX1": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "What is x^2 times x^3?",
+    "choices": [
+     "x^5",
+     "x^6",
+     "x^1"
+    ],
+    "answer": 0,
+    "hint": "Add the exponents when the base is the same.",
+    "explain": "2 + 3 = 5, so x^2 times x^3 = x^5."
+   },
+   {
+    "type": "open",
+    "q": "Why do you add the exponents when multiplying powers of the same base?",
+    "look_for": "you are multiplying the base repeatedly, so the total number of factors adds up",
+    "hint": "Write out the factors and count them."
+   }
+  ]
+ },
+ "SR1": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "What is the square root of 16?",
+    "choices": [
+     "4",
+     "8",
+     "16"
+    ],
+    "answer": 0,
+    "hint": "What number times itself is 16?",
+    "explain": "4 x 4 = 16, so the square root of 16 is 4."
+   },
+   {
+    "type": "open",
+    "q": "Why is finding a square root the opposite of squaring a number?",
+    "look_for": "squaring multiplies a number by itself; the square root undoes that to find the original number",
+    "hint": "Think about what undoes squaring."
+   }
+  ]
+ },
+ "SN1": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "How is 5000 written in scientific notation?",
+    "choices": [
+     "5 x 10^3",
+     "5 x 10^4",
+     "50 x 10^2"
+    ],
+    "answer": 0,
+    "hint": "Move the decimal so one digit is in front, then count the places.",
+    "explain": "5000 = 5 x 1000 = 5 x 10^3."
+   },
+   {
+    "type": "open",
+    "q": "Why is scientific notation useful for very large or very small numbers?",
+    "look_for": "it writes them compactly using powers of 10, making them easier to read and compare",
+    "hint": "Think about writing a number with many zeros."
+   }
+  ]
+ },
+ "LE1": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "Solve 3x = x + 4.",
+    "choices": [
+     "x = 2",
+     "x = 4",
+     "x = 1"
+    ],
+    "answer": 0,
+    "hint": "Subtract x from both sides first.",
+    "explain": "3x - x = 4 gives 2x = 4, so x = 2."
+   },
+   {
+    "type": "open",
+    "q": "What is your first step when a variable is on both sides of an equation?",
+    "look_for": "move the variable terms to one side (e.g. subtract one from both sides)",
+    "hint": "Get all the variable terms together first."
+   }
+  ]
+ },
+ "LE2": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "A line goes up 6 for every 3 across. What is its slope?",
+    "choices": [
+     "2",
+     "3",
+     "6"
+    ],
+    "answer": 0,
+    "hint": "Slope = rise / run.",
+    "explain": "6 / 3 = 2."
+   },
+   {
+    "type": "open",
+    "q": "What does a negative slope tell you about a line?",
+    "look_for": "the line goes downhill from left to right (it decreases)",
+    "hint": "Think about a line going down as you move right."
+   }
+  ]
+ },
+ "LE3": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "In y = 2x + 3, what is the y-intercept?",
+    "choices": [
+     "3",
+     "2",
+     "x"
+    ],
+    "answer": 0,
+    "hint": "It is the b in y = mx + b.",
+    "explain": "b = 3, so the line crosses the y-axis at 3."
+   },
+   {
+    "type": "open",
+    "q": "In y = mx + b, what do m and b each represent?",
+    "look_for": "m is the slope (steepness); b is the y-intercept (where the line crosses the y-axis)",
+    "hint": "One is steepness, one is the starting point on the y-axis."
+   }
+  ]
+ },
+ "FN1": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "If a function's rule is 'add 2', what is the output when the input is 5?",
+    "choices": [
+     "7",
+     "5",
+     "2"
+    ],
+    "answer": 0,
+    "hint": "Apply the rule to the input.",
+    "explain": "5 + 2 = 7."
+   },
+   {
+    "type": "open",
+    "q": "Why can a function have only one output for each input?",
+    "look_for": "that is the definition of a function; each input maps to exactly one output",
+    "hint": "Think about a machine giving a single result each time."
+   }
+  ]
+ },
+ "FN2": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "Which is true of a linear function's graph?",
+    "choices": [
+     "It is a straight line",
+     "It is a curve",
+     "It is a circle"
+    ],
+    "answer": 0,
+    "hint": "Think about the word 'linear'.",
+    "explain": "Linear functions graph as straight lines."
+   },
+   {
+    "type": "open",
+    "q": "How can a table of values tell you a function is linear?",
+    "look_for": "y changes by the same (constant) amount each time x increases by 1",
+    "hint": "Look for a constant change in y."
+   }
+  ]
+ },
+ "GE10": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "A right triangle has legs 3 and 4. How long is the hypotenuse?",
+    "choices": [
+     "5",
+     "7",
+     "12"
+    ],
+    "answer": 0,
+    "hint": "Use a^2 + b^2 = c^2.",
+    "explain": "9 + 16 = 25, and the square root of 25 is 5."
+   },
+   {
+    "type": "open",
+    "q": "Which side of a right triangle is the hypotenuse?",
+    "look_for": "the longest side, opposite the right angle",
+    "hint": "It is across from the 90-degree angle."
+   }
+  ]
+ },
+ "GE11": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "Which transformation slides a shape without turning or flipping it?",
+    "choices": [
+     "Translation",
+     "Reflection",
+     "Rotation"
+    ],
+    "answer": 0,
+    "hint": "It just moves the position.",
+    "explain": "A translation slides a shape to a new position."
+   },
+   {
+    "type": "open",
+    "q": "How is a reflection different from a translation?",
+    "look_for": "a reflection flips the shape across a line (a mirror image); a translation slides it",
+    "hint": "One makes a mirror image."
+   }
+  ]
+ },
+ "GE12": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "What do you multiply to find a cylinder's volume?",
+    "choices": [
+     "Base area (pi x r^2) times height",
+     "Radius times height",
+     "Diameter times height"
+    ],
+    "answer": 0,
+    "hint": "Base area times height.",
+    "explain": "Volume = pi x r^2 x h, the base area times the height."
+   },
+   {
+    "type": "open",
+    "q": "Why does the volume of a cylinder use the area of a circle?",
+    "look_for": "the base is a circle, and volume is the base area times the height",
+    "hint": "Think about stacking circles up to the height."
+   }
+  ]
+ },
+ "ST3": {
+  "questions": [
+   {
+    "type": "mc",
+    "q": "On a scatter plot, points that trend upward to the right show what?",
+    "choices": [
+     "A positive association",
+     "A negative association",
+     "No relationship"
+    ],
+    "answer": 0,
+    "hint": "Both variables increase together.",
+    "explain": "Upward-trending points mean that as one variable increases, so does the other (a positive association)."
+   },
+   {
+    "type": "open",
+    "q": "What can a scatter plot help you see about two sets of data?",
+    "look_for": "whether there is a relationship/association and its direction (positive, negative, or none)",
+    "hint": "Think about whether the two things rise or fall together."
+   }
+  ]
+ }
+}

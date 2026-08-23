@@ -1,0 +1,24 @@
+﻿{
+    "id":  "pb_0399",
+    "language":  "en",
+    "title":  "Cat Dreams",
+    "source":  "Pratham Books / StoryWeaver (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/pb-source/blob/master/en/0399_cat-dreams.md",
+    "project_home":  "https://storyweaver.org.in",
+    "license":  "CC BY",
+    "license_raw":  "CC-BY",
+    "license_url":  "https://creativecommons.org/licenses/by/4.0/",
+    "author":  "Aasma Pratap",
+    "illustrator":  "Deepa Balsavar, Manjari Chakravarti",
+    "translator":  null,
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg"
+               ],
+    "pages":  [
+                  "The dreamy cat saw fishes falling from the sky like a rain.",
+                  "The cat thought if she eats enough fishes, she will grow up and become a tiger."
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

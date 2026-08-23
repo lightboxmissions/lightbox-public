@@ -1,0 +1,38 @@
+﻿{
+    "id":  "pb_0141",
+    "language":  "en",
+    "title":  "Who Made This World?",
+    "source":  "Pratham Books / StoryWeaver (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/pb-source/blob/master/en/0141_who-made-this-world.md",
+    "project_home":  "https://storyweaver.org.in",
+    "license":  "CC BY",
+    "license_raw":  "CC-BY",
+    "license_url":  "https://creativecommons.org/licenses/by/4.0/",
+    "author":  "Chandra R",
+    "illustrator":  "Shikha Nambiar",
+    "translator":  null,
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg",
+                   "04.jpg",
+                   "05.jpg",
+                   "06.jpg",
+                   "07.jpg",
+                   "08.jpg",
+                   "09.jpg",
+                   "10.jpg"
+               ],
+    "pages":  [
+                  "I Am Going To Explore The World.",
+                  "Across the Rivers",
+                  "Past the Cities",
+                  "Through The Forests",
+                  "Over The Hills",
+                  "It Is A Beautiful World!",
+                  "Who Made It?",
+                  "God Knows!",
+                  "Or... Maybe Not."
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

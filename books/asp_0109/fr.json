@@ -1,0 +1,37 @@
+﻿{
+    "id":  "asp_0109",
+    "language":  "fr",
+    "title":  "Lekishon et les vaches",
+    "source":  "African Storybook Project (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/asp-source/blob/master/fr/0109_lekishon-et-les-vaches.md",
+    "project_home":  "https://www.africanstorybook.org",
+    "license":  "CC BY",
+    "license_raw":  "CC-BY",
+    "license_url":  "https://creativecommons.org/licenses/by/4.0/",
+    "author":  "Paul Maseri",
+    "illustrator":  "Wiehan de Jager",
+    "translator":  "Lina Scarpellini, Translators without Borders",
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg",
+                   "04.jpg",
+                   "05.jpg",
+                   "06.jpg",
+                   "07.jpg",
+                   "08.jpg",
+                   "09.jpg",
+                   "10.jpg"
+               ],
+    "pages":  [
+                  "C\u0027est l\u0027histoire de\nLekishon.\nLekishon appelle son\nchien.",
+                  "Lekishon et son chien\nemmènent les vaches\npaître.\nLe soleil chauffe.",
+                  "Lekishon et son chien\nont soif et faim.",
+                  "Ils partent à la\nrecherche d\u0027eau.",
+                  "Lekishon perd la trace\nde son troupeau de\nvaches.",
+                  "Lekishon se met à\npleurer.",
+                  "Il décide de rentrer à la\nmaison avec son chien.",
+                  "Les vaches ont retrouvé\nle chemin de la maison !\nLekishon et son chien\nsont très contents."
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

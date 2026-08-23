@@ -1,0 +1,42 @@
+﻿{
+    "id":  "asp_0176",
+    "language":  "fr",
+    "title":  "Écoute",
+    "source":  "African Storybook Project (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/asp-source/blob/master/fr/0176_ecoute.md",
+    "project_home":  "https://www.africanstorybook.org",
+    "license":  "CC BY-NC",
+    "license_raw":  "CC-BY-NC",
+    "license_url":  "https://creativecommons.org/licenses/by-nc/4.0/",
+    "author":  "Carole Bloch",
+    "illustrator":  "Jean Fullalove",
+    "translator":  "Claire Sjaarda, Translators without Borders",
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg",
+                   "04.jpg",
+                   "05.jpg",
+                   "06.jpg",
+                   "07.jpg",
+                   "08.jpg",
+                   "09.jpg",
+                   "10.jpg",
+                   "11.jpg",
+                   "12.jpg",
+                   "13.jpg"
+               ],
+    "pages":  [
+                  "Les criquets stridulent.",
+                  "Les souris couinent.",
+                  "Les serpents sifflent.",
+                  "Les chiens aboient.",
+                  "Les chèvres bêlent.",
+                  "Les vaches meuglent.",
+                  "Les lions rugissent...",
+                  "...et les escargots ne\nfont aucun bruit.",
+                  "Les bébés babillent...",
+                  "...et les enfants parlent."
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

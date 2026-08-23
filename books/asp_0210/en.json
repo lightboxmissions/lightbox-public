@@ -1,0 +1,43 @@
+﻿{
+    "id":  "asp_0210",
+    "language":  "en",
+    "title":  "Tingi and the cows",
+    "source":  "African Storybook Project (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/asp-source/blob/master/en/0210_tingi-and-the-cows.md",
+    "project_home":  "https://www.africanstorybook.org",
+    "license":  "CC BY",
+    "license_raw":  "CC-BY",
+    "license_url":  "https://creativecommons.org/licenses/by/4.0/",
+    "author":  "Ingrid Schechter",
+    "illustrator":  "Ingrid Schechter",
+    "translator":  null,
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg",
+                   "04.jpg",
+                   "05.jpg",
+                   "06.jpg",
+                   "07.jpg",
+                   "08.jpg",
+                   "09.jpg",
+                   "10.jpg",
+                   "11.jpg",
+                   "12.jpg",
+                   "13.jpg"
+               ],
+    "pages":  [
+                  "Tingi lived with his grandmother.",
+                  "He used to look after the cows with her.",
+                  "One day the soldiers came.",
+                  "They took the cows away.",
+                  "Tingi and his grandmother ran away and hid.",
+                  "They hid in the bush until night.",
+                  "Then the soldiers came back.",
+                  "Grandmother hid Tingi under the leaves.",
+                  "One of the soldiers put his foot right on him, but he kept quiet.",
+                  "When it was safe, Tingi and his grandmother came out.",
+                  "They crept home very quietly."
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

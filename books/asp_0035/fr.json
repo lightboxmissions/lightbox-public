@@ -1,0 +1,42 @@
+﻿{
+    "id":  "asp_0035",
+    "language":  "fr",
+    "title":  "Le vent",
+    "source":  "African Storybook Project (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/asp-source/blob/master/fr/0035_le_vent.md",
+    "project_home":  "https://www.africanstorybook.org",
+    "license":  "CC BY",
+    "license_raw":  "CC-BY",
+    "license_url":  "https://creativecommons.org/licenses/by/4.0/",
+    "author":  "Ursula Nafula",
+    "illustrator":  "Marion Dr Drew ew",
+    "translator":  "Véronique Haour, Translators without Borders",
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg",
+                   "04.jpg",
+                   "05.jpg",
+                   "06.jpg",
+                   "07.jpg",
+                   "08.jpg",
+                   "09.jpg",
+                   "10.jpg",
+                   "11.jpg",
+                   "12.jpg"
+               ],
+    "pages":  [
+                  "Le vent rugit.\n\nIl rugit en passant devant chez nous.",
+                  "C\u0027est un vent violent.\n\nIl m\u0027arrache le cerf-volant de la main.",
+                  "Je cours après mon cerfvolant.\n\nLe vent me pousse loin du cerf-volant !",
+                  "Le vent se transforme en tornade.\n\nIl emporte mon cerf-volant de plus en plus haut.",
+                  "La tornade m\u0027aspire !\n\nJe ne vois plus rien, je ne touche plus rien.",
+                  "Où est mon cerf-volant maintenant ?\n\nPeut-être qu\u0027il est pris dans un arbre.",
+                  "Peut-être que mon cerfvolant vole encore dans le ciel.",
+                  "Le vent se calme enfin.\n\nJe tourbillonne toujours.",
+                  "Quand j\u0027arrête de tourbillonner, je regarde autour de moi.\n\nOù est passé le vent ?",
+                  "Je ne vois mon cerf-volant nulle part.\n\nJe n\u0027entends plus le vent.",
+                  "Peut-être que demain je retrouverai mon cerfvolant.\n\nMaintenant, il faut que je rentre à la maison, avant que le vent se remette à rugir encore."
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

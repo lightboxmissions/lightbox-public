@@ -1,0 +1,37 @@
+﻿{
+    "id":  "asp_0011",
+    "language":  "fr",
+    "title":  "Père et fils",
+    "source":  "African Storybook Project (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/asp-source/blob/master/fr/0011_père-et-fils.md",
+    "project_home":  "https://www.africanstorybook.org",
+    "license":  "CC BY",
+    "license_raw":  "CC-BY",
+    "license_url":  "https://creativecommons.org/licenses/by/4.0/",
+    "author":  "Frista Nattabira",
+    "illustrator":  "Wiehan de Jager",
+    "translator":  "Suzanne Alban, Translators without Borders",
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg",
+                   "04.jpg",
+                   "05.jpg",
+                   "06.jpg",
+                   "07.jpg",
+                   "08.jpg",
+                   "09.jpg",
+                   "10.jpg"
+               ],
+    "pages":  [
+                  "Il était une fois un homme qui\ns\u0027appelait Nsangabisibe.",
+                  "Cet homme avec un fils qui\ns\u0027appelait Mudduawulira.",
+                  "Un jour, l\u0027homme dit à son fils :\n« Allons nous promener. »",
+                  "En chemin, ils trouvèrent une\ntrès jolie valise, qui avait l\u0027air\npleine à craquer.",
+                  "Le père, tout excité, dit à son\nfils : « Ramasse-la et nous\nl\u0027emporterons à la maison. »",
+                  "Mudduawulira fit ce que lui\ndisait son père. Il mit la valise\nsur la tête et la porta.",
+                  "Pendant qu\u0027ils rentraient à la\nmaison, un serpent sortit de la\nvalise.\nIl atterrit aux pieds de\nMuddawulira !",
+                  "Le père et le fils eurent la\nfrayeur de leur vie.\nMudduawulira laissa tomber la\nvalise et ils s\u0027enfuirent à toutes\njambes."
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

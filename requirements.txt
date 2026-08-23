@@ -1,0 +1,16 @@
+# The LightBox server needs NO third-party packages.
+# It runs on the Python 3 standard library alone (http.server, json, urllib,
+# threading, hashlib). If you only want to RUN LightBox you can ignore this
+# file completely, and server/install.sh never reads it.
+#
+# These are only for the optional content-building tools in tools/, which
+# regenerate book covers and titles. Install them with:
+#   python3 -m pip install -r requirements.txt
+
+# Used by tools/covers_fetch.py to compose book cover images.
+Pillow==12.3.0
+
+# Optional. tools/covers_fetch.py imports it inside a try/except and falls back
+# to Python's built-in CA bundle if it is missing. Install it only if you hit
+# "certificate has expired" while fetching covers.
+# certifi==2025.8.3

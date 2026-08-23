@@ -1,0 +1,42 @@
+﻿{
+    "id":  "asp_0149",
+    "language":  "fr",
+    "title":  "La lune et la casquette",
+    "source":  "African Storybook Project (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/asp-source/blob/master/fr/0149_la-lune-et-la-casquette.md",
+    "project_home":  "https://www.africanstorybook.org",
+    "license":  "CC BY",
+    "license_raw":  "CC-BY",
+    "license_url":  "https://creativecommons.org/licenses/by/4.0/",
+    "author":  "Noni",
+    "illustrator":  "Angie \u0026 Upesh",
+    "translator":  "Sébastien Rolland, Translators without Borders",
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg",
+                   "04.jpg",
+                   "05.jpg",
+                   "06.jpg",
+                   "07.jpg",
+                   "08.jpg",
+                   "09.jpg",
+                   "10.jpg",
+                   "11.jpg",
+                   "12.jpg"
+               ],
+    "pages":  [
+                  "Un jour, toute ma famille est allée à la fête foraine.",
+                  "Papa a acheté des jolies lunettes à mon frère. Maman m\u0027a acheté une casquette bleue.\n\nEt le bébé a eu du sucre d\u0027orge.",
+                  "En chemin vers la maison, le vent s\u0027est mis à souffler très fort.\n\nIl a même emporté ma casquette.",
+                  "Elle s\u0027est retrouvée coincée au sommet d\u0027un vieil arbre.",
+                  "J\u0027ai beaucoup pleuré. Et je n\u0027ai même pas mangé mon dîner.",
+                  "Plus tard, cette nuit-là, la lune est apparue. Elle a vu ma casquette au sommet du vieil arbre.",
+                  "La lune a alors essayé ma casquette. Elle s\u0027est mise à sourire de plaisir.\n\nEt j\u0027ai souri moi aussi.",
+                  "Le lendemain, après l\u0027école , ma mère m\u0027a donné une nouvelle casquette de couleur rouge.\n\n« C\u0027est la lune qui te l\u0027envoie », m\u0027a-t-elle dit.",
+                  "Cette nuit-là, la lune et moi portions nos casquettes et nous sourions.\n\nNous étions heureux.",
+                  "Penses-tu que le soleil a besoin d\u0027une casquette ?",
+                  "Devine quelle casquette je porte aujourd\u0027hui !"
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

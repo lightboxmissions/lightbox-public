@@ -1,0 +1,310 @@
+{
+ "K_CO": {"grade":"K","topic":"CO","title":"Counting & comparing numbers","questions":[
+   {"q":"Which number is the biggest?","choices":["8","5","3"],"answer":0,"explain":"8 is bigger than 5 and 3."},
+   {"q":"There are 3 cats. One more cat comes. How many cats now?","choices":["2","4","3"],"answer":1,"explain":"3 and 1 more makes 4."},
+   {"q":"Which group has MORE, a row of 6 or a row of 4?","choices":["The row of 4","They are the same","The row of 6"],"answer":2,"explain":"6 is more than 4."},
+   {"q":"What number comes right after 7?","choices":["8","6","9"],"answer":0,"explain":"When you count, after 7 comes 8."},
+   {"q":"Which is the smallest number?","choices":["5","2","9"],"answer":1,"explain":"2 is smaller than 5 and 9."}
+ ]},
+ "1_CO": {"grade":"1","topic":"CO","title":"Counting & comparing numbers","questions":[
+   {"q":"What number is missing? 18, 19, __, 21","choices":["20","22","25"],"answer":0,"explain":"Counting up, after 19 comes 20."},
+   {"q":"On a number grid, what number is one MORE than 30?","choices":["29","31","40"],"answer":1,"explain":"One more than 30 is 31."},
+   {"q":"What number is ten more than 45?","choices":["46","55","35"],"answer":1,"explain":"Ten more than 45 is 55."},
+   {"q":"Counting by tens: 10, 20, 30, __","choices":["31","40","35"],"answer":1,"explain":"After 30, the next ten is 40."},
+   {"q":"What comes right before 100?","choices":["99","101","90"],"answer":0,"explain":"Just before 100 is 99."}
+ ]},
+ "1_PV": {"grade":"1","topic":"PV","title":"Place value (tens & ones)","questions":[
+   {"q":"In the number 25, what does the 2 stand for?","choices":["2 ones","2 tens","2 hundreds"],"answer":1,"explain":"The 2 is in the tens place, so it means 2 tens (20)."},
+   {"q":"Which sign makes this true: 7 __ 4 ?","choices":["<",">","="],"answer":1,"explain":"7 is greater than 4, so 7 > 4."},
+   {"q":"What number is 3 tens and 6 ones?","choices":["63","36","306"],"answer":1,"explain":"3 tens is 30, plus 6 ones is 36."},
+   {"q":"The teen number 14 is the same as:","choices":["10 + 4","1 + 4","10 + 40"],"answer":0,"explain":"14 is one ten and four ones: 10 + 4."},
+   {"q":"Which number is greater, 48 or 52?","choices":["48","52","equal"],"answer":1,"explain":"52 has 5 tens; 48 has 4 tens, so 52 is greater."}
+ ]},
+ "1_AS": {"grade":"1","topic":"AS","title":"Addition & subtraction","questions":[
+   {"q":"What is 6 + 3?","choices":["8","9","10"],"answer":1,"explain":"6 plus 3 is 9."},
+   {"q":"What is 10 - 4?","choices":["6","7","5"],"answer":0,"explain":"10 take away 4 leaves 6."},
+   {"q":"What number makes 5? 2 + __ = 5","choices":["2","3","4"],"answer":1,"explain":"2 + 3 = 5."},
+   {"q":"If 4 + 5 = 9, then 9 - 5 = ?","choices":["4","5","14"],"answer":0,"explain":"Subtraction undoes addition, so 9 - 5 = 4."},
+   {"q":"What is 7 + 0?","choices":["0","7","8"],"answer":1,"explain":"Adding 0 doesn't change the number, so 7 + 0 = 7."}
+ ]},
+ "1_MD": {"grade":"1","topic":"MD","title":"Measurement, data, time & money","questions":[
+   {"q":"How many cents is a dime worth?","choices":["1 cent","5 cents","10 cents"],"answer":2,"explain":"A dime is worth 10 cents."},
+   {"q":"Which is longer?","choices":["A pencil","A school bus","A paperclip"],"answer":1,"explain":"A school bus is much longer than a pencil or a paperclip."},
+   {"q":"The short hand on a clock points to 3 and the long hand to 12. What time is it?","choices":["3 o'clock","12 o'clock","6 o'clock"],"answer":0,"explain":"The hour hand on 3 with the minute hand on 12 means 3 o'clock."},
+   {"q":"You have 2 nickels. How many cents is that?","choices":["2 cents","10 cents","7 cents"],"answer":1,"explain":"Each nickel is 5 cents, so 2 nickels make 10 cents."},
+   {"q":"To measure how heavy something is, you use a:","choices":["ruler","scale","clock"],"answer":1,"explain":"A scale measures weight."}
+ ]},
+ "1_GE": {"grade":"1","topic":"GE","title":"Geometry & shapes","questions":[
+   {"q":"How many sides does a triangle have?","choices":["3","4","5"],"answer":0,"explain":"A triangle has 3 sides."},
+   {"q":"Which shape is round with no corners?","choices":["square","circle","triangle"],"answer":1,"explain":"A circle is round and has no corners."},
+   {"q":"How many sides does a square have?","choices":["3","4","6"],"answer":1,"explain":"A square has 4 equal sides."},
+   {"q":"A shape with 4 sides where opposite sides are equal but it is not a square is a:","choices":["rectangle","circle","triangle"],"answer":0,"explain":"A rectangle has 4 sides with equal opposite sides."},
+   {"q":"If you cut a square in half evenly, you can make two:","choices":["circles","triangles","pentagons"],"answer":1,"explain":"Cutting a square corner to corner makes two triangles."}
+ ]},
+ "2_AS": {"grade":"2","topic":"AS","title":"Addition & subtraction","questions":[
+   {"q":"What is 24 + 13?","choices":["37","31","27"],"answer":0,"explain":"20+10=30 and 4+3=7, so 37."},
+   {"q":"What is 52 - 20?","choices":["72","32","30"],"answer":1,"explain":"Take away 2 tens from 52 to get 32."},
+   {"q":"What is 27 + 5?","choices":["32","22","31"],"answer":0,"explain":"27 + 3 = 30, then + 2 more = 32."},
+   {"q":"When adding 38 + 7, you get 45. This needed:","choices":["regrouping (carrying)","no regrouping","subtraction"],"answer":0,"explain":"8 + 7 = 15, so you carry a ten — that is regrouping."},
+   {"q":"What is 100 - 1?","choices":["101","99","90"],"answer":1,"explain":"One less than 100 is 99."}
+ ]},
+ "2_MD": {"grade":"2","topic":"MD","title":"Measurement, data, time & money","questions":[
+   {"q":"How many minutes are in one hour?","choices":["30","60","100"],"answer":1,"explain":"One hour has 60 minutes."},
+   {"q":"How many cents make one dollar?","choices":["10","50","100"],"answer":2,"explain":"One dollar is 100 cents."},
+   {"q":"A line plot is used to:","choices":["show data with marks","tell time","measure weight"],"answer":0,"explain":"A line plot shows data using marks above a number line."},
+   {"q":"Which unit measures the length of your classroom?","choices":["inches","meters","seconds"],"answer":1,"explain":"Meters (or feet) measure longer lengths like a room."},
+   {"q":"A quarter is worth:","choices":["25 cents","10 cents","5 cents"],"answer":0,"explain":"A quarter is worth 25 cents."}
+ ]},
+ "2_GE": {"grade":"2","topic":"GE","title":"Geometry & shapes","questions":[
+   {"q":"How many sides does a pentagon have?","choices":["4","5","6"],"answer":1,"explain":"A pentagon has 5 sides."},
+   {"q":"A cube has how many faces?","choices":["4","6","8"],"answer":1,"explain":"A cube has 6 square faces."},
+   {"q":"Which shape has 4 equal sides and 4 square corners?","choices":["rectangle","square","triangle"],"answer":1,"explain":"A square has 4 equal sides and 4 right-angle corners."},
+   {"q":"If you split a rectangle into 4 equal parts, each part is one:","choices":["half","third","fourth"],"answer":2,"explain":"4 equal parts means each is one fourth."},
+   {"q":"How many corners (vertices) does a triangle have?","choices":["3","4","0"],"answer":0,"explain":"A triangle has 3 corners."}
+ ]},
+ "3_GE": {"grade":"3","topic":"GE","title":"Geometry & shapes","questions":[
+   {"q":"A four-sided shape is called a:","choices":["quadrilateral","triangle","pentagon"],"answer":0,"explain":"Any shape with 4 sides is a quadrilateral."},
+   {"q":"Which is always a quadrilateral?","choices":["circle","square","triangle"],"answer":1,"explain":"A square has 4 sides, so it is a quadrilateral."},
+   {"q":"A right angle looks like the corner of a:","choices":["square","circle","ball"],"answer":0,"explain":"A right angle is a square corner (90 degrees)."},
+   {"q":"How many sides does a hexagon have?","choices":["5","6","8"],"answer":1,"explain":"A hexagon has 6 sides."},
+   {"q":"A rectangle and a square both have:","choices":["4 right angles","3 sides","no corners"],"answer":0,"explain":"Both have 4 square (right-angle) corners."}
+ ]},
+ "3_MU": {"grade":"3","topic":"MU","title":"Multiplication & division","questions":[
+   {"q":"What is 4 x 3?","choices":["7","12","9"],"answer":1,"explain":"4 groups of 3 is 12."},
+   {"q":"What is 15 divided by 3?","choices":["5","3","12"],"answer":0,"explain":"15 split into 3 equal groups is 5 each."},
+   {"q":"Multiplication is the same as:","choices":["repeated addition","repeated subtraction","counting backward"],"answer":0,"explain":"3 x 4 means 4 + 4 + 4 — repeated addition."},
+   {"q":"What is 6 x 0?","choices":["6","0","60"],"answer":1,"explain":"Any number times 0 is 0."},
+   {"q":"If 7 x 2 = 14, then 14 divided by 2 = ?","choices":["7","2","12"],"answer":0,"explain":"Division undoes multiplication, so 14 / 2 = 7."}
+ ]},
+ "3_FR": {"grade":"3","topic":"FR","title":"Fractions","questions":[
+   {"q":"In the fraction 3/4, what does the 4 tell you?","choices":["the number of shaded parts","the total equal parts","nothing"],"answer":1,"explain":"The bottom number (denominator) is the total number of equal parts."},
+   {"q":"Which fraction is bigger, 1/2 or 1/4?","choices":["1/2","1/4","equal"],"answer":0,"explain":"Halves are bigger pieces than fourths, so 1/2 is bigger."},
+   {"q":"Which fraction equals one whole?","choices":["4/4","3/4","1/4"],"answer":0,"explain":"4/4 means all 4 parts, which is one whole."},
+   {"q":"Which fraction is the same as 1/2?","choices":["2/4","1/3","3/4"],"answer":0,"explain":"2/4 covers the same amount as 1/2."},
+   {"q":"On a number line from 0 to 1, where is 1/2?","choices":["right in the middle","near 0","near 1"],"answer":0,"explain":"1/2 is exactly halfway between 0 and 1."}
+ ]},
+ "3_AP": {"grade":"3","topic":"AP","title":"Area & perimeter","questions":[
+   {"q":"Perimeter is the distance:","choices":["around a shape","inside a shape","across a shape"],"answer":0,"explain":"Perimeter is the total distance around the outside."},
+   {"q":"A rectangle is 5 by 3. What is its area?","choices":["8","15","16"],"answer":1,"explain":"Area = length x width = 5 x 3 = 15 square units."},
+   {"q":"A square has sides of 4. What is its perimeter?","choices":["8","12","16"],"answer":2,"explain":"Perimeter = 4 + 4 + 4 + 4 = 16."},
+   {"q":"Area is measured in:","choices":["square units","single units","degrees"],"answer":0,"explain":"Area is counted in square units."},
+   {"q":"A rectangle is 6 long and 2 wide. What is its area?","choices":["8","12","16"],"answer":1,"explain":"6 x 2 = 12 square units."}
+ ]},
+ "4_MA": {"grade":"4","topic":"MA","title":"Multi-digit multiplication & division","questions":[
+   {"q":"What is 24 x 13?","choices":["312","284","372"],"answer":0,"explain":"24x10=240 and 24x3=72; 240+72=312."},
+   {"q":"What is 67 divided by 5?","choices":["13 remainder 2","12 remainder 7","13 remainder 5"],"answer":0,"explain":"5x13=65 and 67-65=2."},
+   {"q":"Lee has 6 marbles. Sam has 4 times as many. How many does Sam have?","choices":["24","10","2"],"answer":0,"explain":"4 times as many as 6 is 6 x 4 = 24."},
+   {"q":"To multiply 30 x 40, a quick way is 3 x 4 then add:","choices":["one zero","two zeros","no zeros"],"answer":1,"explain":"3x4=12, then add two zeros: 1200."},
+   {"q":"What is 81 divided by 9?","choices":["8","9","7"],"answer":1,"explain":"9 x 9 = 81, so 81 / 9 = 9."}
+ ]},
+ "4_FM": {"grade":"4","topic":"FM","title":"Factors & multiples","questions":[
+   {"q":"Which number is a factor of 12?","choices":["4","5","7"],"answer":0,"explain":"12 / 4 = 3 with no remainder, so 4 is a factor."},
+   {"q":"Which number is prime?","choices":["9","7","15"],"answer":1,"explain":"7's only factors are 1 and 7, so it is prime."},
+   {"q":"Which is a multiple of 3?","choices":["10","12","14"],"answer":1,"explain":"12 = 3 x 4, so it is a multiple of 3."},
+   {"q":"Which number is composite (has more than two factors)?","choices":["5","8","11"],"answer":1,"explain":"8 has factors 1, 2, 4, 8 — more than two."},
+   {"q":"The first five multiples of 5 are:","choices":["5, 10, 15, 20, 25","1, 2, 3, 4, 5","5, 6, 7, 8, 9"],"answer":0,"explain":"Count by 5s: 5, 10, 15, 20, 25."}
+ ]},
+ "4_FR": {"grade":"4","topic":"FR","title":"Fractions","questions":[
+   {"q":"Which fraction is equal to 1/2?","choices":["2/4","2/3","1/3"],"answer":0,"explain":"1/2 and 2/4 cover the same amount."},
+   {"q":"Which is greater, 3/5 or 2/5?","choices":["3/5","2/5","They are equal"],"answer":0,"explain":"Same denominator, so 3 fifths is more than 2 fifths."},
+   {"q":"What is 2/6 + 3/6?","choices":["5/6","5/12","6/6"],"answer":0,"explain":"Add numerators (2+3=5), keep the denominator 6."},
+   {"q":"What is 4 x 1/3?","choices":["4/3","1/12","4/12"],"answer":0,"explain":"1/3 added four times is 4/3."},
+   {"q":"Which is greater, 2/3 or 2/5?","choices":["2/3","2/5","They are equal"],"answer":0,"explain":"Thirds are bigger pieces than fifths."}
+ ]},
+ "4_DE": {"grade":"4","topic":"DE","title":"Decimals","questions":[
+   {"q":"What does the 3 in 0.3 mean?","choices":["3 tenths","3 hundredths","3 wholes"],"answer":0,"explain":"The first place after the point is tenths."},
+   {"q":"Which is greater, 0.7 or 0.65?","choices":["0.7","0.65","They are equal"],"answer":0,"explain":"7 tenths is more than 6 tenths."},
+   {"q":"0.5 is the same as which fraction?","choices":["1/2","1/5","5/10 only as 0.05"],"answer":0,"explain":"0.5 = 5/10 = 1/2."},
+   {"q":"What is 0.30 compared to 0.3?","choices":["equal","0.30 is bigger","0.3 is bigger"],"answer":0,"explain":"30 hundredths equals 3 tenths, so they are equal."},
+   {"q":"In 2.46, the 6 is in the:","choices":["hundredths place","tenths place","ones place"],"answer":0,"explain":"The second place after the point is hundredths."}
+ ]},
+ "4_GE": {"grade":"4","topic":"GE","title":"Angles & geometry","questions":[
+   {"q":"How many degrees is a right angle?","choices":["90","180","45"],"answer":0,"explain":"A right angle (a square corner) is 90 degrees."},
+   {"q":"An angle smaller than a right angle is called:","choices":["acute","obtuse","straight"],"answer":0,"explain":"An acute angle is less than 90 degrees."},
+   {"q":"A straight angle measures:","choices":["180 degrees","90 degrees","360 degrees"],"answer":0,"explain":"A straight line forms a 180-degree angle."},
+   {"q":"You measure angles with a:","choices":["protractor","ruler","scale"],"answer":0,"explain":"A protractor measures angles in degrees."},
+   {"q":"An angle bigger than 90 but less than 180 degrees is:","choices":["obtuse","acute","right"],"answer":0,"explain":"An obtuse angle is between 90 and 180 degrees."}
+ ]},
+ "5_DE": {"grade":"5","topic":"DE","title":"Decimals","questions":[
+   {"q":"What is 0.3 + 0.45?","choices":["0.75","0.48","0.075"],"answer":0,"explain":"Line up the points: 0.30 + 0.45 = 0.75."},
+   {"q":"What is 0.3 x 0.2?","choices":["0.06","0.6","0.5"],"answer":0,"explain":"3x2=6 with two decimal places: 0.06."},
+   {"q":"What is 4.8 divided by 4?","choices":["1.2","12","0.12"],"answer":0,"explain":"48 / 4 = 12, place the decimal: 1.2."},
+   {"q":"In 5.273, which digit is in the thousandths place?","choices":["3","7","2"],"answer":0,"explain":"The third place after the point is thousandths."},
+   {"q":"What is 1.5 - 0.6?","choices":["0.9","1.1","0.8"],"answer":0,"explain":"1.5 take away 0.6 is 0.9."}
+ ]},
+ "5_FR": {"grade":"5","topic":"FR","title":"Fractions","questions":[
+   {"q":"What is 1/2 + 1/3?","choices":["5/6","2/5","1/6"],"answer":0,"explain":"Common denominator 6: 3/6 + 2/6 = 5/6."},
+   {"q":"What is 2/3 x 4/5?","choices":["8/15","6/8","8/8"],"answer":0,"explain":"Multiply tops and bottoms: 8/15."},
+   {"q":"What is 1/2 divided by 3?","choices":["1/6","3/2","1/5"],"answer":0,"explain":"Splitting 1/2 into 3 equal parts gives 1/6 each."},
+   {"q":"Is 1/2 x 1/2 bigger or smaller than 1/2?","choices":["smaller","bigger","the same"],"answer":0,"explain":"A fraction of a fraction is smaller: 1/2 x 1/2 = 1/4."},
+   {"q":"What is 3/8 + 2/8?","choices":["5/8","5/16","6/8"],"answer":0,"explain":"Same denominator: 3+2=5, so 5/8."}
+ ]},
+ "5_OP": {"grade":"5","topic":"OP","title":"Operations & order of operations","questions":[
+   {"q":"What is 2 + 3 x 4?","choices":["14","20","24"],"answer":0,"explain":"Multiply first: 3x4=12, then 2+12=14."},
+   {"q":"What is 4.2 x 100?","choices":["420","42","4200"],"answer":0,"explain":"Multiplying by 100 moves the point two places right."},
+   {"q":"What is 56 divided by 10?","choices":["5.6","560","0.56"],"answer":0,"explain":"Dividing by 10 moves the point one place left."},
+   {"q":"In order of operations, what do you do first?","choices":["parentheses","addition","subtraction"],"answer":0,"explain":"Always do what is inside parentheses first."},
+   {"q":"What is (6 + 4) x 2?","choices":["20","14","16"],"answer":0,"explain":"Parentheses first: 10, then 10 x 2 = 20."}
+ ]},
+ "5_VO": {"grade":"5","topic":"VO","title":"Volume & measurement","questions":[
+   {"q":"A box is 2 by 3 by 4 units. What is its volume?","choices":["24 cubic units","9 cubic units","14 cubic units"],"answer":0,"explain":"Volume = 2 x 3 x 4 = 24."},
+   {"q":"Volume is measured in:","choices":["cubic units","square units","single units"],"answer":0,"explain":"Volume of a solid is measured in cubic units."},
+   {"q":"How many centimeters are in 3 meters?","choices":["300","30","3000"],"answer":0,"explain":"1 meter = 100 cm, so 3 m = 300 cm."},
+   {"q":"To find the volume of a rectangular box you multiply:","choices":["length x width x height","length x width","all the sides added"],"answer":0,"explain":"Volume = length x width x height."},
+   {"q":"How many millimeters are in 1 centimeter?","choices":["10","100","1000"],"answer":0,"explain":"1 cm = 10 mm."}
+ ]},
+ "5_CP": {"grade":"5","topic":"CP","title":"The coordinate plane","questions":[
+   {"q":"Where do you start to plot the point (3, 2)?","choices":["the origin (0,0)","the top of the grid","the number 5"],"answer":0,"explain":"Every point is measured from the origin (0,0)."},
+   {"q":"In (3, 2), what does the first number tell you?","choices":["how far across (x)","how far up (y)","nothing"],"answer":0,"explain":"The first number is the x-coordinate (across)."},
+   {"q":"The horizontal number line is the:","choices":["x-axis","y-axis","origin"],"answer":0,"explain":"The horizontal axis is the x-axis."},
+   {"q":"To plot (0, 4) you move:","choices":["up 4 from the origin","right 4 from the origin","down 4"],"answer":0,"explain":"x=0 means no move across; y=4 means up 4."},
+   {"q":"The point where the two axes cross is called the:","choices":["origin","corner","center line"],"answer":0,"explain":"The crossing point (0,0) is the origin."}
+ ]},
+ "6_RT": {"grade":"6","topic":"RT","title":"Ratios & rates","questions":[
+   {"q":"There are 2 red for every 3 blue. What is the ratio of red to blue?","choices":["2 to 3","3 to 2","5 to 1"],"answer":0,"explain":"Red to blue is 2 to 3."},
+   {"q":"A car goes 120 miles in 2 hours. What is the unit rate?","choices":["60 miles per hour","120 miles per hour","2 miles per hour"],"answer":0,"explain":"120 / 2 = 60 mph."},
+   {"q":"If the ratio of cats to dogs is 1:2, and there are 3 cats, how many dogs?","choices":["6","2","3"],"answer":0,"explain":"Twice as many dogs as cats: 3 x 2 = 6."},
+   {"q":"A unit rate always compares to:","choices":["one unit","two units","ten units"],"answer":0,"explain":"A unit rate is the amount per ONE unit."},
+   {"q":"6 apples cost $3. What is the cost per apple?","choices":["$0.50","$2","$3"],"answer":0,"explain":"$3 / 6 = $0.50 each."}
+ ]},
+ "6_PC": {"grade":"6","topic":"PC","title":"Percentages","questions":[
+   {"q":"What does 25% mean?","choices":["25 out of 100","25 out of 10","25 wholes"],"answer":0,"explain":"Percent means per hundred: 25 out of 100."},
+   {"q":"50% is the same as which fraction?","choices":["1/2","1/4","1/5"],"answer":0,"explain":"50 out of 100 is one half."},
+   {"q":"What is 10% of 50?","choices":["5","10","15"],"answer":0,"explain":"10% = 0.10, and 0.10 x 50 = 5."},
+   {"q":"What is 100% of a number?","choices":["the whole number","half of it","none of it"],"answer":0,"explain":"100% means all of it — the whole amount."},
+   {"q":"0.25 written as a percent is:","choices":["25%","2.5%","250%"],"answer":0,"explain":"0.25 = 25 hundredths = 25%."}
+ ]},
+ "6_FR": {"grade":"6","topic":"FR","title":"Dividing fractions","questions":[
+   {"q":"How many 1/4 pieces are in 1 whole?","choices":["4","1","1/4"],"answer":0,"explain":"Four quarters make a whole, so 1 / (1/4) = 4."},
+   {"q":"Dividing by 1/2 gives a result that is:","choices":["bigger","smaller","the same"],"answer":0,"explain":"Many halves fit into a number, so the result is bigger."},
+   {"q":"Dividing by a fraction is the same as multiplying by its:","choices":["reciprocal (flip)","double","half"],"answer":0,"explain":"To divide by a fraction, multiply by its reciprocal."},
+   {"q":"What is 2 divided by 1/2?","choices":["4","1","2"],"answer":0,"explain":"There are 4 halves in 2."},
+   {"q":"What is 1/2 divided by 1/4?","choices":["2","1/8","4"],"answer":0,"explain":"Two quarters fit in one half, so the answer is 2."}
+ ]},
+ "6_IN": {"grade":"6","topic":"IN","title":"Negative numbers & integers","questions":[
+   {"q":"Which number is the smallest?","choices":["-5","-1","2"],"answer":0,"explain":"-5 is furthest left on the number line."},
+   {"q":"What is the absolute value of -7?","choices":["7","-7","0"],"answer":0,"explain":"Distance from zero is 7."},
+   {"q":"On a number line, negative numbers are:","choices":["left of zero","right of zero","above zero"],"answer":0,"explain":"Negatives sit to the left of zero."},
+   {"q":"Which is greater, -3 or -8?","choices":["-3","-8","equal"],"answer":0,"explain":"-3 is closer to zero, so it is greater."},
+   {"q":"A temperature of 5 below zero is written as:","choices":["-5","5","0.5"],"answer":0,"explain":"Below zero is negative: -5."}
+ ]},
+ "6_CP": {"grade":"6","topic":"CP","title":"The coordinate plane","questions":[
+   {"q":"The point (-3, 2) is located:","choices":["left and up from the origin","right and down","at the origin"],"answer":0,"explain":"Negative x is left; positive y is up."},
+   {"q":"The two axes split the plane into how many quadrants?","choices":["4","2","8"],"answer":0,"explain":"The x- and y-axes make 4 quadrants."},
+   {"q":"In which direction is a negative y-coordinate?","choices":["down","up","right"],"answer":0,"explain":"Negative y means below the x-axis (down)."},
+   {"q":"The point (4, -1) is:","choices":["right and down","left and up","at the origin"],"answer":0,"explain":"Positive x is right; negative y is down."},
+   {"q":"The sign of the x-coordinate tells you:","choices":["left or right","up or down","the quadrant number only"],"answer":0,"explain":"x's sign tells left (negative) or right (positive)."}
+ ]},
+ "6_EE": {"grade":"6","topic":"EE","title":"Expressions & equations","questions":[
+   {"q":"In the expression n + 4, what is n?","choices":["a variable for an unknown number","always 4","the answer"],"answer":0,"explain":"A variable is a letter standing for a number."},
+   {"q":"If x = 3, what is 2x + 1?","choices":["7","9","23"],"answer":0,"explain":"2(3)+1 = 6+1 = 7."},
+   {"q":"Solve x + 4 = 10.","choices":["x = 6","x = 14","x = 4"],"answer":0,"explain":"Subtract 4 from both sides: x = 6."},
+   {"q":"To keep an equation true, you must do the same thing to:","choices":["both sides","one side","neither side"],"answer":0,"explain":"Whatever you do to one side, do to the other."},
+   {"q":"Evaluate 5y when y = 4.","choices":["20","9","54"],"answer":0,"explain":"5 x 4 = 20."}
+ ]},
+ "6_GE": {"grade":"6","topic":"GE","title":"Area of triangles","questions":[
+   {"q":"A triangle has base 6 and height 4. What is its area?","choices":["12","24","10"],"answer":0,"explain":"Area = 1/2 x 6 x 4 = 12."},
+   {"q":"The formula for a triangle's area is:","choices":["1/2 x base x height","base x height","base + height"],"answer":0,"explain":"A triangle is half of a rectangle."},
+   {"q":"A triangle is half of a:","choices":["rectangle","circle","pentagon"],"answer":0,"explain":"A rectangle split along its diagonal makes two triangles."},
+   {"q":"A triangle with base 10 and height 3 has area:","choices":["15","30","13"],"answer":0,"explain":"1/2 x 10 x 3 = 15."},
+   {"q":"The height of a triangle is measured:","choices":["straight up from the base","along a slanted side","around the outside"],"answer":0,"explain":"Height is the perpendicular distance to the opposite point."}
+ ]},
+ "6_ST": {"grade":"6","topic":"ST","title":"Statistics & probability","questions":[
+   {"q":"What is the mean of 2, 4, and 6?","choices":["4","6","2"],"answer":0,"explain":"(2+4+6)/3 = 12/3 = 4."},
+   {"q":"The median of 1, 3, 9 is:","choices":["3","9","1"],"answer":0,"explain":"The middle value when ordered is 3."},
+   {"q":"The mode of 2, 2, 5, 7 is:","choices":["2","5","7"],"answer":0,"explain":"The mode is the value that appears most: 2."},
+   {"q":"The mean is also called the:","choices":["average","middle","most common"],"answer":0,"explain":"The mean is the average."},
+   {"q":"To find the mean you add the values and then:","choices":["divide by how many","multiply them","find the middle"],"answer":0,"explain":"Mean = sum divided by the count."}
+ ]},
+ "7_PR": {"grade":"7","topic":"PR","title":"Proportional relationships","questions":[
+   {"q":"If 1 notebook costs $3, how much do 4 cost (proportionally)?","choices":["$12","$7","$3"],"answer":0,"explain":"4 x $3 = $12."},
+   {"q":"In y = 5x, the constant of proportionality is:","choices":["5","x","y"],"answer":0,"explain":"k = 5; y is always 5 times x."},
+   {"q":"A proportional graph is a straight line through:","choices":["the origin (0,0)","(1,0)","(0,5)"],"answer":0,"explain":"Proportional relationships pass through the origin."},
+   {"q":"Two quantities are proportional if their ratio is:","choices":["always the same","always growing","always different"],"answer":0,"explain":"Proportional means a constant ratio."},
+   {"q":"If y = kx and y = 12 when x = 3, then k =","choices":["4","9","36"],"answer":0,"explain":"k = y/x = 12/3 = 4."}
+ ]},
+ "7_IN": {"grade":"7","topic":"IN","title":"Operations with integers","questions":[
+   {"q":"What is 3 + (-5)?","choices":["-2","8","2"],"answer":0,"explain":"Start at 3 and move 5 left to -2."},
+   {"q":"What is (-3) x (-4)?","choices":["12","-12","-7"],"answer":0,"explain":"Negative times negative is positive: 12."},
+   {"q":"What is (-3) x 4?","choices":["-12","12","-7"],"answer":0,"explain":"Different signs give a negative: -12."},
+   {"q":"What is 3 - (-2)?","choices":["5","1","-5"],"answer":0,"explain":"Subtracting a negative adds: 3 + 2 = 5."},
+   {"q":"What is -10 divided by 2?","choices":["-5","5","-20"],"answer":0,"explain":"Different signs give a negative: -5."}
+ ]},
+ "7_EE": {"grade":"7","topic":"EE","title":"Expressions & equations","questions":[
+   {"q":"Solve 2x + 3 = 11.","choices":["x = 4","x = 7","x = 14"],"answer":0,"explain":"2x = 8, so x = 4."},
+   {"q":"Expand 3(x + 2).","choices":["3x + 6","3x + 2","x + 6"],"answer":0,"explain":"Distribute: 3 times x and 3 times 2."},
+   {"q":"When solving 2x + 3 = 11, the first step is to:","choices":["subtract 3 from both sides","divide by 2 first","add 3"],"answer":0,"explain":"Undo addition before the multiplication."},
+   {"q":"The distributive property says a(b + c) =","choices":["ab + ac","a + b + c","abc"],"answer":0,"explain":"Multiply a by each term inside."},
+   {"q":"Solve 5x = 20.","choices":["x = 4","x = 15","x = 100"],"answer":0,"explain":"Divide both sides by 5: x = 4."}
+ ]},
+ "7_PC": {"grade":"7","topic":"PC","title":"Percent problems","questions":[
+   {"q":"What is 20% of 50?","choices":["10","20","30"],"answer":0,"explain":"0.20 x 50 = 10."},
+   {"q":"A 10% tip on a $30 meal is:","choices":["$3","$10","$13"],"answer":0,"explain":"10% of 30 is 3."},
+   {"q":"A $40 shirt is 25% off. How much do you save?","choices":["$10","$25","$15"],"answer":0,"explain":"25% of 40 = 0.25 x 40 = $10."},
+   {"q":"To find a percent of a number, change the percent to a:","choices":["decimal and multiply","whole number and add","fraction and subtract"],"answer":0,"explain":"Convert to a decimal, then multiply."},
+   {"q":"What is 50% of 80?","choices":["40","8","160"],"answer":0,"explain":"50% is half: 80 / 2 = 40."}
+ ]},
+ "7_GE": {"grade":"7","topic":"GE","title":"Geometry: scale, circles & angles","questions":[
+   {"q":"A map uses 1 cm = 2 m. A 3 cm line is how long in real life?","choices":["6 m","5 m","1.5 m"],"answer":0,"explain":"3 cm x 2 m/cm = 6 m."},
+   {"q":"The area of a circle is:","choices":["pi x r x r","2 x pi x r","pi x d"],"answer":0,"explain":"Area = pi x radius squared."},
+   {"q":"Two angles are complementary. One is 30 degrees. The other is:","choices":["60 degrees","150 degrees","330 degrees"],"answer":0,"explain":"Complementary angles add to 90: 90-30 = 60."},
+   {"q":"Supplementary angles add up to:","choices":["180 degrees","90 degrees","360 degrees"],"answer":0,"explain":"Supplementary angles total 180 degrees."},
+   {"q":"The diameter of a circle is how many times the radius?","choices":["2 times","half","the same"],"answer":0,"explain":"The diameter is twice the radius."}
+ ]},
+ "7_ST": {"grade":"7","topic":"ST","title":"Statistics & probability","questions":[
+   {"q":"The probability of flipping heads on a fair coin is:","choices":["1/2","1/6","1"],"answer":0,"explain":"1 of 2 equally likely outcomes."},
+   {"q":"The probability of rolling a 3 on a 6-sided die is:","choices":["1/6","1/3","3/6"],"answer":0,"explain":"One favorable outcome out of six."},
+   {"q":"A probability of 0 means an event is:","choices":["impossible","certain","likely"],"answer":0,"explain":"0 means it can never happen."},
+   {"q":"A probability of 1 means an event is:","choices":["certain","impossible","unlikely"],"answer":0,"explain":"1 means it will definitely happen."},
+   {"q":"Experimental probability gets closer to theoretical with:","choices":["more trials","fewer trials","no trials"],"answer":0,"explain":"More trials make results approach the theoretical value."}
+ ]},
+ "8_EX": {"grade":"8","topic":"EX","title":"Exponent properties","questions":[
+   {"q":"What is x squared times x cubed?","choices":["x to the 5th","x to the 6th","x to the 1st"],"answer":0,"explain":"Add exponents: 2+3 = 5."},
+   {"q":"What does 2 to the 3rd power equal?","choices":["8","6","9"],"answer":0,"explain":"2 x 2 x 2 = 8."},
+   {"q":"When you multiply powers with the same base, you:","choices":["add the exponents","multiply the exponents","subtract the bases"],"answer":0,"explain":"Same base: add the exponents."},
+   {"q":"What is 5 to the 0 power?","choices":["1","0","5"],"answer":0,"explain":"Any nonzero number to the 0 power is 1."},
+   {"q":"x to the 6th divided by x squared is:","choices":["x to the 4th","x to the 8th","x to the 3rd"],"answer":0,"explain":"Subtract exponents: 6-2 = 4."}
+ ]},
+ "8_SR": {"grade":"8","topic":"SR","title":"Square roots","questions":[
+   {"q":"What is the square root of 16?","choices":["4","8","16"],"answer":0,"explain":"4 x 4 = 16."},
+   {"q":"What is the square root of 81?","choices":["9","8","18"],"answer":0,"explain":"9 x 9 = 81."},
+   {"q":"Finding a square root is the opposite of:","choices":["squaring","adding","dividing"],"answer":0,"explain":"The square root undoes squaring."},
+   {"q":"Which is a perfect square?","choices":["25","20","30"],"answer":0,"explain":"25 = 5 x 5, a perfect square."},
+   {"q":"The square root of 1 is:","choices":["1","0","2"],"answer":0,"explain":"1 x 1 = 1."}
+ ]},
+ "8_SN": {"grade":"8","topic":"SN","title":"Scientific notation","questions":[
+   {"q":"How is 5000 written in scientific notation?","choices":["5 x 10^3","5 x 10^4","50 x 10^2"],"answer":0,"explain":"5 x 1000 = 5 x 10^3."},
+   {"q":"Scientific notation uses a number between 1 and 10 times a power of:","choices":["10","2","100"],"answer":0,"explain":"It always uses powers of 10."},
+   {"q":"4 x 10^2 equals:","choices":["400","42","4000"],"answer":0,"explain":"4 x 100 = 400."},
+   {"q":"0.004 in scientific notation uses which exponent?","choices":["-3","3","4"],"answer":0,"explain":"0.004 = 4 x 10^-3."},
+   {"q":"Scientific notation is most useful for numbers that are:","choices":["very big or very small","always whole","always negative"],"answer":0,"explain":"It compactly writes very large or very small numbers."}
+ ]},
+ "8_LE": {"grade":"8","topic":"LE","title":"Linear equations & slope","questions":[
+   {"q":"Solve 3x = x + 4.","choices":["x = 2","x = 4","x = 1"],"answer":0,"explain":"3x - x = 4, so 2x = 4, x = 2."},
+   {"q":"A line goes up 6 for every 3 across. Its slope is:","choices":["2","3","6"],"answer":0,"explain":"Slope = rise/run = 6/3 = 2."},
+   {"q":"In y = 2x + 3, the y-intercept is:","choices":["3","2","x"],"answer":0,"explain":"b = 3 is where the line crosses the y-axis."},
+   {"q":"In y = mx + b, m stands for the:","choices":["slope","y-intercept","x-value"],"answer":0,"explain":"m is the slope (steepness)."},
+   {"q":"A line that goes downhill from left to right has a slope that is:","choices":["negative","positive","zero"],"answer":0,"explain":"Downhill means a negative slope."}
+ ]},
+ "8_FN": {"grade":"8","topic":"FN","title":"Functions","questions":[
+   {"q":"A function gives each input how many outputs?","choices":["exactly one","two","many"],"answer":0,"explain":"A function gives exactly one output per input."},
+   {"q":"If the rule is 'add 2', the output for input 5 is:","choices":["7","5","2"],"answer":0,"explain":"5 + 2 = 7."},
+   {"q":"A linear function's graph is a:","choices":["straight line","curve","circle"],"answer":0,"explain":"Linear functions graph as straight lines."},
+   {"q":"A table shows a linear function if y changes by:","choices":["a constant amount","a growing amount","a random amount"],"answer":0,"explain":"Constant change in y means linear."},
+   {"q":"For the rule 'multiply by 3', the output for input 4 is:","choices":["12","7","34"],"answer":0,"explain":"4 x 3 = 12."}
+ ]},
+ "8_GE": {"grade":"8","topic":"GE","title":"Geometry: Pythagoras, transformations & volume","questions":[
+   {"q":"A right triangle has legs 3 and 4. The hypotenuse is:","choices":["5","7","12"],"answer":0,"explain":"3^2 + 4^2 = 25, square root is 5."},
+   {"q":"The Pythagorean theorem is:","choices":["a^2 + b^2 = c^2","a + b = c","a x b = c"],"answer":0,"explain":"For right triangles, the legs squared sum to the hypotenuse squared."},
+   {"q":"Which transformation slides a shape without turning it?","choices":["translation","rotation","reflection"],"answer":0,"explain":"A translation slides a shape."},
+   {"q":"A reflection produces a:","choices":["mirror image","bigger shape","rotated shape"],"answer":0,"explain":"A reflection flips a shape across a line."},
+   {"q":"The volume of a cylinder uses the area of its base, which is a:","choices":["circle","square","triangle"],"answer":0,"explain":"A cylinder's base is a circle: V = pi r^2 h."}
+ ]},
+ "8_ST": {"grade":"8","topic":"ST","title":"Statistics & scatter plots","questions":[
+   {"q":"On a scatter plot, points trending up to the right show a:","choices":["positive association","negative association","no relationship"],"answer":0,"explain":"Both variables increase together."},
+   {"q":"Points trending down to the right show a:","choices":["negative association","positive association","no relationship"],"answer":0,"explain":"As one increases, the other decreases."},
+   {"q":"A scatter plot graphs:","choices":["pairs of data as points","one number","a single line only"],"answer":0,"explain":"It plots paired data to show a relationship."},
+   {"q":"If points are scattered with no pattern, there is:","choices":["no association","a strong positive association","a perfect line"],"answer":0,"explain":"No pattern means no association."},
+   {"q":"A line that fits the trend of scatter-plot points is called a:","choices":["line of best fit","number line","axis"],"answer":0,"explain":"The trend line is the line of best fit."}
+ ]}
+}

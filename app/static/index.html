@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<!--
+  LightBox student app shell. Every screen a student can see lives in this one file as a
+  hidden section; app.js shows one at a time (see SCREENS / CURRENT_SCREEN there) - there
+  is no router and no second student page.
+
+  Translatable text is marked data-i18n="key" (or data-i18n-ph / data-i18n-aria for
+  placeholders and aria-labels) and filled in at load from /api/i18n. Add the matching key
+  to UI in server.py and DEFAULTS in app.js - never hard-code English here.
+
+  The ?v=NN on style.css and app.js below is the cache-buster: bump it in the same commit
+  as any change to those files, or student tablets keep serving the old copy.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LightBox</title>
+<link rel="stylesheet" href="/static/style.css?v=70">
+</head>
+<body>
+<header id="topbar">
+  <button id="backBtn" class="iconbtn hidden" aria-label="Back">
+    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <div class="brand" id="brandHome">
+    <svg class="logo" viewBox="0 0 100 100" aria-hidden="true">
+      <circle cx="50" cy="50" r="49" fill="#16233B"/><circle cx="50" cy="43" r="25" fill="#F3EAC2"/>
+      <path d="M50 24 L67 50 L50 80 L33 50 Z" fill="#FCC419"/>
+    </svg>
+    <span>Light<b>Box</b></span>
+  </div>
+  <span id="topbarDivider" class="topbar-divider hidden"></span>
+  <span id="topbarTeacherLabel" class="topbar-teacher-label hidden" data-i18n="dash_title_topbar">Teacher dashboard</span>
+  <div class="spacer"></div>
+  <button id="testBell" class="test-bell hidden" aria-label="You have a new test" title="You have a new test!">
+    <svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 2a6 6 0 0 0-6 6c0 4-1.5 6-3 7h18c-1.5-1-3-3-3-7a6 6 0 0 0-6-6z" fill="currentColor"/><path d="M10 20a2 2 0 0 0 4 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <span class="bell-dot"></span>
+  </button>
+  <!-- teacher notification bell: lives in the shared top bar so it is present on every
+       teacher page (dashboard + history), not just the Tests view -->
+  <div id="notifWrap" class="notif-wrap hidden">
+    <button id="notifBell" class="notif-bell" aria-haspopup="true" aria-expanded="false"
+            aria-label="Notifications" data-i18n-aria="notifications">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 6-2.5 7-2.5 7h17S18 14 18 8z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M10.3 19a2 2 0 0 0 3.4 0" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+      <span id="notifCount" class="notif-count hidden"></span>
+    </button>
+    <div id="notifPanel" class="notif-panel hidden" role="dialog" aria-label="Notifications">
+      <div class="notif-head">
+        <span class="notif-head-t" data-i18n="notifications">Notifications</span>
+        <button id="notifMarkAll" class="notif-markall" data-i18n="mark_all_read">Mark all read</button>
+      </div>
+      <div id="notifList" class="notif-list"></div>
+    </div>
+  </div>
+  <div id="profileWrap" class="profile-wrap hidden">
+    <button id="profileBtn" class="profile-btn" aria-haspopup="true">
+      <span id="profStar" class="prof-star">⭐</span>
+      <span id="profName" class="prof-name"></span>
+      <svg class="prof-caret" viewBox="0 0 24 24" width="14" height="14"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div id="profileMenu" class="profile-menu hidden">
+      <button id="menuRewards" class="profile-menu-item" data-i18n="view_rewards">View My Rewards and Stars</button>
+      <button id="menuLanguage" class="profile-menu-item" data-i18n="change_language">Change Language</button>
+      <button id="menuSignOut" class="profile-menu-item" data-i18n="sign_out">Sign Out</button>
+    </div>
+  </div>
+  <select id="lang" class="langsel" title="Language"></select>
+</header>
+
+<main>
+  <!-- FIRST-RUN WELCOME / SETUP WIZARD -->
+  <section id="welcome" class="screen hidden">
+    <div class="welcome-wrap">
+      <svg class="logo-float" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="49" fill="#16233B"/><circle cx="50" cy="43" r="25" fill="#F3EAC2"/>
+        <path d="M50 24 L67 50 L50 80 L33 50 Z" fill="#FCC419"/>
+      </svg>
+      <h1 class="wordmark welcome-title"><span data-i18n="welcome_to">Welcome to</span> Light<b>Box</b></h1>
+      <p class="welcome-mission" data-i18n="welcome_mission">Bringing free, offline learning to every classroom — because every child deserves equal access to a great education.</p>
+
+      <div class="card welcome-card">
+        <h2 class="setup-step" data-i18n="setup_lang">Choose your starting language</h2>
+        <div id="setupLangs" class="setup-langs"></div>
+        <div id="setupErr" class="login-err hidden"></div>
+        <button id="setupBtn" class="btn primary continue-btn" data-i18n="setup_go">Continue</button>
+        <p class="setup-note" data-i18n="setup_note">You can change this anytime from the teacher dashboard.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROLE SELECT (landing) -->
+  <section id="role" class="screen decor-bg">
+    <div class="signin-wrap">
+      <svg class="logo-hero" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="49" fill="#16233B"/><circle cx="50" cy="43" r="25" fill="#F3EAC2"/>
+        <path d="M50 24 L67 50 L50 80 L33 50 Z" fill="#FCC419"/>
+      </svg>
+      <h1 class="wordmark">Light<b>Box</b></h1>
+      <p class="tagline" data-i18n="tagline">Learn, read, and explore.</p>
+      <div class="role-cards">
+        <button id="roleStudent" class="role-card">
+          <span class="role-ic navy"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M12 3 2 8l10 5 8-4v5h2V8z" fill="currentColor"/><path d="M6 12v4c0 1.7 2.7 3 6 3s6-1.3 6-3v-4l-6 3z" fill="currentColor"/></svg></span>
+          <span class="role-main"><span class="role-t" data-i18n="role_student">I'm a Student</span>
+            <span class="role-s" data-i18n="role_student_s">Watch lessons, ask questions, take quizzes</span></span>
+        </button>
+        <button id="roleTeacher" class="role-card">
+          <span class="role-ic cream"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M4 20V10h4v10zm6 0V4h4v16zm6 0v-7h4v7z" fill="currentColor"/></svg></span>
+          <span class="role-main"><span class="role-t" data-i18n="role_teacher">I'm a Teacher</span>
+            <span class="role-s" data-i18n="role_teacher_s">See your class's progress</span></span>
+        </button>
+      </div>
+      <p class="have-account-row">
+        <span data-i18n="no_account">New here?</span>
+        <button id="goSignupBtnRole" class="linklike" data-i18n="signup_link">Create an account</button>
+      </p>
+      <footer class="lb-footer" data-i18n="disclaimer">
+        Educational content on this platform is compiled from various open-source public repositories
+        and educational archives, including Khan Academy, StoryWeaver, the Global Digital Library, and
+        Global Storybooks, to support offline classroom learning.
+      </footer>
+    </div>
+  </section>
+
+  <!-- SIGN IN (unified: role comes back from the server, never asserted by the client) -->
+  <section id="login" class="screen hidden">
+    <div class="signin-wrap">
+      <svg class="logo-hero" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="49" fill="#16233B"/><circle cx="50" cy="43" r="25" fill="#F3EAC2"/>
+        <path d="M50 24 L67 50 L50 80 L33 50 Z" fill="#FCC419"/>
+      </svg>
+      <h1 class="wordmark" data-i18n="login_title">Sign In</h1>
+      <div class="card signin-card">
+        <div class="signin-card-icon">
+          <span class="icon-badge lg tint-navy" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22"><circle cx="8" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M11 11l9 9M17 15l3 3M15 17l2.5 2.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+          </span>
+        </div>
+        <label class="lbl" data-i18n="username_lbl">Username</label>
+        <input id="loginUser" class="field" autocomplete="username">
+        <label class="lbl" data-i18n="password_lbl">Password</label>
+        <input id="loginPw" class="field" type="password" autocomplete="current-password">
+        <div id="loginErr" class="login-err hidden" data-i18n="login_err">Wrong username or password.</div>
+        <button id="loginBtn" class="btn primary continue-btn" data-i18n="login_btn">Sign In</button>
+      </div>
+      <p class="have-account-row">
+        <span data-i18n="no_account">New here?</span>
+        <button id="goSignupBtn" class="linklike" data-i18n="signup_link">Create an account</button>
+      </p>
+    </div>
+  </section>
+
+  <!-- SIGN UP (role carried over from the role-picker screen) -->
+  <section id="signup" class="screen hidden">
+    <div class="signin-wrap">
+      <svg class="logo-hero" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="49" fill="#16233B"/><circle cx="50" cy="43" r="25" fill="#F3EAC2"/>
+        <path d="M50 24 L67 50 L50 80 L33 50 Z" fill="#FCC419"/>
+      </svg>
+      <h1 class="wordmark" data-i18n="signup_title">Create Account</h1>
+      <p id="signupRoleTag" class="tagline"></p>
+      <div class="card signin-card">
+        <div class="signin-card-icon">
+          <span class="icon-badge lg tint-navy" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22"><circle cx="9" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M3 20c0-4 3-6 6-6s6 2 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M18 9v6M15 12h6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+          </span>
+        </div>
+        <label class="lbl" data-i18n="username_lbl">Username</label>
+        <input id="signupUser" class="field" autocomplete="username">
+        <label class="lbl" data-i18n="password_lbl">Password</label>
+        <input id="signupPw" class="field" type="password" autocomplete="new-password">
+        <label class="lbl" data-i18n="language_lbl">Language</label>
+        <select id="signupLang" class="field"></select>
+        <div id="signupErr" class="login-err hidden"></div>
+        <button id="signupBtn" class="btn primary continue-btn" data-i18n="signup_btn">Create Account</button>
+      </div>
+      <p class="have-account-row">
+        <span data-i18n="have_account">Already have an account?</span>
+        <button id="goLoginBtn2" class="linklike" data-i18n="signin_link">Sign in</button>
+      </p>
+    </div>
+  </section>
+
+  <!-- JOIN A CLASS (student, after sign-in: request-to-join or pending state) -->
+  <section id="joincode" class="screen hidden">
+    <div class="signin-wrap">
+      <svg class="logo-hero" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="49" fill="#16233B"/><circle cx="50" cy="43" r="25" fill="#F3EAC2"/>
+        <path d="M50 24 L67 50 L50 80 L33 50 Z" fill="#FCC419"/>
+      </svg>
+      <h1 class="wordmark" data-i18n="join_title">Join a Class</h1>
+      <p class="tagline" data-i18n="join_sub">Ask your teacher for your class access code.</p>
+      <div id="joinForm" class="card signin-card">
+        <div class="signin-card-icon">
+          <span class="icon-badge lg tint-cream" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+        <label class="lbl" data-i18n="access_code">Access code</label>
+        <input id="joinCode" class="field" style="text-transform:uppercase" maxlength="6" autocomplete="off">
+        <div id="joinErr" class="login-err hidden"></div>
+        <button id="joinBtn" class="btn primary continue-btn" data-i18n="join_btn">Request to Join</button>
+      </div>
+      <div id="joinPending" class="card signin-card pending hidden">
+        <div class="signin-card-icon">
+          <span class="icon-badge lg tint-navy" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+        <p id="joinPendingMsg" class="muted-note" data-i18n="pending_msg">Request sent! Waiting for your teacher to accept you.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STUDENT HOME (personalized) -->
+  <section id="home" class="screen hidden">
+    <div class="home-wrap">
+      <div class="home-hero">
+        <p id="homeEyebrow" class="home-eyebrow"></p>
+        <h1 id="homeHeading" class="home-heading"></h1>
+      </div>
+      <div id="nextStep" class="nextstep hidden"></div>
+      <div id="todoSection" class="home-section hidden">
+        <h3 class="home-lbl" data-i18n="todo_list_title">My To-Do List</h3>
+        <div id="todoList" class="todo-list"></div>
+      </div>
+      <div class="home-section">
+        <h3 class="home-lbl" data-i18n="explore_title">Explore</h3>
+        <div class="explore-grid">
+          <button id="browseBtn" class="explore-card">
+            <span class="ec-top">
+              <span class="icon-badge sq tint-navy"><svg viewBox="0 0 24 24" width="20" height="20"><rect x="4" y="4" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="13" y="4" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="4" y="13" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="13" y="13" width="7" height="7" rx="1.5" fill="currentColor"/></svg></span>
+              <span class="ec-chev"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </span>
+            <span class="ec-title" data-i18n="browse">Browse lessons by grade</span>
+            <span class="ec-sub" data-i18n="browse_sub">Find lessons for any grade level</span>
+          </button>
+          <button id="helperBtn" class="explore-card gold">
+            <span class="ec-top">
+              <span class="icon-badge sq tint-gold"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M4 4h16v11H8l-4 4z" fill="currentColor"/></svg></span>
+              <span class="ec-chev"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </span>
+            <span class="ec-title"><span data-i18n="math_helper">Math Helper</span><span class="ec-tag" data-i18n="ai_badge">AI</span></span>
+            <span class="ec-sub" data-i18n="math_helper_sub">Ask me about math</span>
+          </button>
+          <button id="achBtn" class="explore-card ach">
+            <span class="ec-top">
+              <span class="icon-badge sq tint-cream"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 2l2.9 6.3 6.8.6-5.1 4.5 1.5 6.7L12 17.8 5.9 20.6l1.5-6.7L2.3 8.9l6.8-.6z" fill="currentColor"/></svg></span>
+              <span class="ec-chev"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </span>
+            <span class="ec-title" data-i18n="ach_btn">My Achievement Box</span>
+            <span class="ec-sub" data-i18n="ach_btn_sub">See the badges you've earned</span>
+          </button>
+        </div>
+      </div>
+      <div class="card code-card">
+        <div class="code-row">
+          <input id="code" class="field" style="text-transform:uppercase" data-i18n-ph="signin_code" placeholder="Lesson code" autocomplete="off">
+          <button id="startBtn" class="btn accent" data-i18n="start">Start</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENT BOX / PROFILE (scoped: math / reading / about-me) -->
+  <section id="achievements" class="screen hidden">
+    <h2 id="achTitle" class="screen-title" data-i18n="ach_title">My Achievement Box</h2>
+    <div class="profile-grid">
+      <div class="profile-col-main">
+        <div class="card profile-card">
+          <h3 class="profile-card-h" data-i18n="ach_showcase">Showcase</h3>
+          <div id="achShowcase" class="showcase-row"></div>
+        </div>
+        <div class="card profile-card">
+          <h3 class="profile-card-h" data-i18n="ach_all_awards">All My Awards</h3>
+          <div id="achGrid" class="ach-grid"></div>
+          <p id="achEmpty" class="muted-note hidden" data-i18n="ach_empty">Finish a video or pass a quiz to earn your first star!</p>
+        </div>
+      </div>
+      <div class="profile-col-side">
+        <div class="card profile-card">
+          <h3 class="profile-card-h" data-i18n="ach_badge_counts">Badge Counts</h3>
+          <div id="achStats" class="ach-stats"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ASSIGNED TEST (student takes a teacher-built test) -->
+  <section id="test" class="screen hidden">
+    <h2 id="testHeading" class="screen-title">Your Test</h2>
+    <p class="helper-sub" data-i18n="test_sub">Answer every question, then send it to your teacher.</p>
+    <p id="testDue" class="test-due hidden"></p>
+    <div id="testForm"></div>
+    <div class="code-row" style="justify-content:flex-start">
+      <button id="testSubmit" class="btn primary" data-i18n="test_submit">Send my answers</button>
+      <span id="testMsg" style="margin-left:12px;font-weight:600;color:#1E8E4E"></span>
+    </div>
+  </section>
+
+  <!-- SUBJECT SELECT (Math / Reading) -->
+  <section id="subjects" class="screen hidden decor-blobs">
+    <div class="subj-wrap">
+      <div class="home-hero">
+        <h1 class="home-heading" id="subjHi">Hi!</h1>
+        <p class="home-eyebrow-sub" data-i18n="subj_q">What do you want to do today?</p>
+      </div>
+      <div class="subject-row">
+        <button id="subjMath" class="subject-tile math">
+          <span class="subj-deco subj-deco-math" aria-hidden="true">
+            <svg viewBox="0 0 120 120" width="100%" height="100%"><rect x="14" y="60" width="18" height="18" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M60 96 L74 74 L88 96 Z" fill="none" stroke="currentColor" stroke-width="2"/><text x="88" y="42" font-size="34" fill="currentColor" font-family="inherit">7</text><path d="M46 30v14M39 37h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+          <span class="subj-tile-top">
+            <span class="subj-tile-ic"><svg viewBox="0 0 24 24" width="26" height="26"><rect x="5" y="3" width="14" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><line x1="8" y1="7" x2="16" y2="7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="8.5" cy="12.3" r="1" fill="currentColor"/><circle cx="12" cy="12.3" r="1" fill="currentColor"/><circle cx="15.5" cy="12.3" r="1" fill="currentColor"/><circle cx="8.5" cy="16.3" r="1" fill="currentColor"/><circle cx="12" cy="16.3" r="1" fill="currentColor"/><circle cx="15.5" cy="16.3" r="1" fill="currentColor"/></svg></span>
+          </span>
+          <span class="subj-tile-text">
+            <span class="subj-tile-title" data-i18n="subj_math">Math</span>
+            <span class="subj-tile-sub" data-i18n="subj_math_sub">Watch lessons &amp; take quizzes</span>
+          </span>
+        </button>
+        <button id="subjReading" class="subject-tile reading">
+          <span class="subj-deco subj-deco-reading" aria-hidden="true">
+            <svg viewBox="0 0 120 120" width="100%" height="100%"><path d="M60 96 L102 84 V52 L60 64 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M74 68v24M88 64v24" stroke="currentColor" stroke-width="1.6"/></svg>
+          </span>
+          <span class="subj-tile-top">
+            <span class="subj-tile-ic"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M12 6c-1.5-1.2-3.6-2-6-2v13c2.4 0 4.5.8 6 2 1.5-1.2 3.6-2 6-2V4c-2.4 0-4.5.8-6 2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 6v13" stroke="currentColor" stroke-width="1.6"/></svg></span>
+          </span>
+          <span class="subj-tile-text">
+            <span class="subj-tile-title" data-i18n="subj_reading">Reading</span>
+            <span class="subj-tile-sub" data-i18n="subj_reading_sub">Read fun storybooks</span>
+          </span>
+        </button>
+        <button id="subjHelper" class="subject-tile helper">
+          <span class="subj-tile-top">
+            <span class="subj-tile-tag" data-i18n="quick_chat">Quick Chat</span>
+            <span class="subj-tile-sparkle">✦</span>
+          </span>
+          <span class="subj-tile-ic"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M4 4h16v11H8l-4 4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .7-1 1.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="15.6" r=".9" fill="currentColor"/></svg></span>
+          <span class="subj-tile-text">
+            <span class="subj-tile-title" data-i18n="helper_btn">Homework Helper</span>
+            <span class="subj-tile-sub" data-i18n="helper_any_sub">Ask me about any subject</span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- READING HUB (bookshelf) -->
+  <section id="reading" class="screen hidden">
+    <div class="reading-head">
+      <h2 class="screen-title" data-i18n="reading_hub">Reading Hub</h2>
+      <div class="reading-head-right">
+        <div class="read-langs-inline" id="readLangs"></div>
+        <button id="readAchBtn" class="reading-awards-card">
+          <span class="rac-ic">
+            <svg viewBox="0 0 24 24" width="16" height="16"><path d="M7 4h10v5a5 5 0 0 1-10 0V4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M7 5H4v2a3 3 0 0 0 3 3M17 5h3v2a3 3 0 0 1-3 3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12 14v3M9 20h6M9.5 20c0-1.7.7-2.5 2.5-3 1.8.5 2.5 1.3 2.5 3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <span class="rac-text">
+            <span class="rac-title" data-i18n="reading_awards">My Reading Awards</span>
+            <span class="rac-sub" id="racSub"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="grade-tabbar" id="gradeTabBar"></div>
+    <div class="active-grade-head" id="activeGradeHead"></div>
+    <div id="bookShelves" class="book-grid"></div>
+  </section>
+
+  <!-- E-BOOK READER -->
+  <section id="reader" class="screen hidden">
+    <h2 id="readerTitle" class="sr-only"></h2>
+    <div id="readerHud" class="reader-hud">
+      <button id="hudBack" class="hud-back" aria-label="Close book" data-i18n-aria="close_book_aria">
+        <svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+      </button>
+      <button id="hudBackLbl" class="hud-back-lbl">
+        <svg viewBox="0 0 24 24" width="18" height="18"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span data-i18n="back">Back</span>
+      </button>
+      <div class="hud-chip">
+        <span class="hud-starbig">⭐</span>
+        <span class="hud-name" id="hudName"></span>
+        <span class="hud-stars" id="hudStars">0</span>
+      </div>
+      <div class="hud-mid">
+        <div id="hudProgress" class="hud-progress" role="progressbar" aria-valuemin="1" aria-valuemax="1" aria-valuenow="1" aria-label="Reading progress" data-i18n-aria="reading_progress_aria">
+          <div class="hud-bar"><div id="hudFill" class="hud-fill"></div></div>
+          <svg id="hudMark" class="hud-mark" viewBox="0 0 12 16" width="12" height="16" aria-hidden="true">
+            <path d="M1 1h10v13.2L6 11 1 14.2z" fill="currentColor" stroke="#16233B" stroke-width="1.2" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="reader-stage">
+      <div class="reader-spread">
+        <div class="reader-img"><img id="rImg" alt="" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></div>
+        <div class="reader-textcol">
+          <div class="reader-textbody">
+            <div id="rText" class="r-text"></div>
+            <div id="rEndDivider" class="r-end-divider hidden"><span class="r-end-line"></span><span class="r-end-spark">✦</span><span class="r-end-line"></span></div>
+          </div>
+          <div id="rCredits" class="r-credits hidden"></div>
+        </div>
+      </div>
+      <div class="reader-nav">
+        <button id="rbPrev" class="rnav-prev" aria-label="Previous page" data-i18n-aria="prev_page_aria">
+          <svg viewBox="0 0 24 24" width="24" height="24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <span id="rPageNum" class="r-pagenum">
+          <svg class="r-pagenum-mark" viewBox="0 0 12 16" width="11" height="15" aria-hidden="true">
+            <path d="M1.6 1.6h8.8v12.6L6 11.2l-4.4 3z" fill="currentColor"/>
+          </svg>
+          <span id="rPageNumText"></span>
+        </span>
+        <button id="rbNext" class="rnav-next" aria-label="Next page" data-i18n-aria="next_page_aria">
+          <span data-i18n="next">Next</span>
+          <svg viewBox="0 0 24 24" width="20" height="20"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button id="rbQuiz" class="rnav-finish hidden">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span data-i18n="book_quiz_btn">Take Book Quiz</span>
+        </button>
+      </div>
+    </div>
+    <div id="bookQuiz" class="card bookquiz hidden"></div>
+  </section>
+
+  <!-- WIN ANIMATION OVERLAY -->
+  <div id="winOverlay" class="win-overlay hidden">
+    <div class="win-star">⭐</div>
+    <div class="win-text" data-i18n="won_star">You earned a star!</div>
+  </div>
+
+  <!-- class-join approval toast: shown when we notice (via polling) that the teacher
+       approved a pending request while the student was waiting -->
+  <div id="joinToast" class="toast-overlay hidden">
+    <span class="toast-emoji" aria-hidden="true">🎉</span>
+    <span id="joinToastText"></span>
+  </div>
+
+  <!-- TEACHER DASHBOARD -->
+  <section id="dashboard" class="screen hidden">
+    <div class="dash-shell">
+      <nav class="dash-sidebar">
+       <div class="dash-nav-sticky">
+        <div class="dash-nav-list">
+          <button class="dash-nav-item" data-view="overview">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="3" width="7" height="5" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="12" width="7" height="9" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="16" width="7" height="5" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            <span data-i18n="nav_overview">Class overview</span>
+          </button>
+          <button class="dash-nav-item" data-view="tests">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="4" y="4" width="16" height="17" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 3.5h6v2H9z" fill="currentColor"/><path d="M8 11h8M8 14.5h8M8 18h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <span data-i18n="nav_tests">Tests</span>
+          </button>
+          <button class="dash-nav-item" data-view="progress">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M3 17l6-6 4 4 8-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 6h6v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-i18n="nav_progress">Student progress</span>
+          </button>
+          <button class="dash-nav-item" data-view="history">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 9.5h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <span data-i18n="hist_btn">Past History Logs</span>
+          </button>
+        </div>
+       </div>
+       <!-- sibling of .dash-nav-sticky (not nested inside it) so it gets its own sticky
+            containing block - see the CSS comment on .dash-nav-bottom for why -->
+       <div class="dash-nav-bottom">
+          <button id="settingsBtn" class="dash-nav-item">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2 2M16.4 16.4l2 2M18.4 5.6l-2 2M7.6 16.4l-2 2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            <span data-i18n="settings_btn">Settings</span>
+          </button>
+          <button id="dashLogoutBtn" class="dash-nav-item nav-item-danger">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 17l5-5-5-5M21 12H9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-i18n="sign_out">Sign Out</span>
+          </button>
+       </div>
+      </nav>
+
+      <div class="dash-main">
+        <!-- VIEW: overview -->
+        <div id="dashViewOverview" class="dash-view">
+          <div class="dash-head">
+            <h1 class="screen-title" data-i18n="nav_overview">Class overview</h1>
+            <div class="dash-actions">
+              <button id="createTestBtn" class="btn primary">
+                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M4 20l1-4.5L15.5 5 19 8.5 8.5 19 4 20z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M13.5 6.5L17.5 10.5" stroke="currentColor" stroke-width="2"/></svg>
+                <span data-i18n="create_test">Create Test</span>
+              </button>
+              <button id="dashRefresh" class="btn ghost">
+                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.5-5.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M20 4v5h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span data-i18n="refresh">Refresh</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- class context: which class you're looking at, plus its join code -->
+          <div class="class-bar">
+            <select id="classSelect" class="field select-pill"></select>
+            <button id="newClassBtn" class="btn ghost" data-i18n="create_class_btn">+ Create Class</button>
+            <div id="codeDisplay" class="code-display hidden">
+              <span class="code-lbl" data-i18n="access_code">Access code</span>
+              <span id="codeBig" class="code-big"></span>
+              <button id="regenBtn" class="btn ghost" data-i18n="regenerate_btn">Regenerate</button>
+            </div>
+          </div>
+          <div id="newClassForm" class="card test-builder hidden">
+            <label class="lbl" data-i18n="class_name_ph">Class name (e.g. Room 12 Math)</label>
+            <input id="newClassName" class="field" data-i18n-ph="class_name_ph" placeholder="Class name (e.g. Room 12 Math)" autocomplete="off">
+            <label class="lbl" data-i18n="class_grade_lbl">Grade level</label>
+            <select id="newClassGrade" class="field grade-sel">
+              <option value="" data-i18n="grade_opt">Grade…</option>
+              <option value="K" data-i18n="grade_K">Kindergarten</option>
+              <option value="1" data-i18n="grade_1">1st Grade</option>
+              <option value="2" data-i18n="grade_2">2nd Grade</option>
+              <option value="3" data-i18n="grade_3">3rd Grade</option>
+              <option value="4" data-i18n="grade_4">4th Grade</option>
+              <option value="5" data-i18n="grade_5">5th Grade</option>
+              <option value="6" data-i18n="grade_6">6th Grade</option>
+              <option value="7" data-i18n="grade_7">7th Grade</option>
+              <option value="8" data-i18n="grade_8">8th Grade</option>
+            </select>
+            <div id="newClassErr" class="login-err hidden"></div>
+            <button id="newClassSave" class="btn primary" data-i18n="create_class_btn" style="margin-top:12px">+ Create Class</button>
+          </div>
+
+          <div class="card dash-panel">
+            <div class="dash-panel-head">
+              <span class="dash-panel-icon gold-chip"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <h2 data-i18n="pending_requests">Pending Requests</h2>
+            </div>
+            <div id="pendingArea"></div>
+          </div>
+
+          <div class="card dash-panel">
+            <div class="dash-panel-head">
+              <span class="dash-panel-icon navy-chip"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+              <h2 data-i18n="sec_add_student">Add a Student</h2>
+            </div>
+            <div class="add-student">
+              <div class="add-row">
+                <input id="newName" class="field" data-i18n-ph="ph_student_name" placeholder="Username" autocomplete="off">
+                <input id="newPin" class="field" data-i18n-ph="ph_password4" placeholder="Password (required for a new student)" autocomplete="off">
+                <select id="newGrade" class="field grade-sel">
+                  <option value="" data-i18n="grade_opt">Grade…</option>
+                  <option value="K" data-i18n="grade_K">Kindergarten</option>
+                  <option value="1" data-i18n="grade_1">1st Grade</option>
+                  <option value="2" data-i18n="grade_2">2nd Grade</option>
+                  <option value="3" data-i18n="grade_3">3rd Grade</option>
+                  <option value="4" data-i18n="grade_4">4th Grade</option>
+                  <option value="5" data-i18n="grade_5">5th Grade</option>
+                  <option value="6" data-i18n="grade_6">6th Grade</option>
+                  <option value="7" data-i18n="grade_7">7th Grade</option>
+                  <option value="8" data-i18n="grade_8">8th Grade</option>
+                </select>
+                <button id="addStudentBtn" class="btn primary" data-i18n="add_student_btn">Add student</button>
+              </div>
+              <div id="addErr" class="login-err hidden"></div>
+            </div>
+          </div>
+
+          <div class="card dash-panel">
+            <div class="dash-panel-head">
+              <span class="dash-panel-icon gold-chip"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M7 20v-2a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v2M13 4a3 3 0 1 1 0 6 3 3 0 0 1 0-6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M3 20v-1.5A3.5 3.5 0 0 1 6.5 15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+              <h2 data-i18n="roster_title">Class roster</h2>
+              <span id="rosterCount" class="badge navy"></span>
+            </div>
+            <div id="rosterArea"></div>
+          </div>
+        </div>
+
+        <!-- VIEW: tests -->
+        <div id="dashViewTests" class="dash-view hidden">
+          <div id="retentionBanner" class="card ret-banner hidden"></div>
+          <div class="dash-head">
+            <h1 class="screen-title" data-i18n="nav_tests">Tests</h1>
+            <div class="dash-tabs" role="tablist">
+              <button id="testsTabCreate" class="dash-tab" data-i18n="tests_tab_create">Create a test</button>
+              <button id="testsTabResults" class="dash-tab" data-i18n="tests_tab_results">Test results &amp; answers</button>
+            </div>
+          </div>
+          <div id="testsPaneCreate">
+            <div id="testBuilder" class="card test-builder"></div>
+          </div>
+          <div id="testsPaneResults" class="hidden">
+            <div id="testsArea"></div>
+          </div>
+        </div>
+
+        <!-- VIEW: progress -->
+        <div id="dashViewProgress" class="dash-view hidden">
+          <div class="dash-head">
+            <h1 class="screen-title" data-i18n="nav_progress">Student progress</h1>
+          </div>
+          <div id="classSummary" class="dash-stats-row"></div>
+          <div class="card dash-panel">
+            <div class="dash-panel-head">
+              <span class="dash-panel-icon navy-chip"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M3 17l6-6 4 4 8-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 6h6v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <h2 data-i18n="progress_by_student">Progress by student</h2>
+            </div>
+            <div id="board" class="dash-main-board"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="settingsPanel" class="card test-builder hidden">
+      <h3 class="add-title" data-i18n="settings_title">Settings</h3>
+      <label class="lbl" data-i18n="settings_lang">Base language (the default for all devices)</label>
+      <div id="settingsLangs" class="setup-langs"></div>
+      <div id="settingsErr" class="login-err hidden"></div>
+      <button id="settingsSave" class="btn primary" data-i18n="settings_save" style="margin-top:12px">Save settings</button>
+      <span id="settingsMsg" class="tb-msg"></span>
+      <!-- data & storage (auto-archival) is built in JS: its options depend on the
+           saved retention setting and the list of already-archived summaries -->
+      <div id="retentionBox" class="ret-box"></div>
+    </div>
+  </section>
+
+  <!-- PAST HISTORY LOGS (separate page, read-only) -->
+  <section id="history" class="screen hidden">
+    <div class="dash-shell">
+      <nav class="dash-sidebar hist-sidebar-clone">
+       <div class="dash-nav-sticky">
+        <div class="dash-nav-list">
+          <button class="dash-nav-item" data-view="overview">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="3" width="7" height="5" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="12" width="7" height="9" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="16" width="7" height="5" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            <span data-i18n="nav_overview">Class overview</span>
+          </button>
+          <button class="dash-nav-item" data-view="tests">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="4" y="4" width="16" height="17" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 3.5h6v2H9z" fill="currentColor"/><path d="M8 11h8M8 14.5h8M8 18h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <span data-i18n="nav_tests">Tests</span>
+          </button>
+          <button class="dash-nav-item" data-view="progress">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M3 17l6-6 4 4 8-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 6h6v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-i18n="nav_progress">Student progress</span>
+          </button>
+          <button class="dash-nav-item" data-view="history">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 9.5h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <span data-i18n="hist_btn">Past History Logs</span>
+          </button>
+        </div>
+       </div>
+       <div class="dash-nav-bottom">
+          <button id="histBack" class="dash-nav-item">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-i18n="back_live">Back to live</span>
+          </button>
+          <button id="histLogoutBtn" class="dash-nav-item nav-item-danger">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 17l5-5-5-5M21 12H9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-i18n="sign_out">Sign Out</span>
+          </button>
+       </div>
+      </nav>
+      <div class="dash-main">
+    <div class="dash-head">
+      <h1 class="screen-title" data-i18n="hist_btn">Past History Logs</h1>
+    </div>
+
+    <div class="hist-controls">
+      <div class="hist-controls-left">
+        <button id="histPrev" class="hist-navbtn" aria-label="Previous month" data-i18n-aria="hist_prev_month_aria">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button id="histNext" class="hist-navbtn" aria-label="Next month" data-i18n-aria="hist_next_month_aria">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <h3 id="histMonthLabel" class="hist-month-label"></h3>
+        <button id="histToday" class="hist-today-btn" data-i18n="hist_today">Today</button>
+        <button id="histExportBtn" class="hist-export-btn">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path d="M6 9V4h12v5M6 14h12v6H6v-6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 14H4a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+          <span data-i18n="hist_print_export">Print / export</span>
+        </button>
+      </div>
+      <div class="hist-filter-pill">
+        <span class="hist-filter-eyebrow" data-i18n="hist_filter">Filter</span>
+        <select id="histSelect" class="hist-filter-select"><option value="" data-i18n="hist_all_students">All students</option></select>
+      </div>
+    </div>
+
+    <div id="histFilterBanner" class="hist-filter-banner hidden">
+      <span id="histFilterBannerText"></span>
+      <a id="histClearFilter" class="hist-clear-filter" data-i18n="hist_clear_filter">Clear filter</a>
+    </div>
+
+    <h2 id="histPrintTitle" class="hist-print-title"></h2>
+    <div class="card hist-cal-card">
+      <div id="histWeekdays" class="hist-weekdays">
+        <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+      </div>
+      <div id="histGrid" class="hist-grid"></div>
+      <div class="hist-legend">
+        <span data-i18n="hist_less">Less</span>
+        <span class="hist-swatch t0"></span><span class="hist-swatch t1"></span>
+        <span class="hist-swatch t2"></span><span class="hist-swatch t3"></span>
+        <span data-i18n="hist_more">More</span>
+      </div>
+    </div>
+
+    <div id="histDetail" class="card hist-detail hidden">
+      <div class="hist-detail-head">
+        <div>
+          <div class="hist-detail-eyebrow" data-i18n="hist_activity_detail">Activity detail</div>
+          <h3 id="histDetailDate" class="hist-detail-date"></h3>
+        </div>
+        <button id="histDetailClose" class="hist-navbtn" aria-label="Close" data-i18n-aria="hist_close_aria">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <div id="histDetailBody"></div>
+    </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BROWSE -->
+  <section id="browse" class="screen hidden">
+    <nav id="crumbs" class="crumbs"></nav>
+    <h2 id="browseTitle" class="screen-title"></h2>
+    <div id="folders" class="pill-list"></div>
+  </section>
+
+  <!-- HOMEWORK HELPER -->
+  <section id="helper" class="screen hidden">
+    <!-- hero: the helper gets a face (the LightBox mark) so the chat reads as a
+         someone to talk to rather than a form to fill in -->
+    <div class="helper-hero">
+      <svg class="helper-mark" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="49" fill="#16233B"/><circle cx="50" cy="43" r="25" fill="#F3EAC2"/>
+        <path d="M50 24 L67 50 L50 80 L33 50 Z" fill="#FCC419"/>
+      </svg>
+      <div class="helper-hero-txt">
+        <h2 class="screen-title" data-i18n="helper_title">Homework Helper</h2>
+        <p class="helper-sub" data-i18n="helper_sub">Ask me anything about your schoolwork.</p>
+      </div>
+      <button id="hreset" class="btn ghost helper-reset" data-i18n="new_question">New question</button>
+    </div>
+    <!-- Subject and grade are NOT form fields any more: they are asked for inside the
+         conversation (see renderHelperPicker in app.js) and shown back as the summary
+         line below. Only the answer language stays a select, and it hides itself when
+         there is just one verified answer language. Both choices still ride with every
+         message and are composed into the model's system prompt server-side. -->
+    <div class="helper-opts" role="group" aria-label="Helper settings">
+      <label class="hopt">
+        <span class="hopt-l" data-i18n="language_word">Language</span>
+        <select id="hLang" class="hopt-sel"></select>
+      </label>
+    </div>
+    <div class="chat-card helper-card">
+      <!-- what the child chose, pinned above the conversation so it stays visible after
+           the choosing messages have scrolled away -->
+      <div id="hsummary" class="hsummary hidden"></div>
+      <div id="hchat" class="hchat"></div>
+      <div id="hsubjects" class="hsubjects hidden"></div>
+      <!-- hidden until subject AND grade are chosen: a blank box is the wrong thing to
+           offer while LightBot is still asking a question -->
+      <div id="hbar" class="hbar hidden">
+        <input id="hq" class="field hfield" data-i18n-ph="helper_ph" placeholder="Type your question..." autocomplete="off">
+        <button id="hsend" class="btn primary hsend" data-i18n="ask_btn">Send</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- LESSON -->
+  <section id="lesson" class="screen hidden">
+    <div class="lesson-grid">
+      <div class="lesson-main">
+        <div class="player" id="player">
+          <video id="vid" playsinline preload="metadata" crossorigin="anonymous"></video>
+          <!-- captions are rendered here by renderCue() rather than by the browser, so
+               they can be sized reliably and kept clear of the control bar -->
+          <div id="capOverlay" class="cap-overlay hidden" aria-live="polite" aria-atomic="true"></div>
+          <button class="bigplay" id="bigplay" aria-label="Play">
+            <svg viewBox="0 0 24 24" width="34" height="34"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+          </button>
+          <div class="ctrls" id="ctrls">
+            <button class="cbtn" id="playBtn" aria-label="Play / Pause">
+              <svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+            </button>
+            <span class="time" id="cur">0:00</span>
+            <div class="seek" id="seek"><div class="seek-fill" id="prog"></div><div class="seek-knob" id="knob"></div></div>
+            <span class="time" id="dur">0:00</span>
+            <button class="cbtn cc on" id="ccBtn" aria-label="Captions">CC</button>
+            <button class="cbtn" id="muteBtn" aria-label="Mute">
+              <svg viewBox="0 0 24 24" width="22" height="22"><path d="M4 9v6h4l5 5V4L8 9H4z" fill="currentColor"/><path d="M15.5 8.8a4 4 0 0 1 0 6.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </button>
+            <button class="cbtn" id="setBtn" aria-label="Caption settings">
+              <svg viewBox="0 0 24 24" width="22" height="22"><circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2 2M16.4 16.4l2 2M18.4 5.6l-2 2M7.6 16.4l-2 2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            </button>
+            <button class="cbtn" id="fsBtn" aria-label="Fullscreen">
+              <svg viewBox="0 0 24 24" width="22" height="22"><path d="M5 9V5h4M19 9V5h-4M5 15v4h4M19 15v4h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+          <div class="settings hidden" id="settings">
+            <div class="set-row"><span data-i18n="captions_lbl">Captions</span><select id="capLang"></select></div>
+            <div class="set-row"><span data-i18n="caption_size_lbl">Caption size</span>
+              <div class="sizes" id="sizes">
+                <button class="sizebtn" data-size="s">A</button>
+                <button class="sizebtn" data-size="m">A</button>
+                <button class="sizebtn" data-size="l">A</button>
+                <button class="sizebtn" data-size="xl">A</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lesson-info">
+          <span class="icon-badge tint-navy">
+            <svg viewBox="0 0 24 24" width="18" height="18"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+          </span>
+          <div class="lesson-info-text">
+            <h2 id="ltitle" class="ltitle"></h2>
+            <span id="ltopic" class="lesson-topic-label"></span>
+          </div>
+        </div>
+        <p id="ldesc" class="lesson-desc"></p>
+        <div class="lesson-actions">
+          <button id="markComplete" class="btn status-complete">
+            <svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-i18n="mark_complete">Complete</span>
+          </button>
+          <button id="markTodo" class="btn status-todo">
+            <svg viewBox="0 0 24 24" width="16" height="16"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-i18n="mark_todo">To-do</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="lesson-side">
+        <div class="tabs">
+          <button id="tabAsk" class="tab on" data-i18n="ask_tab">Ask</button>
+          <button id="tabQuiz" class="tab" data-i18n="quiz_tab">Quiz</button>
+        </div>
+        <div id="ask" class="pane">
+          <div id="chat"></div>
+          <div class="row">
+            <input id="q" class="field" data-i18n-ph="ask_ph" placeholder="Ask a question..." autocomplete="off">
+            <button id="send" class="btn primary" data-i18n="ask_btn">Send</button>
+          </div>
+        </div>
+        <div id="quiz" class="pane hidden"><div id="qbox"></div></div>
+
+        <div class="side-section">
+          <h3 class="side-h" data-i18n="next_videos">Next Videos</h3>
+          <div id="nextVideos" class="thumb-list"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="confirmLeave" class="confirm-overlay hidden">
+  <div class="card confirm-card">
+    <h3 class="confirm-title" data-i18n="confirm_leave_title">Wait, you're not done yet!</h3>
+    <p class="confirm-msg" data-i18n="confirm_leave_msg">You haven't finished watching this video. Are you sure you want to move on?</p>
+    <div class="confirm-actions">
+      <button id="confirmStayBtn" class="btn primary" data-i18n="confirm_leave_stay">Keep Watching</button>
+      <button id="confirmGoBtn" class="btn ghost" data-i18n="confirm_leave_go">Yes, Move On</button>
+    </div>
+  </div>
+</div>
+
+<div id="langPicker" class="confirm-overlay hidden">
+  <div class="card confirm-card">
+    <h3 class="confirm-title" data-i18n="change_language">Change Language</h3>
+    <div id="langPickerList" class="lang-pick-list"></div>
+    <div class="confirm-actions">
+      <button id="langPickerCancel" class="btn ghost" data-i18n="confirm_lang_cancel">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- extend due date: body is built in JS (renderExtendModal) since the student list and
+     the current due date depend on which test is open -->
+<div id="extendOverlay" class="confirm-overlay hidden">
+  <div class="card confirm-card extend-card">
+    <h3 class="confirm-title" data-i18n="extend_due">Extend due date</h3>
+    <div id="extendBody"></div>
+    <div class="confirm-actions extend-actions">
+      <button id="extendSave" class="btn primary" data-i18n="extend_save">Save new due date</button>
+      <button id="extendCancel" class="btn ghost" data-i18n="confirm_lang_cancel">Cancel</button>
+    </div>
+    <div id="extendErr" class="login-err hidden"></div>
+  </div>
+</div>
+
+<div id="confirmSignOut" class="confirm-overlay hidden">
+  <div class="card confirm-card">
+    <h3 class="confirm-title" data-i18n="confirm_signout_title">Sign out?</h3>
+    <p class="confirm-msg" data-i18n="confirm_signout_msg">You'll be signed out and will need to sign back in to continue.</p>
+    <div class="confirm-actions">
+      <button id="confirmSignOutYes" class="btn primary" data-i18n="confirm_signout_yes">Yes, Sign Out</button>
+      <button id="confirmSignOutCancel" class="btn ghost" data-i18n="confirm_lang_cancel">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<div id="confirmLang" class="confirm-overlay hidden">
+  <div class="card confirm-card">
+    <h3 class="confirm-title" data-i18n="confirm_lang_title">Change your language?</h3>
+    <p id="confirmLangMsg" class="confirm-msg"></p>
+    <div class="confirm-actions">
+      <button id="confirmLangYes" class="btn primary" data-i18n="confirm_lang_yes">Yes, Change It</button>
+      <button id="confirmLangCancel" class="btn ghost" data-i18n="confirm_lang_cancel">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<div id="exportModal" class="confirm-overlay hidden">
+  <div class="card confirm-card hist-export-card">
+    <h3 class="confirm-title" data-i18n="hist_export_modal_title">Print / export report</h3>
+    <p class="confirm-msg" data-i18n="hist_export_modal_msg">Choose how much history to include.</p>
+    <div id="exportDurationList" class="hist-export-options">
+      <label class="hist-export-opt"><input type="radio" name="exportDur" value="this_month" checked><span data-i18n="hist_dur_this_month">This month</span></label>
+      <label class="hist-export-opt"><input type="radio" name="exportDur" value="3"><span data-i18n="hist_dur_3">Last 3 months</span></label>
+      <label class="hist-export-opt"><input type="radio" name="exportDur" value="6"><span data-i18n="hist_dur_6">Last 6 months</span></label>
+      <label class="hist-export-opt"><input type="radio" name="exportDur" value="12"><span data-i18n="hist_dur_12">Last 12 months</span></label>
+    </div>
+    <div class="confirm-actions">
+      <button id="exportDownloadBtn" class="btn primary" data-i18n="hist_download_report">Download report</button>
+      <button id="exportCancelBtn" class="btn ghost" data-i18n="confirm_lang_cancel">Cancel</button>
+    </div>
+    <p id="exportStatus" class="hist-export-status hidden"></p>
+  </div>
+</div>
+
+<div id="loading" class="hidden"><div class="loadbox"><span class="spinner"></span><span data-i18n="loading">Loading...</span></div></div>
+<script src="/static/app.js?v=57"></script>
+</body>
+</html>

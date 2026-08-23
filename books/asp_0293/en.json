@@ -1,0 +1,43 @@
+﻿{
+    "id":  "asp_0293",
+    "language":  "en",
+    "title":  "I enjoy",
+    "source":  "African Storybook Project (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/asp-source/blob/master/en/0293_i-enjoy.md",
+    "project_home":  "https://www.africanstorybook.org",
+    "license":  "CC BY",
+    "license_raw":  "CC-BY",
+    "license_url":  "https://creativecommons.org/licenses/by/4.0/",
+    "author":  "Ursula Nafula",
+    "illustrator":  "Wiehan de Jager",
+    "translator":  null,
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg",
+                   "04.jpg",
+                   "05.jpg",
+                   "06.jpg",
+                   "07.jpg",
+                   "08.jpg",
+                   "09.jpg",
+                   "10.jpg",
+                   "11.jpg",
+                   "12.jpg",
+                   "13.jpg"
+               ],
+    "pages":  [
+                  "I enjoy skipping.",
+                  "I enjoy skipping rope alone.",
+                  "I enjoy skipping with my friend.",
+                  "I enjoy reading interesting stories.",
+                  "I enjoy walking in the field with my friends.",
+                  "I enjoy washing dishes to help at home.",
+                  "I enjoy writing big letters which I can read easily.",
+                  "I enjoy eating different fruits.",
+                  "I enjoy sleeping on a big bed.",
+                  "I enjoy listening to my mother\u0027s interesting stories.",
+                  "I enjoy doing all these things!"
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

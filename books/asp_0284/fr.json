@@ -1,0 +1,39 @@
+﻿{
+    "id":  "asp_0284",
+    "language":  "fr",
+    "title":  "Reviens, chat !",
+    "source":  "African Storybook Project (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/asp-source/blob/master/fr/0284_reviens-chat.md",
+    "project_home":  "https://www.africanstorybook.org",
+    "license":  "CC BY",
+    "license_raw":  "CC-BY",
+    "license_url":  "https://creativecommons.org/licenses/by/4.0/",
+    "author":  "Nicola Rijsdijk",
+    "illustrator":  "Karen Lilje",
+    "translator":  "Gilles Falcone, Translators without Borders",
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg",
+                   "04.jpg",
+                   "05.jpg",
+                   "06.jpg",
+                   "07.jpg",
+                   "08.jpg",
+                   "09.jpg",
+                   "10.jpg"
+               ],
+    "pages":  [
+                  "Reviens, chat ! Joue avec moi.",
+                  "Assieds-toi dans le\npanier. Reste là !",
+                  "Reviens, chat ! C\u0027est beaucoup trop haut.",
+                  "Reviens, chat ! Ne va pas dehors.",
+                  "Reviens, chat ! Ce n\u0027est pas à toi.",
+                  "Reviens, chat ! Qu\u0027est-ce que tu as trouvé ?",
+                  "Reviens, chat ! Ce n\u0027est pas ton ami !",
+                  "Salut, chat ! Te revoilà ?",
+                  "Reste dans ton panier. C\u0027est l\u0027heure de la sieste maintenant.",
+                  "Chat ?"
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

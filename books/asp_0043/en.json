@@ -1,0 +1,37 @@
+﻿{
+    "id":  "asp_0043",
+    "language":  "en",
+    "title":  "Fire\u0027s story",
+    "source":  "African Storybook Project (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/asp-source/blob/master/en/0043_fires-story.md",
+    "project_home":  "https://www.africanstorybook.org",
+    "license":  "CC BY",
+    "license_raw":  "CC-BY",
+    "license_url":  "https://creativecommons.org/licenses/by/4.0/",
+    "author":  "Deborah Namugosa, Beatrice Nabune, Alison Tukei, Rose Sabano",
+    "illustrator":  "Rob Owen, Wiehan de Jager, Amir Bachir António Necas",
+    "translator":  null,
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg",
+                   "04.jpg",
+                   "05.jpg",
+                   "06.jpg",
+                   "07.jpg",
+                   "08.jpg",
+                   "09.jpg",
+                   "10.jpg"
+               ],
+    "pages":  [
+                  "Let me tell you my\nstory.\nI start as a small spark.",
+                  "I run wild when the\nwind carries me.",
+                  "We are good friends,\nyou and I.",
+                  "I cook your food.",
+                  "I light your night.",
+                  "I have many tricks.",
+                  "I am part of your family.",
+                  "But be careful when\nyou invite me to your\nhome.\nI don\u0027t like to be left\nalone."
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

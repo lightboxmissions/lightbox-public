@@ -1,0 +1,37 @@
+﻿{
+    "id":  "asp_0188",
+    "language":  "fr",
+    "title":  "Ma mère a fait des plantations",
+    "source":  "African Storybook Project (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/asp-source/blob/master/fr/0188_ma-mere-a-fait-des-plantations.md",
+    "project_home":  "https://www.africanstorybook.org",
+    "license":  "CC BY",
+    "license_raw":  "CC-BY",
+    "license_url":  "https://creativecommons.org/licenses/by/4.0/",
+    "author":  "Tom Sabwa",
+    "illustrator":  "Jonathan Field",
+    "translator":  "Muriel Binek, Translators without Borders",
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg",
+                   "04.jpg",
+                   "05.jpg",
+                   "06.jpg",
+                   "07.jpg",
+                   "08.jpg",
+                   "09.jpg",
+                   "10.jpg"
+               ],
+    "pages":  [
+                  "Ma mère a fait des\nplantations.\nElle a fait des\nplantations dans un\npetit jardin.\nElle a fait des\nplantations de petits\npois.",
+                  "Mon père a fait des\nplantations.\nIl a fait des plantations\ndans un petit jardin.\nIl a planté des fleurs\ndans un petit jardin.",
+                  "Ma mère a fait du\ndésherbage dans les\ndeux jardins.",
+                  "Mon père a fait de\nl\u0027arrosage dans les\ndeux jardin.",
+                  "Mes parents et moi\navons travaillé dans les\npetits jardins.\nMa sœur et moi avons\nrécolté les fleurs et les\npetits pois.\n.",
+                  "Le petit jardin de petits\npois a produit des sacs\nde pois.\nLe petit jardin de fleurs\na produit des sacs de\nfleurs.",
+                  "Ma mère a fait des\nplantations.\nElle a fait des\nplantations dans un\ngrand jardin.",
+                  "Mon père a fait des\nplantations.\nIl a fait des plantations\ndans un grand jardin.\nLe jardin où il a fait les\nplantations était un\njardin de fleurs."
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

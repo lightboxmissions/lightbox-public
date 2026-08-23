@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<!--
+  Teacher / admin dashboard - a separate page from the student app, served at /teacher and
+  gated by the teacher key. Covers the class roster, join-code approvals, per-student
+  progress, teacher-built tests, and the first-run setup wizard.
+
+  Self-contained on purpose: its own inline <script> and <style> rather than app.js, so a
+  change to the student app cannot break the screen a teacher uses to run the classroom.
+  It shares style.css (and therefore the same design tokens) - keep new UI on those tokens
+  instead of inventing colours or spacing here. Bump its own ?v=NN when you edit it.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LightBox - Teacher</title>
+<link rel="stylesheet" href="/static/style.css?v=49">
+<style>
+  /* small page-local additions that don't belong in the shared stylesheet */
+  .qblock{border:1px solid var(--border);border-radius:10px;padding:12px;margin:10px 0;background:#FAFBFD}
+  .qblock .qtag{font-size:13px;font-weight:700;color:#2F6FED;text-transform:uppercase;letter-spacing:.04em}
+  .qblock input[type=text]{width:100%;box-sizing:border-box;margin:6px 0;padding:9px 11px;border:1px solid var(--border);border-radius:8px;font-size:15px;font-family:inherit}
+  .choice-row{display:flex;align-items:center;gap:8px;margin:5px 0}
+  .choice-row input[type=text]{flex:1;margin:0}
+  .choice-row label{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:4px;white-space:nowrap}
+  .assign-box label{display:inline-flex;align-items:center;gap:5px;margin:4px 10px 4px 0;font-size:15px}
+  .resp-student{border:1px solid var(--border);border-radius:10px;padding:10px 14px;margin:8px 0;background:#FAFBFD}
+  .resp-student b{font-size:15px}
+  .resp-q{margin:6px 0;font-size:15px}
+  .resp-q .ans{font-weight:600}
+  .ok{color:#1E8E4E}.bad{color:#C0392B}
+</style>
+</head>
+<body>
+<header id="topbar">
+  <div class="brand">
+    <svg class="logo" viewBox="0 0 100 100" aria-hidden="true">
+      <circle cx="50" cy="50" r="49" fill="#16233B"/><circle cx="50" cy="43" r="25" fill="#F3EAC2"/>
+      <path d="M50 24 L67 50 L50 80 L33 50 Z" fill="#FCC419"/>
+    </svg>
+    <span>Light<b>Box</b> · Teacher</span>
+  </div>
+  <div class="spacer"></div>
+  <select id="lang" class="field select-pill" style="width:auto;margin-right:10px"></select>
+  <button id="refresh" class="btn ghost hidden" style="padding:8px 14px" data-i18n="refresh">Refresh</button>
+</header>
+<main style="max-width:1040px">
+
+  <section id="gate" class="signin-wrap">
+    <svg class="logo-hero" viewBox="0 0 100 100" aria-hidden="true">
+      <circle cx="50" cy="50" r="49" fill="#16233B"/><circle cx="50" cy="43" r="25" fill="#F3EAC2"/>
+      <path d="M50 24 L67 50 L50 80 L33 50 Z" fill="#FCC419"/>
+    </svg>
+    <h1 class="wordmark" data-i18n="login_title">Sign In</h1>
+    <div class="card signin-card">
+      <div class="signin-card-icon">
+        <span class="icon-badge lg tint-navy" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22"><circle cx="8" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M11 11l9 9M17 15l3 3M15 17l2.5 2.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        </span>
+      </div>
+      <label class="lbl" data-i18n="username_lbl">Username</label>
+      <input id="gateUser" class="field" autocomplete="username">
+      <label class="lbl" data-i18n="password_lbl">Password</label>
+      <input id="gatePw" class="field" type="password" autocomplete="current-password">
+      <div id="gateErr" class="login-err hidden" data-i18n="teacher_gate_err">Wrong username or password, or this account isn't a teacher.</div>
+      <button id="gateBtn" class="btn primary continue-btn" data-i18n="login_btn">Sign In</button>
+    </div>
+    <p class="have-account-row"><span data-i18n="teacher_new_here">New here?</span> <a href="/" data-i18n="teacher_goto_app_link">Go to the main app to create an account</a>.</p>
+  </section>
+
+  <section id="app" class="hidden">
+    <div class="class-switcher-row">
+      <label class="lbl" data-i18n="select_class">Class</label>
+      <select id="classSelect" class="field select-pill"></select>
+      <button id="newClassBtn" class="btn ghost" data-i18n="create_class_btn">+ Create Class</button>
+      <div id="codeDisplay" class="code-display hidden">
+        <span class="code-lbl" data-i18n="access_code">Access code</span>
+        <span id="codeBig" class="code-big"></span>
+        <button id="regenBtn" class="btn ghost" data-i18n="regenerate_btn">Regenerate</button>
+      </div>
+    </div>
+    <div id="newClassForm" class="card test-builder hidden">
+      <label class="lbl" data-i18n="class_name_ph">Class name</label>
+      <input id="newClassName" class="field" data-i18n-ph="class_name_ph" placeholder="Class name (e.g. Room 12 Math)" autocomplete="off">
+      <label class="lbl" data-i18n="class_grade_lbl">Grade level</label>
+      <select id="newClassGrade" class="field grade-sel">
+        <option value="" data-i18n="grade_opt">Grade…</option>
+        <option value="K" data-i18n="grade_K">Kindergarten</option><option value="1" data-i18n="grade_1">1st Grade</option>
+        <option value="2" data-i18n="grade_2">2nd Grade</option><option value="3" data-i18n="grade_3">3rd Grade</option>
+        <option value="4" data-i18n="grade_4">4th Grade</option><option value="5" data-i18n="grade_5">5th Grade</option>
+        <option value="6" data-i18n="grade_6">6th Grade</option><option value="7" data-i18n="grade_7">7th Grade</option><option value="8" data-i18n="grade_8">8th Grade</option>
+      </select>
+      <div id="newClassErr" class="login-err hidden"></div>
+      <button id="newClassSave" class="btn primary" style="margin-top:12px" data-i18n="create_class_btn">+ Create Class</button>
+    </div>
+
+    <div class="tabs">
+      <span class="tab on" data-tab="progress" data-i18n="dash_title">Class progress</span>
+      <span class="tab" data-tab="tests" data-i18n="tests_grading_tab">Tests &amp; grading</span>
+    </div>
+
+    <section id="tab-progress">
+      <div id="teacherStats" class="dash-stats-row"></div>
+
+      <h2 class="screen-title" style="display:flex;align-items:center;gap:8px">
+        <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span data-i18n="pending_requests">Pending Requests</span>
+      </h2>
+      <div id="pendingArea"></div>
+
+      <h2 class="screen-title" style="margin-top:22px;display:flex;align-items:center;gap:8px">
+        <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        <span data-i18n="add_student">Add a Student</span>
+      </h2>
+      <div class="add-student card">
+        <div class="add-row">
+          <input id="newName" class="field" data-i18n-ph="ph_student_name" placeholder="Username" autocomplete="off">
+          <input id="newPin" class="field" data-i18n-ph="ph_password4" placeholder="Password (required for a new student)" autocomplete="off">
+          <select id="newGrade" class="field grade-sel">
+            <option value="" data-i18n="grade_opt">Grade…</option>
+            <option value="K" data-i18n="grade_K">Kindergarten</option><option value="1" data-i18n="grade_1">1st Grade</option>
+            <option value="2" data-i18n="grade_2">2nd Grade</option><option value="3" data-i18n="grade_3">3rd Grade</option>
+            <option value="4" data-i18n="grade_4">4th Grade</option><option value="5" data-i18n="grade_5">5th Grade</option>
+            <option value="6" data-i18n="grade_6">6th Grade</option><option value="7" data-i18n="grade_7">7th Grade</option>
+            <option value="8" data-i18n="grade_8">8th Grade</option>
+          </select>
+          <button id="addStudentBtn" class="btn primary" data-i18n="add_student_btn">Add student</button>
+        </div>
+        <div id="addErr" class="login-err hidden"></div>
+      </div>
+
+      <h2 class="screen-title" style="margin-top:22px" data-i18n="dash_title">Class progress</h2>
+      <div id="board"><p class="muted-note" data-i18n="loading">Loading...</p></div>
+    </section>
+
+    <section id="tab-tests" class="hidden">
+      <h2 class="screen-title" data-i18n="build_test">Build a test</h2>
+      <div class="card test-builder">
+        <input id="testTitle" type="text" data-i18n-ph="test_title_ph" placeholder="Test title (e.g. Week 3 Math Check)"
+               style="width:100%;box-sizing:border-box;padding:11px 13px;border:1px solid var(--border);border-radius:9px;font-size:16px;font-weight:600;font-family:inherit">
+        <div id="questions"></div>
+        <div style="margin:12px 0">
+          <button class="btn ghost" id="addMc" type="button" data-i18n="add_mc">+ Multiple-choice</button>
+          <button class="btn ghost" id="addText" type="button" data-i18n="add_text">+ Free-response</button>
+        </div>
+        <div class="assign-box" style="margin-top:14px;border-top:1px solid var(--border);padding-top:12px">
+          <div style="font-weight:600;margin-bottom:6px" data-i18n="assign_to_lbl">Assign to:</div>
+          <label><input type="radio" name="asgn" value="grade" checked> <span data-i18n="assign_whole_grade">A whole grade</span></label>
+          <select id="asgnGrade" class="field" style="width:auto;display:inline-block;padding:6px 9px">
+            <option value="K" data-i18n="grade_K">Kindergarten</option><option value="1" data-i18n="grade_1">1st Grade</option>
+            <option value="2" data-i18n="grade_2">2nd Grade</option><option value="3" data-i18n="grade_3">3rd Grade</option>
+          </select>
+          <label style="margin-left:14px"><input type="radio" name="asgn" value="students"> <span data-i18n="assign_specific_students">Specific students</span></label>
+          <div id="studentPicks" style="margin-top:8px"></div>
+        </div>
+        <button class="btn primary" id="createTest" style="margin-top:14px" data-i18n="create_test_btn">Create test</button>
+        <span id="createMsg" style="margin-left:12px;color:#1E8E4E;font-weight:600"></span>
+      </div>
+
+      <h2 class="screen-title" style="margin-top:26px" data-i18n="tests_answers">Tests &amp; student answers</h2>
+      <div id="testList"><p class="muted-note" data-i18n="loading">Loading...</p></div>
+    </section>
+  </section>
+</main>
+<script>
+const $ = s => document.querySelector(s);
+function esc(s) { return (s || "").replace(/[<>&]/g, c => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c])); }
+const sum = (o, f) => Object.values(o || {}).reduce((a, v) => a + (v[f] || 0), 0);
+let STUDENTS = [], MY_CLASSES = [], CUR_CLASS_ID = localStorage.getItem("lb_class_id") || "";
+function session() { return localStorage.getItem("lb_session") || ""; }
+function role() { return localStorage.getItem("lb_role") || ""; }
+
+// ---- i18n (shares lb_lang with the main app; own small DEFAULTS since this page
+// doesn't load app.js) - every key below is also machine-translated server-side
+// via the shared UI dict in server.py, keyed identically.
+let LANG = localStorage.getItem("lb_lang") || "en", LANGS = {}, STR = {};
+const DEFAULTS = {
+  login_title: "Sign In", username_lbl: "Username", password_lbl: "Password", login_btn: "Sign In",
+  teacher_gate_err: "Wrong username or password, or this account isn't a teacher.",
+  teacher_new_here: "New here?", teacher_goto_app_link: "Go to the main app to create an account",
+  select_class: "Class", create_class_btn: "+ Create Class", access_code: "Access code",
+  regenerate_btn: "Regenerate", class_name_ph: "Class name (e.g. Room 12 Math)", class_grade_lbl: "Grade level",
+  grade_opt: "Grade...", grade_K: "Kindergarten", grade_1: "1st Grade", grade_2: "2nd Grade", grade_3: "3rd Grade",
+  grade_4: "4th Grade", grade_5: "5th Grade", grade_6: "6th Grade", grade_7: "7th Grade", grade_8: "8th Grade",
+  no_grade_yet: "No grade yet",
+  dash_title: "Class progress", tests_grading_tab: "Tests & grading",
+  pending_requests: "Pending Requests", add_student: "Add a Student",
+  ph_student_name: "Username", ph_password4: "Password (required for a new student)",
+  add_student_btn: "Add student", loading: "Loading...",
+  build_test: "Build a test", test_title_ph: "Test title (e.g. Week 3 Math Check)",
+  add_mc: "+ Multiple-choice", add_text: "+ Free-response",
+  add_mc_tag: "Multiple choice", add_text_tag: "Free response",
+  question_ph: "Question", add_choice: "+ Choice", tick_correct: "Tick the circle next to the correct answer.",
+  del_q: "Delete", correct_lbl: "correct", choice_ph: "Choice",
+  assign_to_lbl: "Assign to:", assign_whole_grade: "A whole grade", assign_specific_students: "Specific students",
+  create_test_btn: "Create test", tests_answers: "Tests & student answers", assigned_to: "Assigned to:",
+  grades_word: "Grades", questions_word: "questions", submitted_word: "submitted",
+  no_subs: "No submissions yet.", correct_word: "correct", no_answer_word: "(no answer)",
+  err_choices: "Each multiple-choice question needs at least 2 choices.",
+  err_correct: "Mark the correct answer for every multiple-choice question.",
+  err_title: "Add a test title.", err_noq: "Add at least one question.",
+  pick_student_err: "Pick at least one student.", test_created_msg: "Test created",
+  err_create: "Could not create test.", could_not_load_tests: "Could not load tests.",
+  no_tests_yet: "No tests created yet.",
+  trouble: "Something went wrong. Please try again.",
+  regenerate_confirm: "This invalidates the current code immediately for anyone who hasn't joined yet. Continue?",
+  no_pending: "No pending requests.", approve_btn: "Approve", reject_btn: "Reject",
+  requested_at: "Requested",
+  no_classes_yet: "Create a class above to get started.", err_class_fields: "Enter a class name and choose a grade.",
+  create_class_first_err: "Create a class first.",
+  could_not_add_student: "Could not add student.",
+  need_password_msg: "Enter a password (at least 4 characters) - it's required for a new student.",
+  no_student_activity: "No student activity yet.",
+  th_student: "Student", th_last_active: "Last active", th_lessons_opened: "Lessons opened",
+  th_questions_asked: "Questions asked", th_quiz_score: "Quiz score", details_word: "details",
+  watched_word: "watched", quiz_word: "quiz", helper_btn: "Homework Helper",
+  dash_students_active_now: "students active now",
+  dash_top_passed_today: "Top lessons passed today", dash_no_passes_today: "No passes yet today",
+  dash_most_failed_today: "Most-failed lesson today", dash_no_fails_today: "No fails yet today",
+  refresh: "Refresh",
+};
+const t = k => STR[k] || DEFAULTS[k] || k;
+function gradeLabel(g) { return g ? t("grade_" + g) : t("no_grade_yet"); }
+function applyI18n() {
+  document.querySelectorAll("[data-i18n]").forEach(e => { const v = STR[e.getAttribute("data-i18n")] || DEFAULTS[e.getAttribute("data-i18n")]; if (v) e.textContent = v; });
+  document.querySelectorAll("[data-i18n-ph]").forEach(e => { const v = STR[e.getAttribute("data-i18n-ph")] || DEFAULTS[e.getAttribute("data-i18n-ph")]; if (v) e.placeholder = v; });
+}
+async function loadStrings() { STR = await (await fetch("/api/i18n?lang=" + LANG)).json(); applyI18n(); }
+async function refreshAllTexts() {
+  applyI18n();
+  renderClassSelect(); renderStudentPicks();
+  await Promise.all([load(), loadTests(), loadPending()]);
+}
+async function initLang() {
+  LANGS = await (await fetch("/api/langs")).json();
+  const sel = $("#lang"); sel.innerHTML = "";
+  Object.keys(LANGS).forEach(c => { const o = document.createElement("option"); o.value = c; o.textContent = LANGS[c]; if (c === LANG) o.selected = true; sel.appendChild(o); });
+  sel.onchange = async e => { LANG = e.target.value; localStorage.setItem("lb_lang", LANG); await loadStrings(); await refreshAllTexts(); };
+  await loadStrings();
+}
+
+// ---- sign-in gate (shares localStorage session with the main app) ----
+async function boot() {
+  await initLang();
+  if (!session() || role() !== "teacher") return showGate();
+  const ok = await loadMyClasses();
+  if (!ok) return showGate();
+  $("#gate").classList.add("hidden"); $("#app").classList.remove("hidden"); $("#refresh").classList.remove("hidden");
+  load(); loadTests(); loadPending();
+}
+function showGate() {
+  localStorage.removeItem("lb_session"); localStorage.removeItem("lb_role"); localStorage.removeItem("lb_username");
+  $("#app").classList.add("hidden"); $("#refresh").classList.add("hidden"); $("#gate").classList.remove("hidden");
+}
+$("#gateBtn").onclick = async () => {
+  const username = $("#gateUser").value.trim(), password = $("#gatePw").value, err = $("#gateErr");
+  err.classList.add("hidden");
+  let j;
+  try {
+    j = await (await fetch("/api/login", { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password }) })).json();
+  } catch (e) { err.classList.remove("hidden"); return; }
+  if (!j.ok || j.role !== "teacher") { err.classList.remove("hidden"); return; }
+  localStorage.setItem("lb_session", j.session); localStorage.setItem("lb_role", j.role); localStorage.setItem("lb_username", j.username);
+  boot();
+};
+$("#gatePw").addEventListener("keydown", e => { if (e.key === "Enter") $("#gateBtn").click(); });
+
+// ---- classes: switcher, create, access code ----
+async function loadMyClasses() {
+  let res;
+  try { res = await fetch("/api/teacher/classes?session=" + encodeURIComponent(session())); } catch (e) { return false; }
+  if (res.status !== 200) return false;
+  const j = await res.json();
+  MY_CLASSES = j.classes || [];
+  if (!MY_CLASSES.some(c => c.id === CUR_CLASS_ID)) CUR_CLASS_ID = (MY_CLASSES[0] || {}).id || "";
+  localStorage.setItem("lb_class_id", CUR_CLASS_ID);
+  renderClassSelect();
+  return true;
+}
+function renderClassSelect() {
+  const sel = $("#classSelect"); sel.innerHTML = "";
+  MY_CLASSES.forEach(c => {
+    const o = document.createElement("option");
+    o.value = c.id; o.textContent = c.name + " (" + gradeLabel(c.grade) + ")";
+    if (c.id === CUR_CLASS_ID) o.selected = true;
+    sel.appendChild(o);
+  });
+  updateCodeDisplay();
+}
+function updateCodeDisplay() {
+  const c = MY_CLASSES.find(x => x.id === CUR_CLASS_ID);
+  $("#codeDisplay").classList.toggle("hidden", !c);
+  if (c) $("#codeBig").textContent = c.access_code;
+}
+$("#classSelect").onchange = () => {
+  CUR_CLASS_ID = $("#classSelect").value; localStorage.setItem("lb_class_id", CUR_CLASS_ID);
+  updateCodeDisplay(); load(); loadTests(); loadPending();
+};
+$("#newClassBtn").onclick = () => $("#newClassForm").classList.toggle("hidden");
+$("#newClassSave").onclick = async () => {
+  const name = $("#newClassName").value.trim(), grade = $("#newClassGrade").value, err = $("#newClassErr");
+  err.classList.add("hidden");
+  if (!name || !grade) { err.textContent = t("err_class_fields"); err.classList.remove("hidden"); return; }
+  let j;
+  try {
+    j = await (await fetch("/api/teacher/create_class", { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ session: session(), name, grade }) })).json();
+  } catch (e) { err.textContent = t("trouble"); err.classList.remove("hidden"); return; }
+  if (!j.ok) { err.textContent = t("trouble"); err.classList.remove("hidden"); return; }
+  $("#newClassName").value = ""; $("#newClassGrade").value = ""; $("#newClassForm").classList.add("hidden");
+  CUR_CLASS_ID = j.class.id;
+  await loadMyClasses(); load(); loadPending();
+};
+$("#regenBtn").onclick = async () => {
+  if (!CUR_CLASS_ID || !confirm(t("regenerate_confirm"))) return;
+  let j;
+  try {
+    j = await (await fetch("/api/teacher/regenerate_code", { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ session: session(), class_id: CUR_CLASS_ID }) })).json();
+  } catch (e) { return; }
+  if (j.ok) { const c = MY_CLASSES.find(x => x.id === CUR_CLASS_ID); if (c) c.access_code = j.access_code; updateCodeDisplay(); }
+};
+
+// ---- pending join requests ----
+const AV_COLORS = ["#16233B", "#2B6CB0", "#2F855A", "#B7791F", "#9B2C2C", "#6B46C1", "#0E7490", "#B83280"];
+function avatarColor(name) { let h = 0; for (const c of name) h = (h * 31 + c.charCodeAt(0)) >>> 0; return AV_COLORS[h % AV_COLORS.length]; }
+function initials(name) { return (name || "?")[0].toUpperCase(); }
+async function loadPending() {
+  const area = $("#pendingArea");
+  if (!CUR_CLASS_ID) { area.innerHTML = ""; return; }
+  let j;
+  try {
+    j = await (await fetch("/api/teacher/pending?session=" + encodeURIComponent(session()) +
+      "&class_id=" + encodeURIComponent(CUR_CLASS_ID))).json();
+  } catch (e) { return; }
+  const list = (j && j.pending) || [];
+  if (!list.length) { area.innerHTML = "<p class='muted-note'>" + t("no_pending") + "</p>"; return; }
+  area.innerHTML = "<div class='card-grid'>" + list.map(p =>
+    "<div class='sc pending'><div class='sc-head'>" +
+    "<span class='sc-av' style='background:" + avatarColor(p.username) + "'>" + esc(initials(p.username)) + "</span>" +
+    "<div class='sc-nm'><div class='sc-name'>" + esc(p.username) + "</div>" +
+    "<div class='pending-at'>" + t("requested_at") + ": " + esc(p.requested || "") + "</div></div></div>" +
+    "<div class='sc-foot'>" +
+    "<span class='sc-link ok' onclick='approvePending(" + JSON.stringify(p.username) + ")'>" + t("approve_btn") + "</span>" +
+    "<span class='sc-link danger' onclick='rejectPending(" + JSON.stringify(p.username) + ")'>" + t("reject_btn") + "</span>" +
+    "</div></div>").join("") + "</div>";
+}
+async function approvePending(username) {
+  try {
+    await fetch("/api/teacher/approve", { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ session: session(), class_id: CUR_CLASS_ID, username }) });
+  } catch (e) {}
+  loadPending(); load(); loadMyClasses();
+}
+async function rejectPending(username) {
+  try {
+    await fetch("/api/teacher/reject", { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ session: session(), class_id: CUR_CLASS_ID, username }) });
+  } catch (e) {}
+  loadPending(); loadMyClasses();
+}
+
+// ---- add a student directly ----
+$("#addStudentBtn").onclick = async () => {
+  const name = $("#newName").value.trim(), pw = $("#newPin").value.trim(), grade = $("#newGrade").value, err = $("#addErr");
+  err.classList.add("hidden");
+  if (!name) return;
+  if (!CUR_CLASS_ID) { err.textContent = t("create_class_first_err"); err.classList.remove("hidden"); return; }
+  let j;
+  try {
+    j = await (await fetch("/api/teacher/add_student", { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ session: session(), class_id: CUR_CLASS_ID, username: name, password: pw, grade }) })).json();
+  } catch (e) { err.textContent = t("could_not_add_student"); err.classList.remove("hidden"); return; }
+  if (!j.ok) {
+    err.textContent = j.status === "need_password" ? t("need_password_msg") : t("could_not_add_student");
+    err.classList.remove("hidden"); return;
+  }
+  $("#newName").value = ""; $("#newPin").value = ""; $("#newGrade").value = "";
+  load(); loadMyClasses();
+};
+
+// ---- tabs ----
+document.querySelectorAll(".tab").forEach(tb => tb.onclick = () => {
+  document.querySelectorAll(".tab").forEach(x => x.classList.toggle("on", x === tb));
+  $("#tab-progress").classList.toggle("hidden", tb.dataset.tab !== "progress");
+  $("#tab-tests").classList.toggle("hidden", tb.dataset.tab !== "tests");
+});
+
+// ---- class progress table ----
+async function load() {
+  const board = $("#board");
+  if (!CUR_CLASS_ID) { board.innerHTML = "<p class='muted-note'>" + t("no_classes_yet") + "</p>"; $("#teacherStats").innerHTML = ""; return; }
+  let r;
+  try { r = await fetch("/api/teacher/class/" + encodeURIComponent(CUR_CLASS_ID) + "/progress_all?session=" + encodeURIComponent(session())); }
+  catch (e) { return; }
+  if (r.status === 403) return showGate();
+  const j = await r.json();
+  renderTeacherStats(j.summary || {});
+  const data = j.students || [];
+  STUDENTS = data.map(s => s.name).filter(Boolean);
+  renderStudentPicks();
+  if (!data.length) { board.innerHTML = "<p class='muted-note'>" + t("no_student_activity") + "</p>"; return; }
+  data.sort((a, b) => (b.last_active || "").localeCompare(a.last_active || ""));
+  let h = "<table class='tbl'><thead><tr><th>" + t("th_student") + "</th><th>" + t("th_last_active") + "</th>" +
+    "<th class='num'>" + t("th_lessons_opened") + "</th><th class='num'>" + t("th_questions_asked") + "</th><th class='num'>" + t("th_quiz_score") + "</th><th></th></tr></thead><tbody>";
+  data.forEach((s, i) => {
+    const vids = s.videos || {};
+    const opened = Object.values(vids).filter(v => v.viewed).length;
+    const asked = sum(vids, "asked") + (s.helper_asked || 0);
+    const correct = sum(vids, "correct"), tried = sum(vids, "tried");
+    const pct = tried ? Math.round(correct / tried * 100) : null;
+    h += "<tr><td><b>" + esc(s.name || "?") + "</b></td><td>" + (s.last_active || "-") + "</td>" +
+      "<td class='num'>" + opened + "</td><td class='num'>" + asked + "</td>" +
+      "<td class='num'>" + (tried ? correct + "/" + tried + " (" + pct + "%)" : "-") + "</td>" +
+      "<td><span class='det' onclick='document.getElementById(\"d" + i + "\").classList.toggle(\"hidden\")'>" + t("details_word") + "</span></td></tr>";
+    let d = "<tr id='d" + i + "' class='hidden'><td colspan='6'><div style='padding:4px 0'>";
+    Object.keys(vids).forEach(code => {
+      const v = vids[code];
+      d += "<div style='font-size:13px;color:var(--muted);margin:2px 0'><b>" + esc(code) + "</b> — " +
+        (v.viewed ? t("watched_word") + " " : "") + (v.asked ? v.asked + " " + t("questions_word") + " " : "") +
+        (v.tried ? t("quiz_word") + " " + (v.correct || 0) + "/" + v.tried : "") + "</div>";
+    });
+    if (s.helper_asked) d += "<div style='font-size:13px;color:var(--muted)'>" + t("helper_btn") + " — " + s.helper_asked + " " + t("questions_word") + "</div>";
+    d += "</div></td></tr>";
+    h += d;
+  });
+  h += "</tbody></table>";
+  board.innerHTML = h;
+}
+
+function renderTeacherStats(sum) {
+  const box = $("#teacherStats");
+  const tp = sum.top_passed || [];
+  const topHtml = tp.length
+    ? tp.map((x, n) => "<div class='cs-row" + (n === 0 ? " top1" : "") + "'>" +
+        "<span class='cs-rank'>#" + (n + 1) + "</span><span class='cs-nm'>" + esc(x.title) + "</span>" +
+        "<span class='cs-cnt ok'>✓" + x.count + "</span></div>").join("")
+    : "<div class='cs-empty'>" + t("dash_no_passes_today") + "</div>";
+  const failHtml = sum.most_failed
+    ? "<div class='cs-row'><span class='cs-nm'>" + esc(sum.most_failed.title) + "</span>" +
+      "<span class='cs-cnt bad'>✗" + sum.most_failed.count + "</span></div>"
+    : "<div class='cs-empty'>" + t("dash_no_fails_today") + "</div>";
+  box.innerHTML =
+    "<div class='cs-active'><div class='cs-num'>" + (sum.active || 0) + "</div><div class='cs-lbl'>" + t("dash_students_active_now") + "</div></div>" +
+    "<div class='cs-card'><div class='cs-h'>" + t("dash_top_passed_today") + "</div>" + topHtml + "</div>" +
+    "<div class='cs-card'><div class='cs-h'>" + t("dash_most_failed_today") + "</div>" + failHtml + "</div>";
+}
+
+// ---- test builder ----
+function renderStudentPicks() {
+  $("#studentPicks").innerHTML = STUDENTS.length
+    ? STUDENTS.map(n => "<label><input type='checkbox' class='spick' value='" + esc(n) + "'> " + esc(n) + "</label>").join("")
+    : "<span class='muted-note' style='margin:0'>" + t("no_classes_yet") + "</span>";
+}
+function addQuestion(type) {
+  const wrap = document.createElement("div");
+  wrap.className = "qblock";
+  wrap.dataset.type = type;
+  if (type === "mc") {
+    wrap.innerHTML = "<div class='qtag'>" + t("add_mc_tag") + "</div>" +
+      "<input type='text' class='qtext' placeholder='" + t("question_ph") + "'>" +
+      "<div class='choices'></div>" +
+      "<button class='btn ghost addChoice' type='button'>" + t("add_choice") + "</button> " +
+      "<button class='btn ghost danger delQ' type='button'>" + t("del_q") + "</button>" +
+      "<div style='font-size:13px;color:var(--muted);margin-top:6px'>" + t("tick_correct") + "</div>";
+    $("#questions").appendChild(wrap);
+    addChoice(wrap); addChoice(wrap);
+  } else {
+    wrap.innerHTML = "<div class='qtag'>" + t("add_text_tag") + "</div>" +
+      "<input type='text' class='qtext' placeholder='" + t("question_ph") + "'>" +
+      "<button class='btn ghost danger delQ' type='button'>" + t("del_q") + "</button>";
+    $("#questions").appendChild(wrap);
+  }
+}
+function addChoice(wrap) {
+  const idx = wrap.querySelectorAll(".choice-row").length;
+  const row = document.createElement("div");
+  row.className = "choice-row";
+  const gname = "correct_" + (wrap.dataset.id || (wrap.dataset.id = Math.random().toString(36).slice(2)));
+  row.innerHTML = "<label><input type='radio' name='" + gname + "'> " + t("correct_lbl") + "</label>" +
+    "<input type='text' class='ctext' placeholder='" + t("choice_ph") + " " + (idx + 1) + "'>";
+  wrap.querySelector(".choices").appendChild(row);
+}
+$("#addMc").onclick = () => addQuestion("mc");
+$("#addText").onclick = () => addQuestion("text");
+$("#questions").addEventListener("click", e => {
+  if (e.target.classList.contains("addChoice")) addChoice(e.target.closest(".qblock"));
+  if (e.target.classList.contains("delQ")) e.target.closest(".qblock").remove();
+});
+
+$("#createTest").onclick = async () => {
+  const title = $("#testTitle").value.trim();
+  const questions = [];
+  let err = "";
+  document.querySelectorAll("#questions .qblock").forEach(b => {
+    const q = b.querySelector(".qtext").value.trim();
+    if (!q) return;
+    if (b.dataset.type === "mc") {
+      const rows = [...b.querySelectorAll(".choice-row")];
+      const choices = rows.map(r => r.querySelector(".ctext").value.trim()).filter(Boolean);
+      const answer = rows.findIndex(r => r.querySelector("input[type=radio]").checked);
+      if (choices.length < 2) { err = t("err_choices"); return; }
+      if (answer < 0) { err = t("err_correct"); return; }
+      questions.push({ type: "mc", q, choices, answer });
+    } else {
+      questions.push({ type: "text", q });
+    }
+  });
+  if (!title) return msg(t("err_title"), true);
+  if (!questions.length) return msg(t("err_noq"), true);
+  if (err) return msg(err, true);
+  const mode = document.querySelector("input[name=asgn]:checked").value;
+  let grade = "", students = [];
+  if (mode === "grade") grade = $("#asgnGrade").value;
+  else {
+    students = [...document.querySelectorAll(".spick:checked")].map(c => c.value);
+    if (!students.length) return msg(t("pick_student_err"), true);
+  }
+  const r = await fetch("/api/teacher/create_test", {
+    method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ session: session(), title, questions, grade, students })
+  });
+  const j = await r.json();
+  if (j.ok) {
+    msg(t("test_created_msg") + " ✓", false);
+    $("#testTitle").value = ""; $("#questions").innerHTML = "";
+    loadTests();
+  } else msg(j.error || t("err_create"), true);
+};
+function msg(t, bad) { const m = $("#createMsg"); m.textContent = t; m.style.color = bad ? "#C0392B" : "#1E8E4E"; }
+
+// ---- tests + grading ----
+async function loadTests() {
+  if (!session()) return;
+  const r = await fetch("/api/teacher/tests?session=" + encodeURIComponent(session()));
+  if (!r.ok) { $("#testList").innerHTML = "<p class='muted-note'>" + t("could_not_load_tests") + "</p>"; return; }
+  const tests = (await r.json()).tests || [];
+  if (!tests.length) { $("#testList").innerHTML = "<p class='muted-note'>" + t("no_tests_yet") + "</p>"; return; }
+  $("#testList").innerHTML = tests.map((tt, i) => {
+    const a = tt.assign || {};
+    const who = a.grade ? (t("grades_word") + " " + gradeLabel(a.grade)) : ((a.students || []).join(", ") || "—");
+    const resp = tt.responses || {};
+    const n = Object.keys(resp).length;
+    let body = "<div class='card test-builder'><h3>" + esc(tt.title) + "</h3>" +
+      "<div style='font-size:13px;color:var(--muted);margin-bottom:8px'>" + t("assigned_to") + " " + esc(who) +
+      " · " + tt.questions.length + " " + t("questions_word") + " · <b>" + n + "</b> " + t("submitted_word") + "</div>";
+    if (!n) body += "<p class='muted-note' style='margin:0'>" + t("no_subs") + "</p>";
+    Object.keys(resp).forEach(name => {
+      const ans = resp[name].answers || {};
+      body += "<div class='resp-student'><b>" + esc(name) + "</b> " +
+        "<span style='color:var(--muted);font-size:13px'>" + esc(resp[name].at || "") + "</span>";
+      tt.questions.forEach((q, qi) => {
+        const a2 = ans[qi];
+        let line;
+        if (q.type === "mc") {
+          const picked = (typeof a2 === "number") ? q.choices[a2] : t("no_answer_word");
+          const right = a2 === q.answer;
+          line = "<span class='ans " + (right ? "ok" : "bad") + "'>" + esc(picked) + "</span>" +
+                 (right ? " ✓" : " ✗ (" + t("correct_word") + ": " + esc(q.choices[q.answer]) + ")");
+        } else {
+          line = "<span class='ans'>" + esc(a2 || t("no_answer_word")) + "</span>";
+        }
+        body += "<div class='resp-q'>" + (qi + 1) + ". " + esc(q.q) + "<br>&nbsp;&nbsp;→ " + line + "</div>";
+      });
+      body += "</div>";
+    });
+    body += "</div>";
+    return body;
+  }).join("");
+}
+
+$("#refresh").onclick = () => { load(); loadTests(); loadPending(); loadMyClasses(); };
+boot();
+</script>
+</body>
+</html>

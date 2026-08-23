@@ -1,0 +1,26 @@
+﻿{
+    "id":  "pb_0349",
+    "language":  "en",
+    "title":  "Chulli and the cows",
+    "source":  "Pratham Books / StoryWeaver (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/pb-source/blob/master/en/0349_chulli-and-the-cows.md",
+    "project_home":  "https://storyweaver.org.in",
+    "license":  "CC BY",
+    "license_raw":  "CC-BY",
+    "license_url":  "https://creativecommons.org/licenses/by/4.0/",
+    "author":  "Arvind Eyunni",
+    "illustrator":  "Preeti Krishnamurthy",
+    "translator":  null,
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg",
+                   "04.jpg"
+               ],
+    "pages":  [
+                  "Once upon a time, there was a very shy train named Chulli.",
+                  "Chulli was fascinated with cows.",
+                  "But one day, Chulli got scared when he saw a cow right on his tracks."
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

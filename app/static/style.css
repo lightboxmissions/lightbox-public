@@ -1,0 +1,2055 @@
+/* LightBox styling - every screen of both the student app and the teacher dashboard.
+   Hand-written CSS, no preprocessor and no build step; the browser loads this file as-is.
+
+   This file IS the design system. The :root block below defines the whole vocabulary -
+   colour palette (navy/gold/cream), three font roles, a 7-step type scale, and a 4px
+   spacing scale - and the rest of the file only ever consumes those variables. New UI
+   should reuse a token and an existing component class; a raw hex colour or a one-off
+   pixel value is how the app drifts. See docs/CONTRIBUTING.md ("Design system").
+
+   Bump the ?v=NN in index.html and teacher.html when you edit this, or cached copies on
+   student tablets win. */
+
+/* Self-hosted fonts (no CDN - the box runs with no internet access).
+   Each family ships two @font-face rules per weight (latin + latin-ext, split by
+   unicode-range exactly as the font vendor subsets them) so accented characters in
+   French/German/Spanish (é, è, ç, à, œ, ä, ö, ü, ß, ñ, á, í, ó, ú, ¿, ¡) always render
+   from the correct file instead of silently falling back to a system font. */
+/* Baloo 2 - headings, titles, card labels, buttons, nav labels */
+@font-face {
+  font-family: 'Baloo 2';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('fonts/baloo-2-latin-ext-400-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Baloo 2';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('fonts/baloo-2-latin-400-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Baloo 2';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url('fonts/baloo-2-latin-ext-600-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Baloo 2';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url('fonts/baloo-2-latin-600-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Baloo 2';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url('fonts/baloo-2-latin-ext-700-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Baloo 2';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url('fonts/baloo-2-latin-700-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+/* Lexend - body copy, descriptions, metadata, form inputs, app-wide default */
+@font-face {
+  font-family: 'Lexend';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('fonts/lexend-latin-ext-400-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lexend';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('fonts/lexend-latin-400-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Lexend';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url('fonts/lexend-latin-ext-500-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lexend';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url('fonts/lexend-latin-500-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Lexend';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url('fonts/lexend-latin-ext-600-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lexend';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url('fonts/lexend-latin-600-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+/* Literata - reader-only story text (see .r-text), never the app chrome */
+@font-face {
+  font-family: 'Literata';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('fonts/literata-latin-ext-400-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Literata';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('fonts/literata-latin-400-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Literata';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url('fonts/literata-latin-ext-700-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Literata';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url('fonts/literata-latin-700-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+:root {
+  --navy: #16233B; --navy-2: #22324F; --gold: #FCC419; --gold-d: #E8B20E;
+  --cream: #F3EAC2; --bg: #F6F5F1; --surface: #FFFFFF; --ink: #1B2333;
+  --muted: #656E7B; --border: #E6E6E0;   /* darkened from #717A88 to meet WCAG AA 4.5:1 on white */
+  --radius: 16px; --shadow: 0 1px 2px rgba(16,24,40,.04), 0 8px 24px rgba(16,24,40,.06);
+  --shadow-hover: 0 2px 4px rgba(16,24,40,.06), 0 14px 32px rgba(16,24,40,.12);
+  /* visual-redesign additions - all derived from the palette above, no new hues */
+  --radius-lg: 20px;      /* bigger radius for hero/stat tiles and cards that want to feel confident */
+  --radius-pill: 999px;   /* canonical pill radius */
+  --tint-gold: rgba(252,196,25,.14);
+  --tint-navy: rgba(22,35,59,.06);
+  --tint-cream: rgba(243,234,194,.55);
+  --shadow-tile: 0 1px 2px rgba(16,24,40,.03), 0 3px 10px rgba(16,24,40,.05);
+
+  /* type scale - 7 steps, everything in the app maps to one of these */
+  --fs-display: 30px; --fs-h2: 22px; --fs-h3: 18px;
+  --fs-body: 17px; --fs-small: 14px; --fs-micro: 12px;
+  --lh-tight: 1.2; --lh-body: 1.5;
+
+  /* three font roles: Baloo 2 for headings/titles/card labels/buttons/nav labels,
+     Lexend for body copy/metadata/inputs (the app-wide default - chosen for reading
+     ease for developing/struggling readers), Literata for story text only inside the
+     e-book reader. All three fall back to sans-serif per spec, even Literata, so a
+     missing-font state still matches the rest of the app's look rather than
+     introducing a mismatched system serif. */
+  --font-heading: "Baloo 2", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-body: "Lexend", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-story: "Literata", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* spacing scale - 4px base unit, every padding/margin/gap snaps to one of these */
+  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 20px; --sp-6: 24px; --sp-7: 32px; --sp-8: 48px;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+/* set while a self-sizing screen (the homework helper) is open: that screen fills the
+   viewport exactly and scrolls internally, so page-level scrolling would only reveal
+   empty background below it */
+body.screen-locked { overflow: hidden; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg); color: var(--ink); font-size: 17px; line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+.hidden { display: none !important; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+b { font-weight: 800; }
+
+/* Baloo 2 for headings, titles, card labels, buttons, and nav labels; Lexend (the
+   body default) covers everything else, including form inputs/labels and metadata. */
+h1, h2, h3, h4,
+.wordmark, .screen-title, .home-heading, .home-lbl, .ltitle, .lesson-topic-label,
+.agh-title, .cc-title, .ec-title, .subj-tile-title, .bc-title, .role-t, .cs-title,
+.cs-h, .dash-section, .hist-title, .hist-when, .tc-title, .ta-title,
+.grade-tab, .tab, .btn, .pill-label, .nb-t, .ns-head, .code-lbl, .side-h, .rac-title,
+.tr-title, .add-title, .setup-step,
+.avatar, .student-name, .prof-name, .sc-name,
+.stat-tile .stat-num, .cs-num, .ach-name {
+  font-family: var(--font-heading);
+}
+
+/* Teacher dashboard + history logs are an admin surface, not kid-facing - stay on
+   Lexend throughout (no Baloo 2), calm and distinct from the rest of the app. This
+   overrides the custom property the rule above reads, scoped to these two screens
+   only, so nothing outside them is affected. */
+#dashboard, #history { --font-heading: var(--font-body); }
+
+/* compact top bar */
+#topbar {
+  position: sticky; top: 0; z-index: 20; height: 54px;
+  display: flex; align-items: center; gap: 10px; padding: 0 16px;
+  background: rgba(255,255,255,.92); backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+.brand { display: flex; align-items: center; gap: 8px; font-size: 17px; font-weight: 600;
+  color: var(--navy); cursor: pointer; letter-spacing: -.01em; }
+.brand .logo { width: 26px; height: 26px; }
+.spacer { flex: 1; }
+.who { background: var(--cream); color: var(--navy); font-weight: 600; font-size: 14px;
+  padding: 5px 12px; border-radius: var(--radius-pill); }
+.iconbtn { background: none; border: none; color: var(--navy); cursor: pointer; padding: 6px;
+  border-radius: 8px; display: flex; align-items: center; }
+.iconbtn:hover { background: #eef0f3; }
+.langsel { font-size: 14px; padding: 6px 10px; border-radius: 9px; border: 1px solid var(--border);
+  background: #fff; color: var(--ink); font-family: inherit; cursor: pointer; }
+
+/* ---- top-right profile button + rewards dropdown ---- */
+.profile-wrap { position: relative; }
+.profile-btn { display: flex; align-items: center; gap: 8px; cursor: pointer;
+  background: var(--cream); color: var(--navy); border: 1px solid #e6dcb0;
+  font-weight: 700; font-size: 15px; padding: 7px 13px; border-radius: var(--radius-pill);
+  font-family: inherit; transition: background .12s, box-shadow .12s; }
+.profile-btn:hover { background: #ece1b0; box-shadow: 0 1px 5px rgba(20,30,50,.12); }
+.prof-star { font-size: 17px; line-height: 1; }
+.prof-name { max-width: 160px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.prof-caret { opacity: .7; flex: none; }
+.profile-menu { position: absolute; right: 0; top: calc(100% + 8px); min-width: 240px;
+  background: #fff; border: 1px solid var(--border); border-radius: 12px;
+  box-shadow: 0 8px 26px rgba(20,30,50,.16); padding: 6px; z-index: 40; }
+.profile-menu-item { display: flex; align-items: center; gap: 8px; width: 100%;
+  background: none; border: none; text-align: left; cursor: pointer; font-family: inherit;
+  font-size: 15px; font-weight: 600; color: var(--navy); padding: 11px 13px; border-radius: 9px; }
+.profile-menu-item:hover { background: var(--cream); }
+
+/* ---- teacher notification bell + dropdown ---- */
+.notif-wrap { position: relative; }
+.notif-bell { position: relative; background: none; border: 1.5px solid var(--border); cursor: pointer;
+  color: var(--navy); padding: 7px; border-radius: 10px; display: flex; align-items: center;
+  transition: background .12s, border-color .12s; }
+.notif-bell:hover { background: var(--cream); }
+/* unread state is carried by the badge AND a border/tint change, so it does not depend
+   on colour perception alone */
+.notif-bell.has-unread { background: var(--tint-gold); border-color: var(--gold); }
+.notif-count { position: absolute; top: -6px; right: -6px; min-width: 18px; height: 18px; padding: 0 4px;
+  background: #C0392B; color: #fff; border: 2px solid var(--surface); border-radius: var(--radius-pill);
+  font-size: 11px; font-weight: 800; line-height: 14px; text-align: center; font-variant-numeric: tabular-nums; }
+.notif-panel { position: absolute; right: 0; top: calc(100% + 8px); width: 360px; max-width: 92vw;
+  max-height: 420px; overflow-y: auto; background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); box-shadow: 0 8px 26px rgba(20,30,50,.18); z-index: 60; }
+.notif-head { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-3);
+  padding: 12px 14px; border-bottom: 1px solid var(--border); position: sticky; top: 0;
+  background: var(--surface); border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+.notif-head-t { font-weight: 800; color: var(--navy); font-size: 15px; }
+.notif-markall { background: none; border: none; padding: 0; font-family: var(--font-body);
+  font-size: 13px; font-weight: 700; color: var(--navy); cursor: pointer; text-decoration: underline; }
+.notif-list { display: flex; flex-direction: column; }
+.notif-item { display: flex; align-items: flex-start; gap: 10px; padding: 11px 14px;
+  border-bottom: 1px solid var(--border); cursor: pointer; }
+.notif-item:last-child { border-bottom: none; }
+.notif-item:hover { background: var(--bg); }
+.notif-item.unread { background: var(--cream); }
+.notif-item.unread:hover { background: #F6EBC4; }
+.notif-dot { width: 8px; height: 8px; border-radius: 50%; background: transparent; flex: none; margin-top: 6px; }
+.notif-item.unread .notif-dot { background: var(--gold-d); }
+.notif-body { flex: 1; min-width: 0; }
+.notif-msg { font-size: 14px; color: var(--ink); line-height: 1.35; }
+.notif-when { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.notif-x { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 14px;
+  line-height: 1; padding: 3px 4px; border-radius: 6px; flex: none; }
+.notif-x:hover { background: var(--border); color: var(--navy); }
+.notif-empty { padding: 26px 14px; text-align: center; color: var(--muted); font-size: 14px; }
+
+/* ---- editing a test after assignment ---- */
+.tb-warn { display: flex; flex-direction: column; gap: 3px; background: #FDF0DC; border: 1px solid #F0DDB6;
+  border-radius: var(--radius); padding: var(--sp-3) var(--sp-4); margin-bottom: var(--sp-4); }
+.tb-warn-t { font-weight: 800; color: #94631A; font-size: 14px; }
+.tb-warn-m { font-size: 13.5px; color: #7A5316; line-height: 1.4; }
+.tb-actions { display: flex; gap: var(--sp-3); align-items: center; margin-top: var(--sp-4); }
+
+/* ---- data & storage (auto-archival) ---- */
+.ret-box { margin-top: var(--sp-6); padding-top: var(--sp-5); border-top: 1px solid var(--border); }
+.ret-row { display: flex; align-items: center; flex-wrap: wrap; gap: var(--sp-2);
+  font-size: 15px; margin: var(--sp-3) 0; }
+.ret-row .field { width: auto; margin: 0; }
+.ret-note { font-size: 13.5px; color: var(--muted); background: var(--bg); border-radius: var(--radius);
+  padding: 9px 12px; margin-bottom: var(--sp-3); }
+.ret-modes { display: flex; flex-direction: column; gap: var(--sp-2); margin-bottom: var(--sp-4); }
+.ret-mode { display: flex; align-items: flex-start; gap: 8px; font-size: 14px; line-height: 1.35; }
+.ret-mode input { margin-top: 3px; flex: none; }
+.ret-arch-h { margin-top: var(--sp-5); }
+.ret-arch { display: flex; flex-direction: column; }
+.ret-arch-row { display: flex; justify-content: space-between; gap: var(--sp-3); padding: 7px 0;
+  border-bottom: 1px solid var(--border); font-size: 14px; }
+.ret-arch-row:last-child { border-bottom: none; }
+.ret-arch-t { font-weight: 600; color: var(--navy); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ret-arch-m { color: var(--muted); font-size: 13px; flex: none; }
+/* "ask me first" banner - the only path by which anything is ever deleted in confirm mode */
+.card.ret-banner { padding: var(--sp-4) var(--sp-5); margin-bottom: var(--sp-4);
+  background: #FDF0DC; border-color: #F0DDB6; }
+.ret-ban-t { font-weight: 800; color: #94631A; margin-bottom: var(--sp-2); }
+.ret-ban-list { display: flex; flex-direction: column; gap: 2px; margin-bottom: var(--sp-3); }
+.ret-ban-row { display: flex; justify-content: space-between; gap: var(--sp-3); font-size: 14px; color: var(--ink); }
+.ret-ban-acts { display: flex; gap: var(--sp-2); }
+
+/* ---- extend due date modal ---- */
+.extend-card { max-width: 460px; text-align: left; }
+.extend-card .confirm-title { text-align: left; }
+.ext-modes { display: flex; gap: var(--sp-2); margin-bottom: var(--sp-3); }
+.ext-modes .btn { flex: 1; }
+.ext-current { font-size: 13px; color: var(--muted); margin-bottom: var(--sp-2); }
+.ext-students { max-height: 200px; overflow-y: auto; border: 1px solid var(--border);
+  border-radius: var(--radius); padding: var(--sp-2); display: flex; flex-direction: column; gap: 2px; }
+.ext-chk-badge { margin-left: auto; }
+.ext-hint { font-size: 12.5px; color: var(--muted); margin-top: 6px; }
+.extend-actions { flex-direction: row; margin-top: var(--sp-4); }
+.extend-actions .btn { width: auto; flex: 1; }
+
+/* ---- flashing test-notification bell ---- */
+.test-bell { position: relative; background: none; border: none; cursor: pointer;
+  color: #C0392B; padding: 6px; border-radius: 9px; display: flex; align-items: center;
+  animation: bell-swing 1.1s ease-in-out infinite; }
+.test-bell:hover { background: #fdecea; }
+.bell-dot { position: absolute; top: 3px; right: 3px; width: 11px; height: 11px;
+  background: #E2231A; border: 2px solid #fff; border-radius: 50%;
+  animation: bell-flash .8s ease-in-out infinite; }
+@keyframes bell-flash { 0%,100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .35; transform: scale(1.35); } }
+@keyframes bell-swing { 0%,70%,100% { transform: rotate(0); }
+  78% { transform: rotate(11deg); } 86% { transform: rotate(-9deg); } 94% { transform: rotate(5deg); } }
+
+/* ---- assigned-test screen ---- */
+.test-q { padding: 16px 18px; margin: 14px 0; }
+.card.test-q { border-radius: var(--radius-lg); }   /* .test-q sits before .card in the cascade,
+  same fix as .card.welcome-card - needs the extra specificity to win */
+.test-q-text { font-weight: 700; font-size: 16px; color: var(--navy); margin-bottom: 10px; }
+.test-choice { display: flex; align-items: center; gap: 10px; padding: 9px 12px; margin: 6px 0;
+  border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; font-size: 15px; }
+.test-choice:hover { background: var(--tint-gold); border-color: rgba(232,178,14,.4); }
+.test-choice input { width: 18px; height: 18px; flex: none; }
+.test-text { width: 100%; box-sizing: border-box; resize: vertical; font-family: inherit;
+  font-size: 15px; padding: 10px 12px; }
+.test-due { color: #C0392B; font-weight: 700; margin: -4px 0 12px; }
+
+/* ---- teacher dashboard section headings (legacy plain-text style, kept for any
+   leftover callers) ---- */
+.dash-section { display: flex; align-items: center; gap: var(--sp-2); font-size: var(--fs-h2); line-height: var(--lh-tight);
+  font-weight: 800; color: var(--navy); margin: var(--sp-7) 0 var(--sp-3);
+  padding-bottom: var(--sp-2); border-bottom: 1px solid var(--border); letter-spacing: -.01em; }
+.dash-section svg { flex: none; color: var(--navy); }
+
+/* ---- teacher dashboard: sidebar shell (Class Overview / Tests / Student Progress /
+   History Logs) - reuses existing --navy/--gold/--tint-* tokens as restrained accents,
+   only new class names, no new hues ---- */
+/* align-items defaults to stretch here on purpose: the sidebar must match the
+   height of whichever main-content column is currently tallest, or its white
+   background stops short of the content and it reads as a small floating box
+   instead of a full-length rail. */
+/* The min-height below is what makes the rail reach the bottom of the SCREEN, not just
+   the bottom of the content. Two earlier attempts each fixed one half of this and broke
+   the other, so the history matters:
+     1. `min-height: calc(100vh - 54px)` - too TALL. body carries `zoom: 1.2/1.35/1.5` at
+        wider breakpoints, and a vh unit inside a zoomed subtree resolves against the
+        UNSCALED viewport, so 100vh came out 1.35x the real viewport height. The rail grew
+        past the bottom of the screen and forced the page to scroll.
+     2. No min-height at all - too SHORT. The shell sized to its tallest child, so on views
+        whose content doesn't fill the window (Past History Logs' calendar, Student
+        progress, Class overview - Tests' builder form is tall enough to hide it) the white
+        rail just stopped partway down against the page background, reading as chopped off.
+        Only visible maximized, since that's when there's more screen than content.
+   Dividing by --app-zoom (kept in sync with the zoom breakpoints further down) cancels
+   exactly the distortion that sank attempt 1, so 100vh/zoom is the real viewport height in
+   this element's own coordinate space; -54px drops the topbar, which is zoomed alongside
+   it. min-height (not height) so content taller than the screen still grows the rail. */
+.dash-shell { display: flex; gap: 0; min-height: calc(100vh / var(--app-zoom) - 54px); }
+/* flex column so the bottom group can be pushed down with margin-top:auto - see
+   .dash-nav-bottom. The rail is already at least viewport-tall via .dash-shell's
+   min-height, so "the bottom" is a real place to push something to. */
+.dash-sidebar { width: 240px; flex: none; background: var(--surface); border-right: 1px solid var(--border);
+  padding: var(--sp-5) var(--sp-3); align-self: stretch; display: flex; flex-direction: column; }
+/* The rail itself stretches to the full content height so its background reads as a
+   full-length rail rather than a floating box. The nav inside is what sticks: a
+   viewport-tall column, so Settings/Sign Out pin to the bottom of the SCREEN instead
+   of the bottom of a very long page (where they'd be unreachable without scrolling). */
+/* The rail stretches to the full content height so its background reads as a
+   full-length rail; the nav inside sticks below the 54px topbar and keeps its
+   natural height. Settings/Sign Out sit directly under the nav rather than being
+   pushed to the bottom of a very long page, where they were unreachable without
+   scrolling all the way down. Deliberately no 100vh height here - it isn't needed
+   once the group is top-anchored, and it only invites viewport-unit edge cases. */
+.dash-nav-sticky { position: sticky; top: 74px; }
+/* Settings/Sign Out sit at the BOTTOM of the rail, and this needs both declarations:
+     margin-top: auto  - does the actual bottom-alignment. It is a sibling of
+       .dash-nav-sticky (not nested inside it, see the HTML comment) so that it is a
+       direct flex child of .dash-sidebar and the auto margin has somewhere to expand.
+       Sticky alone CANNOT do this job: sticky never moves an element from its normal
+       flow position until scrolling would carry it out of view, so a bottom-stuck
+       element whose natural spot is up near the nav list simply stays there.
+     position: sticky; bottom - keeps the group on screen once the page is long enough
+       to scroll. Without it, bottom-aligning inside a rail that stretches to a tall
+       content column would park these at the bottom of the PAGE, which is the
+       unreachable-without-scrolling problem an earlier revision ran into. */
+.dash-nav-bottom { margin-top: auto; position: sticky; bottom: var(--sp-5);
+  background: var(--surface); border-top: 1px solid var(--border);
+  padding-top: var(--sp-4); display: flex; flex-direction: column; gap: 4px; }
+.dash-nav-list { display: flex; flex-direction: column; gap: 4px; }
+.dash-nav-item { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: var(--radius-md, 12px);
+  border: none; background: none; color: var(--muted); font-weight: 500; font-size: 15.5px; text-align: left;
+  cursor: pointer; width: 100%; font-family: var(--font-body); }
+.dash-nav-item svg { flex: none; }
+.dash-nav-item:hover { background: var(--tint-navy); }
+.dash-nav-item.active { background: var(--tint-gold); color: var(--navy); font-weight: 700; }
+.dash-nav-item.nav-item-danger { color: #C0392B; }
+.dash-nav-item.nav-item-danger svg { color: #C0392B; }
+.dash-nav-item.nav-item-danger:hover { background: #FBEAEA; }
+.dash-main { flex: 1; min-width: 0; padding: var(--sp-7) var(--sp-8); }
+.dash-view { max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: var(--sp-5); }
+.dash-view .dash-head { margin: 0; }
+
+/* bounded card/panel headers - the "plain-text header -> card" requirement */
+.dash-panel { padding: var(--sp-5); }
+.dash-panel-head { display: flex; align-items: center; gap: var(--sp-3); margin-bottom: var(--sp-4); }
+.dash-panel-head h2 { margin: 0; font-size: var(--fs-h3); font-weight: 700; color: var(--navy); flex: 1; min-width: 0; }
+.dash-panel-icon { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center;
+  justify-content: center; flex: none; }
+.dash-panel-icon.gold-chip { background: var(--tint-gold); color: var(--gold-d); }
+.dash-panel-icon.navy-chip { background: var(--navy); color: #fff; }
+
+/* Tests view: pill-style sub-tabs, true separate views (never share scroll/space) */
+.dash-tabs { display: inline-flex; background: var(--bg); border-radius: var(--radius-pill); padding: 4px; gap: 2px; }
+.dash-tab { border: none; background: none; padding: 9px 18px; border-radius: var(--radius-pill); font-weight: 600;
+  font-size: 14px; color: var(--muted); cursor: pointer; font-family: var(--font-body); }
+.dash-tab.active { background: #fff; color: var(--navy); box-shadow: var(--shadow-tile); font-weight: 700; }
+
+/* new button variants: secondary = bold "add a new question block" action,
+   distinct from the smaller ghost "+ Choice" (an option within a question) */
+.btn.secondary { background: var(--navy); color: #fff; padding: 10px 18px; font-size: 15px; }
+.btn.secondary:hover { background: var(--navy-2); }
+.btn.sm { padding: 6px 12px; font-size: 13px; }
+
+/* generic status/answer badge - none existed before (only one-off patterns) */
+.badge { display: inline-flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800;
+  padding: 2px 9px; border-radius: var(--radius-pill); font-family: var(--font-body); }
+.badge.gold { background: var(--gold); color: var(--navy); }
+.badge.navy { background: var(--navy); color: #fff; }
+.badge.success { background: #E3F6E9; color: #1E8E4E; }
+.badge.danger { background: #FDECEC; color: #C0392B; }
+.badge.neutral { background: var(--bg); color: var(--muted); }
+/* the mockup's remaining two tones: info = an open/in-flight test, warning = past due.
+   Both are warm-tuned to sit with the existing cream/gold palette rather than shipping
+   a stock blue and orange. */
+.badge.info { background: #E7EEFA; color: #2A5DA8; }
+.badge.warning { background: #FDF0DC; color: #94631A; }
+
+/* ---- tests: list view ---- */
+.tl-head, .tl-row { display: grid; grid-template-columns: 2fr 110px 170px 110px 28px;
+  gap: var(--sp-4); align-items: center; }
+.tl-head { padding: 0 var(--sp-5) var(--sp-2); font-size: var(--fs-micro); font-weight: 700;
+  color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+.tl-head .num { text-align: center; }
+.tl-list { display: flex; flex-direction: column; gap: var(--sp-3); }
+.tl-row { padding: var(--sp-4) var(--sp-5); cursor: pointer;
+  transition: transform .12s, box-shadow .12s, border-color .12s; }
+.tl-row:hover { transform: translateY(-1px); box-shadow: var(--shadow-hover); border-color: rgba(232,178,14,.5); }
+.tl-row:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
+.tl-name { min-width: 0; }
+.tl-title { font-weight: 700; font-size: var(--fs-h3); color: var(--navy); overflow: hidden;
+  text-overflow: ellipsis; white-space: nowrap; }
+.tl-badges { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 5px; }
+.tl-due { font-size: 14px; color: var(--muted); }
+.tl-count { font-weight: 700; font-size: 15px; text-align: center; font-variant-numeric: tabular-nums; }
+.tl-chev { color: var(--muted); display: flex; justify-content: flex-end; }
+
+/* ---- tests: detail view ---- */
+.td-back { display: inline-flex; align-items: center; gap: 6px; background: none; border: none;
+  padding: 0; margin-bottom: var(--sp-3); font-family: var(--font-body); font-size: 14px;
+  font-weight: 700; color: var(--navy); cursor: pointer; }
+.td-back:hover { text-decoration: underline; }
+.td-head { display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--sp-3);
+  margin-bottom: var(--sp-4); }
+.td-title-row { display: flex; align-items: center; flex-wrap: wrap; gap: var(--sp-2); width: 100%; }
+.td-title { margin: 0; font-size: var(--fs-h1); font-weight: 800; color: var(--navy); letter-spacing: -.01em; }
+.td-meta { flex: 1; min-width: 0; font-size: 14px; color: var(--muted); }
+.td-actions { display: flex; gap: var(--sp-2); flex: none; flex-wrap: wrap; }
+/* .btn is not a flex container, so an icon + label inside one sits on the text baseline
+   and reads as misaligned. Same treatment the codebase already gives .btn.status-complete
+   and the reading-header ghost buttons. */
+.td-actions .btn { display: inline-flex; align-items: center; gap: 6px; line-height: 1; }
+.td-actions .btn svg { flex: none; }
+
+/* class-average banner: dark "ready" state vs cream "waiting" state */
+/* .card.X, not .X - these variants sit BEFORE .card in the cascade, so at equal
+   specificity .card's white background would win and the light text on this banner
+   would render white-on-white. Same fix as .card.test-q and .card.welcome-card. */
+.card.td-avg { display: flex; flex-wrap: wrap; gap: var(--sp-6); padding: var(--sp-5);
+  background: linear-gradient(135deg, var(--navy), var(--navy-2)); border-color: transparent; color: #fff; }
+.td-avg-stat { flex: none; min-width: 150px; }
+.td-avg-num { font-size: 46px; line-height: 1.05; font-weight: 800; color: var(--gold); font-variant-numeric: tabular-nums; }
+.td-avg-lbl { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
+  color: rgba(255,255,255,.72); margin-top: 2px; }
+.td-avg-bars { flex: 1; min-width: 260px; display: flex; flex-direction: column; gap: var(--sp-3); }
+.td-qbar { display: grid; grid-template-columns: 1fr 120px 64px; gap: var(--sp-3); align-items: center; }
+.td-qbar-lbl { font-size: 13px; color: rgba(255,255,255,.9); overflow: hidden;
+  text-overflow: ellipsis; white-space: nowrap; }
+.td-qbar-track { height: 8px; border-radius: var(--radius-pill); background: rgba(255,255,255,.18); overflow: hidden; }
+.td-qbar-fill { height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold-d)); }
+.td-qbar-pct { font-size: 13px; font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; }
+.td-qbar-none { grid-column: 2 / span 2; font-size: 12px; color: rgba(255,255,255,.6); }
+.card.td-avg-wait { display: flex; align-items: center; gap: var(--sp-4); padding: var(--sp-5);
+  background: var(--cream); border-color: #EADFB4; }
+.td-avg-clock { color: var(--gold-d); display: flex; flex: none; }
+.td-avg-wait-t { font-weight: 700; color: var(--navy); font-size: var(--fs-h3); }
+.td-avg-wait-s { font-size: 14px; color: var(--muted); margin-top: 2px; }
+
+/* sort/filter row */
+.td-filters { display: flex; flex-wrap: wrap; gap: var(--sp-4); margin: var(--sp-5) 0 var(--sp-3); }
+.td-filter { display: flex; align-items: center; gap: var(--sp-2); }
+.td-filter-lbl { font-size: var(--fs-micro); font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: .05em; }
+.td-filter .field { width: auto; margin: 0; }
+
+/* one card per assigned student */
+.td-sub { padding: var(--sp-4) var(--sp-5); margin-bottom: var(--sp-3); }
+.td-sub.flat { background: transparent; box-shadow: none; border-style: dashed; }
+.td-sub-head { display: flex; align-items: center; gap: var(--sp-3); }
+.td-av { width: 34px; height: 34px; font-size: 14px; flex: none; }
+.td-sub-who { flex: 1; min-width: 0; }
+.td-sub-name { font-weight: 700; color: var(--navy); font-size: 15px; }
+.td-sub-meta { font-size: 13px; color: var(--muted); }
+/* answer rows are icon-led, never colour-only - a red/green word alone fails for the
+   ~8% of men with colour-vision deficiency, and these get printed in greyscale too */
+.td-ans { display: flex; gap: var(--sp-3); align-items: flex-start; padding: 9px 12px;
+  border-radius: var(--radius); margin-top: var(--sp-2); }
+.td-ans.ok { background: #EEF8F1; }
+.td-ans.bad { background: #FDEFEF; }
+.td-ans.na { background: var(--bg); }
+.td-ans-icon { flex: none; display: flex; margin-top: 1px; }
+.td-ans.ok .td-ans-icon { color: #1E8E4E; }
+.td-ans.bad .td-ans-icon { color: #C0392B; }
+.td-ans.na .td-ans-icon { color: var(--muted); }
+.td-ans-body { flex: 1; min-width: 0; }
+.td-ans-q { font-weight: 600; font-size: 14px; color: var(--navy); }
+.td-ans-line { font-size: 14px; margin-top: 2px; }
+.td-ans-lbl { color: var(--muted); }
+.td-ans-corr { color: #C0392B; }
+.td-edited { margin-top: 6px; }
+.td-edited-was { font-size: 12.5px; color: var(--muted); margin-top: 3px; font-style: italic; }
+
+/* Class Overview: lightweight roster row (no grade-edit/reset/remove - those stay in
+   the detailed Student Progress board, see .sc-row) */
+.ov-roster-row { display: flex; align-items: center; gap: var(--sp-4); padding: 10px 0;
+  border-bottom: 1px solid var(--border); }
+.ov-roster-row:last-child { border-bottom: none; }
+.ov-roster-name { font-weight: 600; font-size: 14px; flex: 1; min-width: 0; overflow: hidden;
+  text-overflow: ellipsis; white-space: nowrap; }
+.ov-roster-grade { font-size: 13px; color: var(--muted); width: 90px; flex: none; }
+.ov-roster-bar { width: 140px; max-width: 220px; height: 8px; background: var(--tint-gold);
+  border-radius: var(--radius-pill); overflow: hidden; flex: none; }
+.ov-roster-bar-fill { height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold-d)); }
+
+/* Student Progress: dark/cream/default stat-card treatment (extends the existing
+   .cs-active/.cs-card pattern rather than replacing it) */
+.stat-card.dark { background: var(--navy); color: #fff; }
+.stat-card.cream { background: var(--cream); }
+.stat-card.default { background: var(--surface); border: 1px solid var(--border); }
+
+.tc-sub-row { display: flex; align-items: center; gap: var(--sp-3); }
+
+/* ---- teacher: embedded test builder + grading ---- */
+.test-builder { margin: 0 0 18px; padding: 20px; }
+.test-builder h3 { margin: 0 0 var(--sp-3); font-size: var(--fs-h3); font-weight: 700; color: var(--navy); letter-spacing: -.01em; }
+.test-builder .tb-title { width: 100%; box-sizing: border-box; font-weight: 700; font-size: 16px; margin: 6px 0 10px; }
+.tb-q { border: 1px solid var(--border); border-radius: 10px; padding: 12px; margin: 10px 0; background: #FAFBFD; }
+.tb-qtag { font-size: 12px; font-weight: 700; color: #2F6FED; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px; }
+.tb-q .tbQText { width: 100%; box-sizing: border-box; margin: 4px 0 8px; }
+.tb-choice { display: flex; align-items: center; gap: 8px; margin: 5px 0; }
+.tb-choice .tbCText { flex: 1; }
+.tb-correct { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; color: #5A6679; white-space: nowrap; }
+.tb-hint { font-size: 12px; color: #717A88; margin-top: 6px; }
+.tb-btns { display: flex; gap: 8px; margin: 10px 0; flex-wrap: wrap; }
+.tb-small { padding: 5px 11px !important; font-size: 13px !important; }
+.tb-block { margin: 14px 0; border-top: 1px solid #EEF1F6; padding-top: 12px; }
+/* Assignment card (due date + assign-to-grades/students): a real bounded card,
+   separate from the question cards above - the top-border divider above is only
+   for any leftover non-card caller, not needed once .card supplies its own border */
+.card.tb-block { margin: var(--sp-5) 0 0; border-top: 1px solid var(--border); padding: var(--sp-5); }
+/* These three group headings ("Due date & time", "Assign to grades", "And/or individual
+   students") were 17px bold navy - LARGER than the 14px "Assignment" title above them,
+   so the hierarchy read upside down and three heavy dark lines competed inside one small
+   card. They are field labels, not headings, so they now use the same quiet uppercase
+   micro-label treatment as .lbl everywhere else in the app, letting "Assignment" be the
+   one thing that reads as a title.
+   margin-TOP (not just bottom) is what separates each group from the one before, since
+   the due-date row and the checkbox rows each butt directly against the next heading. */
+.tb-h { font-size: var(--fs-micro); font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: .05em; margin: var(--sp-5) 0 var(--sp-2); }
+.card.tb-block .add-title { font-size: var(--fs-h3); margin-bottom: var(--sp-1); }
+.tb-due-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 4px; }
+.tb-due-row .field { max-width: 200px; }
+.tb-checks { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-bottom: 6px; }
+.tb-chk { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; cursor: pointer; }
+.tb-create { margin-top: 14px; }
+.tb-msg { margin-left: 12px; font-weight: 700; }
+.ta-title { margin: 22px 0 6px; }
+.test-card { margin: 12px 0; padding: 16px 18px; }
+.tc-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.tc-title { margin: 0; font-size: var(--fs-h3); font-weight: 700; color: var(--navy); }
+.tc-meta { font-size: 13px; color: #5A6679; margin: 4px 0; }
+.tc-sub { font-size: 13px; font-weight: 700; color: var(--navy); margin: 6px 0; }
+.tc-resp { border: 1px solid var(--border); border-radius: 10px; padding: 10px 13px; margin: 8px 0; background: #FAFBFD; }
+.tc-at { font-size: 12px; color: #717A88; font-weight: 400; }
+.tc-q { font-size: 14px; margin: 5px 0; }
+.tc-q .ok { color: #1E8E4E; font-weight: 600; }
+.tc-q .bad { color: #C0392B; font-weight: 600; }
+.tc-corr { color: #1E8E4E; }
+
+/* ---- first-run welcome / setup wizard ---- */
+#welcome { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 30px 18px; }
+.welcome-wrap { max-width: 520px; width: 100%; text-align: center; }
+.logo-float { width: 96px; height: 96px; margin: 0 auto 6px; display: block;
+  filter: drop-shadow(0 10px 22px rgba(20,30,50,.22)); animation: lb-float 3.4s ease-in-out infinite; }
+@keyframes lb-float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-12px) rotate(-2deg); } }
+.welcome-title { margin: 4px 0 10px; }
+.welcome-mission { color: var(--muted); font-size: 16px; line-height: 1.55; margin: 0 auto 22px; max-width: 460px; }
+.welcome-card { padding: 24px; text-align: left; }
+.card.welcome-card { border-radius: var(--radius-lg); }   /* .welcome-card sits before .card in the
+  cascade, so this needs the extra specificity to actually win over .card's own border-radius */
+.setup-step { font-size: var(--fs-small); font-weight: 800; color: var(--navy); margin: 4px 0 var(--sp-2); }
+.welcome-card .setup-step + .setup-langs { margin-bottom: 20px; }
+.setup-sub { font-size: 13px; color: var(--muted); margin: -4px 0 10px; }
+.setup-langs { display: flex; flex-wrap: wrap; gap: 8px; }
+.setup-lang { padding: 9px 16px; border-radius: var(--radius-pill); border: 1.5px solid var(--border);
+  background: #fff; color: var(--navy); font-weight: 600; font-family: inherit; font-size: 14px; cursor: pointer;
+  transition: all .12s; }
+.setup-lang:hover { border-color: var(--navy); }
+.setup-lang.on { background: var(--navy); color: #fff; border-color: var(--navy); }
+.welcome-card .field { margin: 8px 0; }
+.setup-note { font-size: 12px; color: var(--muted); margin: 12px 0 0; text-align: center; }
+#settingsPanel .setup-langs { margin: 4px 0 6px; }
+/* sibling of .dash-shell inside the now-unpadded #dashboard, so it needs its own inset */
+#dashboard > #settingsPanel { margin: var(--sp-5) var(--sp-7); }
+
+/* The centred, padded content column used to live on <main>, which meant EVERY screen
+   was inset by it - including the teacher dashboard, whose rail has to sit flush
+   against the viewport edge. main is now a bare full-width wrapper and the column
+   belongs to each .screen, so full-bleed screens can simply opt out below. */
+main { }
+.screen { max-width: min(1600px, 96vw); margin: 0 auto; padding: 26px 22px 60px; }
+/* full-bleed app-shell screens: rail flush to the left edge, no centring, no padding */
+#dashboard, #history { max-width: none; margin: 0; padding: 0; }
+#signin { max-width: 640px; margin: 0 auto; }
+#browse { max-width: 900px; margin: 0 auto; }
+/* Kids use tablets and shared laptops. This UI is px-based and mobile-first, so on a
+   bigger screen it would otherwise sit tiny in a narrow column. Scale the WHOLE app up
+   with zoom (uniformly enlarges text, buttons, video and layout so it's big and easy to
+   read and fills the page). main is capped to 96vw so the larger zoom can never cause
+   sideways scrolling, on any screen size.
+   --app-zoom MIRRORS the zoom factor on each line below and must be changed with it.
+   vh units inside a zoomed subtree resolve against the unscaled viewport, so anything
+   that needs a real viewport height divides by it - see .dash-shell. It lives on :root
+   (html, which is NOT zoomed) purely so it inherits everywhere; it's a plain number, so
+   the value is unaffected by where it's declared. */
+:root { --app-zoom: 1; }
+@media (min-width: 820px)  { body { zoom: 1.2; }  :root { --app-zoom: 1.2; } }
+@media (min-width: 1200px) { body { zoom: 1.35; } :root { --app-zoom: 1.35; } }
+@media (min-width: 1700px) { body { zoom: 1.5; }  :root { --app-zoom: 1.5; } }
+
+/* sign in */
+.signin-wrap { text-align: center; padding-top: 14px; }
+.logo-hero { width: 64px; height: 64px; filter: drop-shadow(0 6px 14px rgba(22,35,59,.18)); }
+.wordmark { font-size: var(--fs-display); line-height: var(--lh-tight); font-weight: 800; color: var(--navy); margin: 12px 0 2px; letter-spacing: -.02em; }
+.tagline { color: var(--muted); font-size: var(--fs-body); line-height: var(--lh-body); margin: 0 0 var(--sp-6); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  box-shadow: var(--shadow); }
+.signin-card { padding: 24px; text-align: left; max-width: 420px; margin: 0 auto; border-radius: var(--radius-lg); }
+.signin-card-icon { display: flex; justify-content: center; margin: 0 0 14px; }
+/* "waiting for approval" state - mirrors .sc.pending's dashed/tinted language on the
+   teacher dashboard, so a student's wait screen visually matches the teacher's queue */
+.signin-card.pending { border-style: dashed; text-align: center; }
+.have-account-row { color: var(--muted); font-size: 14px; margin: 18px 0 0; }
+.linklike { background: none; border: none; padding: 0; margin-left: 4px; font: inherit; font-weight: 700;
+  color: var(--navy); cursor: pointer; text-decoration: underline; }
+.linklike:hover { color: var(--navy-2); }
+.lbl { display: block; font-size: var(--fs-micro); font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: .05em; margin: var(--sp-4) 0 var(--sp-2); }
+.signin-card .lbl:first-child { margin-top: 0; }
+.field { width: 100%; font-size: var(--fs-body); padding: var(--sp-3) var(--sp-4); border: 1.5px solid var(--border);
+  border-radius: var(--radius); font-family: inherit; background: #fff; color: var(--ink); outline: none; }
+.field:focus { border-color: var(--navy); box-shadow: 0 0 0 3px rgba(22,35,59,.07); }
+/* pill-shaped closed <select> (the open option list is OS-rendered and can't be
+   restyled with CSS alone - this only shapes the closed control) */
+.select-pill { appearance: none; -webkit-appearance: none; border-radius: var(--radius-pill);
+  padding: 10px 40px 10px 18px; font-weight: 700; color: var(--navy);
+  background-color: #fff;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="%2316233B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  background-repeat: no-repeat; background-position: right 14px center; background-size: 14px; }
+.select-pill:hover { border-color: var(--navy); }
+.row { display: flex; gap: 10px; }
+.row .field { flex: 1; }
+.divider { display: flex; align-items: center; color: var(--muted); font-size: 13px; margin: 18px 0; }
+.divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+.divider span { padding: 0 12px; }
+
+/* buttons */
+.btn { font-family: inherit; font-size: var(--fs-body); font-weight: 700; cursor: pointer; border: none;
+  border-radius: var(--radius); padding: var(--sp-3) var(--sp-5); transition: transform .05s, background .15s; }
+.btn:active { transform: translateY(1px); }
+.btn.primary { background: var(--navy); color: #fff; }
+.btn.primary:hover { background: var(--navy-2); }
+.btn.accent { background: var(--gold); color: var(--navy); }
+.btn.accent:hover { background: var(--gold-d); }
+.btn.ghost { background: #fff; color: var(--navy); border: 1.5px solid var(--border); }
+.btn.ghost:hover { border-color: var(--navy); }
+/* `.danger` was being applied to ghost buttons ("Delete test", "Delete" on a question)
+   with no rule behind it, so destructive actions rendered identically to ordinary ones.
+   Three classes, so it wins over .btn.ghost wherever it sits in the file. */
+.btn.ghost.danger { color: #C0392B; border-color: #F0C9C4; }
+.btn.ghost.danger:hover { background: #FDECEC; border-color: #C0392B; }
+
+/* icon badges: a tinted circular/rounded-square icon chip + optional caption,
+   used to dress up existing icons/emoji (no new iconography) across nav pills,
+   role cards, achievements and the reading hub */
+.icon-badge { width: 40px; height: 40px; flex: none; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: inset 0 0 0 1px rgba(16,24,40,.04); }
+.icon-badge.sq { border-radius: 14px; }
+.icon-badge.lg { width: 46px; height: 46px; }
+.icon-badge.tint-gold  { background: var(--tint-gold); color: var(--navy); }
+.icon-badge.tint-navy  { background: var(--tint-navy); color: var(--navy); }
+.icon-badge.tint-cream { background: var(--tint-cream); color: var(--navy); }
+.icon-badge-wrap { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.icon-badge-label { font-size: 12px; font-weight: 700; color: var(--navy); text-align: center; }
+
+/* ---- browse: grade picker as a course grid ---- */
+#browse .crumbs { margin-bottom: 6px; }
+#browseTitle { margin: 2px 0 var(--sp-5); }
+.course-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: var(--sp-5); }
+.course-card { display: flex; flex-direction: column; gap: var(--sp-4); text-align: left; width: 100%;
+  background: var(--surface); border: 1px solid var(--border); border-top: 4px solid var(--navy);
+  border-radius: var(--radius-lg); box-shadow: 0 4px 16px rgba(16,24,45,.08); padding: var(--sp-5); cursor: pointer;
+  font-family: inherit; transition: transform .2s cubic-bezier(.22,1,.36,1), box-shadow .2s cubic-bezier(.22,1,.36,1); }
+.course-card:hover { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(16,24,45,.14); }
+.course-card:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--tint-gold), 0 10px 26px rgba(16,24,45,.14); }
+.cc-icon { width: 56px; height: 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center; flex: none; }
+.course-card .cc-title { font-size: 20px; font-weight: 700; color: var(--navy); letter-spacing: -.01em; margin-bottom: 4px; }
+.course-card .cc-sub { font-size: var(--fs-small); color: var(--muted); }
+.course-card .cc-bar { position: relative; height: 8px; background: var(--border); border-radius: var(--radius-pill);
+  overflow: visible; margin-top: var(--sp-1); }
+.course-card .cc-fill { height: 100%; border-radius: var(--radius-pill); min-width: 8px; }
+.course-card .cc-dot { position: absolute; top: 50%; width: 14px; height: 14px; border-radius: 50%;
+  border: 2px solid var(--surface); box-shadow: 0 1px 3px rgba(16,24,45,.25); transform: translate(-50%, -50%); }
+.course-card .cc-status { display: flex; align-items: center; gap: 6px; margin-top: var(--sp-2);
+  font-size: 13px; font-weight: 600; }
+.course-card .cc-status svg { flex: none; }
+.course-card .cc-status.zero { color: var(--muted); font-weight: 500; }
+
+/* ---- browse: topic list within a grade, laid out as one course card with rows
+   (echoes a familiar "course -> topics with mastery" dashboard, not copied verbatim) ---- */
+.topic-panel { display: flex; flex-direction: column; gap: var(--sp-6); }
+.topic-card { padding: var(--sp-2) var(--sp-5); }
+/* lines up with topic-card's own inner padding above it, so the resume thumbnails
+   don't look shifted left relative to the topic rows */
+.resume-section { padding: 0 var(--sp-5); }
+.topic-row { display: flex; align-items: center; gap: var(--sp-4); width: 100%; background: none; border: none;
+  cursor: pointer; font-family: inherit; text-align: left; padding: var(--sp-4) 0; border-bottom: 1px solid var(--border); }
+.topic-row:last-child { border-bottom: none; }
+.topic-row:hover .tr-title { color: var(--navy-2); text-decoration: underline; }
+.tr-ic { width: 40px; height: 40px; flex: none; border-radius: 50%; background: var(--tint-navy);
+  color: var(--navy); display: flex; align-items: center; justify-content: center; box-shadow: inset 0 0 0 1px rgba(16,24,40,.05); }
+.tr-main { flex: 1; min-width: 0; }
+.tr-title { font-size: 16px; font-weight: 700; color: var(--navy); }
+.tr-sub { font-size: 12.5px; color: var(--gold-d); font-weight: 700; margin-top: 2px; }
+.tr-sub.zero { color: var(--muted); font-weight: 600; }
+.tr-bar { width: 84px; height: 7px; background: var(--tint-gold); border-radius: var(--radius-pill); overflow: hidden;
+  flex: none; box-shadow: inset 0 1px 2px rgba(16,24,40,.06); }
+.tr-fill { height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold-d)); border-radius: var(--radius-pill); }
+.tr-chev { flex: none; color: var(--muted); }
+@media (max-width: 560px) { .tr-bar { display: none; } }
+
+/* PILL navigation buttons (benchmark style) */
+.pill-list { display: flex; flex-direction: column; gap: 12px; }
+.navpill { display: flex; align-items: center; justify-content: space-between; width: 100%;
+  background: var(--navy); color: #fff; border: none; border-radius: var(--radius-lg);
+  padding: 16px 16px 16px 22px; cursor: pointer; text-align: left; font-family: inherit;
+  transition: transform .07s, background .15s, box-shadow .15s; box-shadow: var(--shadow); }
+.navpill:hover { background: var(--navy-2); transform: translateY(-2px); }
+.navpill:active { transform: translateY(0); }
+.pill-main { display: flex; flex-direction: column; min-width: 0; }
+.pill-label { font-size: var(--fs-h3); font-weight: 700; letter-spacing: -.01em; line-height: 1.25; }
+.pill-sub { font-size: 13px; font-weight: 500; color: #9FAAC0; margin-top: 3px; }
+.pill-right { display: flex; align-items: center; gap: 8px; flex: none; margin-left: 14px; }
+.pill-ic { width: 40px; height: 40px; flex: none; border-radius: 50%; background: var(--gold);
+  color: var(--navy); display: flex; align-items: center; justify-content: center;
+  box-shadow: inset 0 0 0 1px rgba(16,24,40,.06); }
+.pill-badge { display: inline-block; background: var(--gold); color: var(--navy); font-weight: 800;
+  font-size: 12px; padding: 2px 8px; border-radius: 6px; margin-right: 8px; }
+.navpill.gold { background: var(--gold); color: var(--navy); }
+.navpill.gold:hover { background: var(--gold-d); }
+.navpill.gold .pill-ic { background: var(--navy); color: var(--gold); }
+
+/* distinct styles per navigation level so it doesn't look repetitive */
+.navpill.topic { background: var(--cream); color: var(--navy); box-shadow: none; border: 1px solid #e7dcad; }
+.navpill.topic:hover { background: #efe4bd; transform: translateY(-2px); }
+.navpill.topic .pill-sub { color: #8a7a3e; }
+.navpill.topic .pill-ic { background: var(--navy); color: var(--gold); }
+.navpill.lesson { background: #fff; color: var(--navy); box-shadow: none; border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 14px 14px 18px; }
+.navpill.lesson:hover { border-color: var(--navy); background: #fafbfc; }
+.navpill.lesson .pill-label { font-weight: 600; }
+.navpill.lesson .pill-sub { color: var(--muted); }
+.navpill.lesson .pill-ic { width: 34px; height: 34px; background: var(--tint-navy); color: var(--navy); }
+
+/* markdown formatting inside chat bubbles / quiz feedback */
+.md p { margin: 0 0 8px; }
+.md > :last-child { margin-bottom: 0; }
+.md ul, .md ol { margin: 4px 0 8px; padding-left: 22px; }
+.md li { margin: 3px 0; }
+.md strong { font-weight: 700; }
+.md em { font-style: italic; }
+.md code { background: rgba(0,0,0,.07); padding: 1px 5px; border-radius: 5px; font-size: 90%; }
+
+/* teacher dashboard table */
+.tbl { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+.tbl th, .tbl td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--border); font-size: 15px; }
+.tbl th { background: #f3f4f6; color: var(--navy); font-weight: 700; }
+.tbl tbody tr:last-child td { border-bottom: none; }
+.tbl .num { text-align: center; font-variant-numeric: tabular-nums; }
+.det { color: var(--gold-d); font-weight: 600; cursor: pointer; font-size: 13px; }
+.det:hover { text-decoration: underline; }
+
+/* role select cards */
+.role-cards { display: flex; flex-direction: column; gap: 12px; margin: 10px auto 0;
+  max-width: 380px; text-align: left; }
+.role-card { display: flex; align-items: center; gap: 14px; width: 100%; text-align: left; background: var(--surface);
+  border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow);
+  padding: 14px 16px; cursor: pointer; font-family: inherit; transition: transform .08s, box-shadow .15s, border-color .15s; }
+.role-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); border-color: #d2d6dd; }
+.role-ic { width: 46px; height: 46px; flex: none; border-radius: 14px; display: flex;
+  align-items: center; justify-content: center; box-shadow: inset 0 0 0 1px rgba(16,24,40,.06); }
+.role-ic.navy { background: var(--navy); color: var(--gold); }
+.role-ic.cream { background: var(--cream); color: var(--navy); }
+.role-main { display: flex; flex-direction: column; min-width: 0; }
+.role-t { font-size: var(--fs-h3); font-weight: 700; color: var(--navy); line-height: 1.25; }
+.role-s { font-size: 13px; color: var(--muted); margin-top: 2px; line-height: 1.3; }
+
+/* student picker ("Who's learning?") */
+.student-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px 22px;
+  max-width: 780px; margin: 20px auto 0; }
+.student-tile { display: flex; flex-direction: column; align-items: center; gap: 9px;
+  background: none; border: none; cursor: pointer; font-family: inherit; padding: 6px;
+  width: 108px; border-radius: 14px; transition: transform .08s; }
+.student-tile:hover { transform: translateY(-3px); }
+.avatar { width: 84px; height: 84px; border-radius: 18px; display: flex; align-items: center;
+  justify-content: center; color: #fff; font-weight: 800; font-size: 30px; letter-spacing: .02em;
+  box-shadow: var(--shadow); text-transform: uppercase; }
+.student-tile:hover .avatar { box-shadow: var(--shadow-hover); }
+.student-name { font-size: 15px; font-weight: 700; color: var(--navy); max-width: 104px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.student-tile.add .avatar { background: #fff; color: var(--muted); border: 2px dashed #cfd3da;
+  box-shadow: none; font-size: 40px; font-weight: 300; }
+.student-tile.add:hover .avatar { border-color: var(--navy); color: var(--navy); }
+
+/* returning-student greeting on the sign-in screen */
+.student-greet { display: flex; flex-direction: column; align-items: center; gap: 10px; padding-top: 4px; }
+.avatar-lg { width: 72px; height: 72px; border-radius: 16px; font-size: 26px; }
+.greet-name { margin: 6px 0 2px; }
+.greet-sub { color: var(--muted); font-size: 15px; margin: 0 0 18px; }
+.muted-note { color: var(--muted); font-size: var(--fs-small); text-align: center; margin: var(--sp-6) 0; }
+
+/* teacher: add / manage students */
+.add-student { padding: 16px 18px; margin: 0 0 18px; }
+.add-title { font-size: var(--fs-small); font-weight: 700; color: var(--navy); margin: 0 0 var(--sp-2); }
+.add-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+/* Small basis + min-width:0 so the three fields plus the "Add student" button all
+   fit on one line inside the panel (~600px) and the button isn't orphaned onto a
+   row of its own; they grow to fill whatever width is actually available. */
+.add-row .field { flex: 1 1 110px; min-width: 0; }
+.add-row .btn { white-space: nowrap; }
+.rm-btn { background: #FDECEC; color: #a02626; border: 1px solid #f3b9b9; border-radius: 8px;
+  font-family: inherit; font-size: 13px; font-weight: 700; padding: 5px 12px; cursor: pointer; }
+.rm-btn:hover { background: #f7cccc; }
+.tbl .pw { font-variant-numeric: tabular-nums; font-weight: 700; letter-spacing: .06em; color: var(--navy); }
+.reset-pw { color: var(--gold-d); font-weight: 600; cursor: pointer; font-size: 12px; margin-left: 6px; }
+.reset-pw:hover { text-decoration: underline; }
+.continue-btn { width: 100%; margin-top: 16px; }
+.grade-sel { min-width: 128px; max-width: 160px; }
+
+/* teacher dashboard: stat-card row, grade groups, student rows, summary */
+.dash-stats-row { display: flex; gap: var(--sp-4); flex-wrap: wrap; margin-bottom: var(--sp-5); }
+.cs-card { flex: 1; min-width: 220px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: var(--sp-4) var(--sp-5); }
+.grade-section { margin-bottom: 18px; }
+.grade-head { font-size: 14px; font-weight: 800; color: var(--navy); text-transform: uppercase;
+  letter-spacing: .04em; margin: 0 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--border); }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(238px, 1fr)); gap: 14px; }
+.sc { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
+  padding: var(--sp-4); }
+.sc.stuck { border-color: #E25555; animation: flashred 1s ease-in-out infinite; }
+@keyframes flashred { 0%,100% { box-shadow: var(--shadow); } 50% { box-shadow: 0 0 0 3px rgba(226,85,85,.55); } }
+.sc-head { display: flex; align-items: center; gap: 10px; }
+.sc-av { width: 40px; height: 40px; flex: none; border-radius: 11px; color: #fff; font-weight: 800;
+  font-size: 15px; display: flex; align-items: center; justify-content: center; text-transform: uppercase; }
+.sc-nm { flex: 1; min-width: 0; }
+.sc-name { font-size: var(--fs-h3); font-weight: 700; color: var(--navy); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sc-grade { margin-top: 4px; font-size: 12px; padding: 3px 6px; border: 1px solid var(--border);
+  border-radius: 7px; background: #fff; color: var(--muted); font-family: inherit; cursor: pointer; max-width: 100%; }
+.sc-retry { flex: none; background: var(--cream); color: #8a6d00; font-weight: 800; font-size: 12px;
+  padding: 4px 9px; border-radius: var(--radius-pill); }
+.sc-retry.red { background: #FDECEC; color: #a02626; }
+.sc-prog { margin: 12px 0 10px; }
+.sc-bar { height: 14px; background: var(--tint-gold); border-radius: var(--radius-pill); overflow: hidden;
+  box-shadow: inset 0 1px 2px rgba(16,24,40,.06); }
+.sc-fill { height: 100%; width: 100%; transform: scaleX(0); transform-origin: left center; background: linear-gradient(90deg, var(--gold), var(--gold-d)); transition: transform .4s ease; border-radius: var(--radius-pill); }
+.sc-stars { font-size: 12.5px; font-weight: 700; color: var(--gold-d); margin-top: 5px; }
+.sc-foot { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--muted);
+  border-top: 1px solid var(--border); padding-top: 9px; }
+.sc-pw { font-weight: 700; color: var(--navy); font-variant-numeric: tabular-nums; }
+.sc-link { color: var(--gold-d); font-weight: 700; cursor: pointer; }
+.sc-link:first-of-type { margin-left: auto; }
+.sc-link.danger { color: #a02626; }
+.sc-link.ok { color: #1E8E4E; }
+.sc-link:hover { text-decoration: underline; }
+.sc.pending { border-style: dashed; }
+.pending-at { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+/* per-student row list (main roster only — Pending Requests keeps .card-grid/.sc above) */
+.roster-list { display: flex; flex-direction: column; gap: 10px; }
+.sc-row { display: flex; align-items: center; gap: var(--sp-4); flex-wrap: wrap;
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
+  padding: var(--sp-3) var(--sp-4); }
+.sc-row.stuck { border-color: #E25555; animation: flashred 1s ease-in-out infinite; }
+.sc-row .sc-nm { flex: none; width: 160px; }
+.sc-row .sc-mid { flex: 1; min-width: 220px; display: flex; align-items: center; gap: var(--sp-4); flex-wrap: wrap; }
+.sc-row .sc-prog { flex: 1; min-width: 140px; margin: 0; }
+.sc-row .sc-mode, .sc-row .sc-stuckon { margin-top: 0; }
+.sc-row .sc-foot { flex: none; border-top: none; padding-top: 0; }
+.sc-row .sc-foot .sc-link:first-of-type { margin-left: 0; }
+
+.cs-title { font-size: var(--fs-small); font-weight: 800; color: var(--navy); margin: 0 0 var(--sp-3); }
+.cs-active { text-align: center; background: var(--navy); color: #fff; border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-tile); padding: 14px 12px; flex: 1; min-width: 180px; }
+.cs-num { font-size: 36px; font-weight: 800; line-height: 1; color: var(--gold); }
+.cs-lbl { font-size: 12px; font-weight: 600; color: #cfd6e4; margin-top: 4px; }
+.cs-h { font-size: var(--fs-micro); font-weight: 800; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin: 0 0 var(--sp-2); }
+.cs-row { display: flex; align-items: center; gap: 8px; font-size: 13px; margin: 5px 0; padding: 2px 0; }
+.cs-row.top1 { background: var(--tint-gold); border-radius: 10px; padding: 6px 10px; margin: 5px -10px; }
+.cs-row.top1 .cs-rank { display: inline-flex; align-items: center; justify-content: center;
+  width: 20px; height: 20px; border-radius: 50%; background: var(--gold); color: var(--navy); font-size: 11px; }
+.cs-rank { font-weight: 800; color: var(--gold-d); flex: none; }
+.cs-nm { flex: 1; min-width: 0; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cs-cnt { font-weight: 800; flex: none; }
+.cs-cnt.ok { color: #2BA84A; }
+.cs-cnt.bad { color: #E25555; }
+.cs-empty { font-size: 12.5px; color: var(--muted); font-style: italic; }
+.dash-actions { display: flex; gap: var(--sp-2); flex-wrap: wrap; }
+.dash-actions .btn { display: inline-flex; align-items: center; gap: var(--sp-2); }
+/* legacy standalone teacher.html page still uses this row */
+.class-switcher-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 4px 0 16px; }
+.class-switcher-row .lbl { margin: 0; }
+/* Class context row: the class picker, "+ Create Class", and the selected class's
+   access code, left-aligned so they line up with the panels below. .field defaults
+   to width:100%, which makes a <select> in a flex toolbar balloon to the full row
+   and force everything else to wrap - so selects in these bars are sized to content. */
+.class-bar { display: flex; align-items: center; gap: var(--sp-3); flex-wrap: wrap; }
+.class-bar select.field, .dash-actions select.field,
+.class-switcher-row select.field { width: auto; min-width: 200px; max-width: 340px; }
+.code-display { display: flex; align-items: center; gap: 8px; background: var(--cream);
+  border: 1px solid #e6dcb0; border-radius: var(--radius-pill); padding: 6px 8px 6px 14px; }
+.code-lbl { font-size: 12px; font-weight: 700; color: #8a6d00; text-transform: uppercase; letter-spacing: .03em; }
+.code-big { font-size: var(--fs-h3); font-weight: 800; color: var(--navy); letter-spacing: .06em; font-variant-numeric: tabular-nums; }
+.sc-stuckon { font-size: 12px; font-weight: 700; color: #a02626; margin-top: 8px; line-height: 1.3; }
+.sc-mode { display: block; font-size: 11.5px; font-weight: 800; padding: 4px 9px; border-radius: var(--radius-pill);
+  margin-top: 8px; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sc-mode.math { background: #E7EEF7; color: #2B6CB0; }
+.sc-mode.reading { background: #E7F5EE; color: #2F855A; }
+
+/* past history logs page - month calendar. This is the one teacher-facing admin
+   screen in the app that deliberately stays Lexend-only (no Baloo 2): it's a
+   data-forward report, not a kid-facing screen, so it should read calm, not playful. */
+#history .screen-title, #history h1, #history h2, #history h3, #history h4 { font-family: var(--font-body); }
+#history .dash-head { margin-bottom: var(--sp-3); }
+#history .screen-title { margin: 2px 0 0; }
+.hist-controls { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4);
+  flex-wrap: wrap; margin: 0 0 var(--sp-3); }
+.hist-controls-left { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.hist-navbtn { width: 32px; height: 32px; flex: none; border: 1px solid var(--border); background: var(--surface);
+  color: var(--navy); border-radius: var(--radius); cursor: pointer; display: flex; align-items: center;
+  justify-content: center; transition: background .15s, border-color .15s; }
+.hist-navbtn:hover { background: var(--tint-navy); border-color: var(--muted); }
+.hist-month-label { font-size: 16px; font-weight: 700; color: var(--ink); margin: 0 2px; white-space: nowrap; }
+.hist-today-btn { border: 1px solid var(--border); background: var(--surface); color: var(--ink);
+  font-family: inherit; font-size: 12.5px; font-weight: 600; padding: 6px 12px; border-radius: var(--radius);
+  cursor: pointer; transition: background .15s; }
+.hist-today-btn:hover { background: var(--tint-navy); }
+.hist-export-btn { display: inline-flex; align-items: center; gap: 6px; border: none; background: var(--gold);
+  color: var(--navy); font-family: inherit; font-size: 12.5px; font-weight: 700; padding: 7px 13px;
+  border-radius: var(--radius); cursor: pointer; box-shadow: 0 4px 14px rgba(252,196,25,.35); transition: background .15s; }
+.hist-export-btn:hover { background: var(--gold-d); }
+.hist-filter-pill { display: flex; align-items: center; gap: 8px; border: 1px solid var(--border);
+  background: var(--surface); border-radius: var(--radius-pill); padding: 4px 6px 4px 14px; }
+.hist-filter-eyebrow { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase;
+  letter-spacing: .06em; white-space: nowrap; }
+.hist-filter-select { border: none; background: var(--tint-navy); color: var(--ink); font-family: inherit;
+  font-size: 12.5px; font-weight: 600; padding: 5px 10px; border-radius: var(--radius-pill); cursor: pointer; }
+.hist-filter-banner { display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  background: var(--tint-gold); border-radius: var(--radius); padding: 8px 14px; margin-bottom: var(--sp-3);
+  font-size: 13px; color: var(--ink); }
+.hist-clear-filter { color: var(--gold-d); font-weight: 700; cursor: pointer; text-decoration: none; white-space: nowrap; }
+.hist-clear-filter:hover { text-decoration: underline; }
+.hist-cal-card { padding: var(--sp-4); }
+.hist-weekdays { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; margin-bottom: 5px; }
+.hist-weekdays span { text-align: center; font-size: 10px; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: .05em; }
+.hist-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; }
+.hist-day { position: relative; aspect-ratio: 2.5; border-radius: var(--radius); padding: 5px 7px;
+  background: var(--surface); border: 1px solid var(--border); transition: transform .16s cubic-bezier(.22,1,.36,1),
+  box-shadow .16s cubic-bezier(.22,1,.36,1), border-color .16s; }
+.hist-day.empty { background: var(--bg); opacity: .5; border-color: transparent; }
+.hist-day.clickable { cursor: pointer; }
+.hist-day.clickable:hover { transform: translateY(-1px); box-shadow: var(--shadow); border-color: var(--muted); }
+.hist-day .hd-num { font-size: 12.5px; font-weight: 600; color: var(--ink); }
+.hist-day.today-cell { box-shadow: inset 0 0 0 2px var(--navy); }
+.hist-day.t1 { background: #FFF2C2; border-color: #FFE899; }
+.hist-day.t2 { background: #FFE899; border-color: #FCC419; }
+.hist-day.t3 { background: var(--gold); border-color: var(--gold-d); }
+.hist-day.t3 .hd-num { color: var(--navy); font-weight: 700; }
+.hist-day.selected { background: var(--navy); border-color: var(--navy); box-shadow: var(--shadow-hover); }
+.hist-day.selected .hd-num, .hist-day.selected .hd-count { color: #fff; }
+.hd-today-badge { position: absolute; top: 4px; right: 4px; font-size: 7.5px; font-weight: 700; color: var(--gold-d);
+  background: var(--tint-gold); padding: 1px 5px; border-radius: var(--radius-pill); text-transform: uppercase;
+  letter-spacing: .03em; }
+.hist-day.selected .hd-today-badge { background: rgba(255,248,227,.2); color: var(--gold); }
+.hd-activity { position: absolute; left: 7px; bottom: 5px; display: flex; align-items: center; gap: 4px; }
+.hd-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold-d); flex: none; }
+.hd-count { font-size: 9.5px; font-weight: 600; color: var(--muted); white-space: nowrap; }
+.hist-day.t3 .hd-dot { background: var(--navy); }
+.hist-legend { display: flex; align-items: center; justify-content: flex-end; gap: 5px; margin-top: var(--sp-3);
+  padding-top: var(--sp-2); border-top: 1px solid var(--border); font-size: 10.5px; color: var(--muted); }
+.hist-swatch { width: 10px; height: 10px; border-radius: 3px; }
+.hist-swatch.t0 { background: var(--border); }
+.hist-swatch.t1 { background: #FFE899; }
+.hist-swatch.t2 { background: #FCC419; }
+.hist-swatch.t3 { background: var(--gold-d); }
+/* day detail panel */
+.hist-detail { margin-top: var(--sp-4); padding: var(--sp-5); max-height: 46vh; overflow-y: auto; }
+.hist-detail-head { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: var(--sp-4); }
+.hist-detail-eyebrow { font-size: 10.5px; font-weight: 700; color: var(--muted); text-transform: uppercase;
+  letter-spacing: .06em; margin-bottom: 3px; }
+.hist-detail-date { font-size: 18px; font-weight: 700; color: var(--ink); margin: 0; }
+.hist-empty-day { text-align: center; color: var(--muted); font-size: 14px; padding: var(--sp-6) 0; }
+.hsr { border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 14px; margin-bottom: 10px;
+  cursor: pointer; transition: border-color .15s; }
+.hsr:hover { border-color: var(--muted); }
+.hsr-row { display: grid; grid-template-columns: 40px 1fr 140px auto 18px; align-items: center; gap: 14px; }
+.hsr-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--tint-navy); color: var(--navy);
+  display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex: none; }
+.hsr-name { font-size: 14px; font-weight: 600; color: var(--ink); }
+.hsr-sub { font-size: 12px; color: var(--muted); margin-top: 1px; }
+.hsr-bar-track { height: 8px; border-radius: var(--radius-pill); background: var(--border); overflow: hidden; }
+.hsr-bar-fill { height: 100%; border-radius: var(--radius-pill); background: linear-gradient(90deg, var(--gold), var(--gold-d)); }
+.hsr-status { font-size: 13px; font-weight: 600; color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.hsr-chevron { transition: transform .16s cubic-bezier(.22,1,.36,1); color: var(--muted); }
+.hsr.open .hsr-chevron { transform: rotate(180deg); }
+.hsr-activities { margin: 12px 0 0 54px; display: flex; flex-direction: column; gap: 8px; }
+.hsr-activity { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 13px; color: var(--ink); }
+.hq-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.hq-chip { font-size: 12px; font-weight: 700; padding: 3px 9px; border-radius: var(--radius-pill); }
+.hq-chip.ok { background: #E7F7EC; color: #176b30; }
+.hq-chip.bad { background: #FDECEC; color: #a02626; }
+.hq-chip.neutral { background: var(--tint-navy); color: var(--navy); }
+/* export/print duration modal */
+.hist-export-card { max-width: 400px; }
+.hist-export-options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; text-align: left; }
+.hist-export-opt { display: flex; align-items: center; gap: 10px; border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 10px 14px; cursor: pointer; font-size: 14px; color: var(--ink); }
+.hist-export-opt:has(input:checked), .hist-export-opt.checked { border-color: var(--gold-d); background: var(--tint-gold); }
+.hist-export-status { font-size: 13px; color: var(--muted); margin: 10px 0 0; }
+@media print {
+  #topbar, .dash-head .btn, .hist-controls, .hist-filter-banner, #histDetail { display: none !important; }
+  .hist-print-title { display: block !important; }
+}
+.hist-print-title { display: none; font-size: 18px; font-weight: 700; color: var(--ink); margin: 0 0 var(--sp-4); }
+
+/* decorative page background: soft color blobs (+ a fine dot grid on the very first
+   entry screen only) behind the pre-login / subject-select screens. Purely decorative -
+   content sits in its own stacking context above it via z-index. */
+.decor-bg, .decor-blobs { position: relative; }
+.decor-bg::before, .decor-blobs::before {
+  /* fixed (not absolute) so the decoration spans the full viewport edge-to-edge,
+     independent of this screen's own constrained/padded width - an absolutely
+     positioned version would show a hard-edged box instead of a full-bleed wash */
+  content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    radial-gradient(circle at 12% 88%, rgba(252, 196, 25, .16), transparent 42%),
+    radial-gradient(circle at 90% 12%, rgba(100, 110, 130, .13), transparent 46%);
+}
+.decor-bg::before {
+  background-image:
+    radial-gradient(circle at 12% 88%, rgba(252, 196, 25, .16), transparent 42%),
+    radial-gradient(circle at 90% 12%, rgba(100, 110, 130, .13), transparent 46%),
+    radial-gradient(circle at 1px 1px, rgba(22, 35, 59, .06) 1px, transparent 0);
+  background-size: auto, auto, 24px 24px;
+}
+.decor-bg > *, .decor-blobs > * { position: relative; z-index: 1; }
+
+/* subject select (Math / Reading / Homework Helper) - a row of equal-height tiles */
+.subj-wrap { max-width: 980px; margin: 0 auto; }
+.home-eyebrow-sub { font-size: var(--fs-body); color: var(--muted); margin: 4px 0 0; }
+.subject-row { display: flex; gap: var(--sp-5); flex-wrap: wrap; margin-top: var(--sp-7); }
+.subject-tile { position: relative; overflow: hidden; flex: 1 1 260px; min-height: 340px;
+  border: none; border-radius: var(--radius-lg); cursor: pointer; font-family: inherit; text-align: left;
+  display: flex; flex-direction: column; justify-content: space-between; gap: var(--sp-6);
+  padding: var(--sp-5); box-shadow: var(--shadow); color: #fff; transition: transform .1s, box-shadow .15s; }
+.subject-tile:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+.subject-tile.math { background: var(--navy); }
+.subject-tile.reading { background: var(--cream); color: var(--navy); }
+.subject-tile.helper { background: linear-gradient(165deg, var(--gold), var(--gold-d)); color: var(--navy); }
+.subj-tile-top { display: flex; align-items: flex-start; justify-content: space-between; z-index: 1; }
+.subj-tile-ic { width: 52px; height: 52px; flex: none; border-radius: 14px; display: flex; align-items: center;
+  justify-content: center; box-shadow: inset 0 0 0 1px rgba(16, 24, 40, .06); z-index: 1; }
+.subject-tile.math .subj-tile-ic { background: var(--gold); color: var(--navy); }
+.subject-tile.reading .subj-tile-ic { background: var(--navy); color: var(--gold); }
+.subject-tile.helper .subj-tile-ic { background: var(--navy); color: var(--gold); }
+.subj-tile-tag { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em;
+  background: rgba(22, 35, 59, .14); color: var(--navy); padding: 4px 10px; border-radius: var(--radius-pill); }
+.subj-tile-sparkle { color: var(--navy); opacity: .55; font-size: 18px; line-height: 1; }
+.subj-tile-text { display: flex; flex-direction: column; gap: 4px; z-index: 1; }
+.subj-tile-title { font-size: 22px; font-weight: 800; letter-spacing: -.01em; }
+.subj-tile-sub { font-size: 14px; opacity: .82; }
+.subj-deco { position: absolute; inset: auto -10px -10px auto; width: 130px; height: 130px;
+  opacity: .16; pointer-events: none; }
+.subject-tile.math .subj-deco { color: #fff; }
+.subject-tile.reading .subj-deco { color: var(--navy); }
+@media (max-width: 720px) { .subject-row { flex-direction: column; } .subject-tile { min-height: 220px; } }
+
+/* reading hub: awards card + per-grade tab bar (one grade's grid visible at a time -
+   no accordion/expand animation; per-grade accent colors set inline in JS since each
+   of the 9 grades needs its own hue, not worth 9 static color-variant classes) */
+.reading-awards-card { display: flex; align-items: center; gap: 10px; background: var(--tint-cream);
+  border: 1px solid #e7dcad; border-radius: var(--radius-lg); padding: 9px 18px; cursor: pointer;
+  font-family: inherit; text-align: left; box-shadow: var(--shadow-tile);
+  transition: box-shadow .15s, transform .15s; }
+.reading-awards-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-1px); }
+.rac-ic { width: 30px; height: 30px; border-radius: 9px; background: var(--navy); color: var(--gold);
+  display: flex; align-items: center; justify-content: center; flex: none; }
+.rac-text { display: flex; flex-direction: column; }
+.rac-title { font-weight: 700; font-size: 13.5px; color: var(--navy); line-height: 1.2; }
+.rac-sub { font-size: 11px; color: var(--muted); line-height: 1.2; margin-top: 1px; }
+
+.grade-tabbar { display: flex; gap: 8px; margin: 0 0 var(--sp-6); overflow-x: auto; padding-bottom: 4px; }
+.grade-tab { flex: none; border: 2px solid var(--border); background: var(--surface); color: var(--navy);
+  font-weight: 700; font-size: 15px; padding: 12px 22px; border-radius: var(--radius-pill); cursor: pointer;
+  font-family: inherit; white-space: nowrap;
+  transition: transform .16s, background .16s, border-color .16s, color .16s; }
+.grade-tab:hover { transform: translateY(-1px); }
+.grade-tab.active { box-shadow: var(--shadow-tile); }
+
+.active-grade-head { display: flex; align-items: center; gap: 14px; margin: 0 0 var(--sp-5); }
+.agh-ic { width: 44px; height: 44px; border-radius: 13px; display: flex; align-items: center;
+  justify-content: center; flex: none; }
+.agh-title { font-weight: 800; font-size: 24px; color: var(--navy); line-height: 1.15; letter-spacing: -.01em; }
+.agh-sub { display: flex; align-items: center; gap: 6px; margin-top: 2px; font-size: 13px; color: var(--muted);
+  font-variant-numeric: tabular-nums; }
+.agh-sub svg { display: block; }
+
+.book-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(152px, 1fr)); gap: 30px 22px;
+  padding: 0 0 40px; }
+
+/* book cards: portrait "shelf" covers instead of the old square app-icon tiles */
+.book-card { width: 100%; display: flex; flex-direction: column; gap: 9px; cursor: pointer;
+  border: none; background: none; font-family: inherit; padding: 0; text-align: left; }
+.book-cover { position: relative; width: 100%; aspect-ratio: 2 / 3; border-radius: 8px; overflow: hidden;
+  background: #e9ebef; box-shadow: 0 3px 8px rgba(22, 35, 59, .20), 0 1px 3px rgba(22, 35, 59, .14);
+  transition: transform .2s ease-out, box-shadow .2s ease-out; }
+.book-card:hover .book-cover { transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 14px 26px rgba(22, 35, 59, .30), 0 4px 10px rgba(22, 35, 59, .20); }
+.book-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.book-cover-spine { position: absolute; left: 0; top: 0; bottom: 0; width: 7px; background: rgba(22, 35, 59, .32); }
+.book-cover-sheen { position: absolute; top: 0; left: 0; right: 0; height: 38%; pointer-events: none;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, .30), transparent); }
+.book-cover-fallback { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-size: 46px; font-weight: 800; color: rgba(255, 255, 255, .55); }
+.book-cover-tag { position: absolute; bottom: 8px; left: 8px; background: rgba(22, 35, 59, .65); color: #FFF8E3;
+  font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: var(--radius-pill); letter-spacing: .02em;
+  font-variant-numeric: tabular-nums; }
+.book-cover-tag.on-bookmark { background: var(--gold-d); color: var(--navy); }
+/* ribbon-style bookmark tab hanging from the top edge of the cover, marking a book
+   the child left mid-way through so they can spot it and resume at a glance */
+.book-cover-bookmark { position: absolute; top: 0; right: 10px; width: 22px; padding: 5px 0 7px;
+  background: var(--gold); color: var(--navy); display: flex; align-items: center; justify-content: center;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 78%, 0 100%); filter: drop-shadow(0 2px 3px rgba(22,35,59,.35)); }
+.bc-continue { color: var(--gold-d); font-weight: 700; }
+/* Title and byline each hold a fixed slot: two lines of title, one of byline. Without
+   the min-height a one-line title lets its byline ride up while the card next to it
+   wraps to two, and the shelf ends up with bylines on three different baselines.
+   2 lines x 1.3 line-height = 2.6em, and the byline reserves its own line so a card
+   with no author still occupies the same height as one with a byline. */
+.bc-title { font-family: var(--font-heading); font-size: 14px; font-weight: 700; color: var(--navy); line-height: 1.3;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  min-height: 2.6em; }
+.bc-auth { font-family: var(--font-body); font-size: 12px; font-weight: 400; line-height: 1.35; color: var(--muted);
+  margin-top: 3px; min-height: 1.35em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* compact inline language segmented control (replaces the old large centered picker) */
+.read-langs-inline { display: flex; align-items: center; gap: 2px; background: #F2EEE7; border: 1px solid var(--border);
+  border-radius: var(--radius-pill); padding: 3px; }
+.read-lang-seg { border: none; cursor: pointer; font-family: inherit; font-size: 11px; font-weight: 700;
+  letter-spacing: .03em; padding: 6px 10px; border-radius: var(--radius-pill); background: transparent;
+  color: var(--muted); transition: background .16s, color .16s; }
+.read-lang-seg.on { background: var(--gold); color: var(--navy); }
+
+/* e-book reader
+   The reading surface is deliberately NOT a card with copy in it: it is a page.
+   Three things carry that: the sheets stacked behind it (::before/::after), a warm
+   wash across the head of the paper, and a text column capped at a book measure so
+   a 1600px classroom monitor never runs a line of story across the whole display.
+   The three font roles hold: Baloo 2 sets the chapter head, Literata sets the story,
+   Lexend stays on the chrome (progress, page chip, buttons). */
+.reader-stage { display: flex; flex-direction: column; align-items: center; gap: var(--sp-6);
+  width: 100%; max-width: 1180px; margin: 0 auto; }
+.reader-stage > * { width: 100%; min-width: 0; }
+.reader-spread { display: grid; grid-template-columns: 55fr 45fr; gap: var(--sp-6); align-items: stretch;
+  animation: pageTurn .34s cubic-bezier(.22,1,.36,1); }
+@media (max-width: 860px) { .reader-spread { grid-template-columns: 1fr; } }
+.reader-img { display: flex; align-items: center; justify-content: center; background: #f3f4f6;
+  border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow-hover); overflow: hidden; }
+.reader-img img { width: 100%; height: 100%; object-fit: cover; }
+.reader-img.no-image { display: none; }
+/* a text-only chapter book has no illustration to shape the spread, so the page
+   itself has to stay book-shaped instead of filling the stage */
+.reader-spread.text-only { width: 100%; max-width: 880px; margin: 0 auto; }
+.reader-spread.text-only .reader-textcol { grid-column: 1 / -1; min-height: 62vh; }
+.reader-textcol { position: relative; display: flex; flex-direction: column;
+  background: var(--surface);
+  background-image: radial-gradient(150% 80% at 50% -12%, rgba(243,234,194,.40), rgba(243,234,194,0) 62%);
+  border: 1px solid var(--border); border-radius: var(--radius-lg);
+  box-shadow: 0 1px 2px rgba(16,24,40,.05), 0 12px 34px rgba(16,24,40,.10); }
+/* the sheets underneath. Illustrated spreads skip them - the picture already says
+   "book", and a stack behind a two-up spread reads as a stray shadow. */
+.reader-spread.text-only .reader-textcol::before,
+.reader-spread.text-only .reader-textcol::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit;
+  background: var(--surface); border: 1px solid var(--border); }
+.reader-spread.text-only .reader-textcol::before { transform: translate(5px, 6px); opacity: .85; }
+.reader-spread.text-only .reader-textcol::after { transform: translate(10px, 12px); opacity: .55; }
+@media (max-width: 560px) {
+  .reader-spread.text-only .reader-textcol::before,
+  .reader-spread.text-only .reader-textcol::after { display: none; }
+}
+/* book margins: wide at the sides, widest at the foot, the proportions a printed
+   page uses. clamp() keeps a phone from spending its whole width on margin. */
+.reader-textbody { flex: 1; display: flex; flex-direction: column; justify-content: center;
+  padding: clamp(28px, 4.5vw, 60px) clamp(22px, 5vw, 72px) clamp(34px, 5.5vw, 76px); min-height: 0; }
+/* story pages start at the top of the page like print; the cover is the one page that
+   wants its title optically centred in the paper */
+.reader-spread.text-only .reader-textbody { justify-content: flex-start; }
+.reader-spread.cover-page .reader-textbody { justify-content: center; }
+/* Literata for the story text itself only - larger size and more generous line-height
+   than Lexend body copy (--fs-body/17px at 1.5) since sustained story reading needs
+   more room to breathe than short UI text. Weight is pinned to 400/700 (the only two
+   Literata weights loaded) so the browser never has to synthesize a fake bold/semibold.
+   Sizes are rem, not the app's usual px: this is the one surface a child reads for
+   twenty minutes at a stretch, so it has to follow the browser's own font-size setting.
+   Size/leading step down slightly by grade band - K-2 gets a bigger, roomier setting. */
+.r-text { font-family: var(--font-story); color: var(--ink); font-weight: 400;
+  width: 100%; max-width: 68ch; margin: 0 auto; font-kerning: normal; text-wrap: pretty; }
+.r-text .r-para { margin: 0; white-space: pre-wrap; }
+/* Printed pages use paragraph space OR a first-line indent, never both. Picture
+   books (one thought per spread) take the space; chapter books take the indent,
+   which is what the novel these pages came from does on paper. */
+.r-text.spaced .r-para + .r-para { margin-top: var(--r-para-gap, 18px); }
+.r-text.indented .r-para + .r-para { text-indent: 1.6em; }
+.r-text.gband-k2 { font-size: 1.375rem; line-height: 1.7; --r-para-gap: 20px; }
+.r-text.gband-34 { font-size: 1.25rem; line-height: 1.75; --r-para-gap: 18px; }
+.r-text.gband-5plus { font-size: 1.1875rem; line-height: 1.75; --r-para-gap: 18px; }
+/* drop cap on a chapter opening only, and only when the first character is a letter
+   (a chapter that opens on dialogue would drop-cap a quotation mark) */
+.r-text.dropcap > .r-para:first-of-type::first-letter {
+  float: left; font-weight: 700; color: var(--navy);
+  font-size: 3.1em; line-height: .82; margin: .05em .1em 0 0; }
+.r-text strong, .r-text b { font-weight: 700; }
+/* chapter head: Baloo 2, centred, with the same line-spark-line ornament the end of
+   the book uses, so opening and closing a chapter share one visual vocabulary */
+.r-chapter { margin: 0 0 var(--sp-6); text-align: center; }
+/* the part title, when the book prints one above the chapter title */
+.r-chapter-over { font-family: var(--font-heading); font-weight: 600; color: var(--muted);
+  font-size: 1rem; line-height: 1.3; margin-bottom: var(--sp-2); text-wrap: balance; }
+.r-chapter-t { font-family: var(--font-heading); font-weight: 700; color: var(--navy);
+  font-size: 1.75rem; line-height: 1.18; letter-spacing: -.01em; margin: 0; text-wrap: balance; }
+.r-chapter-t.caps { font-size: 1.5rem; letter-spacing: .06em; }
+.r-rule { display: flex; align-items: center; justify-content: center; gap: var(--sp-3);
+  margin-top: var(--sp-4); color: var(--gold-d); }
+.r-rule-line { display: block; width: 44px; height: 1px; background: var(--border); }
+.r-rule-mark { font-size: 13px; line-height: 1; }
+/* cover page: the title is a title, not the first line of the story */
+.r-text.cover { display: flex; flex-direction: column; align-items: center; justify-content: center;
+  max-width: none; text-align: center; padding: var(--sp-7) 0; }
+.r-cover-t { font-family: var(--font-heading); font-weight: 700; color: var(--navy);
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem); line-height: 1.16; letter-spacing: -.01em;
+  max-width: 20ch; text-wrap: balance; }
+/* title-page byline: Lexend and muted like every other byline in the app, sitting
+   under the rule at a fixed distance so it reads as part of the title block */
+.r-cover-a { font-family: var(--font-body); font-size: 1rem; font-weight: 400; color: var(--muted);
+  margin-top: var(--sp-4); max-width: 26ch; text-wrap: balance; }
+.r-end-divider { display: flex; align-items: center; gap: var(--sp-3); width: 100%; max-width: 68ch;
+  margin: var(--sp-6) auto 0; color: var(--gold-d); }
+.r-end-divider .r-end-line { flex: 1; height: 1px; background: var(--border); }
+.r-end-divider .r-end-spark { font-size: 16px; }
+/* the page no longer clips its children (the stacked sheets have to escape it), so the
+   credits strip rounds its own bottom corners instead of relying on overflow: hidden */
+.r-credits { margin-top: auto; padding: 14px clamp(22px, 5vw, 72px); background: var(--tint-cream);
+  border-top: 1px solid var(--border); border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  font-size: 12.5px; color: var(--muted); line-height: 1.55; }
+.r-credits b { color: var(--ink); }
+.r-credits a { color: var(--gold-d); text-decoration: none; }
+.r-credits a:hover { text-decoration: underline; }
+@keyframes pageTurn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.reader-nav { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; max-width: 100%; }
+.rnav-prev { justify-self: start; flex: none; width: 60px; height: 60px; border: none; border-radius: var(--radius-pill);
+  background: var(--navy); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  box-shadow: var(--shadow-hover); transition: background .15s, transform .12s; }
+.rnav-prev:hover:not(:disabled) { background: var(--navy-2); transform: scale(1.05); }
+.rnav-prev:active:not(:disabled) { transform: scale(.97); }
+.rnav-prev:disabled { opacity: .25; pointer-events: none; }
+/* page position as a bookmarked slip of paper rather than a document-viewer counter.
+   Lexend + tabular figures so the numbers don't shuffle width as pages turn. */
+.r-pagenum { justify-self: center; display: inline-flex; align-items: center; gap: var(--sp-2);
+  font-family: var(--font-body); font-size: var(--fs-small); font-weight: 600; color: var(--navy);
+  font-variant-numeric: tabular-nums; background: var(--tint-cream); border: 1px solid var(--border);
+  border-radius: var(--radius-pill); padding: 7px var(--sp-4); }
+.r-pagenum .r-pagenum-mark { color: var(--gold-d); flex: none; }
+.rnav-next, .rnav-finish { justify-self: end; border: none; border-radius: var(--radius-pill); cursor: pointer;
+  display: flex; align-items: center; gap: var(--sp-2); padding: 0 var(--sp-6); height: 60px;
+  font-family: inherit; font-weight: 700; font-size: 15px; transition: background .15s, transform .12s; }
+.rnav-next { background: var(--navy); color: #fff; box-shadow: var(--shadow-hover); }
+.rnav-next:hover { background: var(--navy-2); transform: scale(1.05); }
+.rnav-finish { background: var(--gold); color: var(--navy); font-size: 16px; box-shadow: 0 6px 20px rgba(252,196,25,.4); }
+.rnav-finish:hover { background: var(--gold-d); transform: scale(1.05); }
+.rnav-next:active, .rnav-finish:active { transform: scale(.97); }
+.bookquiz { max-width: 620px; margin: 16px auto 0; padding: 22px; }
+
+/* reading hub header + language picker */
+.reading-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+.reading-head .screen-title { margin: 0; }
+.read-langs { display: flex; justify-content: center; gap: var(--sp-5); flex-wrap: wrap; margin: var(--sp-2) 0 var(--sp-6); }
+.read-lang { border: none; background: none; font-family: inherit; padding: 0; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.read-lang.on .icon-badge-label { color: var(--gold-d); }
+.navpill.gold .pill-sub { color: #7a5c00; }   /* readable subtitle on the gold helper pill */
+.reading-head-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.reading-head-right .btn.ghost { display: inline-flex; align-items: center; gap: 8px; }
+.reading-head-right .icon-badge { width: 26px; height: 26px; font-size: 14px; }
+.who { cursor: pointer; transition: background .12s; }
+.who:hover { background: #ece1b0; }
+.about-stars { display: flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 800;
+  color: var(--gold-d); margin: -6px 0 18px; }
+.about-stars .hud-starbig { font-size: 26px; }
+
+/* rewards HUD (sticky header replacing the top bar while reading) */
+#topbar.reading-hidden { display: none; }
+.reader-hud { position: sticky; top: 0; z-index: 40; display: flex; align-items: center;
+  gap: var(--sp-4); padding: var(--sp-3) var(--sp-5); margin: 0 0 var(--sp-7);
+  background: linear-gradient(90deg, var(--navy), var(--navy-2)); color: #fff;
+  border-radius: var(--radius); box-shadow: 0 2px 10px rgba(0,0,0,.18); }
+.hud-back { flex: none; background: transparent; border: none; color: #fff; width: 36px; height: 36px;
+  border-radius: var(--radius-pill); cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: background .12s; }
+.hud-back:hover { background: rgba(255,248,227,.14); }
+.hud-back-lbl { flex: none; background: transparent; border: none; color: var(--cream); cursor: pointer;
+  display: flex; align-items: center; gap: 6px; padding: 8px 10px; border-radius: var(--radius, 7px);
+  font-family: inherit; font-weight: 600; font-size: 14px; transition: background .12s; }
+.hud-back-lbl:hover { background: rgba(255,248,227,.14); }
+.hud-chip { display: flex; align-items: center; gap: 8px; flex: none; background: rgba(255,248,227,.08);
+  padding: 6px 12px; border-radius: var(--radius-pill); }
+.hud-starbig { font-size: 22px; line-height: 1; filter: drop-shadow(0 1px 3px rgba(252,196,25,.6)); }
+.hud-name { font-weight: 700; font-size: 15px; }
+.hud-stars { font-weight: 700; font-size: 13px; color: var(--gold); background: rgba(255,248,227,.18);
+  padding: 2px 10px; border-radius: var(--radius-pill); min-width: 22px; text-align: center; transition: transform .25s; }
+.hud-stars.bump { transform: scale(1.6); }
+.hud-mid { flex: none; display: flex; align-items: center; gap: 10px; margin-left: auto; }
+/* how far into the book you are, told as a bookmark sliding down a ribbon rather than
+   "Page 2 of 99". The numbers stay available to screen readers through the
+   progressbar's aria-valuetext, and to everyone through the page chip below the page. */
+.hud-progress { position: relative; display: flex; align-items: center;
+  width: clamp(110px, 20vw, 190px); height: 20px; }
+.hud-bar { width: 100%; height: 8px; background: rgba(255,248,227,.16); border-radius: var(--radius-pill); overflow: hidden; }
+.hud-fill { height: 100%; width: 100%; transform: scaleX(0); transform-origin: left center; background: linear-gradient(90deg, var(--gold), var(--gold-d)); transition: transform .36s cubic-bezier(.22,1,.36,1); border-radius: var(--radius-pill); }
+.hud-mark { position: absolute; top: 50%; left: 0; margin-left: -6px; color: var(--gold);
+  transform: translateY(-50%); transition: left .36s cubic-bezier(.22,1,.36,1);
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,.4)); pointer-events: none; }
+/* on a phone the HUD's four items no longer fit side by side: the labelled Back button
+   is the one that can go, since the X beside it closes the book just the same */
+@media (max-width: 560px) {
+  .hud-progress { width: 84px; }
+  .hud-back-lbl { display: none; }
+  .hud-name { max-width: 96px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+}
+/* a page turn is a fade, a bookmark slide, and nothing else when the reader has asked
+   the system for less motion */
+@media (prefers-reduced-motion: reduce) {
+  .reader-spread { animation: none; }
+  .hud-fill, .hud-mark { transition: none; }
+}
+
+/* "are you sure" confirm dialog (e.g. leaving a video before it's finished) */
+.confirm-overlay { position: fixed; inset: 0; z-index: 80; display: flex; align-items: center;
+  justify-content: center; background: rgba(16,24,40,.45); padding: var(--sp-5); }
+.confirm-card { max-width: 380px; text-align: center; padding: 24px; box-shadow: 0 8px 26px rgba(20,30,50,.24); }
+.confirm-title { font-size: 19px; font-weight: 800; color: var(--navy); margin: 0 0 8px; }
+.confirm-msg { font-size: 15px; color: var(--muted); line-height: 1.4; margin: 0 0 18px; }
+.confirm-actions { display: flex; flex-direction: column; gap: 10px; }
+.confirm-actions .btn { width: 100%; padding: 12px; border-radius: var(--radius); }
+.lang-pick-list { display: flex; flex-direction: column; gap: 8px; margin: 0 0 18px; }
+.lang-pick-btn { width: 100%; padding: 12px; border-radius: var(--radius); border: 1.5px solid var(--border);
+  background: #fff; color: var(--navy); font-family: inherit; font-size: var(--fs-body); font-weight: 700; cursor: pointer; }
+.lang-pick-btn:hover { border-color: var(--navy); }
+.lang-pick-btn.on { background: var(--navy); color: #fff; border-color: var(--navy); }
+
+/* win animation overlay (lightweight: just a star icon + a small label popping in, no blur/no images) */
+.win-overlay { position: fixed; inset: 0; z-index: 70; display: flex; flex-direction: column; align-items: center;
+  justify-content: center; gap: 8px; pointer-events: none; }
+.win-star { font-size: 92px; line-height: 1; animation: winpop .55s ease-out both; }
+.win-text { font-size: 22px; font-weight: 800; color: var(--navy); background: #fff; padding: 6px 18px;
+  border-radius: var(--radius-pill); box-shadow: var(--shadow); animation: winpop .55s ease-out both; }
+@keyframes winpop { 0% { transform: scale(.4); opacity: 0; } 65% { transform: scale(1.12); opacity: 1; } 100% { transform: scale(1); opacity: 1; } }
+
+/* class-join approval toast: top-center, auto-dismissing, no backdrop (doesn't block
+   the subjects screen it lands the student on) */
+.toast-overlay { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 90;
+  display: flex; align-items: center; gap: 10px; background: #fff; padding: 14px 22px;
+  border-radius: var(--radius-pill); box-shadow: var(--shadow); font-weight: 800; color: var(--navy);
+  font-size: 16px; animation: toastpop .4s ease-out both; }
+.toast-overlay.hidden { display: none; }
+.toast-emoji { font-size: 22px; line-height: 1; }
+@keyframes toastpop { 0% { transform: translate(-50%,-16px); opacity: 0; } 100% { transform: translate(-50%,0); opacity: 1; } }
+
+/* student home (personalized) - hero heading + dark "next step" card + to-do list +
+   explore card grid + a bordered lesson-code bar. Sized generously (not the dense
+   product-density of a reference mockup) since this is read by kids on shared
+   tablets/laptops; everything still inherits the app's own Baloo 2/Lexend font stack
+   so translated (fr/es/de) text renders with the same glyph coverage as the rest of the app. */
+.home-wrap { max-width: 760px; margin: 0 auto; }
+.home-hero { margin: 4px 0 var(--sp-6); }
+.home-eyebrow { font-size: var(--fs-small); font-weight: 700; color: var(--muted); margin: 0 0 4px; min-height: 1.3em; }
+.home-heading { font-size: var(--fs-display); line-height: 1.3; font-weight: 800; color: var(--navy);
+  margin: 0; letter-spacing: -.01em; min-height: 1.3em; }
+.home-heading .home-hl { color: var(--gold-d); }
+.home-section { margin: 0 0 var(--sp-6); }
+.home-lbl { font-size: var(--fs-small); font-weight: 800; color: var(--muted); text-transform: uppercase;
+  letter-spacing: .05em; margin: 0 0 var(--sp-3); }
+
+.nextstep { padding: var(--sp-5); margin: 0 0 var(--sp-6); background: var(--navy); color: #fff;
+  border: none; border-radius: var(--radius-lg); box-shadow: var(--shadow); }
+.ns-head { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 800;
+  letter-spacing: .04em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.ns-msg { font-size: 16px; color: #cfd6e4; margin-bottom: 14px; line-height: 1.4; }
+.ns-btn { display: flex; align-items: center; justify-content: space-between; gap: 14px; width: 100%;
+  background: var(--navy-2); color: #fff; border: none; border-radius: var(--radius); padding: 14px 16px 14px 18px;
+  cursor: pointer; font-family: inherit; text-align: left; transition: background .15s, transform .07s; }
+.ns-btn:hover { background: #2c4066; transform: translateY(-1px); }
+.ns-btn .nb-t { font-size: 16px; font-weight: 700; }
+.ns-btn .nb-s { font-size: 12.5px; color: #9FAAC0; margin-top: 2px; }
+.ns-btn .nb-play { flex: none; width: 42px; height: 42px; border-radius: 50%; background: var(--gold);
+  color: var(--navy); display: flex; align-items: center; justify-content: center; }
+
+/* to-do list: flat rows, each its own card (mirrors the browse-screen thumbnail/topic
+   card language rather than the thin bordered nav pills) */
+.todo-list { display: flex; flex-direction: column; gap: var(--sp-3); }
+.todo-row { display: flex; align-items: center; gap: var(--sp-4); width: 100%; text-align: left;
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
+  box-shadow: var(--shadow); padding: var(--sp-4); cursor: pointer; font-family: inherit;
+  transition: transform .08s, box-shadow .15s; }
+.todo-row:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+.todo-ic { width: 40px; height: 40px; flex: none; border-radius: 50%; background: var(--tint-navy);
+  color: var(--navy); display: flex; align-items: center; justify-content: center; }
+.todo-main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.todo-title { font-size: 16px; font-weight: 700; color: var(--navy); }
+.todo-sub { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+.todo-dot { flex: none; }
+
+/* explore: 3-up card grid replacing the old stacked nav pills */
+.explore-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: var(--sp-4); }
+.explore-card { display: flex; flex-direction: column; gap: 8px; text-align: left; width: 100%;
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
+  box-shadow: var(--shadow); padding: var(--sp-4); cursor: pointer; font-family: inherit;
+  transition: transform .08s, box-shadow .15s; }
+.explore-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+.ec-top { display: flex; align-items: center; justify-content: space-between; }
+.ec-chev { color: var(--muted); flex: none; }
+.ec-title { font-size: var(--fs-h3); font-weight: 700; color: var(--navy); display: flex; align-items: center; gap: 8px; }
+.ec-tag { font-size: 11px; font-weight: 800; background: var(--tint-gold); color: #8a6d00;
+  padding: 2px 8px; border-radius: var(--radius-pill); text-transform: uppercase; letter-spacing: .03em; }
+.ec-sub { font-size: 13px; color: var(--muted); }
+.explore-card.gold .icon-badge { background: var(--tint-gold); }
+.explore-card.ach .icon-badge { background: var(--tint-cream); }
+
+.code-card { padding: var(--sp-4); }
+.navpill.ach .pill-sub { color: #8a7a3e; }
+.code-row { display: flex; gap: 10px; align-items: center; }
+.code-row .field { flex: 1; }
+
+/* stat tiles: big number + small label on a tinted card, used for at-a-glance counts */
+.stat-tile { background: var(--tint-gold); border: 1px solid rgba(232,178,14,.18);
+  border-radius: var(--radius-lg); box-shadow: var(--shadow-tile); padding: 18px 16px; text-align: center; }
+.stat-tile .stat-num { font-size: 34px; font-weight: 800; line-height: 1; color: var(--navy); }
+.stat-tile .stat-lbl { font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase;
+  letter-spacing: .04em; margin-top: 6px; }
+.stat-tile.dark { background: var(--navy); border-color: var(--navy); }
+.stat-tile.dark .stat-num { color: var(--gold); }
+.stat-tile.dark .stat-lbl { color: #cfd6e4; }
+
+/* achievement box / profile */
+.ach-stats { display: flex; flex-direction: column; gap: 12px; }
+.ach-stat { display: flex; align-items: center; gap: 14px; background: var(--tint-gold);
+  border: 1px solid rgba(232,178,14,.18); border-radius: var(--radius-lg); box-shadow: var(--shadow-tile);
+  padding: 13px 16px; }
+.ach-stat .num { font-size: 28px; font-weight: 800; color: var(--navy); line-height: 1; flex: none; min-width: 40px; }
+.ach-stat .lbl2 { font-size: 13px; color: var(--muted); font-weight: 700;
+  text-transform: uppercase; letter-spacing: .04em; line-height: 1.3; }
+.ach-grid { display: flex; flex-wrap: wrap; gap: 14px; }
+.ach-item { width: 132px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
+  padding: var(--sp-4) var(--sp-3); text-align: center; }
+.ach-badge { width: 52px; height: 52px; margin: 0 auto; border-radius: 50%; background: var(--tint-gold);
+  display: flex; align-items: center; justify-content: center; font-size: 26px; line-height: 1; }
+.ach-badge.stamp { background: var(--tint-navy); }
+.ach-name { font-size: 12.5px; font-weight: 700; color: var(--navy); margin-top: 8px; line-height: 1.25;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.ach-tag { font-size: 11px; font-weight: 700; color: var(--gold-d); margin-top: 4px; text-transform: uppercase; letter-spacing: .03em; }
+.ach-tag.watched { color: var(--muted); }
+
+/* profile screen: two-column grid (wide showcase/awards column + narrow stats rail) -
+   same card language as the rest of the app, echoes a familiar profile-dashboard split
+   without copying any single site's layout */
+.profile-grid { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(220px, 1fr); gap: var(--sp-6); align-items: start; }
+@media (max-width: 760px) { .profile-grid { grid-template-columns: 1fr; } }
+.profile-col-main, .profile-col-side { display: flex; flex-direction: column; gap: var(--sp-5); min-width: 0; }
+.profile-card { padding: var(--sp-5); }
+.profile-card-h { font-size: var(--fs-small); font-weight: 800; color: var(--navy); text-transform: uppercase;
+  letter-spacing: .04em; margin: 0 0 var(--sp-4); }
+.showcase-row { display: flex; flex-wrap: wrap; gap: 14px; }
+.showcase-slot { width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center;
+  justify-content: center; font-size: 30px; line-height: 1; background: var(--tint-gold); flex: none; }
+.showcase-slot.stamp { background: var(--tint-navy); }
+.showcase-slot.empty { background: none; border: 2px dashed var(--border); color: var(--border); }
+.showcase-empty-note { color: var(--muted); font-size: var(--fs-small); margin: 0; }
+
+/* login error + dashboard header */
+.login-err { background: #FDECEC; color: #a02626; border: 1px solid #f3b9b9; border-radius: 10px;
+  padding: 9px 12px; font-size: 14px; font-weight: 600; margin: 4px 0 2px; }
+.dash-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.dash-head .btn { padding: 8px 16px; }
+
+/* homework helper
+   The helper is the one screen a child talks TO rather than reads, so it is styled as
+   a conversation: the assistant has a face, each turn is attributed, and the wait for
+   a slow local model is shown rather than hidden. Everything here is scoped to
+   #helper - the in-lesson Q&A chat shares the same .msg element and deliberately
+   keeps its plainer stack. Colours are the app's own tokens, not the mockup's
+   slightly different navy/gold. */
+/* The helper is a single-purpose screen: hero, conversation, input. It fills the
+   viewport exactly so nothing here scrolls the page - only the message list scrolls,
+   inside the card. 54px is #topbar; dvh keeps mobile browser chrome from cutting the
+   input bar off, with vh as the fallback for browsers without it.
+   Divided by --app-zoom for the same reason .dash-shell is: body carries zoom at wider
+   breakpoints and a vh unit inside a zoomed subtree resolves against the UNZOOMED
+   viewport, so plain 100dvh made this screen 1.35x taller than the window on a desktop.
+   Nothing showed while the card held only a chat, but it pushed the last row of grade
+   cards below the bottom of the window with no way to scroll to it. */
+#helper { max-width: 940px; margin: 0 auto; padding: var(--sp-4) 22px var(--sp-4);
+  height: calc(100vh / var(--app-zoom) - 54px);
+  height: calc(100dvh / var(--app-zoom) - 54px);
+  display: flex; flex-direction: column; justify-content: flex-start; overflow: hidden; }
+.helper-hero { display: flex; align-items: center; gap: var(--sp-4); margin-bottom: var(--sp-4); flex: none; }
+
+/* Answer language. One row, one spacing scale, baseline-aligned with the hero above -
+   every gap here is a token, so nothing drifts when a label is longer in another
+   language. Subject and grade are no longer selects: they are asked for in the
+   conversation and shown back in .hsummary below. */
+.helper-opts { display: flex; flex-wrap: wrap; gap: var(--sp-4); align-items: flex-end;
+  margin-bottom: var(--sp-4); flex: none; }
+.hopt { display: flex; flex-direction: column; gap: var(--sp-1); min-width: 0; flex: 1 1 160px; }
+.hopt-l { font-family: var(--font-body); font-size: var(--fs-small); font-weight: 600;
+  color: var(--muted); line-height: 1.3; }
+.hopt-sel { width: 100%; height: 42px; padding: 0 var(--sp-3); border-radius: var(--radius);
+  border: 1px solid var(--border); background: var(--surface); color: var(--ink);
+  font-family: var(--font-body); font-size: var(--fs-body); line-height: 1.2; cursor: pointer; }
+.hopt-sel:focus-visible { outline: 3px solid var(--gold); outline-offset: 1px; }
+.helper-hero-txt { min-width: 0; flex: 1 1 auto; }
+.helper-hero .screen-title { margin: 0 0 2px; }
+.helper-sub { color: var(--muted); font-size: 16px; margin: 0; }
+.helper-reset { margin-left: auto; flex: none; white-space: nowrap; }
+/* the LightBox mark itself, so the helper is recognisably the app talking */
+.helper-mark { width: 48px; height: 48px; flex: none; border-radius: 50%;
+  box-shadow: 0 4px 14px rgba(22,35,59,.18); }
+.chat-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
+  box-shadow: var(--shadow); padding: 18px; }
+/* the card owns the whole column so the input bar sits at its foot instead of
+   floating directly under the last bubble */
+/* The card is capped rather than stretched. Filling the viewport made it ~1100px of
+   mostly empty white on a laptop and pushed the subject starters to the bottom edge;
+   a conversation panel reads better as a bounded object with room beneath it. It still
+   shrinks below the cap on short screens, and the message list scrolls inside it. */
+.helper-card { display: flex; flex-direction: column; padding: 0; overflow: hidden;
+  flex: 0 1 auto; min-height: 0; max-height: 600px; }
+.hchat { min-height: 220px; max-height: 62vh; overflow-y: auto; display: flex; flex-direction: column;
+  gap: 12px; margin-bottom: 14px; }
+/* min-height:0 is what actually lets this shrink inside a flex column - without it
+   the list keeps its content height and pushes the input bar off-screen */
+#helper .hchat { flex: 1 1 auto; min-height: 120px; max-height: none; gap: var(--sp-4);
+  padding: var(--sp-4) var(--sp-5) var(--sp-2); margin-bottom: 0; scrollbar-width: thin; }
+#helper .hchat::-webkit-scrollbar { width: 10px; }
+#helper .hchat::-webkit-scrollbar-thumb { background: var(--border); border-radius: 8px; }
+
+/* one turn: avatar, then the speaker label stacked over the bubble */
+.hrow { display: flex; gap: var(--sp-3); align-items: flex-start; max-width: 100%; }
+.hrow.me { flex-direction: row-reverse; }
+.hcol { min-width: 0; max-width: 74%; display: flex; flex-direction: column; }
+.hrow.me .hcol { align-items: flex-end; }
+/* one source of truth for the label's height, shared with the avatar offset above */
+.hrow { --hwho-h: 18px; }
+.hwho { font-family: var(--font-body); font-size: 13px; font-weight: 600; color: var(--muted);
+  height: var(--hwho-h); line-height: var(--hwho-h); margin: 0 0 var(--sp-1) var(--sp-1); }
+.hrow.me .hwho { margin: 0 var(--sp-1) var(--sp-1) 0; }
+/* the avatar sits beside the BUBBLE, not the label, so it is offset by exactly the
+   label's own height - derived from the label, not eyeballed in pixels */
+.havatar { width: 42px; height: 42px; border-radius: 50%; flex: none;
+  margin-top: calc(var(--hwho-h) + var(--sp-1));
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-heading); font-weight: 700; font-size: 17px; line-height: 1;
+  box-shadow: 0 1px 3px rgba(16,24,40,.14); }
+.havatar svg { width: 100%; height: 100%; border-radius: 50%; display: block; }
+.havatar.me { background: var(--gold); color: var(--navy); }
+/* bubbles: the assistant speaks on cream, the student on navy, mirroring the tail
+   corner so the two sides read as a back-and-forth */
+#helper .msg { max-width: 100%; font-family: var(--font-story); font-size: 18px; line-height: 1.55;
+  padding: 14px 18px; border-radius: 18px; }
+#helper .msg.bot { background: var(--cream); color: var(--ink);
+  border: 1px solid rgba(232,178,14,.38); border-bottom-left-radius: 6px; }
+#helper .msg.me { background: var(--navy); color: #fff; border-bottom-right-radius: 6px; }
+#helper .msg .md > :first-child { margin-top: 0; }
+#helper .msg .md > :last-child { margin-bottom: 0; }
+#helper .spk { padding-left: var(--sp-2); }
+
+/* thinking: three dots on the same cream the assistant speaks on. CSS only - the box
+   is already busy running the model, and an offline device has no GIF to fall back on */
+#helper .msg.thinking.dots { display: inline-flex; align-items: center; gap: var(--sp-3);
+  background: var(--cream); border: 1px solid rgba(232,178,14,.38); border-bottom-left-radius: 6px;
+  font-family: var(--font-body); font-style: normal; color: var(--muted); }
+.tdots { display: inline-flex; gap: 6px; }
+.tdots i { width: 9px; height: 9px; border-radius: 50%; background: var(--navy); display: block;
+  animation: lb-dot 1.2s infinite; }
+.tdots i:nth-child(2) { animation-delay: .2s; }
+.tdots i:nth-child(3) { animation-delay: .4s; }
+.tlabel { font-size: 15px; font-weight: 500; }
+@keyframes lb-dot { 0%, 60%, 100% { opacity: .25; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-3px); } }
+@media (prefers-reduced-motion: reduce) { .tdots i { animation: none; opacity: .55; } }
+
+/* The in-chat picker: subject first, then grade. ONE card style serves both steps -
+   the grade step only narrows the track and shrinks the type, because nine cards do
+   not fit at subject width. Anything that would make the two steps read as different
+   UI patterns (a different radius, a pill shape, a different icon tile) belongs
+   nowhere near here. */
+.hsubjects { padding: var(--sp-3) var(--sp-5) var(--sp-5); flex: none; }
+/* While LightBot is asking a question the cards, not the transcript, own the spare
+   height: the message list stops claiming the free space and shrinks toward its
+   content, and the picker takes what it needs and only scrolls if even that is not
+   enough. Without this the message list wins the flex fight, the picker overflows the
+   card, and #helper's overflow:hidden crops the last row of grades off the screen with
+   no way to scroll to it. Driven by a class from renderHelperPicker rather than :has()
+   so it does not depend on selector support. */
+/* #helper-prefixed because the base rule for the message list is #helper .hchat, and an
+   ID beats a class - without the prefix this silently loses and the picker is cropped */
+/* the huge shrink factor is the priority order, not a magic number: when the card is
+   too short for both, the transcript gives up its height first (down to a 96px floor)
+   and the cards keep theirs, instead of the two shrinking in proportion and leaving a
+   row of grades behind a scrollbar while the chat still shows six lines */
+#helper .helper-card.picking .hchat { flex: 0 999 auto; min-height: 96px; }
+#helper .helper-card.picking .hsubjects { flex: 0 1 auto; min-height: 0; overflow-y: auto;
+  overscroll-behavior: contain; }
+.hsubj-head { font-size: 15px; font-weight: 600; color: var(--muted); margin-bottom: var(--sp-3); }
+.hsubj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: var(--sp-3); }
+/* Nine grade cards, with the track sized from the longest label rather than guessed.
+   Measured in Lexend 600 at 17px, the widest label that cannot break is "Kindergarten"
+   at 114px, so a card needs 114 + 32 (padding) + 40 (icon tile) + 12 (gap) = ~198px
+   before the word is forced to break; 210 leaves slack for a longer word in a language
+   we add later. The 132px track this replaced is what chopped the labels.
+   Deliberately auto-fit rather than a media-query column ladder: body carries
+   zoom: 1.2/1.35/1.5 at wide breakpoints, so a max-width query (which is evaluated on
+   the UNZOOMED viewport) does not describe the width the cards actually get - a
+   1.2-zoomed 820px tablet lays out in 683px of card space. auto-fit measures in the
+   same zoomed space the cards and their text live in, so it stays correct at every
+   zoom step: 3 across on a desktop (a tidy 3x3), 3 on a laptop or 768 tablet, 2 on a
+   zoomed narrow tablet, 1 on a phone. Every track is 1fr, so all nine cards are always
+   exactly the same width and height. */
+.hsubj-grid.grades { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+.hsubj { position: relative; min-height: 64px; display: flex; align-items: center; gap: var(--sp-3);
+  padding: 0 var(--sp-4);
+  border-radius: var(--radius); border: 2px solid var(--border); background: var(--surface);
+  color: var(--ink); font-family: var(--font-body); font-weight: 600; font-size: 17px;
+  cursor: pointer; text-align: left;
+  transition: border-color .16s ease, transform .16s ease, box-shadow .16s ease; }
+.hsubj:hover { border-color: var(--subj); transform: translateY(-3px); box-shadow: var(--shadow-tile); }
+.hsubj:active { transform: translateY(-1px); box-shadow: none; }
+.hsubj:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+/* never truncated: a longer translated label ("Jardin d'enfants") wraps at its space
+   and still clears the 64px card, and break-word is only a guard against a pathological
+   compound in some future language */
+.hsubj-lbl { min-width: 0; line-height: 1.25; overflow-wrap: break-word; }
+.hsubj-ic { width: 40px; height: 40px; border-radius: 11px; flex: none; background: var(--subj);
+  color: #fff; display: flex; align-items: center; justify-content: center; }
+/* one size for every icon on both steps: the source SVGs ship at 21 and 22px and all
+   share a 24 viewBox, so normalising here centres them identically. display:block kills
+   the inline baseline gap that would otherwise sit them a pixel low. */
+.hsubj-ic svg { width: 22px; height: 22px; display: block; }
+/* the grade icons are shared with the reading hub, where they are drawn larger and so
+   ship with thinner strokes (1.4-1.6) than the subject icons (1.8). At 22px that reads
+   as two different icon sets sitting in the same flow, so the stroke weight is
+   normalised here rather than by editing the shared markup. */
+.grades .hsubj-ic svg * { stroke-width: 1.7; }
+/* grade cards deliberately have NO size overrides - same padding, same 40px icon tile,
+   same 17px label, same 64px min-height as the subject cards, because the two steps are
+   one interaction. Only the column count differs (see .hsubj-grid.grades above). */
+/* the grade already on the student's record: pre-marked, still a choice */
+.hsubj.sug { border-color: var(--subj); }
+.hsubj-tag { position: absolute; top: -9px; right: 8px; padding: 1px 7px; border-radius: var(--radius-pill);
+  background: var(--gold); color: var(--navy); font-size: 11px; font-weight: 700; line-height: 16px;
+  white-space: nowrap; max-width: calc(100% - 16px); overflow: hidden; text-overflow: ellipsis; }
+
+/* What was chosen, pinned above the conversation - a status strip, not a message.
+   Two chips (subject, grade) carrying the same icon + accent as the cards that were
+   tapped to set them, then a pill button to re-open the picks.
+
+   Deliberately white with a single hairline underneath rather than the cream pill it
+   replaced: the chat bubbles immediately below are cream, so a cream block above them
+   read as one more bubble from LightBot instead of a header. Chrome above content
+   should recede; only the content is cream. */
+/* no radius of its own: .helper-card already clips to --radius-lg with overflow:hidden,
+   and a second, smaller radius here shows as a mismatched corner inside it */
+.hsummary { flex: none; padding: 0; background: var(--surface);
+  border-bottom: 1px solid var(--border); }
+.hsum-line { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2);
+  padding: 6px var(--sp-4) 6px var(--sp-5); min-height: 0; }
+/* the chip: 22px tinted icon tile + label. 28px tall, deliberately a touch shorter
+   than the 30px button so the action stays the tallest thing in the row */
+.hsum-chip { display: inline-flex; align-items: center; gap: 6px; min-width: 0;
+  padding: 3px 10px 3px 3px; border-radius: var(--radius-pill);
+  background: var(--tint-navy); }
+.hsum-chip-ic { width: 22px; height: 22px; border-radius: 7px; flex: none;
+  background: var(--chip); color: #fff; display: flex; align-items: center; justify-content: center; }
+/* the subject icons ship at 21 and the grade icons at 22, all on a 24 viewBox, so one
+   size here centres both sets identically - same normalisation the picker cards do */
+.hsum-chip-ic svg { width: 14px; height: 14px; display: block; }
+/* grade icons are drawn for a larger tile and ship with thinner strokes (1.4-1.6) than
+   the subject icons (1.8); at 14px that reads as two icon sets, so normalise as the
+   picker does rather than editing the shared markup */
+.hsum-chip-ic svg * { stroke-width: 1.9; }
+/* Baloo 2: this is a UI label, the same role as the nav and card labels, and it holds
+   its shape at 13px far better than Lexend does */
+.hsum-chip-lbl { font-family: var(--font-heading); font-size: 13.5px; font-weight: 600;
+  line-height: 1.2; color: var(--navy); white-space: nowrap; overflow: hidden;
+  text-overflow: ellipsis; }
+/* a hairline, not a middle dot - the dot was a word-joiner in a sentence, and this is
+   not a sentence any more */
+.hsum-div { width: 1px; height: 16px; flex: none; background: var(--border); margin: 0 var(--sp-1); }
+/* Right-aligned pill, not an underlined link. Only 30px of ink so it stays quiet next
+   to the chips, with the tap target grown back past 44px by the ::after below: the old
+   underlined link was a 21px-tall hit box, half what a finger needs on the tablets these
+   run on. A child aims at the finger-sized box, not at the ink. */
+.hsum-change { position: relative; margin-left: auto; display: inline-flex; align-items: center;
+  gap: 5px; height: 30px; padding: 0 11px; flex: none; cursor: pointer;
+  border: 1px solid var(--border); border-radius: var(--radius-pill);
+  background: var(--surface); color: var(--navy);
+  font-family: var(--font-heading); font-size: 13px; font-weight: 600; line-height: 1;
+  transition: background .16s ease, border-color .16s ease, box-shadow .16s ease; }
+.hsum-change::after { content: ""; position: absolute; left: 0; right: 0; top: 50%;
+  transform: translateY(-50%); height: 46px; }
+.hsum-change-ic { display: flex; color: var(--muted); transition: color .16s ease; }
+.hsum-change-ic svg { width: 15px; height: 15px; display: block; }
+.hsum-change:hover { background: var(--tint-gold); border-color: var(--gold); }
+.hsum-change:hover .hsum-change-ic { color: var(--navy); }
+.hsum-change:active { background: var(--gold); border-color: var(--gold-d); }
+.hsum-change:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+/* input bar pinned to the foot of the card */
+.hbar { display: flex; gap: var(--sp-3); align-items: center; padding: var(--sp-4) var(--sp-5);
+  border-top: 1px solid var(--border); background: var(--surface); flex: none; }
+.hfield { flex: 1; min-height: 54px; font-size: 17px; }
+.hsend { min-height: 54px; padding: 0 28px; font-size: 17px; flex: none; }
+
+/* Very short viewports (a small laptop with browser chrome, or landscape phone)
+   cannot hold hero + conversation + starters + input at a usable size. Rather than
+   crushing the message list to a sliver, give the screen its natural height back and
+   let the page scroll - fitting the viewport is the goal, not a rule worth breaking
+   the layout over. */
+@media (max-height: 620px) {
+  #helper { height: auto; min-height: 0; overflow: visible; padding-bottom: var(--sp-6); }
+  .helper-card { flex: none; }
+  #helper .hchat { min-height: 240px; }
+}
+/* Same escape hatch for narrow screens: below ~520px the nine grade cards stack one per
+   row, which is taller than a fixed-height overflow:hidden column can show - the last
+   grades would be cut off with no way to reach them. Give the screen its natural height
+   back and let the page scroll, exactly as the short-viewport rule above does. */
+@media (max-width: 520px) {
+  #helper { height: auto; min-height: 0; overflow: visible; padding-bottom: var(--sp-6); }
+  .helper-card { flex: none; max-height: none; }
+  #helper .hchat { min-height: 200px; }
+}
+@media (max-width: 640px) {
+  .helper-hero { flex-wrap: wrap; }
+  .helper-reset { margin-left: 0; width: 100%; }
+  .hcol { max-width: 100%; }
+  .hsum-line { padding: var(--sp-2) var(--sp-3) var(--sp-2) var(--sp-4); }
+  .havatar { width: 34px; height: 34px; font-size: 15px; }
+  #helper .msg { font-size: 17px; }
+  .hbar { padding: var(--sp-3) var(--sp-4); }
+  .hsend { padding: 0 18px; }
+}
+
+/* breadcrumbs + titles */
+.crumbs { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 14px;
+  color: var(--muted); margin-bottom: 10px; }
+.crumbs a { color: var(--navy); cursor: pointer; font-weight: 600; }
+.crumbs a:hover { text-decoration: underline; }
+.crumbs .sep { opacity: .5; }
+.screen-title { font-size: var(--fs-h2); line-height: var(--lh-tight); font-weight: 800; color: var(--navy); margin: 2px 0 var(--sp-5);
+  letter-spacing: -.01em; }
+
+/* lesson */
+.ltitle { font-size: var(--fs-h2); line-height: var(--lh-tight); font-weight: 800; color: var(--navy); margin: 0; letter-spacing: -.01em; }
+/* lesson layout: video + ask side-by-side on wide screens */
+.lesson-grid { display: grid; grid-template-columns: 1fr; gap: 22px; align-items: start; }
+@media (min-width: 900px) {
+  .lesson-grid { grid-template-columns: minmax(0, 1.5fr) minmax(420px, 1fr); }
+  .lesson-side { position: sticky; top: 70px; }
+}
+@media (min-width: 1600px) {
+  .lesson-grid { grid-template-columns: minmax(0, 1.5fr) minmax(480px, 1fr); }
+}
+.lesson-main { display: flex; flex-direction: column; gap: var(--sp-3); }
+.lesson-side { display: flex; flex-direction: column; }
+
+.lesson-info { display: flex; align-items: center; gap: var(--sp-3); margin-top: var(--sp-2); }
+.lesson-info-text { min-width: 0; }
+.lesson-info .ltitle { margin: 0; }
+.lesson-topic-label { display: block; font-size: var(--fs-micro); font-weight: 800; text-transform: uppercase;
+  letter-spacing: .05em; color: var(--muted); margin-top: 3px; }
+.lesson-desc { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--muted); margin: 0;
+  max-width: 640px; }
+.lesson-desc:empty { display: none; }
+.lesson-actions { display: flex; gap: var(--sp-3); margin-top: var(--sp-1); }
+.btn.status-complete, .btn.status-todo { display: inline-flex; align-items: center; gap: var(--sp-2);
+  background: var(--surface); color: var(--muted); border: 1px solid var(--border); }
+.btn.status-complete:hover, .btn.status-todo:hover { border-color: var(--navy); color: var(--navy); }
+.btn.status-complete.on { background: #E7F7EC; border-color: #2BA84A; color: #176b30; }
+.btn.status-todo.on { background: var(--tint-gold); border-color: var(--gold-d); color: #8a6d00; }
+
+.side-section { margin-top: var(--sp-6); }
+.side-h { font-size: var(--fs-small); font-weight: 800; color: var(--navy); text-transform: uppercase;
+  letter-spacing: .04em; margin: 0 0 var(--sp-3); }
+
+/* status-dot: the only functional (non-palette) colors in the app - green/gold/empty */
+.status-dot { display: inline-block; width: 11px; height: 11px; border-radius: 50%; flex: none;
+  border: 2px solid var(--border); background: none; }
+.status-dot.complete { background: #2BA84A; border-color: #2BA84A; }
+.status-dot.todo { background: var(--gold); border-color: var(--gold-d); }
+
+/* thumbnail cards for Next Videos (no real cover art for lesson videos - CSS placeholder tile) */
+.thumb-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px; }
+.thumb-card { width: 100%; cursor: pointer; border: none; background: none; font-family: inherit;
+  padding: 0; text-align: left; transition: transform .1s; }
+.thumb-card:hover { transform: translateY(-3px); }
+.thumb-cover { position: relative; width: 100%; aspect-ratio: 16 / 10; border-radius: var(--radius);
+  overflow: hidden; border: 1px solid var(--border); background: var(--tint-navy);
+  display: flex; align-items: center; justify-content: center; color: var(--navy); }
+.thumb-card:hover .thumb-cover { box-shadow: var(--shadow-hover); }
+/* real extracted video frame - object-fit keeps every thumbnail cropped/centered the
+   same way so the grid doesn't look tilted when videos have different native framing */
+.thumb-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.thumb-play { position: relative; z-index: 1; width: 34px; height: 34px; border-radius: 50%;
+  background: rgba(22,35,59,.55); color: #fff; display: flex; align-items: center; justify-content: center; }
+.thumb-play svg { margin-left: 2px; }
+.thumb-dur { position: absolute; right: 6px; bottom: 6px; background: rgba(22,35,59,.78); color: #fff;
+  font-size: 10.5px; font-weight: 700; padding: 2px 6px; border-radius: 6px; }
+.thumb-status { position: absolute; top: 6px; right: 6px; }
+.thumb-status .status-dot { box-shadow: 0 0 0 2px var(--surface); }
+.thumb-title { font-size: 12.5px; font-weight: 700; color: var(--navy); margin-top: 6px; line-height: 1.25;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.thumb-empty { font-size: 13px; color: var(--muted); font-style: italic; grid-column: 1 / -1; }
+
+/* custom video player */
+/* container-type: inline-size makes .player a query container so captions can be sized
+   from the PLAYER'S OWN WIDTH (cqw) rather than the viewport. That is what makes them
+   scale correctly on a phone, tablet, laptop and projector alike - and it sidesteps the
+   vh-inside-zoom trap entirely, because container units resolve against an element, not
+   the viewport. inline-size (not size) on purpose: `size` would make the box ignore its
+   own contents for sizing and collapse the player, whose height comes from the video. */
+.player { position: relative; background: #000; border-radius: var(--radius-lg); overflow: hidden;
+  box-shadow: var(--shadow); container-type: inline-size; --cap-scale: 1; }
+.player video { width: 100%; display: block; background: #000; max-height: 72vh; }
+
+/* captions: drawn by renderCue() into .cap-overlay, not by the browser - see app.js */
+.player[data-cap="s"]  { --cap-scale: .74; }
+.player[data-cap="m"]  { --cap-scale: 1; }
+.player[data-cap="l"]  { --cap-scale: 1.3; }
+.player[data-cap="xl"] { --cap-scale: 1.65; }
+.cap-overlay { position: absolute; left: 50%; transform: translateX(-50%);
+  bottom: 7%; z-index: 4; max-width: 92%; width: max-content; text-align: center;
+  pointer-events: none; white-space: pre-line; box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  padding: .18em .5em; border-radius: 5px;
+  background: rgba(10,15,25,.82); color: #fff; line-height: 1.32; font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0,0,0,.6);
+  /* The scale multiplier is INSIDE the clamp on purpose: with it outside, picking
+     "small" on a phone dropped the text under 9px, because the floor was applied first
+     and then shrunk. This way 13px is a hard legibility floor at every setting - these
+     are 6-to-9-year-olds reading along - while 2.9cqw does the per-device scaling and
+     42px stops "extra large" ballooning on a projector. */
+  font-size: clamp(13px, calc(2.9cqw * var(--cap-scale)), 42px); }
+/* lift clear of the control bar whenever the controls are on screen, so the caption and
+   the scrubber never occupy the same band (the native renderer could not do this) */
+.player.show .cap-overlay, .player:not(.playing) .cap-overlay { bottom: 16%; }
+.bigplay { position: absolute; inset: 0; margin: auto; width: 76px; height: 76px; border: none;
+  border-radius: 50%; background: rgba(22,35,59,.72); color: #fff; display: flex; align-items: center;
+  justify-content: center; cursor: pointer; transition: opacity .2s, transform .1s, background .15s; padding-left: 4px; }
+.bigplay:hover { background: var(--navy); transform: scale(1.06); }
+.player.playing .bigplay { opacity: 0; pointer-events: none; }
+.ctrls { position: absolute; left: 0; right: 0; bottom: 0; display: flex; align-items: center; gap: 9px;
+  padding: 22px 12px 11px; background: linear-gradient(transparent, rgba(0,0,0,.7));
+  opacity: 0; transition: opacity .2s; }
+.player.show .ctrls, .player:not(.playing) .ctrls { opacity: 1; }
+.player.playing:not(.show) { cursor: none; }
+.cbtn { background: none; border: none; color: #fff; cursor: pointer; padding: 5px; display: flex;
+  align-items: center; justify-content: center; border-radius: 7px; font-weight: 800; font-size: 13px; }
+.cbtn:hover { background: rgba(255,255,255,.16); }
+.cbtn.cc { border: 1.5px solid rgba(255,255,255,.6); border-radius: 5px; padding: 2px 5px; line-height: 1; }
+.cbtn.cc.on { color: var(--gold); border-color: var(--gold); }
+.time { color: #fff; font-size: 12.5px; font-variant-numeric: tabular-nums; min-width: 40px; text-align: center; }
+.seek { flex: 1; height: 6px; background: rgba(255,255,255,.3); border-radius: 4px; position: relative;
+  cursor: pointer; margin: 0 2px; }
+.seek-fill { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: var(--gold); border-radius: 4px; }
+.seek-knob { position: absolute; top: 50%; left: 0; width: 14px; height: 14px; border-radius: 50%;
+  background: #fff; transform: translate(-50%, -50%); opacity: 0; transition: opacity .15s; box-shadow: 0 1px 3px rgba(0,0,0,.4); }
+.seek:hover .seek-knob { opacity: 1; }
+
+/* fullscreen: scale the HUD up so it isn't tiny on big screens */
+/* The /var(--app-zoom) division is load-bearing, not cosmetic. body carries
+   zoom: 1.2/1.35/1.5 at wider breakpoints, and a vh/vw unit inside a zoomed subtree
+   resolves against the UNSCALED viewport - so a plain 100vh rendered up to 1.5x taller
+   than the actual screen. The bottom of the video box (where the browser paints the
+   .ctrls and .cap-overlay are anchored) then sat BELOW the visible area, which is why
+   captions and the scrubber vanished in fullscreen while being fine inline. Dividing by
+   the zoom factor makes these the real viewport size. Same fix as .dash-shell. */
+.player:fullscreen, .player:-webkit-full-screen { width: calc(100vw / var(--app-zoom));
+  height: calc(100vh / var(--app-zoom)); border-radius: 0; }
+.player:fullscreen video, .player:-webkit-full-screen video { width: 100%;
+  height: calc(100vh / var(--app-zoom)); max-height: calc(100vh / var(--app-zoom));
+  object-fit: contain; }
+.player:fullscreen .ctrls, .player:-webkit-full-screen .ctrls { padding: 30px 30px 22px; gap: 16px; }
+.player:fullscreen .cbtn svg, .player:-webkit-full-screen .cbtn svg { width: 30px; height: 30px; }
+.player:fullscreen .cbtn.cc, .player:-webkit-full-screen .cbtn.cc { font-size: 18px; padding: 4px 8px; }
+.player:fullscreen .time, .player:-webkit-full-screen .time { font-size: 17px; min-width: 56px; }
+.player:fullscreen .seek, .player:-webkit-full-screen .seek { height: 9px; }
+.player:fullscreen .bigplay, .player:-webkit-full-screen .bigplay { width: 104px; height: 104px; }
+/* No fullscreen caption override needed: .cap-overlay is sized in cqw against .player,
+   which is the fullscreen element itself, so it grows with the screen automatically. */
+
+/* caption settings popover */
+.settings { position: absolute; right: 12px; bottom: 58px; background: #1B2942; color: #fff;
+  border-radius: 12px; padding: 10px 12px; width: 232px; box-shadow: 0 10px 30px rgba(0,0,0,.45);
+  z-index: 6; }
+.player:fullscreen .settings { bottom: 86px; right: 26px; width: 280px; padding: 14px 16px; }
+.set-row { display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  margin: 9px 0; font-size: 14px; font-weight: 600; }
+.set-row select { background: #28385A; color: #fff; border: 1px solid #3C4F73; border-radius: 8px;
+  padding: 6px 9px; font-family: inherit; font-size: 14px; cursor: pointer; }
+.sizes { display: flex; gap: 6px; }
+.sizebtn { background: #28385A; color: #fff; border: 1px solid #3C4F73; border-radius: 8px;
+  cursor: pointer; width: 34px; height: 32px; font-family: inherit; line-height: 1; padding: 0; }
+.sizebtn[data-size=s] { font-size: 11px; } .sizebtn[data-size=m] { font-size: 14px; }
+.sizebtn[data-size=l] { font-size: 17px; } .sizebtn[data-size=xl] { font-size: 21px; }
+.sizebtn.on { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+
+/* attribution footer */
+.lb-footer { margin: 30px auto 0; max-width: 520px; text-align: center; color: var(--muted);
+  font-size: 12px; line-height: 1.55; }
+.lb-footer b { color: var(--ink); font-weight: 700; }
+
+.tabs { display: inline-flex; background: #EBEDF0; border-radius: 12px; padding: 4px; margin: 0 0 14px; }
+.tab { border: none; background: none; font-family: inherit; font-size: 15px; font-weight: 700;
+  color: var(--muted); padding: 9px 24px; border-radius: 9px; cursor: pointer; }
+.tab.on { background: #fff; color: var(--navy); box-shadow: 0 1px 3px rgba(16,24,40,.12); }
+.pane { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
+  padding: 18px; box-shadow: var(--shadow); }
+#chat { min-height: 120px; max-height: 52vh; overflow-y: auto; margin-bottom: 14px;
+  display: flex; flex-direction: column; gap: 10px; }
+.msg { padding: 11px 15px; border-radius: 15px; max-width: 86%; font-size: 15.5px; line-height: 1.45; }
+.msg.me { background: var(--navy); color: #fff; align-self: flex-end; border-bottom-right-radius: 5px; }
+.msg.bot { background: #F0F2F5; color: var(--ink); align-self: flex-start; border-bottom-left-radius: 5px; }
+.msg.thinking { color: var(--muted); font-style: italic; background: #F0F2F5; align-self: flex-start; }
+.spk { background: none; border: none; cursor: pointer; display: inline-flex; padding: 0 0 0 var(--sp-2); opacity: .6; vertical-align: middle; }
+.spk:hover { opacity: 1; }
+
+/* quiz */
+.qhead { color: var(--muted); font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+.qcard { font-size: 19px; font-weight: 700; color: var(--ink); margin-bottom: 14px; }
+.choice { display: block; width: 100%; text-align: left; font-family: inherit; font-size: 16px;
+  background: #F6F7F9; color: var(--ink); border: 1.5px solid var(--border); border-radius: 12px;
+  padding: 14px 16px; margin: 9px 0; cursor: pointer; transition: border-color .12s, background .12s; }
+.choice:hover:enabled { border-color: var(--navy); }
+.choice.correct { background: #E7F7EC; border-color: #2BA84A; color: #176b30; }
+.choice.wrong { background: #FDECEC; border-color: #E25555; color: #a02626; }
+.feedback { margin: 14px 0; padding: 14px 16px; border-radius: 12px; background: var(--cream);
+  color: var(--navy); font-size: 16px; }
+.qresult { text-align: center; padding: 12px; }
+.stars { font-size: 38px; letter-spacing: 4px; color: var(--gold); }
+.qscore { font-size: 20px; font-weight: 800; color: var(--navy); margin: 8px 0; }
+.qresult-actions { display: flex; flex-direction: column; align-items: stretch; gap: 10px;
+  max-width: 280px; margin: 16px auto 0; }
+
+/* loading */
+#loading { position: fixed; inset: 0; background: rgba(246,245,241,.72); backdrop-filter: blur(2px);
+  display: flex; align-items: center; justify-content: center; z-index: 60; }
+.loadbox { background: #fff; border: 1px solid var(--border); box-shadow: var(--shadow);
+  color: var(--navy); font-size: 16px; font-weight: 700; padding: 16px 24px; border-radius: 12px;
+  display: flex; align-items: center; gap: 12px; }
+.spinner { width: 18px; height: 18px; border: 3px solid #e3e6ea; border-top-color: var(--gold);
+  border-radius: 50%; animation: spin .7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 520px) {
+  main { padding: 20px 14px 50px; }
+  .wordmark { font-size: 28px; }
+  .pill-label { font-size: 17px; }
+}

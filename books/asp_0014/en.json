@@ -1,0 +1,37 @@
+﻿{
+    "id":  "asp_0014",
+    "language":  "en",
+    "title":  "Girl called Norah",
+    "source":  "African Storybook Project (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/asp-source/blob/master/en/0014_girl-called-norah.md",
+    "project_home":  "https://www.africanstorybook.org",
+    "license":  "CC BY",
+    "license_raw":  "CC-BY",
+    "license_url":  "https://creativecommons.org/licenses/by/4.0/",
+    "author":  "Annet Ssebaggala",
+    "illustrator":  "Melany Pietersen",
+    "translator":  null,
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg",
+                   "04.jpg",
+                   "05.jpg",
+                   "06.jpg",
+                   "07.jpg",
+                   "08.jpg",
+                   "09.jpg",
+                   "10.jpg"
+               ],
+    "pages":  [
+                  "This is a girl called\nNorah.\nHer doll\u0027s name is\nSelah.",
+                  "Norah loves her doll\nvery much.\nNorah plays with Selah\nevery day.\nShe sleeps with her doll\nevery night.",
+                  "One day, Norah could\nnot find her doll.\nShe looked everywhere,\nbut could not find\nSelah.\nNorah got very worried.",
+                  "Norah did not know that\nher mother took Selah\nfor washing.\nShe hung the doll\noutside to dry.",
+                  "\"I can\u0027t find my doll,\"\ncried Norah.\n\"Don\u0027t worry,\" said her\nmother.",
+                  "That evening, Norah\u0027s\nmother gave the doll to\nNorah.\nThe doll was very clean.\nSelah looked like a new\ndoll!",
+                  "Norah was very happy.\nShe jumped up and\ndown.\nShe danced.\nShe laughed loudly.",
+                  "And she thanked her\nmother."
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

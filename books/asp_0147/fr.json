@@ -1,0 +1,39 @@
+﻿{
+    "id":  "asp_0147",
+    "language":  "fr",
+    "title":  "Ma famille et moi",
+    "source":  "African Storybook Project (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/asp-source/blob/master/fr/0147_ma-famille-et-moi.md",
+    "project_home":  "https://www.africanstorybook.org",
+    "license":  "CC BY",
+    "license_raw":  "CC-BY",
+    "license_url":  "https://creativecommons.org/licenses/by/4.0/",
+    "author":  "Waako Joshua, Cornelius Gulere",
+    "illustrator":  "Wiehan de Jager",
+    "translator":  "Isabelle Duston, Véronique Biddau",
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg",
+                   "04.jpg",
+                   "05.jpg",
+                   "06.jpg",
+                   "07.jpg",
+                   "08.jpg",
+                   "09.jpg",
+                   "10.jpg",
+                   "11.jpg"
+               ],
+    "pages":  [
+                  "Avec mon dinosaure, je\nregarde les oiseaux\ndans le ciel.",
+                  "Avec mes oiseaux, je\nvais voir le chimpanzé\ndans l\u0027arbre.",
+                  "En compagnie de mon\nchimpanzé, je joue sur\nla colline avec mes\ngirafes.",
+                  "En compagnie des\ngirafes, je fabrique des\nballes en argile avec\nmon singe.",
+                  "Tous les jours,\naccompagné de mon\nsinge, je mange des\nbananes avec le gorille.",
+                  "Le gorille et le singe ont\ntoujours un peu peur de\nla tortue.",
+                  "Avec ma tortue, nous\nrentrons à la maison\ntranquillement\naccompagnés du\nserpent.",
+                  "Avec mon serpent, nous\nchantons en sifflotant\nprès du lac.",
+                  "Ma famille toute entière\nvit ensemble avec\nbonheur."
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

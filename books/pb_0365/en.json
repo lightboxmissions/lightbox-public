@@ -1,0 +1,22 @@
+﻿{
+    "id":  "pb_0365",
+    "language":  "en",
+    "title":  "Ananya\u0027s first story",
+    "source":  "Pratham Books / StoryWeaver (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/pb-source/blob/master/en/0365_ananya-s-first-story.md",
+    "project_home":  "https://storyweaver.org.in",
+    "license":  "CC BY",
+    "license_raw":  "CC-BY",
+    "license_url":  "https://creativecommons.org/licenses/by/4.0/",
+    "author":  "Anusha Parthasarathy",
+    "illustrator":  "Priya Kuriyan, Rijuta Ghate",
+    "translator":  null,
+    "images":  [
+                   "01.jpg",
+                   "02.jpg"
+               ],
+    "pages":  [
+                  "Once upon a time there was a girl. Her name was Ananya.\n\nShe was happy when her friends came to her house for Diwali. So she decorated the house and burst crackers.\n\nAnd her mom and dad told her \"You burst crackers carefully.\"\n\nThe End"
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

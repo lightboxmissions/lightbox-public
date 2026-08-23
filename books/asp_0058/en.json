@@ -1,0 +1,37 @@
+﻿{
+    "id":  "asp_0058",
+    "language":  "en",
+    "title":  "Soccer game",
+    "source":  "African Storybook Project (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/asp-source/blob/master/en/0058_soccer-game.md",
+    "project_home":  "https://www.africanstorybook.org",
+    "license":  "CC BY",
+    "license_raw":  "CC-BY",
+    "license_url":  "https://creativecommons.org/licenses/by/4.0/",
+    "author":  "Letta Machoga",
+    "illustrator":  "Vusi Malindi",
+    "translator":  null,
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg",
+                   "04.jpg",
+                   "05.jpg",
+                   "06.jpg",
+                   "07.jpg",
+                   "08.jpg",
+                   "09.jpg",
+                   "10.jpg"
+               ],
+    "pages":  [
+                  "We love soccer.",
+                  "Moloko is teaching us\nsoccer.",
+                  "We are playing soccer.",
+                  "Moloko is the best\nteacher!",
+                  "After the game,\nMoloko told us that\nshe has a surprise for\nus.",
+                  "But she will only let us\nknow tomorrow.",
+                  "The next day we all\ncame early to the field.\nWe all love surprises.",
+                  "Moloko has new soccer\nkits and balls for all of\nus!\nWhat a great surprise!"
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

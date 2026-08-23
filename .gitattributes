@@ -1,0 +1,20 @@
+# Normalize text files, but pin line endings where they matter.
+
+* text=auto
+
+# Files that RUN on the Linux server must stay LF, even when checked out on
+# Windows — CRLF breaks bash and can confuse python shebangs.
+*.sh    text eol=lf
+*.py    text eol=lf
+
+# Windows-only helper scripts stay CRLF.
+*.ps1   text eol=crlf
+*.cmd   text eol=crlf
+
+# Binary assets — never touch.
+*.woff2 binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.mp4   binary
+*.srt   binary

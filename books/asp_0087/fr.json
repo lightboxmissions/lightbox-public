@@ -1,0 +1,37 @@
+﻿{
+    "id":  "asp_0087",
+    "language":  "fr",
+    "title":  "J\u0027aime lire",
+    "source":  "African Storybook Project (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/asp-source/blob/master/fr/0087_jaime-lire.md",
+    "project_home":  "https://www.africanstorybook.org",
+    "license":  "CC BY",
+    "license_raw":  "CC-BY",
+    "license_url":  "https://creativecommons.org/licenses/by/4.0/",
+    "author":  "Letta Machoga",
+    "illustrator":  "Wiehan de Jager",
+    "translator":  "Lina Scarpellini, Translators without Borders",
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg",
+                   "04.jpg",
+                   "05.jpg",
+                   "06.jpg",
+                   "07.jpg",
+                   "08.jpg",
+                   "09.jpg",
+                   "10.jpg"
+               ],
+    "pages":  [
+                  "J\u0027aime lire.",
+                  "À qui puis-je faire la lecture ?",
+                  "Ma sœur est en train de dormir.",
+                  "À qui puis-je faire la lecture ?",
+                  "Ma mère et ma grand mère sont occupées.",
+                  "À qui puis-je faire la lecture ?",
+                  "Mon père et mon grand père sont occupés.",
+                  "À qui puis-je faire la lecture ?\nJe peux faire la lecture... à moi même !"
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

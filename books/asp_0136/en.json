@@ -1,0 +1,37 @@
+﻿{
+    "id":  "asp_0136",
+    "language":  "en",
+    "title":  "Hamisi\u0027s lucky day",
+    "source":  "African Storybook Project (via Global ASP)",
+    "source_url":  "https://github.com/global-asp/asp-source/blob/master/en/0136_hamisis-lucky-day.md",
+    "project_home":  "https://www.africanstorybook.org",
+    "license":  "CC BY",
+    "license_raw":  "CC-BY",
+    "license_url":  "https://creativecommons.org/licenses/by/4.0/",
+    "author":  "Adelheid Marie Bwire",
+    "illustrator":  "Rob Owen",
+    "translator":  null,
+    "images":  [
+                   "01.jpg",
+                   "02.jpg",
+                   "03.jpg",
+                   "04.jpg",
+                   "05.jpg",
+                   "06.jpg",
+                   "07.jpg",
+                   "08.jpg",
+                   "09.jpg",
+                   "10.jpg"
+               ],
+    "pages":  [
+                  "Hamisi needs a new\nschool uniform. His dad\ntakes him to the\nmarket.",
+                  "Hamisi sees a boy\nwearing a beautiful\nshirt. \"That is a very\nfine shirt,\" thinks\nHamisi.",
+                  "\"I wish I had a shirt like\nthat boy,\" says Hamisi.",
+                  "\"Look, she is selling\nthose special shirts,\"\nsays Hamisi. \"Dad,\nplease buy one for me,\"\nhe asks.",
+                  "\"Hamisi, I have to buy\nyour uniform,\" says\ndad.",
+                  "\"I do not have enough\nmoney for that shirt,\"\nsays dad.",
+                  "Hamisi\u0027s dad pays for\nthe uniform. He is\nsurprised when he gets\nthe change. There is\nenough money left over\nto buy a shirt!",
+                  "It is Hamisi\u0027s lucky day!\nWhich shirt will he\nchoose?"
+              ],
+    "note":  "Spread 0 = images[0] + title; spread i = images[i] + pages[i-1]."
+}

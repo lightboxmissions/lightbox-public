@@ -1,0 +1,66 @@
+{
+  "_comment": [
+    "Published translated titles for the 30 public-domain classics, applied by",
+    "tools/apply_titles.py to books/<id>/<lang>.json.",
+    "",
+    "These are the titles the books were actually published under in each language,",
+    "not translations of the English title. Machine translation gets them wrong in a",
+    "way that is invisible unless you know the book: LibreTranslate rendered Just So",
+    "Stories as 'Juste pour des histoires' (published: 'Histoires comme ca'), White",
+    "Fang as 'Fang blanc' (published: 'Croc-Blanc'), and Twenty Thousand Leagues as",
+    "'Vingt mille ligues' - 'ligues' being alliances, where Verne wrote 'lieues', the",
+    "unit of distance.",
+    "",
+    "A title identical to English is deliberate where the book is published under the",
+    "original name (Heidi, Peter Pan, Robinson Crusoe, Oliver Twist). tools/audit_titles.py",
+    "treats those as intentional and only reports the rest."
+  ],
+  "titles": {
+    "gb103": { "en": "Around the World in Eighty Days", "fr": "Le Tour du monde en quatre-vingts jours", "es": "La vuelta al mundo en ochenta días", "de": "In 80 Tagen um die Welt" },
+    "gb11":  { "en": "Alice's Adventures in Wonderland", "fr": "Les Aventures d'Alice au pays des merveilles", "es": "Las aventuras de Alicia en el país de las maravillas", "de": "Alices Abenteuer im Wunderland" },
+    "gb113": { "en": "The Secret Garden", "fr": "Le Jardin secret", "es": "El jardín secreto", "de": "Der geheime Garten" },
+    "gb120": { "en": "Treasure Island", "fr": "L'Île au trésor", "es": "La isla del tesoro", "de": "Die Schatzinsel" },
+    "gb1448":{ "en": "Heidi", "fr": "Heidi", "es": "Heidi", "de": "Heidi" },
+    "gb146": { "en": "A Little Princess", "fr": "La Petite Princesse", "es": "La princesita", "de": "Die kleine Prinzessin" },
+    "gb16":  { "en": "Peter Pan", "fr": "Peter Pan", "es": "Peter Pan", "de": "Peter Pan" },
+    "gb164": { "en": "Twenty Thousand Leagues Under the Sea", "fr": "Vingt mille lieues sous les mers", "es": "Veinte mil leguas de viaje submarino", "de": "20.000 Meilen unter dem Meer" },
+    "gb1661":{ "en": "The Adventures of Sherlock Holmes", "fr": "Les Aventures de Sherlock Holmes", "es": "Las aventuras de Sherlock Holmes", "de": "Die Abenteuer des Sherlock Holmes" },
+    "gb215": { "en": "The Call of the Wild", "fr": "L'Appel de la forêt", "es": "La llamada de lo salvaje", "de": "Ruf der Wildnis" },
+    "gb236": { "en": "The Jungle Book", "fr": "Le Livre de la jungle", "es": "El libro de la selva", "de": "Das Dschungelbuch" },
+    "gb2591":{ "en": "Grimms' Fairy Tales", "fr": "Les Contes de Grimm", "es": "Cuentos de los hermanos Grimm", "de": "Grimms Märchen" },
+    "gb271": { "en": "Black Beauty", "fr": "Black Beauty", "es": "Belleza Negra", "de": "Black Beauty" },
+    "gb2781":{ "en": "Just So Stories", "fr": "Histoires comme ça", "es": "Precisamente así", "de": "Genau-so-Geschichten" },
+    "gb35":  { "en": "The Time Machine", "fr": "La Machine à explorer le temps", "es": "La máquina del tiempo", "de": "Die Zeitmaschine" },
+    "gb36":  { "en": "The War of the Worlds", "fr": "La Guerre des mondes", "es": "La guerra de los mundos", "de": "Der Krieg der Welten" },
+    "gb43":  { "en": "The Strange Case of Dr. Jekyll and Mr. Hyde", "fr": "L'Étrange Cas du docteur Jekyll et de M. Hyde", "es": "El extraño caso del doctor Jekyll y el señor Hyde", "de": "Der seltsame Fall des Dr. Jekyll und Mr. Hyde" },
+    "gb45":  { "en": "Anne of Green Gables", "fr": "Anne... la maison aux pignons verts", "es": "Ana, la de Tejas Verdes", "de": "Anne auf Green Gables" },
+    "gb46":  { "en": "A Christmas Carol", "fr": "Un chant de Noël", "es": "Cuento de Navidad", "de": "Eine Weihnachtsgeschichte" },
+    "gb500": { "en": "The Adventures of Pinocchio", "fr": "Les Aventures de Pinocchio", "es": "Las aventuras de Pinocho", "de": "Die Abenteuer des Pinocchio" },
+    "gb501": { "en": "The Story of Doctor Dolittle", "fr": "L'Histoire du docteur Dolittle", "es": "La historia del doctor Dolittle", "de": "Doktor Dolittle und seine Tiere" },
+    "gb514": { "en": "Little Women", "fr": "Les Quatre Filles du docteur March", "es": "Mujercitas", "de": "Kleine Frauen" },
+    "gb521": { "en": "Robinson Crusoe", "fr": "Robinson Crusoé", "es": "Robinson Crusoe", "de": "Robinson Crusoe" },
+    "gb55":  { "en": "The Wonderful Wizard of Oz", "fr": "Le Magicien d'Oz", "es": "El maravilloso mago de Oz", "de": "Der Zauberer von Oz" },
+    "gb730": { "en": "Oliver Twist", "fr": "Oliver Twist", "es": "Oliver Twist", "de": "Oliver Twist" },
+    "gb74":  { "en": "The Adventures of Tom Sawyer", "fr": "Les Aventures de Tom Sawyer", "es": "Las aventuras de Tom Sawyer", "de": "Die Abenteuer des Tom Sawyer" },
+    "gb76":  { "en": "The Adventures of Huckleberry Finn", "fr": "Les Aventures de Huckleberry Finn", "es": "Las aventuras de Huckleberry Finn", "de": "Die Abenteuer des Huckleberry Finn" },
+    "gb778": { "en": "Five Children and It", "fr": "Cinq enfants et moi", "es": "Cinco niños y eso", "de": "Fünf Kinder und Es" },
+    "gb829": { "en": "Gulliver's Travels", "fr": "Les Voyages de Gulliver", "es": "Los viajes de Gulliver", "de": "Gullivers Reisen" },
+    "gb910": { "en": "White Fang", "fr": "Croc-Blanc", "es": "Colmillo Blanco", "de": "Wolfsblut" },
+
+    "_picture_books": "Not classics - these are CC-licensed picture books whose titles the machine could not handle. LibreTranslate passes through short title-case fragments with no terminal punctuation ('Cat Dreams' comes back as 'Cat Dreams'), and half-translates the rest ('Gordo rey Thin perro'), so these few are set by hand.",
+    "asp_0121": { "en": "Porridge", "fr": "Le Porridge", "es": "Las gachas", "de": "Brei" },
+    "pb_0002":  { "en": "Fat King Thin Dog", "fr": "Gros roi, chien maigre", "es": "Rey gordo, perro flaco", "de": "Dicker König, dünner Hund" },
+    "pb_0399":  { "en": "Cat Dreams", "fr": "Rêves de chats", "es": "Sueños de gato", "de": "Katzenträume" }
+  },
+  "cover_force_generated": [
+    "_comment: Commons has real art for these, but not art that works as a cover. gb76 is a photograph of the bound book with the spine in frame, so cropping to 2:3 slices the title off the fore-edge; gb2781 is the 'This is my book' bookplate from inside the front cover. No automatic check catches either - they are detailed, correctly-matched images that simply are not covers.",
+    "gb76",
+    "gb2781",
+    "gb730"
+  ],
+  "identical_ok": {
+    "_comment": "Titles that are correctly the same as English, so the audit stops flagging them. 'Wind' is the German word for wind; 'Tita' is a character's name.",
+    "asp_0035": ["de"],
+    "pb_0234": ["fr", "es", "de"]
+  }
+}
