@@ -1,4 +1,4 @@
-/* LightBox styling - every screen of both the student app and the teacher dashboard.
+/* Lunis styling - every screen of both the student app and the teacher dashboard.
    Hand-written CSS, no preprocessor and no build step; the browser loads this file as-is.
 
    This file IS the design system. The :root block below defines the whole vocabulary -
@@ -1609,7 +1609,7 @@ main { }
 .helper-hero .screen-title { margin: 0 0 2px; }
 .helper-sub { color: var(--muted); font-size: 16px; margin: 0; }
 .helper-reset { margin-left: auto; flex: none; white-space: nowrap; }
-/* the LightBox mark itself, so the helper is recognisably the app talking */
+/* the Lunis mark itself, so the helper is recognisably the app talking */
 .helper-mark { width: 48px; height: 48px; flex: none; border-radius: 50%;
   box-shadow: 0 4px 14px rgba(22,35,59,.18); }
 .chat-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);

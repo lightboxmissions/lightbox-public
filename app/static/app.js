@@ -1,4 +1,4 @@
-/* LightBox student app - all client-side behaviour for index.html: sign-in and join
+/* Lunis student app - all client-side behaviour for index.html: sign-in and join
    codes, browsing lessons by grade then topic, the video player, the Ask tab (talks to
    /api/ask), quizzes and unit tests, the reading books, progress, and the language
    picker. No framework and no build step - the browser loads this file as-is, so bump
@@ -244,7 +244,7 @@ const DEFAULTS = {
   edit_saved: "Changes saved",
   // data & storage (auto-archival)
   data_storage: "Data & storage",
-  data_storage_desc: "Manage how long test results stay on this LightBox host.",
+  data_storage_desc: "Manage how long test results stay on this Lunis host.",
   retention_label: "Delete tests older than",
   retention_never: "Never", retention_30: "30 days", retention_60: "60 days",
   retention_90: "90 days", retention_after_due: "after their due date",
@@ -2649,7 +2649,7 @@ async function runHistExport() {
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   const label = dur === "this_month" ? (HIST_YEAR + "-" + pad2(HIST_MONTH)) : ("last_" + dur + "_months");
-  a.href = url; a.download = "lightbox_activity_" + label + ".csv";
+  a.href = url; a.download = "lunis_activity_" + label + ".csv";
   document.body.appendChild(a); a.click(); a.remove();
   URL.revokeObjectURL(url);
   status.textContent = t("hist_downloaded");
@@ -2820,7 +2820,7 @@ const GRADE_ICON = '<svg viewBox="0 0 24 24" width="22" height="22"><rect x="5" 
 const TOPIC_ICON = '<svg viewBox="0 0 24 24" width="18" height="18"><path d="M4 19V10M12 19V5M20 19v-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>';
 const PLAY_CIRCLE_ICON = '<svg viewBox="0 0 24 24" width="14" height="14"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></svg>';
 const CIRCLE_ICON = '<svg viewBox="0 0 24 24" width="14" height="14"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>';
-// the LightBox mark itself - same geometry as the topbar logo in index.html, inlined
+// the Lunis mark itself - same geometry as the topbar logo in index.html, inlined
 // so the helper's avatar is the logo rather than a generic dot
 const LOGO_ICON = '<svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="49" fill="#16233B"/><circle cx="50" cy="43" r="25" fill="#F3EAC2"/><path d="M50 24 L67 50 L50 80 L33 50 Z" fill="#FCC419"/></svg>';
 const SPEAKER_ICON = '<svg viewBox="0 0 24 24" width="15" height="15"><path d="M4 9v6h4l5 5V4L8 9H4z" fill="currentColor"/><path d="M15.5 8.8a4 4 0 0 1 0 6.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>';
@@ -3090,7 +3090,7 @@ function addMsg(container, m, mine) {
   if (!isHelperChat(container)) { container.appendChild(m); return m; }
   const row = el("div", "hrow " + (mine ? "me" : "ai"));
   const av = el("div", "havatar" + (mine ? " me" : ""));
-  // the AI wears the LightBox mark (gold dot on navy); the student wears their initial
+  // the AI wears the Lunis mark (gold dot on navy); the student wears their initial
   if (mine) av.textContent = (getName() || "?").trim().charAt(0).toUpperCase();
   else av.innerHTML = LOGO_ICON;
   av.setAttribute("aria-hidden", "true");
@@ -3165,7 +3165,7 @@ async function ask() {
 }
 
 /* ---------- homework helper ---------- */
-// The helper introduces itself by name. It is a brand name like LightBox, so it is
+// The helper introduces itself by name. It is a brand name like Lunis, so it is
 // substituted into the translated sentence rather than being part of it - otherwise
 // LibreTranslate would happily "translate" it.
 const BOT_NAME = "LightBot";

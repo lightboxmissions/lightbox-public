@@ -1,6 +1,6 @@
-# The LightBox server needs NO third-party packages.
+# The Lunis server needs NO third-party packages.
 # It runs on the Python 3 standard library alone (http.server, json, urllib,
-# threading, hashlib). If you only want to RUN LightBox you can ignore this
+# threading, hashlib). If you only want to RUN Lunis you can ignore this
 # file completely, and server/install.sh never reads it.
 #
 # These are only for the optional content-building tools in tools/, which

@@ -1,6 +1,6 @@
-# LightBox Reading Section — Open-Licensed Children's Books
+# Lunis Reading Section — Open-Licensed Children's Books
 
-Offline library of openly-licensed (Creative Commons) children's storybooks for the LightBox
+Offline library of openly-licensed (Creative Commons) children's storybooks for the Lunis
 reading section. English and French first. Downloaded 2026-06-23.
 
 ## What's here

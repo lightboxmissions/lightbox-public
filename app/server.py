@@ -12,7 +12,7 @@ import json, os, re, threading, time, queue, datetime, hashlib, random, secrets,
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import urlparse, parse_qs
 
-CACHE_VER = "v23"   # bump to discard stale/partial language caches and rebuild
+CACHE_VER = "v24"   # bump to discard stale/partial language caches and rebuild
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 BASE = os.path.dirname(ROOT)
@@ -456,7 +456,7 @@ UI = {
  "edit_saved": "Changes saved",
  # data & storage (auto-archival)
  "data_storage": "Data & storage",
- "data_storage_desc": "Manage how long test results stay on this LightBox host.",
+ "data_storage_desc": "Manage how long test results stay on this Lunis host.",
  "retention_label": "Delete tests older than",
  "retention_never": "Never", "retention_30": "30 days", "retention_60": "60 days",
  "retention_90": "90 days", "retention_after_due": "after their due date",
@@ -817,7 +817,7 @@ SYS = ("You are Khan Buddy, a kind math helper for kids age 6 to 8. Answer using
        "and encouraging. If the note doesn't answer it, say you're not sure and to ask the "
        "teacher.\n\nLESSON NOTE: {t}")
 
-HELP_SYS = ("You are LightBox, a friendly, patient tutor for students (roughly ages 6 to 12). "
+HELP_SYS = ("You are Lunis, a friendly, patient tutor for students (roughly ages 6 to 12). "
             "Help with ANY school subject - math, reading, writing, science, social studies, and "
             "study skills. Explain clearly and step by step in simple, encouraging language a young "
             "student understands; you may give helpful detail and examples. Keep it accurate and safe "
@@ -825,7 +825,7 @@ HELP_SYS = ("You are LightBox, a friendly, patient tutor for students (roughly a
             "LaTeX. Format clearly with short paragraphs, **bold** for key words, and bullet (-) or "
             "numbered (1.) lists for steps.")
 
-MATH_HELP_SYS = ("You are LightBox Math Helper, a friendly, patient MATH tutor for children (ages 6 "
+MATH_HELP_SYS = ("You are Lunis Math Helper, a friendly, patient MATH tutor for children (ages 6 "
                  "to 12). Help ONLY with mathematics - counting, place value, addition, subtraction, "
                  "multiplication, division, fractions, shapes, measurement, time and money. If a child "
                  "asks about something that is not math, gently say you are the math helper and to use "
@@ -3098,5 +3098,5 @@ if __name__ == "__main__":
     # warm every language's small caches in the background so first use is instant
     for _l in LANGS:
         ensure_lang_cache(_l)
-    print("LightBox on %s:%d  videos:%d  langs:%s" % (HOST, PORT, len(CATALOG), ",".join(LANGS)))
+    print("Lunis on %s:%d  videos:%d  langs:%s" % (HOST, PORT, len(CATALOG), ",".join(LANGS)))
     Server((HOST, PORT), H).serve_forever()

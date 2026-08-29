@@ -1,6 +1,6 @@
 """HTTP layer (Phase 5) - single student endpoint plus a health endpoint.
 
-Standard-library http.server, matching the rest of the LightBox stack. The donated
+Standard-library http.server, matching the rest of the Lunis stack. The donated
 laptops are set up offline and have no pip, so a framework would be one more thing to
 fail during a deployment in a school with no internet.
 
@@ -91,7 +91,7 @@ def build_tutor(config):
 class TutorHandler(BaseHTTPRequestHandler):
     """Single question endpoint plus health. `tutor` is set on the server object."""
 
-    server_version = "LightBoxTutor/1.0"
+    server_version = "LunisTutor/1.0"
 
     def _send(self, code, payload):
         body = json.dumps(payload).encode("utf-8")
@@ -166,7 +166,7 @@ def serve(config, host="127.0.0.1", port=8091):
 
 
 def main(argv=None):
-    p = argparse.ArgumentParser(description="LightBox offline math tutor")
+    p = argparse.ArgumentParser(description="Lunis offline math tutor")
     p.add_argument("--host", default="127.0.0.1")
     p.add_argument("--port", type=int, default=8091)
     p.add_argument("--llama-url", default="http://127.0.0.1:8080/v1/chat/completions")

@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 # =====================================================================
-#  LightBox - one-command SERVER installer (Ubuntu / Debian)
+#  Lunis - one-command SERVER installer (Ubuntu / Debian)
 #
 #  Run this ON your own Linux box (the machine that will BE the server).
-#  It installs and auto-starts everything LightBox needs:
-#    - the LightBox web app            (port 8090)
+#  It installs and auto-starts everything Lunis needs:
+#    - the Lunis web app            (port 8090)
 #    - llama.cpp + Qwen2.5-3B model    (port 8080)  the AI tutor
 #    - LibreTranslate                  (port 5000)  offline translation
 #  ...all as auto-restarting services that come back on reboot.
 #
 #  Usage:
-#    git clone https://github.com/lightboxmissions/lightbox-public.git ~/lightbox
+#    git clone https://github.com/lightboxmissions/Lunis.git ~/lightbox
 #    cd ~/lightbox && bash server/install.sh
 #
 #  Safe to re-run: it skips anything already installed.
@@ -34,7 +34,7 @@ ok()   { echo -e "    \033[1;32m[ok]\033[0m $*"; }
 warn() { echo -e "    \033[1;33m[!]\033[0m $*"; }
 
 echo   "======================================="
-echo   "  LightBox server installer"
+echo   "  Lunis server installer"
 echo   "======================================="
 echo   "  Repo:  $REPO"
 echo   "  App :  $APP"
@@ -106,7 +106,7 @@ mkdir -p "$UNIT_DIR"
 
 cat > "$UNIT_DIR/lightbox-llama.service" <<EOF
 [Unit]
-Description=llama.cpp (Qwen2.5-3B) for LightBox
+Description=llama.cpp (Qwen2.5-3B) for Lunis
 After=network.target
 [Service]
 Type=simple
@@ -119,7 +119,7 @@ EOF
 
 cat > "$UNIT_DIR/lightbox-translate.service" <<EOF
 [Unit]
-Description=LibreTranslate for LightBox
+Description=LibreTranslate for Lunis
 After=network.target
 [Service]
 Type=simple
@@ -132,7 +132,7 @@ EOF
 
 cat > "$UNIT_DIR/lightbox.service" <<EOF
 [Unit]
-Description=LightBox math tutor web app
+Description=Lunis math tutor web app
 After=network.target lightbox-llama.service lightbox-translate.service
 [Service]
 Type=simple
@@ -166,7 +166,7 @@ IP=$(hostname -I 2>/dev/null | awk '{print $1}')
 echo
 echo "======================================="
 if [ "$CODE" = "200" ]; then
-    echo -e "  \033[1;32mLightBox is RUNNING\033[0m"
+    echo -e "  \033[1;32mLunis is RUNNING\033[0m"
 else
     echo -e "  \033[1;33mApp not answering yet (HTTP $CODE)\033[0m"
     echo   "  Check: systemctl --user status lightbox"
@@ -183,5 +183,5 @@ echo   "                       systemctl --user status lightbox-llama lightbox-t
 echo   "   - Logs:             journalctl --user -u lightbox -n 50"
 echo   "   - First time you open it, an on-screen wizard sets the teacher password."
 echo   "   - To let kids connect over Wi-Fi with no internet, turn on a hotspot:"
-echo   "       nmcli device wifi hotspot ssid lightbox password <choose-one>"
+echo   "       nmcli device wifi hotspot ssid lunis password <choose-one>"
 echo

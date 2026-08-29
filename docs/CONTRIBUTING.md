@@ -1,10 +1,10 @@
-# Contributing to LightBox
+# Contributing to Lunis
 
 This describes how the code is put together and the rules a change has to follow.
 Read [ARCHITECTURE.md](ARCHITECTURE.md) first for how the pieces fit.
 
 Bug reports and pull requests are welcome at
-<https://github.com/lightboxmissions/lightbox-public>.
+<https://github.com/lightboxmissions/Lunis>.
 
 ## The rules that matter most
 

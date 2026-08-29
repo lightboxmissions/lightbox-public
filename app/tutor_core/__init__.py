@@ -1,4 +1,4 @@
-"""tutor_core - offline math tutoring pipeline for LightBox.
+"""tutor_core - offline math tutoring pipeline for Lunis.
 
 Accuracy first, then reliability, then speed, then concurrency. The LLM never has
 final authority over arithmetic: computational questions get their number from

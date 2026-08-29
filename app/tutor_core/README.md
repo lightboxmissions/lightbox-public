@@ -1,6 +1,6 @@
 # tutor_core
 
-Offline math tutoring pipeline for LightBox. Pure standard library, no pip, no network
+Offline math tutoring pipeline for Lunis. Pure standard library, no pip, no network
 calls except to a local `llama-server`.
 
 ## The one rule

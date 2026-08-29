@@ -1,7 +1,7 @@
-# Setting up a LightBox server
+# Setting up a Lunis server
 
 
-This is the full recipe for standing up a LightBox box from scratch: the web app, the
+This is the full recipe for standing up a Lunis box from scratch: the web app, the
 local AI model, the translation engine, and the auto‑start service. It targets **Ubuntu
 Linux** (the reference box is a laptop running Ubuntu with 4 CPU cores, ~7 GB RAM, **no
 GPU**), but any Linux with Python 3.9+ works. Everything runs **offline** once set up.
@@ -10,7 +10,7 @@ If you only want to *edit the code*, you don't need this — see
 [WINDOWS_SETUP.md](WINDOWS_SETUP.md). Come here when you're building a new box, moving
 to new hardware, or you need to understand/repair the running one.
 
-> **Run your own server.** This sets up a **complete, independent** LightBox box that you
+> **Run your own server.** This sets up a **complete, independent** Lunis box that you
 > own — it does not connect to or depend on anyone else's server.
 
 ---
@@ -21,7 +21,7 @@ On a fresh **Ubuntu** machine (with internet for the install), run:
 
 ```bash
 sudo apt-get update && sudo apt-get install -y git
-git clone https://github.com/lightboxmissions/lightbox.git ~/lightbox
+git clone https://github.com/lightboxmissions/Lunis.git ~/lightbox
 cd ~/lightbox
 bash server/install.sh
 ```
@@ -58,11 +58,11 @@ example; the installer uses `~/lightbox` and the `lightbox*` names shown above.)
 
 ## The three pieces
 
-LightBox is one small Python web app that talks to two local helper services:
+Lunis is one small Python web app that talks to two local helper services:
 
 ```
                           ┌─────────────────────────────┐
-   student browser  ─────▶│  LightBox web app (Python)  │  port 8090
+   student browser  ─────▶│  Lunis web app (Python)  │  port 8090
                           │       app/server.py         │
                           └───────┬──────────────┬──────┘
                                   │              │
@@ -100,7 +100,7 @@ The reference box keeps everything under `~/lightbox`. **The app folder must be 
 sudo apt update
 sudo apt install -y python3 git curl
 
-git clone https://github.com/lightboxmissions/lightbox-public.git ~/lightbox
+git clone https://github.com/lightboxmissions/Lunis.git ~/lightbox
 # (or clone elsewhere and copy app/ and data/ into ~/lightbox)
 
 cp ~/lightbox/deploy/restart.sh ~/lightbox/restart.sh
@@ -133,7 +133,7 @@ Copy the flat `content/<CODE>.mp4` + `<CODE>.srt` files into `~/lightbox/content
 
 ## 3. Install the AI model (llama.cpp)
 
-LightBox talks to any OpenAI‑compatible chat endpoint. The reference box uses
+Lunis talks to any OpenAI‑compatible chat endpoint. The reference box uses
 [llama.cpp](https://github.com/ggml-org/llama.cpp)'s `llama-server` with
 **Qwen2.5‑3B‑Instruct (Q4_K_M)** — small enough to run on CPU at a few tokens/sec.
 
@@ -164,7 +164,7 @@ Verify:
 curl -s http://127.0.0.1:8080/v1/models
 ```
 
-> The model **name** LightBox sends is set by `model` in `config.json`. llama.cpp
+> The model **name** Lunis sends is set by `model` in `config.json`. llama.cpp
 > accepts any name, so leaving the default is fine.
 
 ## 4. Install translation (LibreTranslate)
@@ -180,7 +180,7 @@ python3 -m venv ~/libretranslate-venv
 
 ~/libretranslate-venv/bin/libretranslate \
   --host 127.0.0.1 --port 5000 \
-  --load-only en,fr,es,de           # the 4 languages LightBox supports
+  --load-only en,fr,es,de           # the 4 languages Lunis supports
 ```
 
 The first launch downloads the language models (needs internet once); after that it's
@@ -222,7 +222,7 @@ anyone logging in). Create three unit files under `~/.config/systemd/user/`:
 
 ```ini
 [Unit]
-Description=LightBox math tutor web app
+Description=Lunis math tutor web app
 After=network.target
 
 [Service]
@@ -240,7 +240,7 @@ WantedBy=default.target
 
 ```ini
 [Unit]
-Description=llama.cpp server (Qwen2.5-3B) for LightBox
+Description=llama.cpp server (Qwen2.5-3B) for Lunis
 After=network.target
 
 [Service]
@@ -257,7 +257,7 @@ WantedBy=default.target
 
 ```ini
 [Unit]
-Description=LibreTranslate for LightBox
+Description=LibreTranslate for Lunis
 After=network.target
 
 [Service]
@@ -308,7 +308,7 @@ For a room with no internet, the box broadcasts its own Wi‑Fi:
 - Turn on the hotspot (the reference box uses a small script, `~/hotspot-on.sh`, that
   brings up an access point named **`lightbox`**). On modern Ubuntu you can also create
   a hotspot from *Settings → Wi‑Fi → ⋮ → Turn On Wi‑Fi Hotspot*, or with
-  `nmcli device wifi hotspot ssid lightbox password <pass>`.
+  `nmcli device wifi hotspot ssid lunis password <pass>`.
 - Students join the **`lightbox`** network, then open **`http://<box-ip>:8090`**.
 - The box's IP depends on the network: on its own hotspot it is the box's hotspot
   address; on an existing Wi‑Fi it is whatever the router gave it. Find it with

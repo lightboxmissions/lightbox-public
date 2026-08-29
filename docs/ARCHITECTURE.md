@@ -1,4 +1,4 @@
-# How LightBox works
+# How Lunis works
 
 A tour of the moving parts, so you can change things with confidence. For the *why*
 behind conventions, see [CONTRIBUTING.md](CONTRIBUTING.md).

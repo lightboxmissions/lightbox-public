@@ -12,7 +12,7 @@ you are moving the videos onto a machine that has no internet.
     python3 scripts/fetch_content.py --download   # download the videos
 
 The videos are Khan Academy material under CC BY-NC-SA 4.0, which is not the
-same licence as the LightBox code. See NOTICE.md.
+same licence as the Lunis code. See NOTICE.md.
 """
 import argparse
 import json
@@ -31,7 +31,7 @@ CATALOG = os.path.join(REPO, "data", "catalog.json")
 # The newest release of this repository, whatever its version number.
 # Override with LIGHTBOX_CONTENT_URL to install from a local web server, a
 # mirror, or a file:// path on a USB stick.
-DEFAULT_BUNDLE_URL = ("https://github.com/lightboxmissions/lightbox-public"
+DEFAULT_BUNDLE_URL = ("https://github.com/lightboxmissions/Lunis"
                       "/releases/latest/download/lightbox-content.tar.gz")
 BUNDLE_URL = os.environ.get("LIGHTBOX_CONTENT_URL", "").strip() or DEFAULT_BUNDLE_URL
 
@@ -104,7 +104,7 @@ def download(url):
                 print("The download returned 404, so no video bundle has been")
                 print("published for this version yet.")
                 print()
-                print("LightBox still installs and runs. Only the video lessons")
+                print("Lunis still installs and runs. Only the video lessons")
                 print("are missing. Retry later with:")
                 print("    python3 scripts/fetch_content.py --download")
                 return 1
@@ -144,13 +144,13 @@ def download(url):
 
 def main():
     ap = argparse.ArgumentParser(
-        description="Download the LightBox video lessons into content/.")
+        description="Download the Lunis video lessons into content/.")
     ap.add_argument("--download", action="store_true",
                     help="download and unpack the video lessons")
     args = ap.parse_args()
 
     if not os.path.exists(CATALOG):
-        print("Cannot find data/catalog.json. Run this from inside the LightBox folder.")
+        print("Cannot find data/catalog.json. Run this from inside the Lunis folder.")
         return 2
 
     entries = load_catalog()

@@ -9,7 +9,7 @@ Gutenberg has no larger size, so the art has to come from somewhere else.
 Sources, in order, all recorded per book so the licensing stays auditable:
   1. Open Library covers API (-L, typically 500-1000px)
   2. Google Books (thumbnail URL bumped to zoom=3)
-  3. a generated cover in Lightbox's own design language - Baloo 2 title on the
+  3. a generated cover in Lunis's own design language - Baloo 2 title on the
      app's cream/navy, which beats a blurry scan
 
 Everything is normalised to a 2:3 portrait at 600x900 so the shelf grid is uniform,
@@ -36,9 +36,9 @@ MIN_SOURCE_W = 600
 PORTRAIT_LO, PORTRAIT_HI = 0.56, 0.78
 # Wikimedia rejects generic agents ("does not comply with our robot policy"); their
 # policy wants a named client with a contact URL, so this carries the project repo.
-UA = {"User-Agent": "LightBoxCovers/1.0 (+https://github.com/lightboxmissions/lightbox) urllib/py3"}
+UA = {"User-Agent": "LunisCovers/1.0 (+https://github.com/lightboxmissions/Lunis) urllib/py3"}
 
-# Lightbox palette, straight from style.css
+# Lunis palette, straight from style.css
 CREAM, NAVY, GOLD = (255, 248, 227), (22, 35, 59), (252, 196, 25)
 
 
@@ -183,7 +183,7 @@ def _font(px):
 
 
 def generated(title, author):
-    """A designed cover in Lightbox's own language, for books with no usable art.
+    """A designed cover in Lunis's own language, for books with no usable art.
 
     Deliberately not an imitation book jacket: cream ground, navy frame, and the same
     line-spark-line ornament the reader draws under a chapter head, so a placeholder
@@ -344,7 +344,7 @@ def main(argv):
             print("      %s %dx%d%s -> %dx%d" % (src_name, best[1], best[2],
                   "" if best[6] else " (wide scan, cropped)", TARGET_W, TARGET_H))
         if not out:
-            out, src_name, note = generated(title, author), "generated", "Lightbox generated cover"
+            out, src_name, note = generated(title, author), "generated", "Lunis generated cover"
             print("      generated placeholder")
         stats[src_name] = stats.get(src_name, 0) + 1
         if write:

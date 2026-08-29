@@ -1,21 +1,21 @@
 # Notices and attribution
 
-LightBox includes work from several sources, and they are not all under the same
-licence. The MIT licence in `LICENSE` covers **the LightBox application code only**.
+Lunis includes work from several sources, and they are not all under the same
+licence. The MIT licence in `LICENSE` covers **the Lunis application code only**.
 It does not cover the reading books or the video lessons. Those keep their own terms,
 listed below.
 
-If you redistribute LightBox, or anything you build from it, these terms travel with
+If you redistribute Lunis, or anything you build from it, these terms travel with
 the content.
 
 ## Non-commercial
 
-LightBox is intended for non-commercial use only. Beyond that intent, the video lessons
+Lunis is intended for non-commercial use only. Beyond that intent, the video lessons
 it installs are licensed CC BY-NC-SA 4.0, and that licence forbids commercial use of
-those lessons by anyone. A LightBox installation that includes the lessons therefore
+those lessons by anyone. A Lunis installation that includes the lessons therefore
 cannot be sold, charged for, or built into a commercial product or service.
 
-## 1. LightBox application code
+## 1. Lunis application code
 
 Everything under `app/`, `server/`, `tools/`, and `scripts/` is MIT licensed. See
 `LICENSE`.
@@ -35,7 +35,7 @@ Everything under `app/`, `server/`, `tools/`, and `scripts/` is MIT licensed. Se
 - <https://www.gutenberg.org/policy/license.html>
 
 CC BY requires attribution. Every book carries its author, illustrator, source URL,
-and licence in its JSON file, and LightBox shows that credit on the book itself. If
+and licence in its JSON file, and Lunis shows that credit on the book itself. If
 you add, edit, or move books, keep those fields intact.
 
 Some non-English versions of these books were produced by machine translation with
@@ -66,9 +66,9 @@ carries the same terms.
 
 - <https://openfontlicense.org>
 
-## 5. Software LightBox runs alongside
+## 5. Software Lunis runs alongside
 
-These are downloaded and built on your own machine by `server/install.sh`. LightBox
+These are downloaded and built on your own machine by `server/install.sh`. Lunis
 does not redistribute them.
 
 - **llama.cpp**, MIT, <https://github.com/ggml-org/llama.cpp>

@@ -1,8 +1,8 @@
-# LightBox
+# Lunis
 
-<img src="docs/assets/logo.png" alt="LightBox" width="120">
+<img src="docs/assets/logo.png" alt="Lunis" width="120">
 
-LightBox is an offline learning server for schools with no reliable internet.
+Lunis is an offline learning server for schools with no reliable internet.
 
 You install it on one Linux computer. That computer runs a web app, an AI tutor, and
 a translator, all locally. Students connect to it over Wi-Fi from tablets, phones, or
@@ -11,17 +11,17 @@ nothing needs an internet connection once the server is set up.
 
 ## Non-commercial use
 
-LightBox is built to be given away. It is meant for schools and learning centres that
+Lunis is built to be given away. It is meant for schools and learning centres that
 cannot pay for software. It is not to be sold, and it is not to be used to make money.
 
 Two separate things back that up.
 
-**The project's intent.** LightBox exists for zero financial gain. Please do not charge
+**The project's intent.** Lunis exists for zero financial gain. Please do not charge
 for it, fold it into a paid product or service, or sell hardware with it preinstalled as
 a paid feature.
 
 **The lesson licence.** The video lessons are Khan Academy material under CC BY-NC-SA 4.0.
-That licence prohibits commercial use outright, and it binds anyone who installs LightBox
+That licence prohibits commercial use outright, and it binds anyone who installs Lunis
 with the lessons no matter what else they have been told. It also requires that Khan
 Academy is credited and that anything adapted from the lessons carries the same licence.
 
@@ -109,7 +109,7 @@ laptop works.
 ## Install
 
 ```bash
-git clone https://github.com/lightboxmissions/lightbox-public.git ~/lightbox
+git clone https://github.com/lightboxmissions/Lunis.git ~/lightbox
 cd ~/lightbox
 bash server/install.sh
 ```
@@ -129,7 +129,7 @@ When it finishes it prints the address to open, for example `http://192.0.2.10:8
 1. Open the address the installer printed, in a browser on the server itself or on
    any device on the same network.
 2. Pick the language the school will use, then press Continue. This only appears the
-   first time anyone opens LightBox.
+   first time anyone opens Lunis.
 3. Choose "Create an account" and make yourself a teacher account with a username and
    a password. Keep the password somewhere safe, since it is what gets you into the
    teacher dashboard.
@@ -146,7 +146,7 @@ network can reach it.
 If there is no network in the building, the server can be the access point:
 
 ```bash
-nmcli device wifi hotspot ssid lightbox password choose-something
+nmcli device wifi hotspot ssid lunis password choose-something
 ```
 
 Students join that Wi-Fi, open the address, and they are in. There is no internet
@@ -288,7 +288,7 @@ Maths lessons for grades K to 8 from **Khan Academy**, with their captions. Thes
 licensed CC BY-NC-SA 4.0, which means they may be shared and adapted with credit, but
 not sold and not relicensed. They are downloaded during installation rather than
 stored in this repository, because that licence is not the same as the MIT licence on
-the LightBox code.
+the Lunis code.
 
 - <https://www.khanacademy.org>
 
@@ -371,13 +371,13 @@ No. Accounts, progress, and answers are files on the server. There is no cloud
 account and nothing is sent anywhere.
 
 **Can I use it commercially?**
-No. LightBox is meant for non-commercial use only, and the Khan Academy video lessons
+No. Lunis is meant for non-commercial use only, and the Khan Academy video lessons
 it installs are licensed CC BY-NC-SA 4.0, which forbids commercial use. Do not sell
-LightBox, charge for access to it, or build it into anything you sell. See
+Lunis, charge for access to it, or build it into anything you sell. See
 [NOTICE.md](NOTICE.md) for the licence on each part.
 
 **Can I use a different model?**
-Yes. LightBox talks to llama.cpp over its OpenAI compatible API, so you can point it
+Yes. Lunis talks to llama.cpp over its OpenAI compatible API, so you can point it
 at another GGUF model by changing `llama_url` and `model` in `config.json`. A larger
 model will be slower on the same hardware.
 
@@ -396,7 +396,7 @@ the shape of an existing book.
 ## Getting help
 
 - **Something broken, or a question:** open an issue at
-  <https://github.com/lightboxmissions/lightbox-public/issues>. Include what you did,
+  <https://github.com/lightboxmissions/Lunis/issues>. Include what you did,
   what happened, and the output of
   `journalctl --user -u lightbox -n 50` if the server is involved.
 - **Setting up a server in detail:** see [docs/SERVER_SETUP.md](docs/SERVER_SETUP.md).
@@ -405,7 +405,7 @@ the shape of an existing book.
 
 ## Licence
 
-The LightBox code is MIT. See [LICENSE](LICENSE).
+The Lunis code is MIT. See [LICENSE](LICENSE).
 
 The books and the video lessons are under their own licences, which MIT does not
 cover. [NOTICE.md](NOTICE.md) lists every source and what it requires.
