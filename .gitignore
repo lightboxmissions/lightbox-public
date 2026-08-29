@@ -40,3 +40,6 @@ Thumbs.db
 .idea/
 .vscode/
 data/catalog_v*.json
+
+# generated video thumbnails - rebuilt on demand from content/
+data/thumbs/
