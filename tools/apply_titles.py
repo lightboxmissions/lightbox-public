@@ -17,9 +17,9 @@ moved on and the curated entry is stale).
 import json, os, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# LIGHTBOX_BOOKS points the script at another books/ tree - used to apply the same
+# LUNIS_BOOKS points the script at another books/ tree - used to apply the same
 # titles to the staging copy that gets pushed to the server as well as to the repo
-BOOKS = os.environ.get("LIGHTBOX_BOOKS") or os.path.join(ROOT, "books")
+BOOKS = os.environ.get("LUNIS_BOOKS") or os.path.join(ROOT, "books")
 TABLE = os.path.join(ROOT, "data", "book_titles.json")
 LANGS = ("fr", "es", "de")
 

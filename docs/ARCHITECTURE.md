@@ -26,7 +26,7 @@ under `data/`.
 
 One file, pure standard library. Its shape:
 
-1. **Config** (top of file) — resolves each setting from `LIGHTBOX_<KEY>` env var →
+1. **Config** (top of file) — resolves each setting from `LUNIS_<KEY>` env var →
    `config.json` → built‑in default. Ports, model name, and the two service URLs live
    here.
 2. **Data load at startup** — `catalog.json`, `notes.json`, `quizzes.json` are read once

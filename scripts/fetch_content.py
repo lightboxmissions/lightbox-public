@@ -29,11 +29,11 @@ CONTENT = os.path.join(REPO, "content")
 CATALOG = os.path.join(REPO, "data", "catalog.json")
 
 # The newest release of this repository, whatever its version number.
-# Override with LIGHTBOX_CONTENT_URL to install from a local web server, a
+# Override with LUNIS_CONTENT_URL to install from a local web server, a
 # mirror, or a file:// path on a USB stick.
 DEFAULT_BUNDLE_URL = ("https://github.com/lunislearning/Lunis"
-                      "/releases/latest/download/lightbox-content.tar.gz")
-BUNDLE_URL = os.environ.get("LIGHTBOX_CONTENT_URL", "").strip() or DEFAULT_BUNDLE_URL
+                      "/releases/latest/download/lunis-content.tar.gz")
+BUNDLE_URL = os.environ.get("LUNIS_CONTENT_URL", "").strip() or DEFAULT_BUNDLE_URL
 
 
 def load_catalog():
@@ -65,7 +65,7 @@ def report(have, missing):
     print()
     print("On a machine with no internet, copy the content folder from a")
     print("machine that has them, or point this at a local copy:")
-    print("    LIGHTBOX_CONTENT_URL=file:///media/usb/lightbox-content.tar.gz \\")
+    print("    LUNIS_CONTENT_URL=file:///media/usb/lunis-content.tar.gz \\")
     print("        python3 scripts/fetch_content.py --download")
     print()
     print("Everything except the video lessons works without them. The Reading")

@@ -13,7 +13,7 @@ data/book_titles.json and are not reported.
 import json, os, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BOOKS = os.environ.get("LIGHTBOX_BOOKS") or os.path.join(ROOT, "books")
+BOOKS = os.environ.get("LUNIS_BOOKS") or os.path.join(ROOT, "books")
 TABLE = os.path.join(ROOT, "data", "book_titles.json")
 LANGS = ("fr", "es", "de")
 

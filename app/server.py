@@ -26,7 +26,7 @@ FFMPEG = os.path.join(BASE, "tools", "ffmpeg")
 STATIC = os.path.join(ROOT, "static")
 
 # ---- configuration ----
-# Settings load from (highest priority first): LIGHTBOX_<KEY> env var, then
+# Settings load from (highest priority first): LUNIS_<KEY> env var, then
 # <BASE>/config.json, then the built-in defaults below. This lets an operator
 # deploy to any machine/user without editing this file. See config.example.json.
 _CFG = {}
@@ -38,7 +38,7 @@ if os.path.exists(_cfg_path):
     except Exception as _e:
         print("config.json could not be read (%r); using defaults" % _e)
 def _conf(key, default):
-    return os.environ.get("LIGHTBOX_" + key.upper(), _CFG.get(key, default))
+    return os.environ.get("LUNIS_" + key.upper(), _CFG.get(key, default))
 
 HOST = _conf("host", "0.0.0.0")                 # bind address (0.0.0.0 = all interfaces / LAN)
 PORT = int(_conf("port", 8090))
@@ -132,7 +132,7 @@ CAT = {e["id"]: e for e in CATALOG}
 QUIZZES = load("quizzes.json")
 NOTES = load("notes.json") if os.path.exists(os.path.join(DATA, "notes.json")) else {}
 
-# ---------- reading library (open-licensed storybooks under ~/lightbox/books) ----------
+# ---------- reading library (open-licensed storybooks under ~/lunis/books) ----------
 BOOKS = os.path.join(BASE, "books")
 
 def _book_level(npages):

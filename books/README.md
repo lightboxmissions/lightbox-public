@@ -72,5 +72,5 @@ Every book MUST be shown with credit: **author** (`Text`), **illustrator** (`Ill
 
 ## Deploying to the server
 
-Copy this `books/` folder to the box (e.g. `~/lightbox/books/`) and have `server.py` serve it (new
+Copy this `books/` folder to the box (e.g. `~/lunis/books/`) and have `server.py` serve it (new
 route) so the website can render the reading section. (Implementation per the next instructions.)

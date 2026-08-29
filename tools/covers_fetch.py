@@ -25,7 +25,7 @@ copied across.
 import io, json, os, re, sys, time, urllib.parse, urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BOOKS = os.environ.get("LIGHTBOX_BOOKS") or os.path.join(ROOT, "books")
+BOOKS = os.environ.get("LUNIS_BOOKS") or os.path.join(ROOT, "books")
 TABLE = os.path.join(ROOT, "data", "book_titles.json")
 TARGET_W, TARGET_H = 600, 900          # 2:3, matches .book-cover's aspect-ratio
 # Never upscale: a source narrower than the target is exactly the blur we are trying

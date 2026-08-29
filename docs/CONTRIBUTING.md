@@ -30,7 +30,7 @@ Bug reports and pull requests are welcome at
 The server needs no build step. Edit a file and restart:
 
 ```bash
-cd ~/lightbox
+cd ~/lunis
 python3 app/server.py
 ```
 

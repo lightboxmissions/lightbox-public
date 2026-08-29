@@ -109,8 +109,8 @@ laptop works.
 ## Install
 
 ```bash
-git clone https://github.com/lunislearning/Lunis.git ~/lightbox
-cd ~/lightbox
+git clone https://github.com/lunislearning/Lunis.git ~/lunis
+cd ~/lunis
 bash server/install.sh
 ```
 
@@ -329,7 +329,7 @@ The translator builds its cache the first time each language is used. Check it i
 running:
 
 ```bash
-systemctl --user status lightbox-translate
+systemctl --user status lunis-translate
 ```
 
 **The installer stops while building llama.cpp.**
@@ -350,15 +350,15 @@ To install them on a machine with no internet, copy the bundle onto a USB stick 
 point the script at it:
 
 ```bash
-LIGHTBOX_CONTENT_URL=file:///media/usb/lightbox-content.tar.gz \
+LUNIS_CONTENT_URL=file:///media/usb/lunis-content.tar.gz \
     python3 scripts/fetch_content.py --download
 ```
 
 **Checking the services.**
 
 ```bash
-systemctl --user status lightbox lightbox-llama lightbox-translate
-journalctl --user -u lightbox -n 50
+systemctl --user status lunis lunis-llama lunis-translate
+journalctl --user -u lunis -n 50
 ```
 
 ## FAQ
@@ -398,7 +398,7 @@ the shape of an existing book.
 - **Something broken, or a question:** open an issue at
   <https://github.com/lunislearning/Lunis/issues>. Include what you did,
   what happened, and the output of
-  `journalctl --user -u lightbox -n 50` if the server is involved.
+  `journalctl --user -u lunis -n 50` if the server is involved.
 - **Setting up a server in detail:** see [docs/SERVER_SETUP.md](docs/SERVER_SETUP.md).
 - **How the pieces fit together:** see [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 - **Changing the code:** see [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md).

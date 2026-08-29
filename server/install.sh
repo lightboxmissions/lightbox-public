@@ -10,8 +10,8 @@
 #  ...all as auto-restarting services that come back on reboot.
 #
 #  Usage:
-#    git clone https://github.com/lunislearning/Lunis.git ~/lightbox
-#    cd ~/lightbox && bash server/install.sh
+#    git clone https://github.com/lunislearning/Lunis.git ~/lunis
+#    cd ~/lunis && bash server/install.sh
 #
 #  Safe to re-run: it skips anything already installed.
 # =====================================================================
@@ -24,7 +24,7 @@ APP="$REPO/app"
 
 MODEL_DIR="$HOME/models"
 MODEL_FILE="qwen2.5-3b-instruct-q4_k_m.gguf"
-MODEL_URL="${LIGHTBOX_MODEL_URL:-https://huggingface.co/bartowski/Qwen2.5-3B-Instruct-GGUF/resolve/main/Qwen2.5-3B-Instruct-Q4_K_M.gguf?download=true}"
+MODEL_URL="${LUNIS_MODEL_URL:-https://huggingface.co/bartowski/Qwen2.5-3B-Instruct-GGUF/resolve/main/Qwen2.5-3B-Instruct-Q4_K_M.gguf?download=true}"
 LLAMA_DIR="$HOME/llama.cpp"
 LT_VENV="$HOME/libretranslate-venv"
 UNIT_DIR="$HOME/.config/systemd/user"
@@ -104,7 +104,7 @@ fi
 say "Creating auto-start services (systemd --user)"
 mkdir -p "$UNIT_DIR"
 
-cat > "$UNIT_DIR/lightbox-llama.service" <<EOF
+cat > "$UNIT_DIR/lunis-llama.service" <<EOF
 [Unit]
 Description=llama.cpp (Qwen2.5-3B) for Lunis
 After=network.target
@@ -117,7 +117,7 @@ RestartSec=5
 WantedBy=default.target
 EOF
 
-cat > "$UNIT_DIR/lightbox-translate.service" <<EOF
+cat > "$UNIT_DIR/lunis-translate.service" <<EOF
 [Unit]
 Description=LibreTranslate for Lunis
 After=network.target
@@ -130,10 +130,10 @@ RestartSec=5
 WantedBy=default.target
 EOF
 
-cat > "$UNIT_DIR/lightbox.service" <<EOF
+cat > "$UNIT_DIR/lunis.service" <<EOF
 [Unit]
 Description=Lunis math tutor web app
-After=network.target lightbox-llama.service lightbox-translate.service
+After=network.target lunis-llama.service lunis-translate.service
 [Service]
 Type=simple
 WorkingDirectory=$APP
@@ -150,7 +150,7 @@ say "Enabling and starting everything"
 loginctl enable-linger "$USER" >/dev/null 2>&1 || warn "could not enable linger (services still start while you're logged in)"
 export XDG_RUNTIME_DIR="/run/user/$(id -u)"
 systemctl --user daemon-reload
-systemctl --user enable --now lightbox-llama lightbox-translate lightbox
+systemctl --user enable --now lunis-llama lunis-translate lunis
 ok "services enabled (they now start on boot)"
 
 # --- 8. health check ---------------------------------------------------
@@ -169,7 +169,7 @@ if [ "$CODE" = "200" ]; then
     echo -e "  \033[1;32mLunis is RUNNING\033[0m"
 else
     echo -e "  \033[1;33mApp not answering yet (HTTP $CODE)\033[0m"
-    echo   "  Check: systemctl --user status lightbox"
+    echo   "  Check: systemctl --user status lunis"
 fi
 echo   "======================================="
 echo   "  Open it from this machine:   http://127.0.0.1:8090"
@@ -178,9 +178,9 @@ echo
 echo   "  Notes:"
 echo   "   - The AI model and translator load in the background; the very first"
 echo   "     AI answer (and first LibreTranslate start) can take a minute."
-echo   "   - Manage services:  systemctl --user status|restart lightbox"
-echo   "                       systemctl --user status lightbox-llama lightbox-translate"
-echo   "   - Logs:             journalctl --user -u lightbox -n 50"
+echo   "   - Manage services:  systemctl --user status|restart lunis"
+echo   "                       systemctl --user status lunis-llama lunis-translate"
+echo   "   - Logs:             journalctl --user -u lunis -n 50"
 echo   "   - First time you open it, an on-screen wizard sets the teacher password."
 echo   "   - To let kids connect over Wi-Fi with no internet, turn on a hotspot:"
 echo   "       nmcli device wifi hotspot ssid lunis password <choose-one>"

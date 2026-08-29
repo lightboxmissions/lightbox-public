@@ -21,8 +21,8 @@ On a fresh **Ubuntu** machine (with internet for the install), run:
 
 ```bash
 sudo apt-get update && sudo apt-get install -y git
-git clone https://github.com/lunislearning/Lunis.git ~/lightbox
-cd ~/lightbox
+git clone https://github.com/lunislearning/Lunis.git ~/lunis
+cd ~/lunis
 bash server/install.sh
 ```
 
@@ -31,8 +31,8 @@ bash server/install.sh
 - installs Python, Git, build tools, **llama.cpp**, and **LibreTranslate**;
 - downloads the **Qwen2.5‑3B** model (~1.9 GB, one time);
 - builds the lesson transcripts;
-- creates three auto‑restart services — **`lightbox`** (the app, port 8090),
-  **`lightbox-llama`** (the AI, 8080), **`lightbox-translate`** (translation, 5000) —
+- creates three auto‑restart services — **`lunis`** (the app, port 8090),
+  **`lunis-llama`** (the AI, 8080), **`lunis-translate`** (translation, 5000) —
   and enables them to start on boot;
 - health‑checks the app and prints the URL to open.
 
@@ -44,15 +44,15 @@ live. The first AI answer and the first translator start take about a minute to 
 
 ```bash
 export XDG_RUNTIME_DIR=/run/user/$(id -u)
-systemctl --user status lightbox lightbox-llama lightbox-translate
-systemctl --user restart lightbox
-journalctl --user -u lightbox -n 50
+systemctl --user status lunis lunis-llama lunis-translate
+systemctl --user restart lunis
+journalctl --user -u lunis -n 50
 ```
 
 The rest of this document explains each piece **by hand** — read it if the installer
 hits a snag, you're on a non‑Debian distro, or you want to understand what's running.
-(The manual steps below use the older `~/lightbox` path and `khan-tutor` service name as an
-example; the installer uses `~/lightbox` and the `lightbox*` names shown above.)
+(The manual steps below use the older `~/lunis` path and `khan-tutor` service name as an
+example; the installer uses `~/lunis` and the `lunis*` names shown above.)
 
 ---
 
@@ -80,12 +80,12 @@ services are independent programs you install once.
 
 ## Folder layout on the box
 
-The reference box keeps everything under `~/lightbox`. **The app folder must be named
+The reference box keeps everything under `~/lunis`. **The app folder must be named
 `app`** and sit one level under the project root, because the code finds `data/`,
 `content/`, and `transcripts/` as siblings of `app/`:
 
 ```
-~/lightbox/
+~/lunis/
 ├─ app/            ← this repo's app/ folder (server.py, static/, prep.py, ...)
 ├─ data/           ← this repo's data/ folder (catalog/notes/quizzes + runtime files)
 ├─ content/        ← the videos + captions  (<CODE>.mp4 / <CODE>.srt)
@@ -100,15 +100,15 @@ The reference box keeps everything under `~/lightbox`. **The app folder must be 
 sudo apt update
 sudo apt install -y python3 git curl
 
-git clone https://github.com/lunislearning/Lunis.git ~/lightbox
-# (or clone elsewhere and copy app/ and data/ into ~/lightbox)
+git clone https://github.com/lunislearning/Lunis.git ~/lunis
+# (or clone elsewhere and copy app/ and data/ into ~/lunis)
 
-cp ~/lightbox/deploy/restart.sh ~/lightbox/restart.sh
-chmod +x ~/lightbox/restart.sh
-cp ~/lightbox/config.example.json ~/lightbox/config.json   # edit if your ports differ
+cp ~/lunis/deploy/restart.sh ~/lunis/restart.sh
+chmod +x ~/lunis/restart.sh
+cp ~/lunis/config.example.json ~/lunis/config.json   # edit if your ports differ
 ```
 
-At this point you can already start the web app (`python3 ~/lightbox/app/server.py`) and
+At this point you can already start the web app (`python3 ~/lunis/app/server.py`) and
 load it in a browser — the AI and translation just won't answer yet.
 
 ## 2. Add the video content
@@ -117,19 +117,19 @@ load it in a browser — the AI and translation just won't answer yet.
 `content/` and the transcripts in `transcripts/` — you can skip this step.** It only
 applies when you're populating a box from a bare/partial checkout or adding new media.
 
-Copy the flat `content/<CODE>.mp4` + `<CODE>.srt` files into `~/lightbox/content/`.
+Copy the flat `content/<CODE>.mp4` + `<CODE>.srt` files into `~/lunis/content/`.
 
 - **From an existing archive of the original downloads**, run the helper on that machine
   first (see [`content/README.md`](../content/README.md)) and copy the resulting
   `content/` folder over, e.g.:
   ```bash
-  scp -r content/  user@box:~/lightbox/content/
+  scp -r content/  user@box:~/lunis/content/
   ```
 - Then build the plain‑text transcripts the AI reads from the captions:
   ```bash
-  cd ~/lightbox && python3 app/prep.py
+  cd ~/lunis && python3 app/prep.py
   ```
-  This writes `~/lightbox/transcripts/<CODE>.txt` for every lesson in the catalog.
+  This writes `~/lunis/transcripts/<CODE>.txt` for every lesson in the catalog.
 
 ## 3. Install the AI model (llama.cpp)
 
@@ -196,7 +196,7 @@ curl -s http://127.0.0.1:5000/languages
 
 ## 5. Point the app at the two services
 
-Edit `~/lightbox/config.json` (copied from `config.example.json`) if anything differs from
+Edit `~/lunis/config.json` (copied from `config.example.json`) if anything differs from
 the defaults:
 
 ```json
@@ -210,7 +210,7 @@ the defaults:
 ```
 
 `host: 0.0.0.0` makes the app reachable from student devices on the LAN/hotspot. Any of
-these can also be overridden with an env var like `LIGHTBOX_PORT=9000`.
+these can also be overridden with an env var like `LUNIS_PORT=9000`.
 
 ## 6. Run everything automatically on boot (systemd)
 
@@ -295,7 +295,7 @@ clears the failed state, starts it again, and health‑checks HTTP 200.
 Open the app in a browser (`http://<box-ip>:8090`). The **first time**, it shows a
 one‑time welcome wizard where an adult sets:
 
-- a **teacher/admin password** (until then the default access code is `lightbox`), and
+- a **teacher/admin password** (until then the default access code is `lunis`), and
 - the **default language**.
 
 That choice is saved to `data/setup.json`. After that, students just sign in with their
@@ -306,10 +306,10 @@ name. Per‑student quiz results land in `data/progress/<name>.json`.
 For a room with no internet, the box broadcasts its own Wi‑Fi:
 
 - Turn on the hotspot (the reference box uses a small script, `~/hotspot-on.sh`, that
-  brings up an access point named **`lightbox`**). On modern Ubuntu you can also create
+  brings up an access point named **`lunis`**). On modern Ubuntu you can also create
   a hotspot from *Settings → Wi‑Fi → ⋮ → Turn On Wi‑Fi Hotspot*, or with
   `nmcli device wifi hotspot ssid lunis password <pass>`.
-- Students join the **`lightbox`** network, then open **`http://<box-ip>:8090`**.
+- Students join the **`lunis`** network, then open **`http://<box-ip>:8090`**.
 - The box's IP depends on the network: on its own hotspot it is the box's hotspot
   address; on an existing Wi‑Fi it is whatever the router gave it. Find it with
   `ip addr` or `hostname -I`.
@@ -333,7 +333,7 @@ Lessons are defined by data files plus a matching video/caption pair. To add one
    `app/lesson_codes.txt`.
 6. Rebuild the transcript and restart the app:
    ```bash
-   cd ~/lightbox && python3 app/prep.py
+   cd ~/lunis && python3 app/prep.py
    systemctl --user restart khan-tutor
    ```
 
@@ -346,7 +346,7 @@ Translating on first view adds a short delay that then caches. To pre‑build ev
 (heavy — run when no students are connected):
 
 ```bash
-cd ~/lightbox/app && nice -n 19 python3 i18n_build.py
+cd ~/lunis/app && nice -n 19 python3 i18n_build.py
 ```
 
 ## Health check cheat‑sheet

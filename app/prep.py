@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """One-time prep: turn each .srt into a clean plain-text transcript at
-~/lightbox/transcripts/<friendlyID>.txt, using the catalog to map IDs to files."""
+~/lunis/transcripts/<friendlyID>.txt, using the catalog to map IDs to files."""
 import json, os, re
 
 BASE = os.path.dirname(os.path.abspath(__file__))
