@@ -31,7 +31,7 @@ CATALOG = os.path.join(REPO, "data", "catalog.json")
 # The newest release of this repository, whatever its version number.
 # Override with LIGHTBOX_CONTENT_URL to install from a local web server, a
 # mirror, or a file:// path on a USB stick.
-DEFAULT_BUNDLE_URL = ("https://github.com/lightboxmissions/Lunis"
+DEFAULT_BUNDLE_URL = ("https://github.com/lunislearning/Lunis"
                       "/releases/latest/download/lightbox-content.tar.gz")
 BUNDLE_URL = os.environ.get("LIGHTBOX_CONTENT_URL", "").strip() or DEFAULT_BUNDLE_URL
 

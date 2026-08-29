@@ -36,7 +36,7 @@ MIN_SOURCE_W = 600
 PORTRAIT_LO, PORTRAIT_HI = 0.56, 0.78
 # Wikimedia rejects generic agents ("does not comply with our robot policy"); their
 # policy wants a named client with a contact URL, so this carries the project repo.
-UA = {"User-Agent": "LunisCovers/1.0 (+https://github.com/lightboxmissions/Lunis) urllib/py3"}
+UA = {"User-Agent": "LunisCovers/1.0 (+https://github.com/lunislearning/Lunis) urllib/py3"}
 
 # Lunis palette, straight from style.css
 CREAM, NAVY, GOLD = (255, 248, 227), (22, 35, 59), (252, 196, 25)

@@ -109,7 +109,7 @@ laptop works.
 ## Install
 
 ```bash
-git clone https://github.com/lightboxmissions/Lunis.git ~/lightbox
+git clone https://github.com/lunislearning/Lunis.git ~/lightbox
 cd ~/lightbox
 bash server/install.sh
 ```
@@ -396,7 +396,7 @@ the shape of an existing book.
 ## Getting help
 
 - **Something broken, or a question:** open an issue at
-  <https://github.com/lightboxmissions/Lunis/issues>. Include what you did,
+  <https://github.com/lunislearning/Lunis/issues>. Include what you did,
   what happened, and the output of
   `journalctl --user -u lightbox -n 50` if the server is involved.
 - **Setting up a server in detail:** see [docs/SERVER_SETUP.md](docs/SERVER_SETUP.md).

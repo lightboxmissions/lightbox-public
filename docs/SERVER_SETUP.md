@@ -21,7 +21,7 @@ On a fresh **Ubuntu** machine (with internet for the install), run:
 
 ```bash
 sudo apt-get update && sudo apt-get install -y git
-git clone https://github.com/lightboxmissions/Lunis.git ~/lightbox
+git clone https://github.com/lunislearning/Lunis.git ~/lightbox
 cd ~/lightbox
 bash server/install.sh
 ```
@@ -100,7 +100,7 @@ The reference box keeps everything under `~/lightbox`. **The app folder must be 
 sudo apt update
 sudo apt install -y python3 git curl
 
-git clone https://github.com/lightboxmissions/Lunis.git ~/lightbox
+git clone https://github.com/lunislearning/Lunis.git ~/lightbox
 # (or clone elsewhere and copy app/ and data/ into ~/lightbox)
 
 cp ~/lightbox/deploy/restart.sh ~/lightbox/restart.sh

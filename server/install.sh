@@ -10,7 +10,7 @@
 #  ...all as auto-restarting services that come back on reboot.
 #
 #  Usage:
-#    git clone https://github.com/lightboxmissions/Lunis.git ~/lightbox
+#    git clone https://github.com/lunislearning/Lunis.git ~/lightbox
 #    cd ~/lightbox && bash server/install.sh
 #
 #  Safe to re-run: it skips anything already installed.
