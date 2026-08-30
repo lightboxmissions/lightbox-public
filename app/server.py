@@ -12,7 +12,7 @@ import json, os, re, threading, time, queue, datetime, hashlib, random, secrets,
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import urlparse, parse_qs
 
-CACHE_VER = "v24"   # bump to discard stale/partial language caches and rebuild
+CACHE_VER = "v25"   # bump to discard stale/partial language caches and rebuild
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 BASE = os.path.dirname(ROOT)
@@ -207,7 +207,7 @@ UI = {
  # The bot's name is written into the sentence rather than substituted: LibreTranslate
  # DROPS a {placeholder} in French and Spanish ("Je suis ton aide aux devoirs"), but
  # carries the proper noun through cleanly and puts it in the right grammatical slot.
- "helper_welcome": "Hi! I'm LightBot, your homework helper. Tap a subject below to get started.",
+ "helper_welcome": "Hi! I'm Luni, your homework helper. Tap a subject below to get started.",
  "helper_ph": "Type your question...",
  # homework helper chat chrome: speaker labels above each bubble, the reset button,
  # and the subject cards shown as the first step of the conversation
@@ -316,7 +316,7 @@ UI = {
  "credit_translation": "Translation:", "credit_from": "From",
  "close_book_aria": "Close book", "prev_page_aria": "Previous page", "next_page_aria": "Next page",
  # math-specific homework helper (general helper already has helper_title/helper_welcome)
- "math_helper_welcome": "Hi! I'm LightBot, your math helper. Tap a subject below to get started.",
+ "math_helper_welcome": "Hi! I'm Luni, your math helper. Tap a subject below to get started.",
  # teacher history calendar
  "hist_today": "Today", "hist_all_students": "All students", "hist_clear_filter": "Clear filter",
  "hist_less": "Less", "hist_more": "More", "hist_activity_detail": "Activity detail", "hist_activity_report_suffix": "activity report",

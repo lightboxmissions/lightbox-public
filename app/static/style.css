@@ -1681,7 +1681,7 @@ main { }
    UI patterns (a different radius, a pill shape, a different icon tile) belongs
    nowhere near here. */
 .hsubjects { padding: var(--sp-3) var(--sp-5) var(--sp-5); flex: none; }
-/* While LightBot is asking a question the cards, not the transcript, own the spare
+/* While Luni is asking a question the cards, not the transcript, own the spare
    height: the message list stops claiming the free space and shrinks toward its
    content, and the picker takes what it needs and only scrolls if even that is not
    enough. Without this the message list wins the flex fight, the picker overflows the
@@ -1752,7 +1752,7 @@ main { }
 
    Deliberately white with a single hairline underneath rather than the cream pill it
    replaced: the chat bubbles immediately below are cream, so a cream block above them
-   read as one more bubble from LightBot instead of a header. Chrome above content
+   read as one more bubble from Luni instead of a header. Chrome above content
    should recede; only the content is cream. */
 /* no radius of its own: .helper-card already clips to --radius-lg with overflow:hidden,
    and a second, smaller radius here shows as a mismatched corner inside it */

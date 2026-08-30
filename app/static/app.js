@@ -69,7 +69,7 @@ const DEFAULTS = {
   grade_opt: "Grade...",
   grade_K: "Kindergarten", grade_1: "1st Grade", grade_2: "2nd Grade", grade_3: "3rd Grade",
   grade_4: "4th Grade", grade_5: "5th Grade", grade_6: "6th Grade", grade_7: "7th Grade", grade_8: "8th Grade",
-  helper_welcome: "Hi! I'm LightBot, your homework helper. Tap a subject below to get started.",
+  helper_welcome: "Hi! I'm Luni, your homework helper. Tap a subject below to get started.",
   helper_title: "Homework Helper", helper_sub: "Ask me anything about your schoolwork.",
   helper_btn: "Homework Helper", helper_ph: "Type your question...", loading: "Loading...",
   new_question: "New question", helper_you: "You",
@@ -149,7 +149,7 @@ const DEFAULTS = {
   credit_translation: "Translation:", credit_from: "From",
   close_book_aria: "Close book", prev_page_aria: "Previous page", next_page_aria: "Next page",
   // math-specific homework helper
-  math_helper_welcome: "Hi! I'm LightBot, your math helper. Tap a subject below to get started.",
+  math_helper_welcome: "Hi! I'm Luni, your math helper. Tap a subject below to get started.",
   // teacher history calendar
   hist_today: "Today", hist_all_students: "All students", hist_clear_filter: "Clear filter",
   hist_less: "Less", hist_more: "More", hist_activity_detail: "Activity detail",
@@ -3168,7 +3168,7 @@ async function ask() {
 // The helper introduces itself by name. It is a brand name like Lunis, so it is
 // substituted into the translated sentence rather than being part of it - otherwise
 // LibreTranslate would happily "translate" it.
-const BOT_NAME = "LightBot";
+const BOT_NAME = "Luni";
 let HHISTORY = [];
 let HELPER_MODE = "general";
 /* Helper session state. All three ride along with every message and are turned into a
@@ -3179,12 +3179,12 @@ let HELPER_MODE = "general";
    HGRADE is only ever set by a tap, so "grade 3" in the summary is always something the
    child actually confirmed. */
 let HSUBJECT = "", HGRADE = "", HLANG = "";
-/* Which question LightBot is currently asking. "subject" -> "grade" -> "chat"; the
+/* Which question Luni is currently asking. "subject" -> "grade" -> "chat"; the
    picker below the conversation and the input bar are both driven by this one value,
    so they can never disagree about which step we are on. */
 let HSTEP = "subject";
 // strings in the ANSWER language, used for the assistant's own opening line. The
-// screen chrome stays in the app language (STR); only what LightBot "says" follows
+// screen chrome stays in the app language (STR); only what Luni "says" follows
 // the language the student picked for answers.
 let HSTR = {}, HSTR_LANG = "";
 /* Languages VERIFIED for AI answers. Measured 2026-08-11 against Qwen2.5-3B-Q4 on the
@@ -3197,7 +3197,7 @@ let HSTR = {}, HSTR_LANG = "";
          rendered "borrow" as "bauen" (to build)
    The surface language is fluent in all three; it is the reasoning and the technical
    vocabulary that break, which is exactly the failure a child cannot catch. So the app
-   is translated into four languages but LightBot answers only in English for now.
+   is translated into four languages but Luni answers only in English for now.
    Re-enabling is this one line - but generate-in-English-then-LibreTranslate (the path
    the rest of the app already uses) is the safer way to add them. */
 const HELPER_LANGS = ["en"];
@@ -3252,7 +3252,7 @@ async function loadHelperStrings() {
   try { HSTR = await (await fetch("/api/i18n?lang=" + lang)).json(); HSTR_LANG = lang; }
   catch (e) { HSTR = {}; HSTR_LANG = ""; }                        // fall back to app language
 }
-// what LightBot SAYS follows the answer language (HSTR); screen chrome around it stays
+// what Luni SAYS follows the answer language (HSTR); screen chrome around it stays
 // in the app language. Every line the assistant speaks goes through this, so none of
 // them can be a hardcoded English string.
 function hsay(k) { return (HSTR && HSTR[k]) || t(k); }
@@ -3286,7 +3286,7 @@ function pickCard(accent, iconHtml, label, onPick) {
   b.onclick = onPick;
   return b;
 }
-/* The picker under the conversation renders whichever question LightBot just asked.
+/* The picker under the conversation renders whichever question Luni just asked.
    It is one function and one container for both steps precisely so the two steps
    cannot drift apart visually. When HSTEP is "chat" it disappears and the input bar
    takes its place. */
@@ -3309,7 +3309,7 @@ function renderHelperPicker() {
     chat.scrollTop = chat.scrollHeight;
     requestAnimationFrame(() => { chat.scrollTop = chat.scrollHeight; });
   }
-  // a text box while LightBot is still asking a question invites a child to answer in
+  // a text box while Luni is still asking a question invites a child to answer in
   // the wrong place, so it is hidden rather than merely disabled
   if (bar) bar.classList.toggle("hidden", asking);
   box.innerHTML = "";
@@ -3355,7 +3355,7 @@ function hsumChip(accent, iconHtml, label, srLabel) {
    old selects - tapping "Change" re-asks the question in the chat instead of dropping
    a form on the child. Rendered as two chips on a light strip rather than a sentence
    in a cream pill: the cream belongs to the chat bubbles directly underneath, and two
-   cream blocks stacked read as one more message from LightBot instead of a header. */
+   cream blocks stacked read as one more message from Luni instead of a header. */
 function renderHelperSummary() {
   const box = $("#hsummary"); if (!box) return;
   const has = !!(HSUBJECT || HGRADE);
@@ -3438,7 +3438,7 @@ function hbot(text) { return botBubble($("#hchat"), text); }
 // `preset` lets a caller send a question through exactly the same path a typed one
 // takes - same endpoint, same history, same streaming
 async function askHelper(preset) {
-  // nothing typed while LightBot is still asking for subject/grade can be a question
+  // nothing typed while Luni is still asking for subject/grade can be a question
   if (HSTEP !== "chat") return;
   const q = (preset || $("#hq").value).trim(); if (!q) return;
   $("#hq").value = ""; userBubble($("#hchat"), q); HHISTORY.push({ role: "user", content: q });
